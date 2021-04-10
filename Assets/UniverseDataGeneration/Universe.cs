@@ -10,6 +10,7 @@ public class Universe
     public KDtree<UniquePoint> KDtreeOfUniversePoints { get; set; }
     public OctTree<UniquePoint> OctTreeOfUniversePoints { get; set; }
     public Vector3 universeMaximums { get; set; }
+    public SystemEntityInstantiator systemSpawner { get; set; }
 
 
     /// <summary>
@@ -40,6 +41,13 @@ public class Universe
         KDtreeOfUniversePoints = PointGenerator.MakeNewPointKDtree(this, universeMaximums);
 
         PointGenerator.GenerateUniversePoints(this, KDtreeOfUniversePoints, numberOfSystems, universeMaximums);
+
+        systemSpawner = new SystemEntityInstantiator(this);
+
+        foreach (var point in masterPointsDatabase.Values)
+        {
+            systemSpawner.InstantiateEntity(point.Position);
+        }
 
     }
 }
