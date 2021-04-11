@@ -182,7 +182,11 @@ public class OctTree<T> where T : IOctTreeItem<T>
     {
         var numConnections = parentUniverse.targetConnections;
 
+        //We first want to iterate through all systems
+        foreach (var point in parentUniverse.masterPointsDatabase)
+        {
 
+        }
     }
 
 

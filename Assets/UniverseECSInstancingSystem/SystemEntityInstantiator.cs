@@ -42,23 +42,23 @@ public class SystemEntityInstantiator : MonoBehaviour
 
 }
 
-public partial class WiggleSystem : SystemBase
-{
-    protected override void OnUpdate()
-    {
+//public partial class WiggleSystem : SystemBase
+//{
+//    protected override void OnUpdate()
+//    {
 
-        float time = (float)Time.ElapsedTime;
-        float delta = Time.DeltaTime;
-        float amplitude = 1;
-        Entities.ForEach((ref Translation trans) => {
+//        float time = (float)Time.ElapsedTime;
+//        float delta = Time.DeltaTime;
+//        float amplitude = 1;
+//        Entities.ForEach((ref Translation trans) => {
 
-            trans.Value = new Vector3()
-            {
-                x = trans.Value.x + math.sin(time) * delta,
-                y = trans.Value.y + math.sin(time) * delta,
-                z = trans.Value.z + math.sin(time) * delta 
-            };
+//            trans.Value = new Vector3()
+//            {
+//                x = trans.Value.x + math.sin(time) * delta,
+//                y = trans.Value.y + math.sin(time) * delta,
+//                z = trans.Value.z + math.sin(time) * delta 
+//            };
         
-        }).ScheduleParallel();
-    }
-}
+//        }).ScheduleParallel();
+//    }
+//}
