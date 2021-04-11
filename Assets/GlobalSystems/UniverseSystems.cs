@@ -11,7 +11,7 @@ public class UniverseSystems : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        universe = new Universe(numberOfSystems, universeSize);
+        universe = new Universe(numberOfSystems, universeSize, 4);
     }
 
 

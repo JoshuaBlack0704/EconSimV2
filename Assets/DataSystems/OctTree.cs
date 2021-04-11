@@ -178,6 +178,13 @@ public class OctTree<T> where T : IOctTreeItem<T>
         //MonoBehaviour.print(string.Format("Add To OctTree executed, current number of cubes created: {0}", subCubesCreated));
     }
 
+    public void ConnectSystems()
+    {
+        var numConnections = parentUniverse.targetConnections;
+
+
+    }
+
 
 
     public OctTree(Universe universe, Vector3 origin, Vector3 maxVertex, bool manualSystemPartitions, int systemPartitions = 0)

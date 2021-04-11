@@ -5,6 +5,7 @@ using Unity.Transforms;
 using Unity.Rendering;
 using Unity.Mathematics;
 using UnityEngine;
+using Unity.Jobs;
 
 public class SystemEntityInstantiator : MonoBehaviour
 {
@@ -32,5 +33,32 @@ public class SystemEntityInstantiator : MonoBehaviour
     {
         Entity newSystem = entityManager.Instantiate(systemEntity);
         entityManager.SetComponentData(newSystem, new Translation { Value = pos});
+    }
+
+    public void Wiggle()
+    {
+
+    }
+
+}
+
+public partial class WiggleSystem : SystemBase
+{
+    protected override void OnUpdate()
+    {
+
+        float time = (float)Time.ElapsedTime;
+        float delta = Time.DeltaTime;
+        float amplitude = 1;
+        Entities.ForEach((ref Translation trans) => {
+
+            trans.Value = new Vector3()
+            {
+                x = trans.Value.x + math.sin(time) * delta,
+                y = trans.Value.y + math.sin(time) * delta,
+                z = trans.Value.z + math.sin(time) * delta 
+            };
+        
+        }).ScheduleParallel();
     }
 }
