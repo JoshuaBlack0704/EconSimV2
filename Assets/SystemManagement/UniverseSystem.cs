@@ -15,7 +15,7 @@ public class UniverseSystem : MonoBehaviour
     public Dictionary<int, ConnectionData> connections;
     public Star star;
     public Planet[] planets;
-    public Dictionary<int, Asterioid> asteroids;
+    public Asterioid[] asteroids;
     public float size;
     SystemWorks systemWorks;
 
@@ -62,7 +62,7 @@ public class UniverseSystem : MonoBehaviour
                 z = Random.Range(0, size)
             });
         }
-        asteroids = new Dictionary<int, Asterioid>(numAsteroids);
+        asteroids = new Asterioid[numAsteroids]; ;
         for (int i = 0; i < numAsteroids; i++)
         {
             Asterioid newAsteroid = new Asterioid(i, this, new Vector3()
@@ -71,7 +71,7 @@ public class UniverseSystem : MonoBehaviour
                 y = Random.Range(0, size),
                 z = Random.Range(0, size)
             });
-            asteroids.Add(newAsteroid.Id, newAsteroid);
+            asteroids[i] = newAsteroid;
         }
         star = new Star(this);
 

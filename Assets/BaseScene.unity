@@ -161,8 +161,8 @@ Camera:
   m_GameObject: {fileID: 472544826}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 50
+  universeSize: 3000
   numberOfSystems: 10000
 --- !u!114 &472544831
 MonoBehaviour:
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointCode: 0
   OctCoords: 
+  Connections: 
   temp: 0
   cubeCode: 0
   cubeContentCount: 0
@@ -252,6 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84144c811a32f9e4a94491bcaa6b236c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedPoint: 0
+  zoomToPoint: 0
 --- !u!1 &954258011
 GameObject:
   m_ObjectHideFlags: 0
