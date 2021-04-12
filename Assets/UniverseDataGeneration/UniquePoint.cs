@@ -27,6 +27,7 @@ public class UniquePoint : IKDItem<UniquePoint>, IOctTreeItem<UniquePoint>
     /// Address in Oct Tree
     /// </summary>
     public List<int> OctTreeAddress { get; set; }
+    public List<UniquePoint> Connections { get; set; }
 
 
     /// <summary>
@@ -38,6 +39,7 @@ public class UniquePoint : IKDItem<UniquePoint>, IOctTreeItem<UniquePoint>
     public UniquePoint(Universe universe, float xcoordinate = 0, float ycoordinate = 0, float zcoordinate = 0)
     {
         Id = universe.maxPointId;
+        Connections = new List<UniquePoint>(4);
         universe.maxPointId++;
         Position = new Vector3() { x = xcoordinate, y = ycoordinate, z = zcoordinate };
         dimensions = new List<float>() { xcoordinate, ycoordinate, zcoordinate };
@@ -53,7 +55,7 @@ public class UniquePoint : IKDItem<UniquePoint>, IOctTreeItem<UniquePoint>
     /// <param name="whatToCompareTo"></param>
     /// <param name="dimensionIndex"></param>
     /// <returns></returns>
-    public int CompareTo(UniquePoint whatToCompareTo, int dimensionIndex)
+    public int CompareToUnique(UniquePoint whatToCompareTo, int dimensionIndex)
     {
 
         //This Methode returns -1 for less than, 0 for equal to, 1 for greater than, and 2 for non-unique

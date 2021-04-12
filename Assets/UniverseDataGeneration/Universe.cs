@@ -49,5 +49,7 @@ public class Universe
             systemSpawner.InstantiateEntity(point.Position);
         }
 
+        OctTreeOfUniversePoints.ConnectSystems();
+
     }
 }

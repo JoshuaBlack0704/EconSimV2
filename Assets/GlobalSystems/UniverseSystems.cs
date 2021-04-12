@@ -11,7 +11,9 @@ public class UniverseSystems : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        MonoBehaviour.print("Starting Generation");
         universe = new Universe(numberOfSystems, universeSize, 4);
+        MonoBehaviour.print("Generation Complete");
     }
 
 
@@ -19,12 +21,12 @@ public class UniverseSystems : MonoBehaviour
     {
         foreach (var point in universe.masterPointsDatabase.Values)
         {
-            Gizmos.DrawSphere(point.Position, 1);
+            foreach (var con in point.Connections)
+            {
+                Gizmos.DrawLine(point.Position, con.Position);
+            }
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

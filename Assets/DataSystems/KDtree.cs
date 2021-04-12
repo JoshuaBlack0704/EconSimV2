@@ -69,7 +69,7 @@ public class KDtree<T> where T : IKDItem<T>
             //We add the current node to the points kd address
             item.KDAddress.Add(currentNode.Id);
             //We execute a compare to action housed in the unique points class
-            int result = item.CompareTo(currentNode.contents, dimensionIndex);
+            int result = item.CompareToUnique(currentNode.contents, dimensionIndex);
             if (result == 2)
             {
                 //If result is 2 then the point is Identical to the point in the Node
@@ -143,7 +143,7 @@ public interface IKDCompare<T>
     /// <param name="item"></param>
     /// <param name="dimensionIndex"></param>
     /// <returns></returns>
-    int CompareTo(T item, int dimensionIndex);
+    int CompareToUnique(T item, int dimensionIndex);
 }
 
 
