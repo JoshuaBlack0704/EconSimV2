@@ -6,19 +6,24 @@ public class cameraMovement : MonoBehaviour
 {
     public int selectedPoint = 0;
     public bool zoomToPoint;
+    public bool destoryTest = false;
     Vector3 Vector;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.position = new Vector3() { x = UniverseSystems.universe.universeMaximums.x/2, y = UniverseSystems.universe.universeMaximums.y/2, z = -10};
+        gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x/2, y = UniverseGenerator.universe.universeMaximums.y/2, z = -10};
     }
 
     // Update is called once per frame
     void Update()
     {
+        Universe uni = UniverseGenerator.universe;
+        selectedPoint = uni.selectedPoint;
 
-        Universe uni = UniverseSystems.universe;
-
+        if (destoryTest)
+        {
+            uni.systemSpawner.IntantiateSystemInterior(0);
+        }
         if (zoomToPoint != true)
         {
             var progress = Mathf.InverseLerp(-1, 1, Mathf.Sin(Time.time / 5));

@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UniverseSystems : MonoBehaviour
+public class UniverseGenerator : MonoBehaviour
 {
     public int universeSize;
     public int numberOfSystems;
+    public int selectedPoint;
+
+    public bool enterSystem;
+    public bool exitSystem;
 
     public static Universe universe;
     // Start is called before the first frame update
@@ -27,6 +31,25 @@ public class UniverseSystems : MonoBehaviour
             }
         }
     }
+    private bool isGenerated;
+
     // Update is called once per frame
-    
+    private void Update()
+    {
+        universe.selectedPoint = selectedPoint;
+        if (enterSystem == true && isGenerated == false)
+        {
+            
+            universe.systemSpawner.IntantiateSystemInterior(selectedPoint);
+            isGenerated = true;
+        }
+        if (enterSystem == true && exitSystem == true)
+        {
+            universe.systemSpawner.ReturnToUniverse();
+            enterSystem = false;
+            exitSystem = false;
+            isGenerated = false;
+        }
+    }
+
 }

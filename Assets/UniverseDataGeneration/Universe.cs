@@ -8,6 +8,7 @@ public class Universe
     public int targetConnections;
     public SystemWorks systemWorks;
     public Dictionary<int, UniquePoint> masterPointsDatabase = new Dictionary<int, UniquePoint>();
+    public int selectedPoint;
     public KDtree<UniquePoint> KDtreeOfUniversePoints { get; set; }
     public OctTree<UniquePoint> OctTreeOfUniversePoints { get; set; }
     public Vector3 universeMaximums { get; set; }
@@ -45,14 +46,11 @@ public class Universe
 
         systemSpawner = new SystemEntityInstantiator(this);
 
-        foreach (var point in masterPointsDatabase.Values)
-        {
-            systemSpawner.InstantiateEntity(point.Position);
-        }
+        systemSpawner.ReturnToUniverse();
 
         OctTreeOfUniversePoints.ConnectSystems();
 
-        systemWorks = new SystemWorks(this, true);
+        systemWorks = new SystemWorks(this, false);
 
     }
 }

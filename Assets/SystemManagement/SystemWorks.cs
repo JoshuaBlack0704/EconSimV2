@@ -15,13 +15,15 @@ public class SystemWorks : MonoBehaviour
         UniverseSystem system;
         if (systemDatabase.TryGetValue(Id, out system))
         {
-            int numPlanets = Random.Range(0, 10);
-            int numAsteroids = Random.Range(0, 30);
-
-            GenerateSystemById(Id, numPlanets, numAsteroids);
-
             system = systemDatabase[Id];
+            return system;
         }
+        int numPlanets = Random.Range(0, 10);
+        int numAsteroids = Random.Range(0, 30);
+
+        GenerateSystemById(Id, numPlanets, numAsteroids);
+        system = systemDatabase[Id];
+
 
         return system;
     }

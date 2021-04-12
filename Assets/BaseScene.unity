@@ -221,8 +221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 3000
-  numberOfSystems: 10000
+  universeSize: 50
+  numberOfSystems: 1000
+  selectedPoint: 0
+  enterSystem: 0
+  exitSystem: 0
 --- !u!114 &472544831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedPoint: 0
   zoomToPoint: 0
+  destoryTest: 0
 --- !u!1 &954258011
 GameObject:
   m_ObjectHideFlags: 0

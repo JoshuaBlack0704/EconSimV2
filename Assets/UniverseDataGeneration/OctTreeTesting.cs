@@ -13,7 +13,7 @@ public class OctTreeTesting : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        Universe uni = UniverseSystems.universe;
+        Universe uni = UniverseGenerator.universe;
 
         if (pointCode != temp)
         {
