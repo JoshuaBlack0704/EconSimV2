@@ -6,6 +6,7 @@ public class Universe
 {
     public int maxPointId { get; set; }
     public int targetConnections;
+    public SystemWorks systemWorks;
     public Dictionary<int, UniquePoint> masterPointsDatabase = new Dictionary<int, UniquePoint>();
     public KDtree<UniquePoint> KDtreeOfUniversePoints { get; set; }
     public OctTree<UniquePoint> OctTreeOfUniversePoints { get; set; }
@@ -50,6 +51,8 @@ public class Universe
         }
 
         OctTreeOfUniversePoints.ConnectSystems();
+
+        systemWorks = new SystemWorks(this, true);
 
     }
 }
