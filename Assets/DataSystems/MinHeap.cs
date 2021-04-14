@@ -25,6 +25,10 @@ public class Heap<T> where T : IHeapItem<T>
 	{
 		T firstItem = items[0];
 		currentItemCount--;
+		if (currentItemCount < 0)
+		{
+			Debug.LogError("here");
+		}
 		items[0] = items[currentItemCount];
 		items[0].HeapIndex = 0;
 		SortDown(items[0]);

@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class PathfinderTesting : MonoBehaviour
 {
-    Universe uni;
 
-    public void TestHeap()
-    {
-        uni = UniverseGenerator.universe;
-
-        uni.systemWorks.pathFinder.TestHeap();
-    }
+   
 
     public void GenRandomPath()
     {
-        uni = UniverseGenerator.universe;
+        Universe uni = UniverseGenerator.universe;
         int To = Random.Range(0, uni.masterPointsDatabase.Count-1);
         int From = Random.Range(0, uni.masterPointsDatabase.Count-1);
         while (To == From)
@@ -47,14 +41,14 @@ public class PathfinderTesting : MonoBehaviour
     {
         if (Time.frameCount % 1 == 0)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 10; i++)
             {
-                GenRandomPath();
+                //GenRandomPath();
                 pathCount++;
             }
         }
 
-        if (Time.frameCount % 100 == 0)
+        if (Time.frameCount % 1000 == 0)
         {
             var percentComplete = (pathCount / Mathf.Pow(UniverseGenerator.universe.masterPointsDatabase.Count, 2));
 

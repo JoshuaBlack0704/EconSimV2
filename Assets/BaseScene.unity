@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   universeSize: 100
-  numberOfSystems: 50000
+  numberOfSystems: 10000
   selectedPoint: 0
   switchSystemView: 0
 --- !u!114 &472544831

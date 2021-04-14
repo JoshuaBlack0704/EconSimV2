@@ -216,6 +216,7 @@ public class Pathfinder
             if (inputPoints.ContainsKey(step) != true)
             {
                 inputKnowsAll = false;
+                break;
             }
         }
         //If input array does not know all we produce a new path from the input data
@@ -251,7 +252,7 @@ public class Pathfinder
         {
             PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
         }
-        //masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId]; ;
+        masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId]; ;
     }
 
 }
