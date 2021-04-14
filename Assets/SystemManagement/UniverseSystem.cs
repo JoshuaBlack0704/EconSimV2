@@ -6,7 +6,7 @@ public class UniverseSystem : MonoBehaviour
 {
     public struct ConnectionData
     {
-        public int con;
+        public int conId;
         public Dictionary<int, float> connectionDistances;
         public Vector3 Position;
     };
@@ -24,11 +24,11 @@ public class UniverseSystem : MonoBehaviour
         Id = _Id;
         definingPoint = heraldPoint;
         connections = new Dictionary<int, ConnectionData>(definingPoint.Connections.Count);
-        size = Random.Range(0, 100f);
+        size = Random.Range(70, 200f);
         foreach (var item in definingPoint.Connections)
         {
             connections.Add(item.Id, new ConnectionData() { 
-                con = item.Id, 
+                conId = item.Id, 
                 connectionDistances = new Dictionary<int, float>(definingPoint.Connections.Count-1), 
                 Position = new Vector3() { x = Random.Range(0, size),
                                            y = Random.Range(0, size),
@@ -40,14 +40,14 @@ public class UniverseSystem : MonoBehaviour
             foreach (var iterCon in connections.Keys)
             {
                 var secondaryCon = connections[iterCon];
-                if (secondaryCon.con == con.con)
+                if (secondaryCon.conId == con.conId)
                 {
                     continue;
                 }
 
                 float distance = Vector3.Distance(con.Position, secondaryCon.Position);
 
-                con.connectionDistances[secondaryCon.con] = distance;
+                con.connectionDistances[secondaryCon.conId] = distance;
             }
         }
 

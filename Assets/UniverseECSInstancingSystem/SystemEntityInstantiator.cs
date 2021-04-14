@@ -15,6 +15,7 @@ public class SystemEntityInstantiator : MonoBehaviour
     private Entity planetEntity;
     private Entity asteroidEntity;
     private Entity starEntity;
+    private Entity wormholeEntity;
     private World defaultWorld;
     private EntityManager entityManager;
     private Universe universe;
@@ -24,14 +25,7 @@ public class SystemEntityInstantiator : MonoBehaviour
         universe = _universe;
         defaultWorld = World.DefaultGameObjectInjectionWorld;
         entityManager = defaultWorld.EntityManager;
-
-        GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
-
-        systemEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("system", typeof(GameObject)), settings);
-        planetEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Planet", typeof(GameObject)), settings);
-        asteroidEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Asteroid", typeof(GameObject)), settings);
-        starEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Star", typeof(GameObject)), settings);
-        
+        RestoreEntitys();
     }
 
     public void InstantiateSystem(Vector3 pos)
@@ -40,18 +34,23 @@ public class SystemEntityInstantiator : MonoBehaviour
         entityManager.SetComponentData(newSystem, new Translation { Value = pos});
     }
 
+    private void RestoreEntitys()
+    {
+        GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
+        systemEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("system", typeof(GameObject)), settings);
+        planetEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Planet", typeof(GameObject)), settings);
+        asteroidEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Asteroid", typeof(GameObject)), settings);
+        starEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Star", typeof(GameObject)), settings);
+        wormholeEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Wormhole", typeof(GameObject)), settings);
+    }
+
     public void IntantiateSystemInterior(int Id)
     {
         //Get the system we want to make
         UniverseSystem systemToInstantiate = universe.systemWorks.GetSystem(Id);
         //Clear out the scene and remake base entity
-        GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
         entityManager.DestroyAndResetAllEntities();
-        systemEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("system", typeof(GameObject)), settings);
-        planetEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Planet", typeof(GameObject)), settings);
-        asteroidEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Asteroid", typeof(GameObject)), settings);
-        starEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Star", typeof(GameObject)), settings);
-
+        RestoreEntitys();
         //Intantiate Star
         Entity star = entityManager.Instantiate(starEntity);
         entityManager.SetComponentData(star, new Translation { Value = systemToInstantiate.star.position });
@@ -74,13 +73,8 @@ public class SystemEntityInstantiator : MonoBehaviour
     public void ReturnToUniverse()
     {
         //Clear out the scene and remake base entity
-        GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
         entityManager.DestroyAndResetAllEntities();
-        systemEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("system", typeof(GameObject)), settings);
-        planetEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Planet", typeof(GameObject)), settings);
-        asteroidEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Asteroid", typeof(GameObject)), settings);
-        starEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Star", typeof(GameObject)), settings);
-
+        RestoreEntitys();
         //Respawn all systems
         foreach (var point in universe.masterPointsDatabase.Values)
         {

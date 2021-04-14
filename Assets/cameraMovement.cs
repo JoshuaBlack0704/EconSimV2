@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class cameraMovement : MonoBehaviour
 {
-    public int selectedPoint = 0;
+    private int selectedPoint;
     public bool zoomToPoint;
-    public bool destoryTest = false;
     Vector3 Vector;
     // Start is called before the first frame update
     void Start()
@@ -19,11 +18,11 @@ public class cameraMovement : MonoBehaviour
     {
         Universe uni = UniverseGenerator.universe;
         selectedPoint = uni.selectedPoint;
-
-        if (destoryTest)
+        if (uni.inSystem)
         {
-            uni.systemSpawner.IntantiateSystemInterior(0);
+            zoomToPoint = false;
         }
+        
         if (zoomToPoint != true)
         {
             var progress = Mathf.InverseLerp(-1, 1, Mathf.Sin(Time.time / 5));
@@ -34,7 +33,11 @@ public class cameraMovement : MonoBehaviour
 
             var radius = uni.universeMaximums.x;
             var center = uni.universeMaximums / 2;
-
+            if (uni.inSystem)
+            {
+                center = uni.systemWorks.GetSystem(uni.selectedPoint).star.position;
+                radius = uni.systemWorks.GetSystem(uni.selectedPoint).size + 10;
+            }
 
             var positiion = new Vector3()
             {

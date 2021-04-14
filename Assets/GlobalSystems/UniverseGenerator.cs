@@ -7,16 +7,14 @@ public class UniverseGenerator : MonoBehaviour
     public int universeSize;
     public int numberOfSystems;
     public int selectedPoint;
-
-    public bool enterSystem;
-    public bool exitSystem;
+    public bool switchSystemView;
 
     public static Universe universe;
     // Start is called before the first frame update
     void Awake()
     {
         MonoBehaviour.print("Starting Generation");
-        universe = new Universe(numberOfSystems, universeSize, 4);
+        universe = new Universe(numberOfSystems, universeSize, false, 4);
         MonoBehaviour.print("Generation Complete");
     }
 
@@ -27,29 +25,31 @@ public class UniverseGenerator : MonoBehaviour
         {
             foreach (var con in point.Connections)
             {
-                Gizmos.DrawLine(point.Position, con.Position);
+                //Gizmos.DrawLine(point.Position, con.Position);
             }
         }
     }
-    private bool isGenerated;
 
     // Update is called once per frame
     private void Update()
     {
         universe.selectedPoint = selectedPoint;
-        if (enterSystem == true && isGenerated == false)
+
+        if (switchSystemView)
         {
-            
-            universe.systemSpawner.IntantiateSystemInterior(selectedPoint);
-            isGenerated = true;
+            if (universe.inSystem == false)
+            {
+                universe.systemSpawner.IntantiateSystemInterior(universe.selectedPoint);
+                universe.inSystem = true;
+            }
+            else
+            {
+                universe.systemSpawner.ReturnToUniverse();
+                universe.inSystem = false;
+            }
         }
-        if (enterSystem == true && exitSystem == true)
-        {
-            universe.systemSpawner.ReturnToUniverse();
-            enterSystem = false;
-            exitSystem = false;
-            isGenerated = false;
-        }
+
+        switchSystemView = false;
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SystemWorks : MonoBehaviour
 {
     public Universe masterUniverse { get; set; }
+    public Pathfinder pathFinder;
     public Dictionary<int, UniverseSystem> systemDatabase { get; set; }
     public void GenerateSystemById(int Id, int numPlanets, int numAsteroids)
     {
@@ -28,6 +29,12 @@ public class SystemWorks : MonoBehaviour
         return system;
     }
 
+    public List<int> GetPath(int start, int end)
+    {
+        return pathFinder.GetPath(start, end, true);
+        //return pathFinder.FindBestPath(start, end, masterUniverse.masterPointsDatabase);
+    }
+
     public SystemWorks(Universe _masterUniverse, bool generateAllSystems)
     {
         masterUniverse = _masterUniverse;
@@ -42,12 +49,13 @@ public class SystemWorks : MonoBehaviour
                 int numAsteroids = Random.Range(0, 30);
                 GenerateSystemById(point.Id, numPlanets, numAsteroids);
                 totPlanets += numPlanets;
-                totAsteroids += numPlanets;
+                totAsteroids += numAsteroids;
             }
 
             MonoBehaviour.print("Planets generated: " + totPlanets);
             MonoBehaviour.print("Asteroids generated: " + totAsteroids);
         }
+        pathFinder = new Pathfinder(this);
     }
 
 
