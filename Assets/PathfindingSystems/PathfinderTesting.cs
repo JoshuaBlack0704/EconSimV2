@@ -47,18 +47,18 @@ public class PathfinderTesting : MonoBehaviour
     {
         if (Time.frameCount % 1 == 0)
         {
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    GenRandomPath();
-            //    pathCount++;
-            //}
+            for (int i = 0; i < 100; i++)
+            {
+                GenRandomPath();
+                pathCount++;
+            }
         }
 
         if (Time.frameCount % 100 == 0)
         {
-            //var percentComplete = (pathCount / Mathf.Pow(UniverseGenerator.universe.masterPointsDatabase.Count, 2));
+            var percentComplete = (pathCount / Mathf.Pow(UniverseGenerator.universe.masterPointsDatabase.Count, 2));
 
-            //MonoBehaviour.print(string.Format("masterPathDataBase {0} % complete",percentComplete ));
+            MonoBehaviour.print(string.Format("masterPathDataBase {0} % complete", percentComplete));
         }
     }
 }

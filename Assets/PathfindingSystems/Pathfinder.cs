@@ -97,6 +97,7 @@ public class Pathfinder
 
         //Set up first node
         PathNode currentNode = NodeArray[start];
+        currentNode.parent = start;
         currentNode.distFromStart = 0;
         currentNode.distToEnd = Vector3.SqrMagnitude(currentNode.position - NodeArray[end].position);
         heap.Add(currentNode);
@@ -182,9 +183,9 @@ public class Pathfinder
             }
             path.Add(currentNode.Id);
             currentNode = PathNodes[currentNode.parent];
-            if (currentNode.Id == start)
+            if (currentNode.parent == start)
             {
-                path.Reverse();
+                //path.Reverse();
                 break;
             }
             

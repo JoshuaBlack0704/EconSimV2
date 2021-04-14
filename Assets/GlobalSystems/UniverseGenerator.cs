@@ -14,7 +14,7 @@ public class UniverseGenerator : MonoBehaviour
     void Awake()
     {
         MonoBehaviour.print("Starting Generation");
-        universe = new Universe(numberOfSystems, universeSize, false, 4);
+        universe = new Universe(numberOfSystems, universeSize, true, 4);
         MonoBehaviour.print("Generation Complete");
     }
 
