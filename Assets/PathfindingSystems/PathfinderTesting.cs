@@ -41,9 +41,9 @@ public class PathfinderTesting : MonoBehaviour
     {
         if (Time.frameCount % 1 == 0)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 3; i++)
             {
-                //GenRandomPath();
+                GenRandomPath();
                 pathCount++;
             }
         }
