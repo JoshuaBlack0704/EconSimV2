@@ -9,11 +9,9 @@ public class OctTreeTesting : MonoBehaviour
     public List<int> Connections;
     public int temp;
     public int cubeCode = 0;
-    public int cubeContentCount;
-    // Start is called before the first frame update
     void Update()
     {
-        Universe uni = UniverseSystems.universe;
+        Universe uni = UniverseGenerator.universe;
 
         if (pointCode != temp)
         {
@@ -33,11 +31,7 @@ public class OctTreeTesting : MonoBehaviour
             }
         }
 
-        if (Time.frameCount > 1)
-        {
-            cubeContentCount = uni.OctTreeOfUniversePoints.masterCubeDatabase[cubeCode].contents.Count;
-
-        }
+        
 
 
     }

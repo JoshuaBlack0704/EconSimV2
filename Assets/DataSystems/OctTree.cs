@@ -174,7 +174,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
         Cube leafCube = PlaceItem(item);
         //MonoBehaviour.print("leafNode found, contents count: " + leafCube.contents.Count + " max points per cube: " + maxPointsPerCube);
         //Then we will check if that cube is over capacity
-        if (leafCube.contents.Count > maxPointsPerCube)
+        if (leafCube.contents.Count > maxPointsPerCube+1)
         {
             //If it is over capacity we will split the cube and re-distribute the points inside
             SplitCube(leafCube);
@@ -439,6 +439,7 @@ public struct DistCalcBatch : IJobParallelFor
     public void Execute(int index)
     {
         distStruct res = new distStruct() { Id = resultDistStructs[index].Id, position = resultDistStructs[index].position};
+        //you must sqrt
         res.result = math.sqrt(math.pow(resultDistStructs[index].position.x - pos.position.x, 2) + math.pow(resultDistStructs[index].position.y - pos.position.y, 2) + math.pow(resultDistStructs[index].position.z - pos.position.z, 2));
         resultDistStructs[index] = res;
     }

@@ -6,7 +6,10 @@ public class Universe
 {
     public int maxPointId { get; set; }
     public int targetConnections;
+    public SystemWorks systemWorks;
+    public bool inSystem;
     public Dictionary<int, UniquePoint> masterPointsDatabase = new Dictionary<int, UniquePoint>();
+    public int selectedPoint;
     public KDtree<UniquePoint> KDtreeOfUniversePoints { get; set; }
     public OctTree<UniquePoint> OctTreeOfUniversePoints { get; set; }
     public Vector3 universeMaximums { get; set; }
@@ -22,7 +25,7 @@ public class Universe
     /// <param name="xmax"></param>
     /// <param name="ymax"></param>
     /// <param name="zmax"></param>
-    public Universe(int numberOfSystems, float universeSize, int _targetConnections = 4, bool square = true, float xmax = 0, float ymax = 0, float zmax = 0)
+    public Universe(int numberOfSystems, float universeSize, bool generateUniverse = true, int _targetConnections = 4, bool square = true, float xmax = 0, float ymax = 0, float zmax = 0)
     {
         //If square is false we must define the max vertex
         if (square != true)
@@ -34,22 +37,25 @@ public class Universe
             universeMaximums = new Vector3() { x = universeSize, y = universeSize, z = universeSize };
         }
 
-        targetConnections = _targetConnections;
-
-        OctTreeOfUniversePoints = new OctTree<UniquePoint>(this, new Vector3(), universeMaximums, false);
-
-        KDtreeOfUniversePoints = PointGenerator.MakeNewPointKDtree(this, universeMaximums);
-
-        PointGenerator.GenerateUniversePoints(this, KDtreeOfUniversePoints, numberOfSystems, universeMaximums);
-
-        systemSpawner = new SystemEntityInstantiator(this);
-
-        foreach (var point in masterPointsDatabase.Values)
+        if (generateUniverse)
         {
-            systemSpawner.InstantiateEntity(point.Position);
-        }
+            targetConnections = _targetConnections;
 
-        OctTreeOfUniversePoints.ConnectSystems();
+            OctTreeOfUniversePoints = new OctTree<UniquePoint>(this, new Vector3(), universeMaximums, false);
+
+            KDtreeOfUniversePoints = PointGenerator.MakeNewPointKDtree(this, universeMaximums);
+
+            PointGenerator.GenerateUniversePoints(this, KDtreeOfUniversePoints, numberOfSystems, universeMaximums);
+
+            systemSpawner = new SystemEntityInstantiator(this);
+
+            systemSpawner.ReturnToUniverse();
+
+            OctTreeOfUniversePoints.ConnectSystems();
+
+            systemWorks = new SystemWorks(this, false);
+        }
+        
 
     }
 }
