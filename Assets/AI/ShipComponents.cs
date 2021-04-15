@@ -9,5 +9,10 @@ using Unity.Jobs;
 
 public struct shipId : IComponentData
 {
-    int Id;
+    public float Id;
+}
+
+public struct shipVector : IComponentData
+{
+    public Vector3 vector;
 }
