@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 100
-  numberOfSystems: 10000
+  universeSize: 0
+  numberOfSystems: 0
   selectedPoint: 0
   switchSystemView: 0
 --- !u!81 &1675281807

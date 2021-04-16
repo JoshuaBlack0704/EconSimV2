@@ -7,6 +7,7 @@ using Unity.Rendering;
 using UnityEngine;
 using Unity.Jobs;
 using Random = Unity.Mathematics.Random;
+using Unity.Collections;
 
 public class ShipManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class ShipManager : MonoBehaviour
             }
         });
         entityManager.SetComponentData(copy, new shipId { Id = UnityEngine.Random.Range(0, 100f) });
+        entityManager.SetComponentData(copy, new shipVector { vector = new Vector3 { x = UnityEngine.Random.Range(-1, 1f), y = UnityEngine.Random.Range(-1, 1f), z = UnityEngine.Random.Range(-1, 1f), } });
     }
 
     public ShipManager()
@@ -52,22 +54,38 @@ public static class ShipAccessor
 
 public partial class ShipMover : SystemBase
 {
-    
+        EntityQueryDesc query = new EntityQueryDesc { All = new ComponentType[] { typeof(shipVector), typeof(Translation)} };
+
     protected override void OnUpdate()
     {
         var angularVelocity = (2 * Mathf.PI) / 20;
         var angle = angularVelocity * Time.ElapsedTime;
+        var change = Time.DeltaTime;
+        EntityQuery group = GetEntityQuery(query);
+        NativeArray<shipVector> allEntities = group.ToComponentDataArray<shipVector>(Unity.Collections.Allocator.TempJob);
+        var allTrans = group.ToComponentDataArray<Translation>(Unity.Collections.Allocator.TempJob);
 
-        
         var rand = new Random((uint)Time.ElapsedTime+1);
-        Entities.ForEach((ref Translation trans, in shipId id) => {
+        Entities.WithReadOnly(allEntities).WithReadOnly(allTrans).ForEach((ref Translation trans, ref Rotation rotation, ref shipVector dir, in shipId id) => {
+
+            Vector3 avg = new Vector3();
+            Vector3 avg2 = new Vector3();
+            for (int i = 0; i < allEntities.Length; i++)
+            {
+                avg += ((allEntities[i].vector*change*.0000001f) / (math.pow(allTrans[i].Value.x - trans.Value.x, 2) + math.pow(allTrans[i].Value.y - trans.Value.y, 2) + math.pow(allTrans[i].Value.z - trans.Value.z, 2)));
+            }
+
             trans.Value = new Vector3()
             {
-                x = (float)math.cos(angle + id.Id) * id.Id,
-                z = (float)math.sin(angle + id.Id) * id.Id,
-                y = trans.Value.y
+                x = dir.vector.x*change + trans.Value.x,
+                y = dir.vector.y*change + trans.Value.y,
+                z= dir.vector.z*change + trans.Value.z
             };
-        }).ScheduleParallel(); 
+            dir.vector += avg2;
+            rotation.Value = Unity.Mathematics.quaternion.LookRotationSafe(dir.vector, Vector3.up);
+
+        }).WithDisposeOnCompletion(allEntities).WithDisposeOnCompletion(allTrans).ScheduleParallel();
+        
     }
 }
 
@@ -75,78 +93,10 @@ public partial class ShipSpawner : SystemBase
 {
     protected override void OnUpdate()
     {
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip(); ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
-        ShipAccessor.manager.spawnShip();
+        for (int i = 0; i < 1; i++)
+        {
+            ShipAccessor.manager.spawnShip();
+
+        }
     }
 }
