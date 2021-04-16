@@ -37,11 +37,11 @@ public class SystemEntityInstantiator : MonoBehaviour
     private void RestoreEntitys()
     {
         GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
-        systemEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("system", typeof(GameObject)), settings);
-        planetEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Planet", typeof(GameObject)), settings);
-        asteroidEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Asteroid", typeof(GameObject)), settings);
-        starEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Star", typeof(GameObject)), settings);
-        wormholeEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Wormhole", typeof(GameObject)), settings);
+        systemEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[0], settings);
+        planetEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[1], settings);
+        asteroidEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[2], settings);
+        starEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[3], settings);
+        wormholeEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[4], settings);
     }
 
     public void IntantiateSystemInterior(int Id)

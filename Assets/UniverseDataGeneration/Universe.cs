@@ -27,6 +27,7 @@ public class Universe
     /// <param name="zmax"></param>
     public Universe(int numberOfSystems, float universeSize, bool generateUniverse = true, int _targetConnections = 4, bool square = true, float xmax = 0, float ymax = 0, float zmax = 0)
     {
+        System.GC.Collect();
         //If square is false we must define the max vertex
         if (square != true)
         {
@@ -51,9 +52,11 @@ public class Universe
 
             systemSpawner.ReturnToUniverse();
 
-            OctTreeOfUniversePoints.ConnectSystems();
+            //OctTreeOfUniversePoints.ConnectSystems();
 
             systemWorks = new SystemWorks(this, false);
+            KDtreeOfUniversePoints = null;
+            OctTreeOfUniversePoints = null;
         }
         
 

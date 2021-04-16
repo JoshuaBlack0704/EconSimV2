@@ -14,46 +14,42 @@ public class UniverseGenerator : MonoBehaviour
     void Awake()
     {
         MonoBehaviour.print("Starting Generation");
-        //universe = new Universe(numberOfSystems, universeSize, true, 4);
+        universe = new Universe(numberOfSystems, universeSize, true, 4);
         MonoBehaviour.print("Generation Complete");
     }
 
 
-    //private void OnDrawGizmos()
-    //{
-    //    foreach (var point in universe.masterPointsDatabase.Values)
-    //    {
-    //        foreach (var con in point.Connections)
-    //        {
-    //            Gizmos.DrawLine(point.Position, con.Position);
-    //        }
-    //    }
-    //}
+    private void OnDrawGizmos()
+    {
+        //foreach (var point in universe.masterPointsDatabase.Values)
+        //{
+        //    foreach (var con in point.Connections)
+        //    {
+        //        Gizmos.DrawLine(point.Position, con.Position);
+        //    }
+        //}
+    }
 
     // Update is called once per frame
     private void Update()
     {
-        if (universe != null)
+        universe.selectedPoint = selectedPoint;
+
+        if (switchSystemView)
         {
-            universe.selectedPoint = selectedPoint;
-
-            if (switchSystemView)
+            if (universe.inSystem == false)
             {
-                if (universe.inSystem == false)
-                {
-                    universe.systemSpawner.IntantiateSystemInterior(universe.selectedPoint);
-                    universe.inSystem = true;
-                }
-                else
-                {
-                    universe.systemSpawner.ReturnToUniverse();
-                    universe.inSystem = false;
-                }
+                universe.systemSpawner.IntantiateSystemInterior(universe.selectedPoint);
+                universe.inSystem = true;
             }
-
-            switchSystemView = false;
+            else
+            {
+                universe.systemSpawner.ReturnToUniverse();
+                universe.inSystem = false;
+            }
         }
-        
+
+        switchSystemView = false;
     }
 
 }
