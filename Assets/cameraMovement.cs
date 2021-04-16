@@ -12,10 +12,12 @@ public class cameraMovement : MonoBehaviour
     {
         gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x/2, y = UniverseGenerator.universe.universeMaximums.y/2, z = -10};
     }
-
+    public static Unity.Mathematics.float3 pos;
     // Update is called once per frame
     void Update()
     {
+        
+        pos = gameObject.transform.position;
         Universe uni = UniverseGenerator.universe;
         selectedPoint = uni.selectedPoint;
         if (uni.inSystem)

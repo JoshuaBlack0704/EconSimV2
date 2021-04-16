@@ -13,6 +13,11 @@ public class Heap<T> where T : IHeapItem<T>
 		items = new T[maxHeapSize];
 	}
 
+	public T peakRoot()
+	{
+		return items[0];
+	}
+
 	public void Add(T item)
 	{
 		item.HeapIndex = currentItemCount;
