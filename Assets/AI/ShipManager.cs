@@ -18,7 +18,7 @@ public class ShipManager : MonoBehaviour
         defaultWorld = World.DefaultGameObjectInjectionWorld;
         entityManager = defaultWorld.EntityManager;
         GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
-        shipEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy((GameObject)Resources.Load("Ship", typeof(GameObject)), settings);
+        shipEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[5], settings);
         entityManager.AddComponent<shipId>(shipEntity);
     }
 

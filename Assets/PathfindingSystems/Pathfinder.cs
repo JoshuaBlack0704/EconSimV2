@@ -252,7 +252,7 @@ public class Pathfinder
         {
             PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
         }
-        masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId]; ;
+        //masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId]; ;
     }
 
 }
