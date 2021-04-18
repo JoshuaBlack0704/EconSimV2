@@ -17,7 +17,7 @@ public class ShipTester : MonoBehaviour
             testPoints.Add(new Vector3 { x = Random.Range(0, 300) , y = Random.Range(0, 300) , z = Random.Range(0, 300) });
         }
 
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < 10000; i++)
         {
             Ship ship = new Ship(Vector3.zero);
             ships.Add(ship);
@@ -30,7 +30,7 @@ public class ShipTester : MonoBehaviour
     {
         foreach (var ship in ships)
         {
-            Debug.DrawLine(ship.Position, ship.GetNextPosition());
+            Debug.DrawLine(ship.Position, ship.GetNextPosition(), Color.white, .1f);
         }
     }
 }

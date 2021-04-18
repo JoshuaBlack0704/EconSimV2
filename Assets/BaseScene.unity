@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 1675281807}
   - component: {fileID: 1675281806}
   - component: {fileID: 1675281805}
+  - component: {fileID: 1675281810}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -310,8 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 300
-  numberOfSystems: 0
+  universeSize: 100
+  numberOfSystems: 10000
   selectedPoint: 0
   switchSystemView: 0
 --- !u!81 &1675281807
@@ -379,6 +380,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675281810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675281804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a82a85c8af0024c876281e00b10605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1773295249
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +430,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773295249}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d8a2907d2dfb94b81fe2cbe8ca42d0, type: 3}
   m_Name: 
@@ -460,7 +473,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935879044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb1b16a712085f848bd356077605c414, type: 3}
   m_Name: 

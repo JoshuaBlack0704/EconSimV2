@@ -7,8 +7,9 @@ public class MainSchedual : MonoBehaviour
     
     public class EventTicketHeapItem: IHeapItem<EventTicketHeapItem>
     {
+        public int Id { get; set; }
         public Ship shipReference { get; set; }
-        public float timeToExecute { get; set; }
+        public float timeAtExecute { get; set; }
         public float timeAtWrite { get; set; }
         public int type { get; set; }
 
@@ -18,11 +19,11 @@ public class MainSchedual : MonoBehaviour
         public int CompareTo(EventTicketHeapItem other)
         {
             int compare = 1;
-            if (timeToExecute >= other.timeToExecute)
+            if (timeAtExecute >= other.timeAtExecute)
             {
                 compare = 1;
             }
-            else if (timeToExecute < other.timeToExecute)
+            else if (timeAtExecute < other.timeAtExecute)
             {
                 compare = -1;
             }
@@ -32,7 +33,7 @@ public class MainSchedual : MonoBehaviour
     private static Heap<EventTicketHeapItem> schedualHeap;
     private static List<EventTicketHeapItem> ticketPool;
     private static int currentTicketIndex = 0;
-
+    internal static int maxTicketId = 0;
 
     public static void AddToHeap(float timeToExecute, int type, Ship ship = null)
     {
@@ -40,14 +41,17 @@ public class MainSchedual : MonoBehaviour
         if (currentTicketIndex==0)
         {
             selectedTicket = new EventTicketHeapItem();
+            selectedTicket.Id = maxTicketId;
+            maxTicketId++;
         }
         else
         {
             currentTicketIndex--;
             selectedTicket = ticketPool[currentTicketIndex];
+            ticketPool.RemoveAt(currentTicketIndex);
         }
 
-        selectedTicket.timeToExecute = timeToExecute;
+        selectedTicket.timeAtExecute = timeToExecute;
         selectedTicket.timeAtWrite = Time.time;
         selectedTicket.type = type;
         if (ship!=null)
@@ -61,7 +65,7 @@ public class MainSchedual : MonoBehaviour
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
     private static void ExecuteTickets()
     {
-        while (schedualHeap.peakRoot().timeToExecute<Time.time && schedualHeap.peakRoot()!=null)
+        while (schedualHeap.peakRoot().timeAtExecute<Time.time && schedualHeap.peakRoot()!=null)
         {
             selectedTickets.Add(schedualHeap.RemoveFirst());
         }
@@ -81,6 +85,10 @@ public class MainSchedual : MonoBehaviour
 
             if (currentTicketIndex+1 >= ticketPool.Count)
             {
+                if (ticketPool.Contains(selectedTicket))
+                {
+                    Debug.LogError("here");
+                }
                 ticketPool.Add(selectedTicket);
                 currentTicketIndex++;
             }

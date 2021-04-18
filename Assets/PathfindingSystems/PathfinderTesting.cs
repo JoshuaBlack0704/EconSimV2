@@ -39,20 +39,20 @@ public class PathfinderTesting : MonoBehaviour
     private int pathCount = 0;
     private void Update()
     {
-        //if (Time.frameCount % 1 == 0)
-        //{
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        GenRandomPath();
-        //        pathCount++;
-        //    }
-        //}
+        if (Time.frameCount % 1 == 0)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                GenRandomPath();
+                pathCount++;
+            }
+        }
 
-        //if (Time.frameCount % 1000 == 0)
-        //{
-        //    var percentComplete = (pathCount / Mathf.Pow(UniverseGenerator.universe.masterPointsDatabase.Count, 2));
+        if (Time.frameCount % 1000 == 0)
+        {
+            var percentcomplete = (pathCount / Mathf.Pow(UniverseGenerator.universe.masterPointsDatabase.Count, 2));
 
-        //    MonoBehaviour.print(string.Format("masterPathDataBase {0} % complete", percentComplete));
-        //}
+            MonoBehaviour.print(string.Format("masterpathdatabase {0} % complete", percentcomplete));
+        }
     }
 }

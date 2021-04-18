@@ -52,7 +52,7 @@ public class Universe
 
             systemSpawner.ReturnToUniverse();
 
-            //OctTreeOfUniversePoints.ConnectSystems();
+            OctTreeOfUniversePoints.ConnectSystems();
 
             systemWorks = new SystemWorks(this, false);
             KDtreeOfUniversePoints = null;

@@ -28,15 +28,12 @@ public class Ship
         {
             entityManager.SetComponentData(activeEntity, new shipVector { vector = vector});
         }
-        MainSchedual.AddToHeap(Vector3.Distance(Position, targetPosition)/velocity, 0, this);
-        if (currentTicket == null)
-        {
-            Debug.LogError("here");
-        }
+        MainSchedual.AddToHeap(Vector3.Distance(Position, targetPosition)/velocity+Time.time, 0, this);
+        
     }
     public Vector3 GetNextPosition()
     {
-        Position += vector*((Time.time - currentTicket.timeAtWrite) * velocity);
+        Position += vector*velocity*Time.deltaTime;
         return Position;
     }
 
