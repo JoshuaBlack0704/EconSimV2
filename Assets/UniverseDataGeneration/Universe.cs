@@ -51,8 +51,14 @@ public class Universe
             systemSpawner = new SystemEntityInstantiator(this);
 
             systemSpawner.ReturnToUniverse();
-
-            //OctTreeOfUniversePoints.ConnectSystems();
+            if (targetConnections < numberOfSystems)
+            {
+                OctTreeOfUniversePoints.ConnectSystems();
+            }
+            else
+            {
+                MonoBehaviour.print("Not enough points to establish connections in universe");
+            }
 
             systemWorks = new SystemWorks(this, false);
             KDtreeOfUniversePoints = null;

@@ -52,4 +52,10 @@ public class UniverseGenerator : MonoBehaviour
         switchSystemView = false;
     }
 
+    private void OnApplicationQuit()
+    {
+        universe = null;
+        System.GC.Collect();
+    }
+
 }

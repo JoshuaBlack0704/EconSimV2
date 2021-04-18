@@ -6,11 +6,16 @@ public class Heap<T> where T : IHeapItem<T>
 {
 
 	T[] items;
-	int currentItemCount;
+	public int currentItemCount;
 
 	public Heap(int maxHeapSize)
 	{
 		items = new T[maxHeapSize];
+	}
+
+	public T peakRoot()
+	{
+		return items[0];
 	}
 
 	public void Add(T item)

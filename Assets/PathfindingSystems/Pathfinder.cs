@@ -10,6 +10,7 @@ public class Pathfinder
     {
         public int parent { get; set; }
         public int Id { get; set; }
+        public int runId { get; set; }
         int heapIndex;
         public int HeapIndex
         {
@@ -46,6 +47,7 @@ public class Pathfinder
     }
     public SystemWorks systemWorks;
     public PathNode[] PathNodes;
+    Heap<PathNode> heap;
 
     public void TestHeap()
     {
@@ -76,16 +78,21 @@ public class Pathfinder
     /// <param name="usesMainArray"></param>
     /// <param name="inputArray"></param>
     /// <returns></returns>
+    /// 
+
+    internal int currentRunId;
+
+    List<int> internalPath;
     public List<int> GetPath(int start, int end, bool usesMainArray, PathNode[] inputArray = null)
     {
+        currentRunId++;
+        internalPath.Clear();
+        heap.currentItemCount = 0;
         PathNode[] NodeArray;
         //Reset node array
         if (usesMainArray)
         {
-            foreach (var item in PathNodes)
-            {
-                item.Reset();
-            }
+            //Removed pathnode reset iterator
             NodeArray = PathNodes;
         }
         else
@@ -93,18 +100,17 @@ public class Pathfinder
             NodeArray = inputArray;
         }
         //Create Heap
-        Heap<PathNode> heap = new Heap<PathNode>(NodeArray.Length);
 
         //Set up first node
         PathNode currentNode = NodeArray[start];
+        currentNode.Reset();
         currentNode.parent = start;
         currentNode.distFromStart = 0;
         currentNode.distToEnd = Vector3.SqrMagnitude(currentNode.position - NodeArray[end].position);
         heap.Add(currentNode);
 
         //Set up path list
-        List<int> path = new List<int>();
-
+        List<int> path = internalPath;
         //Initilize main loop
         while (true)
         {
@@ -125,12 +131,17 @@ public class Pathfinder
                 
                 //We access the related path from the array
                 PathNode candidate = NodeArray[connection];
-
+                if (candidate.runId != currentRunId)
+                {
+                    candidate.Reset();
+                    candidate.runId = currentRunId;
+                }
                 //We skip if connection is related to a skipped node
                 if (candidate.isClosed)
                 {
                     continue;
                 }
+                
 
                 //We find our scores
                 var distToStart = Vector3.SqrMagnitude(candidate.position - currentNode.position) + currentNode.distFromStart;
@@ -153,6 +164,7 @@ public class Pathfinder
                     candidate.parent = currentNode.Id;
                     candidate.distFromStart = distToStart;
                     candidate.distToEnd = distToEnd;
+                    
 
                     heap.Add(candidate);
                 }
@@ -247,11 +259,14 @@ public class Pathfinder
     public Pathfinder(SystemWorks _systemWorks)
     {
         systemWorks = _systemWorks;
+        heap = new Heap<PathNode>(systemWorks.masterUniverse.masterPointsDatabase.Count);
+        internalPath = new List<int>();
         PathNodes = new PathNode[systemWorks.masterUniverse.masterPointsDatabase.Count];
         foreach (var point in systemWorks.masterUniverse.masterPointsDatabase.Values)
         {
             PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
         }
+        currentRunId = 0;
         //masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId]; ;
     }
 
