@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class MainSchedual : MonoBehaviour
 {
-    
+    public float currentTime;
+    public bool pauseTime;
+    public static bool notPaused;
+    public static float masterTime;
+    public static float masterDeltaTime;
+    [Range(0, 100)]
+    public float timeMultiplier = 1;
     public class EventTicketHeapItem: IHeapItem<EventTicketHeapItem>
     {
         public int Id { get; set; }
@@ -52,7 +58,7 @@ public class MainSchedual : MonoBehaviour
         }
 
         selectedTicket.timeAtExecute = timeToExecute;
-        selectedTicket.timeAtWrite = Time.time;
+        selectedTicket.timeAtWrite = masterTime;
         selectedTicket.type = type;
         if (ship!=null)
         {
@@ -63,14 +69,23 @@ public class MainSchedual : MonoBehaviour
         schedualHeap.Add(selectedTicket);
     }
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
+    internal static int currentSelectedTicketIndex = 0;
     private static void ExecuteTickets()
     {
-        while (schedualHeap.peakRoot().timeAtExecute<Time.time && schedualHeap.peakRoot()!=null)
+        while (schedualHeap.peakRoot().timeAtExecute<masterTime && schedualHeap.peakRoot()!=null)
         {
-            selectedTickets.Add(schedualHeap.RemoveFirst());
+            if (selectedTickets.Count == 0 || selectedTickets.Count <= currentSelectedTicketIndex)
+            {
+                selectedTickets.Add(schedualHeap.RemoveFirst());
+            }
+            else
+            {
+                selectedTickets[currentSelectedTicketIndex] = schedualHeap.RemoveFirst();
+            }
+            currentSelectedTicketIndex++;
         }
 
-        for (int i = 0; i < selectedTickets.Count; i++)
+        for (int i = 0; i < currentSelectedTicketIndex; i++)
         {
             EventTicketHeapItem selectedTicket = selectedTickets[i];
 
@@ -98,18 +113,33 @@ public class MainSchedual : MonoBehaviour
                 currentTicketIndex++;
             }
         }
-        selectedTickets.Clear();
+        currentSelectedTicketIndex = 0;
     }
     // Start is called before the first frame update
     void Start()
     {
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
+        timeMultiplier = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTime = masterTime;
+        if (pauseTime)
+        {
+            notPaused = false;
+        }
+        else if (pauseTime == false)
+        {
+            notPaused = true;
+        }
+        if (notPaused)
+        {
+            masterTime += Time.deltaTime * timeMultiplier;
+            masterDeltaTime = Time.deltaTime * timeMultiplier;
+        }
         ExecuteTickets();
     }
 }

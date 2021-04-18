@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 100
-  numberOfSystems: 10000
+  universeSize: 300
+  numberOfSystems: 0
   selectedPoint: 0
   switchSystemView: 0
 --- !u!81 &1675281807
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675281804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6a82a85c8af0024c876281e00b10605, type: 3}
   m_Name: 
@@ -430,11 +430,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773295249}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d8a2907d2dfb94b81fe2cbe8ca42d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTime: 0
+  pauseTime: 0
+  timeMultiplier: 0
 --- !u!1 &1935879044
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,8 +476,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935879044}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb1b16a712085f848bd356077605c414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numShips: 100000

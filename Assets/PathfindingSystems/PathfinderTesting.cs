@@ -5,7 +5,6 @@ using UnityEngine;
 public class PathfinderTesting : MonoBehaviour
 {
 
-   
 
     public void GenRandomPath()
     {
@@ -17,7 +16,7 @@ public class PathfinderTesting : MonoBehaviour
             To = Random.Range(0, uni.masterPointsDatabase.Count - 1);
             From = Random.Range(0, uni.masterPointsDatabase.Count - 1);
         }
-        var path = uni.systemWorks.GetPath(From, To);
+        var path = new List<int>(uni.systemWorks.GetPath(From, To));
         var collarr = new Color[3];
         collarr[0] = Color.green;
         collarr[1] = Color.white;
@@ -39,9 +38,10 @@ public class PathfinderTesting : MonoBehaviour
     private int pathCount = 0;
     private void Update()
     {
+
         if (Time.frameCount % 1 == 0)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 GenRandomPath();
                 pathCount++;
