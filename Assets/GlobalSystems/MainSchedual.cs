@@ -11,6 +11,8 @@ public class MainSchedual : MonoBehaviour
     public static float masterDeltaTime;
     [Range(0, 100)]
     public float timeMultiplier = 1;
+    public int ticketsProcessed;
+
     public class EventTicketHeapItem: IHeapItem<EventTicketHeapItem>
     {
         public int Id { get; set; }
@@ -70,7 +72,7 @@ public class MainSchedual : MonoBehaviour
     }
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
     internal static int currentSelectedTicketIndex = 0;
-    private static void ExecuteTickets()
+    private void ExecuteTickets()
     {
         while (schedualHeap.peakRoot().timeAtExecute<masterTime && schedualHeap.peakRoot()!=null)
         {
@@ -112,6 +114,8 @@ public class MainSchedual : MonoBehaviour
                 ticketPool[currentTicketIndex] = selectedTicket;
                 currentTicketIndex++;
             }
+
+            ticketsProcessed++;
         }
         currentSelectedTicketIndex = 0;
     }

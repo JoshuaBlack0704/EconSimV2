@@ -438,6 +438,7 @@ MonoBehaviour:
   currentTime: 0
   pauseTime: 0
   timeMultiplier: 0
+  ticketsProcessed: 0
 --- !u!1 &1935879044
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,4 +482,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1b16a712085f848bd356077605c414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numShips: 100000
+  numShips: 10000
