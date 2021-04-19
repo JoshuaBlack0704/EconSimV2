@@ -106,6 +106,10 @@ public class MainSchedual : MonoBehaviour
             {
                 selectedTicket.shipReference.ArrivedAtTarget();
             }
+            if (selectedTicket.type == 2)
+            {
+                selectedTicket.shipReference.ExploreSystem();
+            }
 
 
 

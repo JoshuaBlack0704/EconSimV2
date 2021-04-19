@@ -47,9 +47,17 @@ public class SystemWorks : MonoBehaviour
     {
         systemDatabase[Id] = system;
     }
-    public List<int> GetPath(int start, int end)
+    public List<int> GetPath(int start, int end, Dictionary<int, AI.AiSystem> inputAiKnownSystems = null, Dictionary<int, AI.AiSystem> inputUnknownSystems = null, int missionType = 0)
     {
-        return pathFinder.GetPath(start, end, true);
+        if (inputAiKnownSystems==null)
+        {
+            return pathFinder.GetPath(start, end);
+
+        }
+        else
+        {
+            return pathFinder.GetPathForAi(start, end, inputAiKnownSystems, inputUnknownSystems, missionType);
+        }
         //return pathFinder.FindBestPath(start, end, masterUniverse.masterPointsDatabase);
     }
 

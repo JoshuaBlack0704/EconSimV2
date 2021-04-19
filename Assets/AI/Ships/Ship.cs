@@ -14,6 +14,7 @@ public class Ship
     public AI masterAI { get; set; }
     public MainSchedual.EventTicketHeapItem currentTicket { get; set; }
     public bool assigned { get; set; }
+    public int missionType;
     //End Identification Data
 
     //Navigation Data
@@ -49,14 +50,15 @@ public class Ship
     /// </summary>
     /// <typeparam name="T">The type ob object must inherit ISystemSubObject</typeparam>
     /// <param name="target">The target System Sub Object</param>
-    public void SetTargetAndGo<T>(T target) where T : ISystemSubObject<T>
+    public void SetTargetAndGo<T>(T target, int _missionType) where T : ISystemSubObject<T>
     {
         assigned = true;
+        missionType = _missionType;
         targetSystem = target.masterSystem.Id;
         finalTargetPosition = target.position;
         if (targetSystem != currentSystemId)
         {
-            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem);
+            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, masterAI.knownSystems, masterAI.systemsBeingExplored, missionType);
         }
         FlyToNextTarget();
     }
@@ -73,7 +75,7 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, 1, this);
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, missionType, this);
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -184,6 +186,19 @@ public class Ship
         {
             SetEntityData();
         }
+    }
+
+    public void ExploreSystem()
+    {
+        Position = flyToPosition;
+        vector = Position;
+        assigned = false;
+        masterAI.unassignedShips.Add(this);
+        if (activeEntity != Entity.Null)
+        {
+            SetEntityData();
+        }
+        masterAI.systemsBeingExplored[currentSystemId].ExploreSystem();
     }
     /// <summary>
     /// we use the ships current fly to position and how far the current ticket is from executing to update the ships position
