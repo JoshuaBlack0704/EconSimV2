@@ -6,7 +6,7 @@ public class UniverseGenerator : MonoBehaviour
 {
     public int universeSize;
     public int numberOfSystems;
-    public int selectedPoint;
+    public int selectedSystem;
     public bool switchSystemView;
 
     public static Universe universe;
@@ -33,18 +33,18 @@ public class UniverseGenerator : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        universe.selectedPoint = selectedPoint;
+        universe.selectedSystem = selectedSystem;
 
         if (switchSystemView)
         {
             if (universe.inSystem == false)
             {
-                universe.systemSpawner.IntantiateSystemInterior(universe.selectedPoint);
+                universe.systemWorks.EnterSystem(universe.selectedSystem);
                 universe.inSystem = true;
             }
             else
             {
-                universe.systemSpawner.ReturnToUniverse();
+                universe.systemWorks.EnterUniverse();
                 universe.inSystem = false;
             }
         }

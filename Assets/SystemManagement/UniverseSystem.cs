@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
 public class UniverseSystem : MonoBehaviour
@@ -17,7 +18,8 @@ public class UniverseSystem : MonoBehaviour
     public Planet[] planets;
     public Asterioid[] asteroids;
     public float size;
-    SystemWorks systemWorks;
+    public SystemWorks systemWorks;
+    public Dictionary<int, Ship> containedShips { get; set; }
 
     public UniverseSystem(SystemWorks _systemWorks, int _Id, UniquePoint heraldPoint, int numPlanets, int numAsteroids)
     {
@@ -76,9 +78,9 @@ public class UniverseSystem : MonoBehaviour
         star = new Star(this);
 
         systemWorks = _systemWorks;
+        containedShips = new Dictionary<int, Ship>();
 
-        systemWorks.systemDatabase[Id] = this;
+        systemWorks.SetSystem(Id, this);
 
     }
 }
-

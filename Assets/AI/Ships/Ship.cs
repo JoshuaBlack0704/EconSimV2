@@ -1,38 +1,105 @@
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.Burst;
 
 public class Ship
 {
+    //Identification Data
     public int Id { get; set; }
+    public int currentSystem { get; set; }
+    public AI masterAI { get; set; }
     public MainSchedual.EventTicketHeapItem currentTicket { get; set; }
     public bool assigned { get; set; }
+    //End Identification Data
+
+    //Navigation Data
+    public List<int> wayPoints { get; set; }
+    public Vector3 finalTargetPosition { get; set; }
+    public int targetSystem { get; set; }
+    //End Navigation Data
+
+    //Flight Data
     public Vector3 Position { get; set; }
-    public Vector3 targetPosition { get; set; }
-    public Vector3 vector { get; set; }
-    
+    public Vector3 flyToPosition { get; set; }
+    /// <summary>
+    /// When setting, the vector math is automatically takinen care of using the ship's position
+    /// , just input target vector3
+    /// </summary>
+    public Vector3 vector { get { return _vector; } set { _vector = (value - Position).normalized; } }
+    private Vector3 _vector;
     public float velocity { get; set; }
+    //End Flight Data
+
+    //Entity Data
     public EntityManager entityManager { get; set; }
     public Entity activeEntity { get; set; }
+    //End Entity Data
 
-    public void PickNewTarget()
+    
+    public void SetTarget(Vector3 targetPos)
     {
-        var randPoint = ShipTester.testPoints[UnityEngine.Random.Range(0, ShipTester.testPoints.Count)];
+        assigned = true;
+        targetSystem = currentSystem;
+        finalTargetPosition = targetPos;
+        FlyToNextTarget();
+    }
 
-        Position = targetPosition;
-        targetPosition = randPoint;
-        vector = (targetPosition - Position).normalized;
+    public void FlyToNextTarget()
+    {
+        if (currentSystem == targetSystem)
+        {
+            flyToPosition = finalTargetPosition;
+            vector = flyToPosition;
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, 1, this);
+            if (activeEntity != Entity.Null)
+            {
+                SetEntityData();
+            }
+        }
+        else
+        {
+            flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystem).connections[wayPoints[wayPoints.Count - 1]].Position;
+            vector = flyToPosition;
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, 0, this);
+            if (activeEntity != Entity.Null)
+            {
+                SetEntityData();
+            }
+        }
+    }
+    public void WarpNext()
+    {
+
+    }
+    public void ArrivedAtTarget()
+    {
+        Position = flyToPosition;
+        vector = Position;
+        assigned = false;
+        masterAI.unassignedShips.Add(this);
         if (activeEntity != Entity.Null)
         {
-            entityManager.SetComponentData(activeEntity, new shipMoveData { vector = vector, velocity = velocity});
-            entityManager.SetComponentData(activeEntity, new Translation { Value = Position});
+            SetEntityData();
         }
-        MainSchedual.AddToHeap(Vector3.Distance(Position, targetPosition)/velocity+MainSchedual.masterTime, 0, this);
-        var t = Time.deltaTime;
-        var t2 = Time.time;
     }
+    public Vector3 GetNextPosition()
+    {
+        Position = Vector3.Lerp(Position, flyToPosition, Mathf.InverseLerp(currentTicket.timeAtWrite, currentTicket.timeAtExecute, MainSchedual.masterTime));
+        return Position;
+    }
+
+
+    /// <summary>
+    /// Instantiate a ship clone, 
+    /// set its translate, 
+    /// add the shipCloneTag, 
+    /// add and set ShipMoveData, 
+    /// We set its active entity, 
+    /// </summary>
     public void CreateEntityFor()
     {
         if (activeEntity != Entity.Null)
@@ -40,9 +107,10 @@ public class Ship
             Debug.LogError("Entity being made for a ship who already has an active entity");
         }
         Entity shipClone = entityManager.Instantiate(StaticShipData.shipEntityTemplate);
+        entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition() });
         entityManager.AddComponent<shipCloneTag>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
-        entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity});
+        entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
         activeEntity = shipClone;
     }
     public void DestoryEntityFor()
@@ -50,16 +118,42 @@ public class Ship
         entityManager.DestroyEntity(activeEntity);
         activeEntity = Entity.Null;
     }
+    public void SetEntityData()
+    {
+        entityManager.SetComponentData(activeEntity, new Translation { Value = Position });
+        entityManager.SetComponentData(activeEntity, new shipMoveData { vector = vector, velocity = velocity});
+        entityManager.SetComponentData(activeEntity, new Rotation { Value = quaternion.LookRotation(vector, math.up())});
+    }
     
-
-    public Ship(Vector3 startPos, World _world)
+    /// <summary>
+    /// We build the ship, 
+    /// set its id, 
+    /// set its ai, 
+    /// add it to the appropiate system's containedShips, 
+    /// set its current system, 
+    /// set assigned to false, 
+    /// uptick statics ship data's count, 
+    /// set its position, 
+    /// set TargetPosition to vector.zero, 
+    /// pick a random velocity, 
+    /// and set its entity manager, 
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="_entityManager"></param>
+    /// <param name="startSystem"></param>
+    /// <param name="_masterAI"></param>
+    public Ship(Vector3 startPos, EntityManager _entityManager, int startSystem, AI _masterAI)
     {
         Id = StaticShipData.count;
+        masterAI = _masterAI;
+        masterAI.universe.systemWorks.GetSystem(startSystem).containedShips.Add(Id, this);
+        currentSystem = startSystem;
         assigned = false;
         StaticShipData.count++;
         Position = startPos;
+        flyToPosition = Vector3.zero;
         velocity = UnityEngine.Random.Range(5, 50f);
-        entityManager = _world.EntityManager;
+        entityManager = _entityManager;
     }
 
     
@@ -69,7 +163,7 @@ public static class StaticShipData
 {
     public static int count = 0;
     public static GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
-    public static Entity shipEntityTemplate = GameObjectConversionUtility.ConvertGameObjectHierarchy(PrefabAccessor.gameObjectArray[5], settings);
+    public static Entity shipEntityTemplate = PrefabAccessor.entityTemplateArray[5];
 }
 
 public struct shipMoveData : IComponentData
