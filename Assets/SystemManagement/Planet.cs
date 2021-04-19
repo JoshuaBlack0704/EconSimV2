@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Planet : MonoBehaviour
+public class Planet : MonoBehaviour, ISystemSubObject<Planet>
 {
-    public UniverseSystem system { get; set; }
+    public UniverseSystem masterSystem { get; set; }
 
     public int Id { get; set; }
     public Vector3 position { get; set; }
@@ -12,7 +12,7 @@ public class Planet : MonoBehaviour
     public Planet(int _id, UniverseSystem _system, Vector3 _position)
     {
         Id = _id;
-        system = _system;
+        masterSystem = _system;
         position = _position;
     }
 }

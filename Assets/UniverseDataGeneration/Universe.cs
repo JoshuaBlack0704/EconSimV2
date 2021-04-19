@@ -9,11 +9,10 @@ public class Universe
     public SystemWorks systemWorks;
     public bool inSystem;
     public Dictionary<int, UniquePoint> masterPointsDatabase = new Dictionary<int, UniquePoint>();
-    public int selectedPoint;
+    public int selectedSystem;
     public KDtree<UniquePoint> KDtreeOfUniversePoints { get; set; }
     public OctTree<UniquePoint> OctTreeOfUniversePoints { get; set; }
     public Vector3 universeMaximums { get; set; }
-    public SystemEntityInstantiator systemSpawner { get; set; }
 
 
     /// <summary>
@@ -48,9 +47,7 @@ public class Universe
 
             PointGenerator.GenerateUniversePoints(this, KDtreeOfUniversePoints, numberOfSystems, universeMaximums);
 
-            systemSpawner = new SystemEntityInstantiator(this);
-
-            systemSpawner.ReturnToUniverse();
+           
             if (targetConnections < numberOfSystems)
             {
                 OctTreeOfUniversePoints.ConnectSystems();
@@ -59,10 +56,10 @@ public class Universe
             {
                 MonoBehaviour.print("Not enough points to establish connections in universe");
             }
-
             systemWorks = new SystemWorks(this, false);
-            KDtreeOfUniversePoints = null;
-            OctTreeOfUniversePoints = null;
+
+            systemWorks.EnterUniverse();
+            
         }
         
 

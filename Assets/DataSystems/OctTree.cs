@@ -391,6 +391,17 @@ public class OctTree<T> where T : IOctTreeItem<T>
             }
 
         }
+
+        foreach (var item in parentUniverse.masterPointsDatabase.Values)
+        {
+            foreach (var connection in item.Connections)
+            {
+                if (parentUniverse.masterPointsDatabase[connection.Id].Connections.Contains(item) != true)
+                {
+                    Debug.LogError("here");
+                }
+            }
+        }
     }
 
 

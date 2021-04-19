@@ -153,11 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SystemPrefab: {fileID: 2825206808367957111, guid: 243788200e3ed744c9465eb4acd0258a, type: 3}
-  planetEntity: {fileID: 7477919345146220862, guid: 0876b07dacea9d0439a5c20761ab1b01, type: 3}
-  asteroidEntity: {fileID: 6934816408981268688, guid: 26d499389d79381438bf545deef71f3d, type: 3}
-  starEntity: {fileID: 8563922998043095240, guid: 84124320755c6cf4881b04f451c98bee, type: 3}
-  wormholeEntity: {fileID: 6398414221921560691, guid: 2451b66bc46187940b7878206699cf91, type: 3}
-  shipEntity: {fileID: 6212154462366113583, guid: ebffdfa1872cbce44925af2c3f86c9aa, type: 3}
+  planetPrefab: {fileID: 7477919345146220862, guid: 0876b07dacea9d0439a5c20761ab1b01, type: 3}
+  asteroidPrefab: {fileID: 6934816408981268688, guid: 26d499389d79381438bf545deef71f3d, type: 3}
+  starPrefab: {fileID: 8563922998043095240, guid: 84124320755c6cf4881b04f451c98bee, type: 3}
+  wormholePrefab: {fileID: 6398414221921560691, guid: 2451b66bc46187940b7878206699cf91, type: 3}
+  shipPrefab: {fileID: 6212154462366113583, guid: ebffdfa1872cbce44925af2c3f86c9aa, type: 3}
 --- !u!4 &19554419
 Transform:
   m_ObjectHideFlags: 0
@@ -171,6 +171,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &790734082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790734084}
+  - component: {fileID: 790734083}
+  m_Layer: 0
+  m_Name: AICoordinator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790734083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790734082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6346cf8c60f05b74baf97a5513b04dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingAiNum: 1
+  startingShipsPerAi: 100000
+--- !u!4 &790734084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790734082}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.447389, y: 0.751976, z: 16.91613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590970080
 GameObject:
@@ -276,9 +321,9 @@ GameObject:
   - component: {fileID: 1675281809}
   - component: {fileID: 1675281808}
   - component: {fileID: 1675281807}
-  - component: {fileID: 1675281806}
   - component: {fileID: 1675281805}
   - component: {fileID: 1675281810}
+  - component: {fileID: 1675281806}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -308,13 +353,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675281804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
+  m_Script: {fileID: 11500000, guid: 058a348c27b8c864bbff5943fddc89d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 300
-  numberOfSystems: 0
-  selectedPoint: 0
-  switchSystemView: 0
+  pointCode: 0
+  OctCoords: 
+  Connections: 
+  temp: 0
+  cubeCode: 0
 --- !u!81 &1675281807
 AudioListener:
   m_ObjectHideFlags: 0
@@ -438,7 +484,56 @@ MonoBehaviour:
   currentTime: 0
   pauseTime: 0
   timeMultiplier: 0
+  autoTimMultiplierAdjust: 0
   ticketsProcessed: 0
+  ticketsProcessedLastFrame: 0
+--- !u!1 &1870435489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870435491}
+  - component: {fileID: 1870435490}
+  m_Layer: 0
+  m_Name: UniverseGeneration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1870435490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870435489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  universeSize: 50
+  numberOfSystems: 100
+  selectedSystem: 0
+  switchSystemView: 0
+--- !u!4 &1870435491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870435489}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.447389, y: 0.751976, z: 16.91613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935879044
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +572,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935879044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb1b16a712085f848bd356077605c414, type: 3}
   m_Name: 

@@ -19,7 +19,7 @@ public class cameraMovement : MonoBehaviour
         
         pos = gameObject.transform.position;
         Universe uni = UniverseGenerator.universe;
-        selectedPoint = uni.selectedPoint;
+        selectedPoint = uni.selectedSystem;
         if (uni.inSystem)
         {
             zoomToPoint = false;
@@ -37,8 +37,8 @@ public class cameraMovement : MonoBehaviour
             var center = uni.universeMaximums / 2;
             if (uni.inSystem)
             {
-                center = uni.systemWorks.GetSystem(uni.selectedPoint).star.position;
-                radius = uni.systemWorks.GetSystem(uni.selectedPoint).size + 10;
+                center = uni.systemWorks.GetSystem(uni.selectedSystem).star.position;
+                radius = uni.systemWorks.GetSystem(uni.selectedSystem).size + 10;
             }
 
             var positiion = new Vector3()

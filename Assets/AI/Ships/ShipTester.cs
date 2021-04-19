@@ -21,10 +21,10 @@ public class ShipTester : MonoBehaviour
 
         for (int i = 0; i < numShips; i++)
         {
-            Ship ship = new Ship(Vector3.zero, World.DefaultGameObjectInjectionWorld);
-            ships.Add(ship);
-            ship.CreateEntityFor();
-            ship.PickNewTarget();
+            //Ship ship = new Ship(Vector3.zero, World.DefaultGameObjectInjectionWorld);
+            //ships.Add(ship);
+            //ship.CreateEntityFor();
+            //ship.PickNewTarget();
         }
     }
 

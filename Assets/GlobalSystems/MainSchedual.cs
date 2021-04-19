@@ -11,7 +11,9 @@ public class MainSchedual : MonoBehaviour
     public static float masterDeltaTime;
     [Range(0, 100)]
     public float timeMultiplier = 1;
+    public bool autoTimMultiplierAdjust;
     public int ticketsProcessed;
+    public int ticketsProcessedLastFrame;
 
     public class EventTicketHeapItem: IHeapItem<EventTicketHeapItem>
     {
@@ -42,7 +44,12 @@ public class MainSchedual : MonoBehaviour
     private static List<EventTicketHeapItem> ticketPool;
     private static int currentTicketIndex = 0;
     internal static int maxTicketId = 0;
-
+    /// <summary>
+    /// Performs all tasks needed to operate the heap
+    /// </summary>
+    /// <param name="timeToExecute">Using main schedual master time</param>
+    /// <param name="type">0-WarpTo, 1-ArrivedAtTarget, </param>
+    /// <param name="ship">If ticket is for a ship</param>
     public static void AddToHeap(float timeToExecute, int type, Ship ship = null)
     {
         EventTicketHeapItem selectedTicket;
@@ -74,7 +81,7 @@ public class MainSchedual : MonoBehaviour
     internal static int currentSelectedTicketIndex = 0;
     private void ExecuteTickets()
     {
-        while (schedualHeap.peakRoot().timeAtExecute<masterTime && schedualHeap.peakRoot()!=null)
+        while (schedualHeap.peakRoot() != null && schedualHeap.peakRoot().timeAtExecute<masterTime)
         {
             if (selectedTickets.Count == 0 || selectedTickets.Count <= currentSelectedTicketIndex)
             {
@@ -93,7 +100,11 @@ public class MainSchedual : MonoBehaviour
 
             if (selectedTicket.type == 0)
             {
-                selectedTicket.shipReference.PickNewTarget();
+                selectedTicket.shipReference.WarpNext();
+            }
+            if (selectedTicket.type == 1)
+            {
+                selectedTicket.shipReference.ArrivedAtTarget();
             }
 
 
@@ -117,6 +128,7 @@ public class MainSchedual : MonoBehaviour
 
             ticketsProcessed++;
         }
+        ticketsProcessedLastFrame = currentSelectedTicketIndex;
         currentSelectedTicketIndex = 0;
     }
     // Start is called before the first frame update
@@ -130,6 +142,26 @@ public class MainSchedual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Need to implement
+        if (autoTimMultiplierAdjust)
+        {
+            if (Time.deltaTime > .016f)
+            {
+                var dist = Mathf.Abs(.016f - Time.deltaTime);
+                
+                float result = 1 - Mathf.Clamp(Mathf.Sqrt(dist), 0, 1);
+
+                timeMultiplier = Mathf.Lerp(0, 1f, result);
+
+            }
+            else if (Time.deltaTime < .016 && timeMultiplier < 1)
+            {
+                timeMultiplier = Mathf.Lerp(timeMultiplier, 1, .05f);
+            }
+        }
+        
+        
+        
         currentTime = masterTime;
         if (pauseTime)
         {

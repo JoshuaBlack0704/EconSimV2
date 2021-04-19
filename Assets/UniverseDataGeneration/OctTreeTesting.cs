@@ -9,8 +9,10 @@ public class OctTreeTesting : MonoBehaviour
     public List<int> Connections;
     public int temp;
     public int cubeCode = 0;
+    public static int errorPoint;
     void Update()
     {
+        pointCode = errorPoint;
         Universe uni = UniverseGenerator.universe;
 
         if (pointCode != temp)
