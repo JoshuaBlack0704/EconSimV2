@@ -167,6 +167,11 @@ public class Ship
         currentSystemId = targetSystemJump.Id;
         FlyToNextTarget();
     }
+
+    public void WarpToWayPointIndex()
+    {
+
+    }
     /// <summary>
     /// We set our position to our target, 
     /// set our vector to zero, 

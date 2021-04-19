@@ -26,6 +26,7 @@ public class MainSchedual : MonoBehaviour
         private int heapIndex;
         public int HeapIndex { get { return heapIndex; } set { heapIndex = value; } }
 
+
         public int CompareTo(EventTicketHeapItem other)
         {
             int compare = 1;
@@ -42,6 +43,7 @@ public class MainSchedual : MonoBehaviour
     }
     private static Heap<EventTicketHeapItem> schedualHeap;
     private static List<EventTicketHeapItem> ticketPool;
+    public static OOSSystem OOSSystem;
     private static int currentTicketIndex = 0;
     internal static int maxTicketId = 0;
     /// <summary>
@@ -76,6 +78,11 @@ public class MainSchedual : MonoBehaviour
         }
 
         schedualHeap.Add(selectedTicket);
+    }
+
+    public static void PlanEvent<T>(T item, int type)
+    {
+        
     }
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
     internal static int currentSelectedTicketIndex = 0;
@@ -137,6 +144,7 @@ public class MainSchedual : MonoBehaviour
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
         timeMultiplier = 1;
+        OOSSystem = new OOSSystem();
     }
 
     // Update is called once per frame
