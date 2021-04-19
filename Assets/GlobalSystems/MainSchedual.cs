@@ -11,7 +11,9 @@ public class MainSchedual : MonoBehaviour
     public static float masterDeltaTime;
     [Range(0, 100)]
     public float timeMultiplier = 1;
+    public bool autoTimMultiplierAdjust;
     public int ticketsProcessed;
+    public int ticketsProcessedLastFrame;
 
     public class EventTicketHeapItem: IHeapItem<EventTicketHeapItem>
     {
@@ -126,6 +128,7 @@ public class MainSchedual : MonoBehaviour
 
             ticketsProcessed++;
         }
+        ticketsProcessedLastFrame = currentSelectedTicketIndex;
         currentSelectedTicketIndex = 0;
     }
     // Start is called before the first frame update
@@ -139,6 +142,26 @@ public class MainSchedual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Need to implement
+        if (autoTimMultiplierAdjust)
+        {
+            if (Time.deltaTime > .016f)
+            {
+                var dist = Mathf.Abs(.016f - Time.deltaTime);
+                
+                float result = 1 - Mathf.Clamp(Mathf.Sqrt(dist), 0, 1);
+
+                timeMultiplier = Mathf.Lerp(0, 1f, result);
+
+            }
+            else if (Time.deltaTime < .016 && timeMultiplier < 1)
+            {
+                timeMultiplier = Mathf.Lerp(timeMultiplier, 1, .05f);
+            }
+        }
+        
+        
+        
         currentTime = masterTime;
         if (pauseTime)
         {

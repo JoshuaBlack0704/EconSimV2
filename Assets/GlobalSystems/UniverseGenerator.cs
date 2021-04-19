@@ -21,13 +21,13 @@ public class UniverseGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //foreach (var point in universe.masterPointsDatabase.Values)
-        //{
-        //    foreach (var con in point.Connections)
-        //    {
-        //        Gizmos.DrawLine(point.Position, con.Position);
-        //    }
-        //}
+        if (universe.inSystem)
+        {
+            foreach (var connection in universe.systemWorks.GetSystem(universe.selectedSystem).connections.Values)
+            {
+                Gizmos.DrawSphere(connection.Position, 1);
+            }
+        }
     }
 
     // Update is called once per frame

@@ -103,7 +103,11 @@ public class Ship
             Debug.LogError("here");
         }
         UniverseSystem currentSystem = masterAI.universe.systemWorks.GetSystem(currentSystemId);
-        var x = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem);
+
+        if (masterAI.universe.inSystem==false)
+        {
+            Debug.DrawLine(targetSystemJump.definingPoint.Position, currentSystem.definingPoint.Position, Color.green);
+        }
         targetSystemJump.containedShips.Add(Id, this);
         if (targetSystemJump.connections.ContainsKey(currentSystemId)!=true)
         {
@@ -128,7 +132,11 @@ public class Ship
                 MonoBehaviour.print("Waypoint step: " + item);
             }
         }
+
+
         Position = targetSystemJump.connections[currentSystemId].Position;
+
+
         currentSystem.containedShips.Remove(Id);
         wayPoints.RemoveAt(wayPoints.Count - 1);
 
@@ -138,7 +146,7 @@ public class Ship
         }
         else if (masterAI.universe.inSystem && targetSystemJump.Id == masterAI.universe.selectedSystem)
         {
-            CreateEntityFor();
+            CreateEntityFor(true);
         }
 
         currentSystemId = targetSystemJump.Id;
@@ -169,14 +177,21 @@ public class Ship
     /// add and set ShipMoveData, 
     /// We set its active entity, 
     /// </summary>
-    public void CreateEntityFor()
+    public void CreateEntityFor(bool newSpawn = false)
     {
         if (activeEntity != Entity.Null)
         {
             Debug.LogError("Entity being made for a ship who already has an active entity");
         }
         Entity shipClone = entityManager.Instantiate(StaticShipData.shipEntityTemplate);
-        entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition() });
+        if (newSpawn)
+        {
+            entityManager.SetComponentData(shipClone, new Translation { Value = Position });
+        }
+        else
+        {
+            entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition() });
+        }
         entityManager.AddComponent<shipCloneTag>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
         entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
@@ -221,7 +236,7 @@ public class Ship
         StaticShipData.count++;
         Position = startPos;
         flyToPosition = Vector3.zero;
-        velocity = UnityEngine.Random.Range(20, 50f);
+        velocity = UnityEngine.Random.Range(10, 30f);
         entityManager = _entityManager;
     }
 
