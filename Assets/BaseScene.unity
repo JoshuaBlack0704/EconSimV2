@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingAiNum: 1
-  startingShipsPerAi: 200000
+  startingShipsPerAi: 100000
 --- !u!4 &790734084
 Transform:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   universeSize: 50
   numberOfSystems: 100
   selectedSystem: 0
-  switchSystemView: 1
+  switchSystemView: 0
 --- !u!4 &1870435491
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AICoordinator : MonoBehaviour
 {
+    [Range(1, 100)]
     public int startingAiNum;
     public int startingShipsPerAi;
     public static Dictionary<int, AI> AIDictionary;
@@ -11,9 +12,10 @@ public class AICoordinator : MonoBehaviour
     void Start()
     {
         AIDictionary = new Dictionary<int, AI>(startingAiNum);
-        for (int i = 0; i < startingAiNum; i++)
+        AIDictionary.Add(0, new AI(UniverseGenerator.universe, 0, startingShipsPerAi, false));
+        for (int i = 1; i < startingAiNum; i++)
         {
-            AIDictionary.Add(i , new AI(UniverseGenerator.universe, 0, startingShipsPerAi, true));
+            AIDictionary.Add(i , new AI(UniverseGenerator.universe, Random.Range(0, UniverseGenerator.universe.maxPointId+1), startingShipsPerAi, false));
         }
     }
 

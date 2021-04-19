@@ -16,6 +16,12 @@ public class SystemWorks : MonoBehaviour
     {
         UniverseSystem newSystem = new UniverseSystem(this, Id, masterUniverse.masterPointsDatabase[Id], numPlanets, numAsteroids);
     }
+
+    /// <summary>
+    /// Will retrive and if needed auto generate a system to return
+    /// </summary>
+    /// <param name="Id">Needed system Id</param>
+    /// <returns>Needed System</returns>
     public UniverseSystem GetSystem(int Id)
     {
         UniverseSystem system;

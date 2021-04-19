@@ -39,7 +39,16 @@ public class Ship
     public Entity activeEntity { get; set; }
     //End Entity Data
 
-    
+    /// <summary>
+    /// We retrive the target system subObjects mastersystem id and position,
+    /// set assigned to true, 
+    /// set the final target position to the target retreived vector 3, 
+    /// if target needs to travel out of system we generate a waypoints list, 
+    /// we then call FlyToNextTarget to kick off its travel:  
+    /// This function only needs a target system subobject and will do all of the rest of the work to get the ship moving, Eventually it will also take a mission type
+    /// </summary>
+    /// <typeparam name="T">The type ob object must inherit ISystemSubObject</typeparam>
+    /// <param name="target">The target System Sub Object</param>
     public void SetTargetAndGo<T>(T target) where T : ISystemSubObject<T>
     {
         assigned = true;
@@ -52,6 +61,12 @@ public class Ship
         FlyToNextTarget();
     }
 
+    /// <summary>
+    /// We decide if the ship is inits target position, 
+    /// set its next fly to position, 
+    /// update its vector, 
+    /// adds it to the main schedual heap, 
+    /// </summary>
     public void FlyToNextTarget()
     {
         if (currentSystemId == targetSystem)
@@ -152,6 +167,13 @@ public class Ship
         currentSystemId = targetSystemJump.Id;
         FlyToNextTarget();
     }
+    /// <summary>
+    /// We set our position to our target, 
+    /// set our vector to zero, 
+    /// set assigned to false, 
+    /// add the ship to its Ai's unassiagned ships list, 
+    /// update its active entity if it has one
+    /// </summary>
     public void ArrivedAtTarget()
     {
         Position = flyToPosition;
@@ -163,6 +185,10 @@ public class Ship
             SetEntityData();
         }
     }
+    /// <summary>
+    /// we use the ships current fly to position and how far the current ticket is from executing to update the ships position
+    /// </summary>
+    /// <returns>ships next vector 3</returns>
     public Vector3 GetNextPosition()
     {
         Position = Vector3.Lerp(Position, flyToPosition, Mathf.InverseLerp(currentTicket.timeAtWrite, currentTicket.timeAtExecute, MainSchedual.masterTime));

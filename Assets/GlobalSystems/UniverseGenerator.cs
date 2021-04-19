@@ -21,13 +21,7 @@ public class UniverseGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (universe.inSystem)
-        {
-            foreach (var connection in universe.systemWorks.GetSystem(universe.selectedSystem).connections.Values)
-            {
-                Gizmos.DrawSphere(connection.Position, 1);
-            }
-        }
+        
     }
 
     // Update is called once per frame
