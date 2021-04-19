@@ -21,11 +21,15 @@ public class SystemWorks : MonoBehaviour
         UniverseSystem system;
         if (systemDatabase.TryGetValue(Id, out system))
         {
-            system = systemDatabase[Id];
+            //system = systemDatabase[Id];
+            if (system.Id != Id)
+            {
+                Debug.LogError("here");
+            }
             return system;
         }
-        int numPlanets = UnityEngine.Random.Range(0, 10);
-        int numAsteroids = UnityEngine.Random.Range(0, 30);
+        int numPlanets = UnityEngine.Random.Range(1, 10);
+        int numAsteroids = UnityEngine.Random.Range(1, 30);
 
         GenerateSystemById(Id, numPlanets, numAsteroids);
         system = systemDatabase[Id];
@@ -120,8 +124,8 @@ public class SystemWorks : MonoBehaviour
             int totAsteroids = 0;
             foreach (var point in masterUniverse.masterPointsDatabase.Values)
             {
-                int numPlanets = UnityEngine.Random.Range(0, 10);
-                int numAsteroids = UnityEngine.Random.Range(0, 30);
+                int numPlanets = UnityEngine.Random.Range(1, 10);
+                int numAsteroids = UnityEngine.Random.Range(1, 30);
                 GenerateSystemById(point.Id, numPlanets, numAsteroids);
                 totPlanets += numPlanets;
                 totAsteroids += numAsteroids;

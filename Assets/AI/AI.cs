@@ -65,16 +65,16 @@ public class AI
         {
             var ship = unassignedShips[i];
             var randType = Random.Range(0, 2);
-            Vector3 randPos = Vector3.zero;
+            //int randSystem = 0;
+            int randSystem = Random.Range(0, universe.masterPointsDatabase.Count);
             if (randType == 0)
             {
-                randPos = universe.systemWorks.GetSystem(ship.currentSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(ship.currentSystem).planets.Length)].position;
+                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)]);
             }
             else if (randType == 1)
             {
-                randPos = universe.systemWorks.GetSystem(ship.currentSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(ship.currentSystem).asteroids.Length)].position;
+                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Length)]);
             }
-            ship.SetTarget(randPos);
         }
         unassignedShips.Clear();
         

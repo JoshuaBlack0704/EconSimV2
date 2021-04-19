@@ -136,6 +136,10 @@ public class Pathfinder
                     candidate.Reset();
                     candidate.runId = currentRunId;
                 }
+                if (systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id])!=true)
+                {
+                    Debug.LogError("here");
+                }
                 //We skip if connection is related to a skipped node
                 if (candidate.isClosed)
                 {
@@ -153,6 +157,10 @@ public class Pathfinder
                 if (heap.Contains(candidate) && totalCost <= candidate.totalCost )
                 {
                     candidate.parent = currentNode.Id;
+                    if (systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                    {
+                        Debug.LogError("here");
+                    }
                     candidate.distFromStart = distToStart;
                     candidate.distToEnd = distToEnd;
 
@@ -162,6 +170,10 @@ public class Pathfinder
                 else if (heap.Contains(candidate) != true)
                 {
                     candidate.parent = currentNode.Id;
+                    if (systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                    {
+                        Debug.LogError("here");
+                    }
                     candidate.distFromStart = distToStart;
                     candidate.distToEnd = distToEnd;
                     
@@ -175,11 +187,18 @@ public class Pathfinder
         }
 
         //We recurse through our path of parents
+        //MonoBehaviour.print("------------");
         while (true)
         {
-            if (true)
+            //onoBehaviour.print(currentNode.parent);
+            
+            if (currentNode.Id == start)
             {
-
+                break;
+            }
+            if (systemWorks.masterUniverse.masterPointsDatabase[currentNode.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id]) != true)
+            {
+                Debug.LogError("here");
             }
             if (path.Count > systemWorks.masterUniverse.masterPointsDatabase.Count)
             {
@@ -195,16 +214,21 @@ public class Pathfinder
             }
             path.Add(currentNode.Id);
             currentNode = PathNodes[currentNode.parent];
-            if (currentNode.parent == start)
+            if (currentNode.parent == start && currentNode.Id != start)
             {
+                //MonoBehaviour.print(currentNode.parent);
+                path.Add(currentNode.Id);
                 //path.Reverse();
                 break;
             }
             
+            
         }
+        //MonoBehaviour.print("------------");
+
 
         //We return the path
-        return path;
+        return new List<int>(path);
         
     }
 

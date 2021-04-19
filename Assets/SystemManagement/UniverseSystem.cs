@@ -84,3 +84,9 @@ public class UniverseSystem : MonoBehaviour
 
     }
 }
+
+public interface ISystemSubObject<T>
+{
+    public UniverseSystem masterSystem { get; set; }
+    public Vector3 position { get; set; }
+}

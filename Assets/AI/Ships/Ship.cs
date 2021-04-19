@@ -10,7 +10,7 @@ public class Ship
 {
     //Identification Data
     public int Id { get; set; }
-    public int currentSystem { get; set; }
+    public int currentSystemId { get; set; }
     public AI masterAI { get; set; }
     public MainSchedual.EventTicketHeapItem currentTicket { get; set; }
     public bool assigned { get; set; }
@@ -40,17 +40,21 @@ public class Ship
     //End Entity Data
 
     
-    public void SetTarget(Vector3 targetPos)
+    public void SetTargetAndGo<T>(T target) where T : ISystemSubObject<T>
     {
         assigned = true;
-        targetSystem = currentSystem;
-        finalTargetPosition = targetPos;
+        targetSystem = target.masterSystem.Id;
+        finalTargetPosition = target.position;
+        if (targetSystem != currentSystemId)
+        {
+            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem);
+        }
         FlyToNextTarget();
     }
 
     public void FlyToNextTarget()
     {
-        if (currentSystem == targetSystem)
+        if (currentSystemId == targetSystem)
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
@@ -62,7 +66,21 @@ public class Ship
         }
         else
         {
-            flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystem).connections[wayPoints[wayPoints.Count - 1]].Position;
+            
+            if (masterAI.universe.systemWorks.GetSystem(currentSystemId).connections.ContainsKey(wayPoints[wayPoints.Count - 1]) != true)
+            {
+                MonoBehaviour.print("Target system: " + targetSystem);
+                MonoBehaviour.print(string.Format("Current System: {0}, next waypoint Step: {1}", currentSystemId, wayPoints[wayPoints.Count - 1]));
+                foreach (var item in masterAI.universe.systemWorks.GetSystem(currentSystemId).connections.Keys)
+                {
+                    MonoBehaviour.print(string.Format("System: {0} contains connection: {1}", currentSystemId, item));
+                }
+                foreach (var step in wayPoints)
+                {
+                    MonoBehaviour.print(string.Format("waypoint step: {0}", step));
+                }
+            }
+            flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystemId).connections[wayPoints[wayPoints.Count - 1]].Position;
             vector = flyToPosition;
             MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, 0, this);
             if (activeEntity != Entity.Null)
@@ -71,9 +89,60 @@ public class Ship
             }
         }
     }
+    /// <summary>
+    /// We exchange data, 
+    /// we set our new position and nav data, 
+    /// destroy or instantiate entity, 
+    /// prepare and execute next flyToPosition, 
+    /// </summary>
     public void WarpNext()
     {
+        UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[wayPoints.Count - 1]);
+        if (targetSystemJump.Id != wayPoints[wayPoints.Count-1])
+        {
+            Debug.LogError("here");
+        }
+        UniverseSystem currentSystem = masterAI.universe.systemWorks.GetSystem(currentSystemId);
+        var x = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem);
+        targetSystemJump.containedShips.Add(Id, this);
+        if (targetSystemJump.connections.ContainsKey(currentSystemId)!=true)
+        {
+            MonoBehaviour.print("current system: " + currentSystemId);
+            MonoBehaviour.print("targetJump system: " + wayPoints[wayPoints.Count-1]);
+            MonoBehaviour.print("Final target system: " + targetSystem);
+            foreach (var item in targetSystemJump.connections.Keys)
+            {
+                MonoBehaviour.print(string.Format("Target system: {0} contains connection to system: {1}", targetSystemJump.Id, item));
+                if (targetSystemJump.Id!=wayPoints[wayPoints.Count-1])
+                {
+                    Debug.LogError("here");
+                }
+            }
+            foreach (var item in currentSystem.connections.Keys)
+            {
+                MonoBehaviour.print(string.Format("current system: {0} contains connection to system: {1}", currentSystemId,item));
 
+            }
+            foreach (var item in wayPoints)
+            {
+                MonoBehaviour.print("Waypoint step: " + item);
+            }
+        }
+        Position = targetSystemJump.connections[currentSystemId].Position;
+        currentSystem.containedShips.Remove(Id);
+        wayPoints.RemoveAt(wayPoints.Count - 1);
+
+        if (masterAI.universe.inSystem && currentSystemId == masterAI.universe.selectedSystem)
+        {
+            DestoryEntityFor();
+        }
+        else if (masterAI.universe.inSystem && targetSystemJump.Id == masterAI.universe.selectedSystem)
+        {
+            CreateEntityFor();
+        }
+
+        currentSystemId = targetSystemJump.Id;
+        FlyToNextTarget();
     }
     public void ArrivedAtTarget()
     {
@@ -147,12 +216,12 @@ public class Ship
         Id = StaticShipData.count;
         masterAI = _masterAI;
         masterAI.universe.systemWorks.GetSystem(startSystem).containedShips.Add(Id, this);
-        currentSystem = startSystem;
+        currentSystemId = startSystem;
         assigned = false;
         StaticShipData.count++;
         Position = startPos;
         flyToPosition = Vector3.zero;
-        velocity = UnityEngine.Random.Range(5, 50f);
+        velocity = UnityEngine.Random.Range(20, 50f);
         entityManager = _entityManager;
     }
 

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asterioid : MonoBehaviour
+public class Asterioid : MonoBehaviour, ISystemSubObject<Asterioid>
 {
-    public UniverseSystem system { get; set; }
+    public UniverseSystem masterSystem { get; set; }
 
     public int Id { get; set; }
     public Vector3 position { get; set; }
@@ -12,7 +12,7 @@ public class Asterioid : MonoBehaviour
     public Asterioid(int _id, UniverseSystem _system, Vector3 _position)
     {
         Id = _id;
-        system = _system;
+        masterSystem = _system;
         position = _position;
     }
 }
