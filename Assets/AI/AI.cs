@@ -42,7 +42,7 @@ public class AI
             {
                 foreach (var connection in connections.Keys)
                 {
-                    if (masterAI.systemsBeingExplored.ContainsKey(connection)!=true && masterAI.systemsToExplore.FirstOrDefault(sys => sys.Id == connection) == null)
+                    if (masterAI.systemsBeingExplored.ContainsKey(connection)!=true && masterAI.systemsToExplore.FirstOrDefault(sys => sys.Id == connection) == null && masterAI.knownSystems.ContainsKey(connection)!=true)
                     {
                         AddUnknownSystemToAI(connection);
                     }
@@ -100,9 +100,26 @@ public class AI
             var systemToExplore = systemsToExplore[systemsToExplore.Count - 1];
             systemsBeingExplored[systemToExplore.Id] = systemToExplore;
 
+
             var ship = unassignedShips[unassignedShips.Count - 1];
+            foreach (var item in unassignedShips)
+            {
+                if (item == ship)
+                {
+                    continue;
+                }
+                var itemPos = universe.systemWorks.GetSystem(item.currentSystemId).definingPoint.Position;
+                var targetPos = systemToExplore.definingPoint.Position;
+                var time = Vector3.Distance(itemPos, targetPos)/item.velocity;
+                var shipPos = universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position;
+                var currentBestTime = Vector3.Distance(targetPos, shipPos)/ship.velocity;
+                if (time<currentBestTime)
+                {
+                    ship = item;
+                }
+            }
             ship.SetTargetAndGo(systemToExplore.star, 2);
-            unassignedShips.RemoveAt(unassignedShips.Count-1);
+            unassignedShips.Remove(ship);
 
 
             systemsToExplore.RemoveAt(systemsToExplore.Count-1);

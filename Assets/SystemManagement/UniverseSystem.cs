@@ -26,7 +26,7 @@ public class UniverseSystem : MonoBehaviour
         Id = _Id;
         definingPoint = heraldPoint;
         connections = new Dictionary<int, ConnectionData>(definingPoint.Connections.Count);
-        size = Random.Range(70, 500f);
+        size = Random.Range(1000, 5000f);
         foreach (var item in definingPoint.Connections)
         {
             connections.Add(item.Id, new ConnectionData() { 

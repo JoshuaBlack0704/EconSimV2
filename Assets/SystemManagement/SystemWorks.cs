@@ -90,8 +90,8 @@ public class SystemWorks : MonoBehaviour
     }
     public void EnterSystem(int Id)
     {
-        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag) } };
-        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
+        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
+        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
         foreach (var entity in entitesToDestroy)
         {
             entityManager.DestroyEntity(entity);
