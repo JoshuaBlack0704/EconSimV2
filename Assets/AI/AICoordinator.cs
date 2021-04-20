@@ -21,16 +21,16 @@ public class AICoordinator : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        //if (showAIExploration && UniverseGenerator.universe.inSystem == false)
-        //{
-        //    foreach (var AI in AIDictionary.Values)
-        //    {
-        //        foreach (var sys in AI.knownSystems.Values)
-        //        {
-        //            Gizmos.DrawSphere(sys.definingPoint.Position, 2);
-        //        }
-        //    }
-        //}
+        if (showAIExploration && UniverseGenerator.universe.inSystem == false)
+        {
+            foreach (var AI in AIDictionary.Values)
+            {
+                foreach (var sys in AI.knownSystems.Values)
+                {
+                    Gizmos.DrawSphere(sys.definingPoint.Position, 2);
+                }
+            }
+        }
     }
     void Update()
     {
