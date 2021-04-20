@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingAiNum: 1
   startingShipsPerAi: 100000
+  showAIExploration: 0
 --- !u!4 &790734084
 Transform:
   m_ObjectHideFlags: 0
@@ -324,6 +325,7 @@ GameObject:
   - component: {fileID: 1675281805}
   - component: {fileID: 1675281810}
   - component: {fileID: 1675281806}
+  - component: {fileID: 1675281811}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -438,6 +440,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a82a85c8af0024c876281e00b10605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1675281811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675281804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9ffad55d0b1914baffe2458dcacac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipCode: 0
 --- !u!1 &1773295249
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,8 +498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   pauseTime: 0
-  timeMultiplier: 0
-  autoTimMultiplierAdjust: 0
+  timeMultiplier: 0.4
+  autoTimMultiplierAdjust: 1
   ticketsProcessed: 0
   ticketsProcessedLastFrame: 0
 --- !u!1 &1870435489
@@ -519,7 +534,7 @@ MonoBehaviour:
   universeSize: 50
   numberOfSystems: 100
   selectedSystem: 0
-  switchSystemView: 0
+  switchSystemView: 1
 --- !u!4 &1870435491
 Transform:
   m_ObjectHideFlags: 0
