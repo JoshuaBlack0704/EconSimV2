@@ -233,7 +233,7 @@ public class Pathfinder
         
     }
 
-    public List<int> GetPathForAi(int start, int end, Dictionary<int, AI.AiSystem> knownSystems, Dictionary<int, AI.AiSystem> unknownSystems, int missionType)
+    public List<int> GetPathForInput(int start, int end, Dictionary<int, AI.AiSystem> knownSystems, Dictionary<int, AI.AiSystem> unknownSystems, int missionType)
     {
         currentRunId++;
         internalPath.Clear();
