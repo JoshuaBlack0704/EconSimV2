@@ -87,11 +87,12 @@ public class SystemWorks : MonoBehaviour
             entityManager.AddComponent(newSystem, typeof(systemCloneTag));
             entityManager.SetComponentData(newSystem, new Translation { Value = system.Position});
         }
+        masterUniverse.inSystem = false;
     }
     public void EnterSystem(int Id)
     {
-        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag) } };
-        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
+        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
+        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
         foreach (var entity in entitesToDestroy)
         {
             entityManager.DestroyEntity(entity);
@@ -125,6 +126,7 @@ public class SystemWorks : MonoBehaviour
         {
             ship.CreateEntityFor();
         }
+        masterUniverse.inSystem = true;
     }
     //End Entity Functions
 

@@ -18,6 +18,12 @@ public class UniverseGenerator : MonoBehaviour
         MonoBehaviour.print("Generation Complete");
     }
 
+    public void ExternalSystemSelector(int id)
+    {
+        selectedSystem = id;
+        universe.selectedSystem = id;
+    }
+
 
     private void OnDrawGizmos()
     {

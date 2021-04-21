@@ -12,9 +12,11 @@ public class Ship
     public int Id { get; set; }
     public int currentSystemId { get; set; }
     public AI masterAI { get; set; }
-    public MainSchedual.EventTicketHeapItem currentTicket { get; set; }
+    public MainSchedual.EventTicketHeapItem currentTicket { get { return _currentTicket; } set { _posAtTicketWrite = Position; _currentTicket = value; } }
+    private MainSchedual.EventTicketHeapItem _currentTicket;
     public bool assigned { get; set; }
     public int missionType;
+    private Vector3 _posAtTicketWrite;
     //End Identification Data
 
     //Navigation Data
@@ -206,7 +208,7 @@ public class Ship
     /// <returns>ships next vector 3</returns>
     public Vector3 GetNextPosition()
     {
-        Position = Vector3.Lerp(Position, flyToPosition, Mathf.InverseLerp(currentTicket.timeAtWrite, currentTicket.timeAtExecute, MainSchedual.masterTime));
+        Position = _posAtTicketWrite+vector*velocity*(MainSchedual.masterTime-currentTicket.timeAtWrite);
         return Position;
     }
 
