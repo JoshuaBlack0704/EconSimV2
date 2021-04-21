@@ -1,10 +1,8 @@
+using System.Collections.Generic;
 using Unity.Entities;
+using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.Burst;
 
 public class Ship
 {
@@ -12,8 +10,11 @@ public class Ship
     public int Id { get; set; }
     public int currentSystemId { get; set; }
     public AI masterAI { get; set; }
-    public MainSchedual.EventTicketHeapItem currentTicket { get; set; }
+    public MainSchedual.EventTicketHeapItem currentTicket { get { return _currentTicket; } set { _posAtTicketWrite = Position; _currentTicket = value; } }
+    private MainSchedual.EventTicketHeapItem _currentTicket;
+    private Vector3 _posAtTicketWrite;
     public bool assigned { get; set; }
+    public int missionType;
     //End Identification Data
 
     //Navigation Data
@@ -49,14 +50,15 @@ public class Ship
     /// </summary>
     /// <typeparam name="T">The type ob object must inherit ISystemSubObject</typeparam>
     /// <param name="target">The target System Sub Object</param>
-    public void SetTargetAndGo<T>(T target) where T : ISystemSubObject<T>
+    public void SetTargetAndGo<T>(T target, int _missionType) where T : ISystemSubObject<T>
     {
         assigned = true;
+        missionType = _missionType;
         targetSystem = target.masterSystem.Id;
         finalTargetPosition = target.position;
         if (targetSystem != currentSystemId)
         {
-            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem);
+            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, this);
         }
         FlyToNextTarget();
     }
@@ -73,7 +75,7 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, 1, this);
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, missionType, this);
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -190,13 +192,26 @@ public class Ship
             SetEntityData();
         }
     }
+
+    public void ExploreSystem()
+    {
+        Position = flyToPosition;
+        vector = Position;
+        assigned = false;
+        masterAI.unassignedShips.Add(this);
+        if (activeEntity != Entity.Null)
+        {
+            SetEntityData();
+        }
+        masterAI.systemsBeingExplored[currentSystemId].ExploreSystem();
+    }
     /// <summary>
     /// we use the ships current fly to position and how far the current ticket is from executing to update the ships position
     /// </summary>
     /// <returns>ships next vector 3</returns>
     public Vector3 GetNextPosition()
     {
-        Position = Vector3.Lerp(Position, flyToPosition, Mathf.InverseLerp(currentTicket.timeAtWrite, currentTicket.timeAtExecute, MainSchedual.masterTime));
+        Position = _posAtTicketWrite+vector*velocity*(MainSchedual.masterTime-currentTicket.timeAtWrite);
         return Position;
     }
 
@@ -223,9 +238,10 @@ public class Ship
         {
             entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition() });
         }
-        entityManager.AddComponent<shipCloneTag>(shipClone);
+        entityManager.AddComponent<shipCloneId>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
         entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
+        entityManager.SetComponentData(shipClone, new shipCloneId { Id=Id });
         activeEntity = shipClone;
     }
     public void DestoryEntityFor()
@@ -287,21 +303,20 @@ public struct shipMoveData : IComponentData
     public float velocity;
 }
 
-public struct shipCloneTag : IComponentData { }
+public struct shipCloneId : IComponentData { public int Id { get; set; }}
 
 public class ShipAnimator : SystemBase
 {
-    [BurstCompile]
     protected override void OnUpdate()
     {
         float timePassed = MainSchedual.masterDeltaTime;
         if (MainSchedual.notPaused)
         {
-            Entities.WithAll<shipCloneTag>().ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) => {
+            Entities.WithAll<shipCloneId>().ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) => {
 
-                position.Value.x = position.Value.x + (moveData.vector.x * moveData.velocity * timePassed);
-                position.Value.y = position.Value.y + (moveData.vector.y * moveData.velocity * timePassed);
-                position.Value.z = position.Value.z + (moveData.vector.z * moveData.velocity * timePassed);
+                position.Value.x += (moveData.vector.x * moveData.velocity * timePassed);
+                position.Value.y += (moveData.vector.y * moveData.velocity * timePassed);
+                position.Value.z += (moveData.vector.z * moveData.velocity * timePassed);
                 rotation = new Rotation() { Value = quaternion.LookRotationSafe(moveData.vector, math.up()) };
 
             }).ScheduleParallel();

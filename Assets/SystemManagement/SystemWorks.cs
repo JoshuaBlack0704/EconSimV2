@@ -12,9 +12,11 @@ public class SystemWorks : MonoBehaviour
     public Universe masterUniverse { get; set; }
     public Pathfinder pathFinder;
     private Dictionary<int, UniverseSystem> systemDatabase { get; set; }
-    public void GenerateSystemById(int Id, int numPlanets, int numAsteroids)
+    public UniverseSystem GenerateSystemById(int Id, int numPlanets, int numAsteroids)
     {
         UniverseSystem newSystem = new UniverseSystem(this, Id, masterUniverse.masterPointsDatabase[Id], numPlanets, numAsteroids);
+
+        return newSystem;
     }
 
     /// <summary>
@@ -36,20 +38,23 @@ public class SystemWorks : MonoBehaviour
         }
         int numPlanets = UnityEngine.Random.Range(1, 10);
         int numAsteroids = UnityEngine.Random.Range(1, 30);
-
-        GenerateSystemById(Id, numPlanets, numAsteroids);
-        system = systemDatabase[Id];
-
-
-        return system;
+        return GenerateSystemById(Id, numPlanets, numAsteroids);
     }
     public void SetSystem(int Id, UniverseSystem system)
     {
         systemDatabase[Id] = system;
     }
-    public List<int> GetPath(int start, int end)
+    public List<int> GetPath(int start, int end, Ship ship = null)
     {
-        return pathFinder.GetPath(start, end, true);
+        if (ship==null)
+        {
+            return pathFinder.GetPath(start, end);
+
+        }
+        else
+        {
+            return pathFinder.GetPathForInput(start, end, ship.masterAI.knownSystems, ship.masterAI.systemsBeingExplored, ship.missionType);
+        }
         //return pathFinder.FindBestPath(start, end, masterUniverse.masterPointsDatabase);
     }
 
@@ -79,11 +84,12 @@ public class SystemWorks : MonoBehaviour
             entityManager.AddComponent(newSystem, typeof(systemCloneTag));
             entityManager.SetComponentData(newSystem, new Translation { Value = system.Position});
         }
+        masterUniverse.inSystem = false;
     }
     public void EnterSystem(int Id)
     {
-        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag) } };
-        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
+        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
+        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
         foreach (var entity in entitesToDestroy)
         {
             entityManager.DestroyEntity(entity);
@@ -117,6 +123,7 @@ public class SystemWorks : MonoBehaviour
         {
             ship.CreateEntityFor();
         }
+        masterUniverse.inSystem = true;
     }
     //End Entity Functions
 

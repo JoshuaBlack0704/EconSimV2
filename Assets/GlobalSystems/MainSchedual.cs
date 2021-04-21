@@ -9,7 +9,7 @@ public class MainSchedual : MonoBehaviour
     public static bool notPaused;
     public static float masterTime;
     public static float masterDeltaTime;
-    [Range(0, 100)]
+    [Range(0f, 100f)]
     public float timeMultiplier = 1;
     public bool autoTimMultiplierAdjust;
     public int ticketsProcessed;
@@ -113,6 +113,10 @@ public class MainSchedual : MonoBehaviour
             {
                 selectedTicket.shipReference.ArrivedAtTarget();
             }
+            if (selectedTicket.type == 2)
+            {
+                selectedTicket.shipReference.ExploreSystem();
+            }
 
 
 
@@ -157,7 +161,7 @@ public class MainSchedual : MonoBehaviour
             {
                 var dist = Mathf.Abs(.016f - Time.deltaTime);
                 
-                float result = 1 - Mathf.Clamp(Mathf.Sqrt(dist), 0, 1);
+                float result = 1 - Mathf.Clamp(Mathf.Sqrt(dist)*3, 0, .95f);
 
                 timeMultiplier = Mathf.Lerp(0, 1f, result);
 

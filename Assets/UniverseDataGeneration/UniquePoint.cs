@@ -55,7 +55,7 @@ public class UniquePoint : IKDItem<UniquePoint>, IOctTreeItem<UniquePoint>
     /// <param name="whatToCompareTo"></param>
     /// <param name="dimensionIndex"></param>
     /// <returns></returns>
-    public int CompareToUnique(UniquePoint whatToCompareTo, int dimensionIndex)
+    public int CompareToWithIndex(UniquePoint whatToCompareTo, int dimensionIndex)
     {
 
         //This Methode returns -1 for less than, 0 for equal to, 1 for greater than, and 2 for non-unique

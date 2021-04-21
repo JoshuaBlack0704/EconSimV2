@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class AI
 {
@@ -36,19 +37,26 @@ public class AI
         {
             planets = masterSystem.planets;
             asteroids = masterSystem.asteroids;
+            masterAI.knownSystems[Id] = this;
             if (addUnknowns)
             {
                 foreach (var connection in connections.Keys)
                 {
-                    AddUnknownSystemToAI(connection);
+                    if (masterAI.systemsBeingExplored.ContainsKey(connection)!=true && masterAI.systemsToExplore.FirstOrDefault(sys => sys.Id == connection) == null && masterAI.knownSystems.ContainsKey(connection)!=true)
+                    {
+                        AddUnknownSystemToAI(connection);
+                    }
                 }
             }
-            
+            if (masterAI.systemsBeingExplored.ContainsKey(Id))
+            {
+                masterAI.systemsBeingExplored.Remove(Id);
+            }
         }
 
         public void AddUnknownSystemToAI(int conId)
         {
-            masterAI.unknownSystems.Add(conId, new AiSystem(masterAI, masterSystem.systemWorks.GetSystem(conId)));
+            masterAI.systemsToExplore.Add(new AiSystem(masterAI, masterSystem.systemWorks.GetSystem(conId)));
         }
     }
     public int Id { get; set; }
@@ -56,27 +64,72 @@ public class AI
     public Dictionary<int, Ship> ownedShips { get; set; }
     public List<Ship> unassignedShips { get; set; }
     public Dictionary<int, AiSystem> knownSystems { get; set; }
-    public Dictionary<int, AiSystem> unknownSystems { get; set; }
-    public List<AiSystem> systemsBeingExplored { get; set; }
+    public Dictionary<int, AiSystem> systemsBeingExplored { get; set; }
+    public List<AiSystem> systemsToExplore { get; set; }
 
-    public void MasterCall()
+    public void RandomAssignShips()
     {
         for (int i = 0; i < unassignedShips.Count; i++)
         {
             var ship = unassignedShips[i];
             var randType = Random.Range(0, 2);
             //int randSystem = 0;
-            int randSystem = Random.Range(0, universe.masterPointsDatabase.Count);
+            var keys = knownSystems.Keys.ToArray();
+            int randSystem = keys[Random.Range(0, keys.Length-1)];
             if (randType == 0)
             {
-                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)]);
+                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)], 1);
             }
             else if (randType == 1)
             {
-                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Length)]);
+                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Length)], 1);
             }
         }
         unassignedShips.Clear();
+
+    }
+
+    public void RandomExploreShips()
+    {
+        while (unassignedShips.Count>0)
+        {
+            if (systemsToExplore.Count == 0)
+            {
+                break;
+            }
+            var systemToExplore = systemsToExplore[systemsToExplore.Count - 1];
+            systemsBeingExplored[systemToExplore.Id] = systemToExplore;
+
+
+            var ship = unassignedShips[unassignedShips.Count - 1];
+            foreach (var item in unassignedShips)
+            {
+                if (item == ship)
+                {
+                    continue;
+                }
+                var itemPos = universe.systemWorks.GetSystem(item.currentSystemId).definingPoint.Position;
+                var targetPos = systemToExplore.definingPoint.Position;
+                var time = Vector3.Distance(itemPos, targetPos)/item.velocity;
+                var shipPos = universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position;
+                var currentBestTime = Vector3.Distance(targetPos, shipPos)/ship.velocity;
+                if (time<currentBestTime)
+                {
+                    ship = item;
+                }
+            }
+            ship.SetTargetAndGo(systemToExplore.star, 2);
+            unassignedShips.Remove(ship);
+
+
+            systemsToExplore.RemoveAt(systemsToExplore.Count-1);
+            
+        }
+    }
+    public void MasterCall()
+    {
+        RandomExploreShips();
+        RandomAssignShips();
         
     }
 
@@ -89,8 +142,8 @@ public class AI
         ownedShips = new Dictionary<int, Ship>();
         unassignedShips = new List<Ship>();
         knownSystems = new Dictionary<int, AiSystem>();
-        unknownSystems = new Dictionary<int, AiSystem>();
-        systemsBeingExplored = new List<AiSystem>();
+        systemsBeingExplored = new Dictionary<int, AiSystem>();
+        systemsToExplore = new List<AiSystem>();
         //Build ai system data base
         if (exploredAllSystems)
         {
