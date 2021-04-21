@@ -12,9 +12,11 @@ public class SystemWorks : MonoBehaviour
     public Universe masterUniverse { get; set; }
     public Pathfinder pathFinder;
     private Dictionary<int, UniverseSystem> systemDatabase { get; set; }
-    public void GenerateSystemById(int Id, int numPlanets, int numAsteroids)
+    public UniverseSystem GenerateSystemById(int Id, int numPlanets, int numAsteroids)
     {
         UniverseSystem newSystem = new UniverseSystem(this, Id, masterUniverse.masterPointsDatabase[Id], numPlanets, numAsteroids);
+
+        return newSystem;
     }
 
     /// <summary>
@@ -36,27 +38,22 @@ public class SystemWorks : MonoBehaviour
         }
         int numPlanets = UnityEngine.Random.Range(1, 10);
         int numAsteroids = UnityEngine.Random.Range(1, 30);
-
-        GenerateSystemById(Id, numPlanets, numAsteroids);
-        system = systemDatabase[Id];
-
-
-        return system;
+        return GenerateSystemById(Id, numPlanets, numAsteroids);
     }
     public void SetSystem(int Id, UniverseSystem system)
     {
         systemDatabase[Id] = system;
     }
-    public List<int> GetPath(int start, int end, Dictionary<int, AI.AiSystem> inputAiKnownSystems = null, Dictionary<int, AI.AiSystem> inputUnknownSystems = null, int missionType = 0)
+    public List<int> GetPath(int start, int end, Ship ship = null)
     {
-        if (inputAiKnownSystems==null)
+        if (ship==null)
         {
             return pathFinder.GetPath(start, end);
 
         }
         else
         {
-            return pathFinder.GetPathForAi(start, end, inputAiKnownSystems, inputUnknownSystems, missionType);
+            return pathFinder.GetPathForInput(start, end, ship.masterAI.knownSystems, ship.masterAI.systemsBeingExplored, ship.missionType);
         }
         //return pathFinder.FindBestPath(start, end, masterUniverse.masterPointsDatabase);
     }

@@ -1,10 +1,8 @@
+using System.Collections.Generic;
 using Unity.Entities;
+using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.Burst;
 
 public class Ship
 {
@@ -14,9 +12,9 @@ public class Ship
     public AI masterAI { get; set; }
     public MainSchedual.EventTicketHeapItem currentTicket { get { return _currentTicket; } set { _posAtTicketWrite = Position; _currentTicket = value; } }
     private MainSchedual.EventTicketHeapItem _currentTicket;
+    private Vector3 _posAtTicketWrite;
     public bool assigned { get; set; }
     public int missionType;
-    private Vector3 _posAtTicketWrite;
     //End Identification Data
 
     //Navigation Data
@@ -60,7 +58,7 @@ public class Ship
         finalTargetPosition = target.position;
         if (targetSystem != currentSystemId)
         {
-            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, masterAI.knownSystems, masterAI.systemsBeingExplored, missionType);
+            wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, this);
         }
         FlyToNextTarget();
     }
@@ -235,9 +233,10 @@ public class Ship
         {
             entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition() });
         }
-        entityManager.AddComponent<shipCloneTag>(shipClone);
+        entityManager.AddComponent<shipCloneId>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
         entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
+        entityManager.SetComponentData(shipClone, new shipCloneId { Id=Id });
         activeEntity = shipClone;
     }
     public void DestoryEntityFor()
@@ -299,21 +298,20 @@ public struct shipMoveData : IComponentData
     public float velocity;
 }
 
-public struct shipCloneTag : IComponentData { }
+public struct shipCloneId : IComponentData { public int Id { get; set; }}
 
 public class ShipAnimator : SystemBase
 {
-    [BurstCompile]
     protected override void OnUpdate()
     {
         float timePassed = MainSchedual.masterDeltaTime;
         if (MainSchedual.notPaused)
         {
-            Entities.WithAll<shipCloneTag>().ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) => {
+            Entities.WithAll<shipCloneId>().ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) => {
 
-                position.Value.x = position.Value.x + (moveData.vector.x * moveData.velocity * timePassed);
-                position.Value.y = position.Value.y + (moveData.vector.y * moveData.velocity * timePassed);
-                position.Value.z = position.Value.z + (moveData.vector.z * moveData.velocity * timePassed);
+                position.Value.x += (moveData.vector.x * moveData.velocity * timePassed);
+                position.Value.y += (moveData.vector.y * moveData.velocity * timePassed);
+                position.Value.z += (moveData.vector.z * moveData.velocity * timePassed);
                 rotation = new Rotation() { Value = quaternion.LookRotationSafe(moveData.vector, math.up()) };
 
             }).ScheduleParallel();
