@@ -10,8 +10,7 @@ public class TargetMover : MonoBehaviour
         var targetPos = UniverseGenerator.universe.masterPointsDatabase[UniverseGenerator.universe.selectedSystem].Position;
 
 
-        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, targetPos, Time.deltaTime);
+        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, targetPos+new Vector3(0,1,0), Time.deltaTime);
 
-        gameObject.transform.LookAt(GameObject.Find("Main Camera").transform.position);
     }
 }

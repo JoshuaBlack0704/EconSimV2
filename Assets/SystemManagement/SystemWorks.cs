@@ -87,6 +87,7 @@ public class SystemWorks : MonoBehaviour
             entityManager.AddComponent(newSystem, typeof(systemCloneTag));
             entityManager.SetComponentData(newSystem, new Translation { Value = system.Position});
         }
+        masterUniverse.inSystem = false;
     }
     public void EnterSystem(int Id)
     {
@@ -125,6 +126,7 @@ public class SystemWorks : MonoBehaviour
         {
             ship.CreateEntityFor();
         }
+        masterUniverse.inSystem = true;
     }
     //End Entity Functions
 

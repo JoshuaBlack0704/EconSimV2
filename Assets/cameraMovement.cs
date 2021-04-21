@@ -23,17 +23,17 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var target = GameObject.Find("Target");
+        var target = GameObject.Find("TargetCone");
 
         Universe uni = UniverseGenerator.universe;
 
         if (uni.inSystem)
         {
-            target.GetComponent<Renderer>().enabled = false;
+            target.GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
-            target.GetComponent<Renderer>().enabled = true;
+            target.GetComponent<MeshRenderer>().enabled = true;
         }
 
         if (followAShipWithCode&&uni.inSystem==true)

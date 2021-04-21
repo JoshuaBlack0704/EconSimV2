@@ -7,12 +7,12 @@ public class FollowShip
     public int ShipCode;
     public int AICode;
 
-    Vector3 GetShipCoords()
+    Vector3 GetShipCoords(GameObject gameObject)
     {
         var selectAI = AICoordinator.AIDictionary[AICode];
         Ship ship = selectAI.ownedShips[ShipCode];
 
-        return ship.GetNextPosition();
+        return (ship.GetNextPosition()-ship.vector*2)+Vector3.Cross(ship.GetNextPosition(), (ship.GetNextPosition() - ship.vector * 2)).normalized;
     }
     Quaternion GetShipRotation()
     {
@@ -26,8 +26,8 @@ public class FollowShip
     {
         ShipCode = shipCode;
         AICode = AiCode;
-        gameObject.transform.position = GetShipCoords();
-        gameObject.transform.rotation = GetShipRotation();
+        gameObject.transform.position = GetShipCoords(gameObject);
+        gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, GetShipRotation(), .02f);
     }
 
     void CheckSystem()
@@ -37,8 +37,9 @@ public class FollowShip
 
         if (ship.currentSystemId!=UniverseGenerator.universe.selectedSystem)
         {
-            UniverseGenerator.universe.selectedSystem = ship.currentSystemId;
+            MonoBehaviour.print("FollowShip changing Pos");
             UniverseGenerator.universe.systemWorks.EnterUniverse();
+            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(ship.currentSystemId);
             UniverseGenerator.universe.systemWorks.EnterSystem(ship.currentSystemId);
         }
     }
