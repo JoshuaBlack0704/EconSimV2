@@ -17,47 +17,51 @@ public class OOSSystem
     {
         public int Id;
         public bool isSimulated;
-        public Dictionary<int, OOSTravelTicket> travelTickets;
-
-        public void Simulate()
-        {
-
-        }
-        public void StopSimulation()
-        {
-
-        }
+        public List<OOSTravelTicket> travelTickets;
 
         public OOSContainer(int _Id)
         {
             Id = _Id;
             isSimulated = false;
-            travelTickets = new Dictionary<int, OOSTravelTicket>();
+            travelTickets = new List<OOSTravelTicket>();
         }
     }
-    internal Dictionary<int, OOSContainer> OOSContainers;
-    List<float> timeSteps;
 
-    public void PlanAndSchedualRoute(Ship ship)
+
+    internal Dictionary<int, OOSContainer> OOSContainers;
+
+    public bool PlanAndSchedualRoute(Ship ship)
     {
-        //Initialization
-        int timeStepsIndexNext = ship.wayPoints.Count-1;
-        while (timeSteps.Count < ship.wayPoints.Count+1)
+        
+        float currentTime = MainSchedual.masterTime;
+        bool shipEntersOOS = false;
+        //We call this function on a ships WarpNext
+        if (OOSContainers[ship.wayPoints[ship.wayPoints.Count-1]].isSimulated)
         {
-            timeSteps.Add(0);
+            return shipEntersOOS;
+        }
+        else
+        {
+            shipEntersOOS = true;
         }
 
-        //Adding time until first warp
-        UniverseSystem system = ship.masterAI.universe.systemWorks.GetSystem(ship.currentSystemId);
-        var nextPos = system.connections[ship.wayPoints[ship.wayPoints.Count - 1]].Position;
-        var distance = Vector3.Distance(ship.Position, nextPos);
-        int timeStepsIndex = 0;
-        timeSteps[timeStepsIndex] = (distance/ship.velocity)+MainSchedual.masterTime;
-        
+        if (ship.wayPoints.Count-1==0)
+        {
+            return false;
+        }
         //Going through waypoints
         for (int i = ship.wayPoints.Count-1; i >= 1; i--)
         {
+            //if we've hit a simulated system we set a ticket with a type 3 which executes a WarpToWaypointIndex method upon executing
+            if (OOSContainers[ship.wayPoints[i]].isSimulated)
+            {
+                MainSchedual.AddToHeap(currentTime, 3, ship);
+                ship.currentTicket.wayPointJumpIndex = i;
+                return shipEntersOOS;
+            }
             
+
+            //We set up our next step
             int previousStepCode = 0;
             if (i+1>ship.wayPoints.Count-1)
             {
@@ -69,17 +73,66 @@ public class OOSSystem
             }
             int stepCode = ship.wayPoints[i];
             int nextStepCode = ship.wayPoints[i - 1];
+
             UniverseSystem systemNext = ship.masterAI.universe.systemWorks.GetSystem(stepCode);
-            var spawn = systemNext.connections[previousStepCode].Position;
-            var target = systemNext.connections[nextStepCode].Position;
-            var distanceNext = Vector3.Distance(target, spawn);
-            timeSteps[i-1] = (distanceNext / ship.velocity)+timeSteps[i];
+            var distance = systemNext.connections[previousStepCode].connectionDistances[nextStepCode];
+            float time = distance / ship.velocity;
+
+            OOSContainers[systemNext.Id].travelTickets.Add(new OOSTravelTicket() 
+            { 
+                Id = ship.Id,
+                shipReference = ship,
+                timeAtArrival = currentTime,
+                timeAtDeparture = currentTime + time,
+                waypointIndex = i
+            });
+
+            currentTime += time;
+
+            if (i-1==0)
+            {
+                MainSchedual.AddToHeap(currentTime, 3, ship);
+                ship.currentTicket.wayPointJumpIndex = 0;
+                return shipEntersOOS;
+            }
+
         }
 
-        for (int i = timeStepsIndex;i >= 0; i--)
+        return shipEntersOOS;
+
+    }
+
+    public void SimulateSystem(int Id)
+    {
+        var container = OOSContainers[Id];
+        container.isSimulated = true;
+        foreach (var ticket in container.travelTickets)
         {
-            var container = OOSContainers[ship.wayPoints[i]];
+            if (ticket.timeAtArrival<=MainSchedual.masterTime&&ticket.timeAtDeparture>MainSchedual.masterTime)
+            {
+                Ship ship = ticket.shipReference;
+                UniverseSystem system = ship.masterAI.universe.systemWorks.GetSystem(Id);
+
+                Vector3 target = system.connections[ship.wayPoints[ticket.waypointIndex - 1]].Position;
+                Vector3 origin = ship.wayPoints.Count-1==ticket.waypointIndex ? system.connections[ship.currentSystemId].Position : system.connections[ship.wayPoints[ticket.waypointIndex + 1]].Position;
+
+                Vector3 pos = Vector3.Lerp(origin, target, Mathf.InverseLerp(ticket.timeAtArrival, ticket.timeAtDeparture, MainSchedual.masterTime));
+
+                ship.WarpToWayPointIndex(ticket.waypointIndex, true, pos);
+                ticket.shipReference.GetNextPosition();
+            }
+            else if (ticket.timeAtArrival>MainSchedual.masterTime)
+            {
+                MainSchedual.AddToHeap(ticket.timeAtArrival, 3, ticket.shipReference);
+            }
         }
+        container.travelTickets.Clear();
+
+    }
+
+    public void StopSimulatingSystem(int Id)
+    {
+        OOSContainers[Id].isSimulated = false;
     }
 
     public OOSSystem()
@@ -88,7 +141,11 @@ public class OOSSystem
         for (int i = 0; i <= UniverseGenerator.universe.maxPointId; i++)
         {
             OOSContainers[i] = new OOSContainer(i);
+            OOSContainers[i].isSimulated = false;
+            if (i == UniverseGenerator.universe.selectedSystem)
+            {
+                //OOSContainers[i].isSimulated = true;
+            }
         }
-        timeSteps = new List<float>();
     }
 }

@@ -114,6 +114,18 @@ public class Ship
     /// </summary>
     public void WarpNext()
     {
+        if (MainSchedual.OOSSystem.PlanAndSchedualRoute(this))
+        {
+            if (masterAI.universe.inSystem && currentSystemId == masterAI.universe.selectedSystem)
+            {
+                DestoryEntityFor();
+            }
+            if (GameObject.Find("Main Camera").GetComponent<cameraMovement>().followAShipWithCode && UniverseGenerator.universe.inSystem)
+            {
+                GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(wayPoints[wayPoints.Count - 1]);
+            }
+            return;
+        }
         UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[wayPoints.Count - 1]);
         if (targetSystemJump.Id != wayPoints[wayPoints.Count-1])
         {
@@ -125,7 +137,9 @@ public class Ship
         {
             Debug.DrawLine(targetSystemJump.definingPoint.Position, currentSystem.definingPoint.Position, Color.green);
         }
+
         targetSystemJump.containedShips.Add(Id, this);
+
         if (targetSystemJump.connections.ContainsKey(currentSystemId)!=true)
         {
             MonoBehaviour.print("current system: " + currentSystemId);
@@ -155,7 +169,6 @@ public class Ship
 
 
         currentSystem.containedShips.Remove(Id);
-        wayPoints.RemoveAt(wayPoints.Count - 1);
 
         if (masterAI.universe.inSystem && currentSystemId == masterAI.universe.selectedSystem)
         {
@@ -167,12 +180,75 @@ public class Ship
         }
 
         currentSystemId = targetSystemJump.Id;
+        wayPoints.RemoveAt(wayPoints.Count - 1);
         FlyToNextTarget();
     }
 
-    public void WarpToWayPointIndex()
+    public void WarpToWayPointIndex(int index, bool useIntermidiate, Vector3 intermidiatePos)
     {
+        UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[index]);
+        UniverseSystem currentSystem;
+        if (index+1>wayPoints.Count-1)
+        {
+            currentSystem = masterAI.universe.systemWorks.GetSystem(currentSystemId);
 
+        }
+        else
+        {
+            currentSystem = masterAI.universe.systemWorks.GetSystem(wayPoints[index + 1]);
+        }
+
+        if (masterAI.universe.inSystem == false)
+        {
+            Debug.DrawLine(targetSystemJump.definingPoint.Position, masterAI.universe.systemWorks.GetSystem(currentSystemId).definingPoint.Position, Color.green);
+        }
+
+        targetSystemJump.containedShips.Add(Id, this);
+
+        if (targetSystemJump.connections.ContainsKey(currentSystem.Id) != true)
+        {
+            MonoBehaviour.print("current system: " + currentSystemId);
+            MonoBehaviour.print("targetJump system: " + wayPoints[wayPoints.Count - 1]);
+            MonoBehaviour.print("Final target system: " + targetSystem);
+            foreach (var item in targetSystemJump.connections.Keys)
+            {
+                MonoBehaviour.print(string.Format("Target system: {0} contains connection to system: {1}", targetSystemJump.Id, item));
+                if (targetSystemJump.Id != wayPoints[wayPoints.Count - 1])
+                {
+                    Debug.LogError("here");
+                }
+            }
+            foreach (var item in currentSystem.connections.Keys)
+            {
+                MonoBehaviour.print(string.Format("current system: {0} contains connection to system: {1}", currentSystemId, item));
+
+            }
+            foreach (var item in wayPoints)
+            {
+                MonoBehaviour.print("Waypoint step: " + item);
+            }
+        }
+
+        if (useIntermidiate)
+        {
+            Position = intermidiatePos;
+        }
+        else
+        {
+            Position = targetSystemJump.connections[currentSystem.Id].Position;
+        }
+
+
+        masterAI.universe.systemWorks.GetSystem(currentSystemId).containedShips.Remove(Id);
+
+        if (masterAI.universe.inSystem && targetSystemJump.Id == masterAI.universe.selectedSystem)
+        {
+            CreateEntityFor(true);
+        }
+
+        currentSystemId = targetSystemJump.Id;
+        wayPoints.RemoveRange(index, (wayPoints.Count)-index);
+        FlyToNextTarget();
     }
     /// <summary>
     /// We set our position to our target, 
@@ -228,6 +304,7 @@ public class Ship
         if (activeEntity != Entity.Null)
         {
             Debug.LogError("Entity being made for a ship who already has an active entity");
+            Debug.LogError(string.Format("current selected system: {0} ship current system: {1} ship cuurent ticket type: {2}", UniverseGenerator.universe.selectedSystem, currentSystemId, currentTicket.type));
         }
         Entity shipClone = entityManager.Instantiate(StaticShipData.shipEntityTemplate);
         if (newSpawn)

@@ -64,6 +64,7 @@ public class SystemWorks : MonoBehaviour
     public EntityManager entityManager;
     public void EnterUniverse()
     {
+        masterUniverse.inSystem = false;
         EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
         
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
@@ -84,10 +85,11 @@ public class SystemWorks : MonoBehaviour
             entityManager.AddComponent(newSystem, typeof(systemCloneTag));
             entityManager.SetComponentData(newSystem, new Translation { Value = system.Position});
         }
-        masterUniverse.inSystem = false;
     }
     public void EnterSystem(int Id)
     {
+        masterUniverse.inSystem = true;
+        GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(Id);
         EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
         foreach (var entity in entitesToDestroy)
@@ -121,9 +123,11 @@ public class SystemWorks : MonoBehaviour
         entityManager.SetComponentData(star, new Translation { Value = system.star.position });
         foreach (var ship in system.containedShips.Values)
         {
-            ship.CreateEntityFor();
+            if (ship.activeEntity==Entity.Null)
+            {
+                ship.CreateEntityFor();
+            }
         }
-        masterUniverse.inSystem = true;
     }
     //End Entity Functions
 

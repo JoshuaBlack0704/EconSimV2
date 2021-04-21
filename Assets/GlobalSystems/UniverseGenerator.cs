@@ -20,8 +20,10 @@ public class UniverseGenerator : MonoBehaviour
 
     public void ExternalSystemSelector(int id)
     {
+        MainSchedual.OOSSystem.StopSimulatingSystem(selectedSystem);
         selectedSystem = id;
         universe.selectedSystem = id;
+        MainSchedual.OOSSystem.SimulateSystem(id);
     }
 
 
@@ -39,7 +41,7 @@ public class UniverseGenerator : MonoBehaviour
         {
             if (universe.inSystem == false)
             {
-                universe.systemWorks.EnterSystem(universe.selectedSystem);
+                universe.systemWorks.EnterSystem(selectedSystem);
                 universe.inSystem = true;
             }
             else

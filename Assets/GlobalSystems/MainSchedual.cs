@@ -19,6 +19,7 @@ public class MainSchedual : MonoBehaviour
     {
         public int Id { get; set; }
         public Ship shipReference { get; set; }
+        public int wayPointJumpIndex { get; set; }
         public float timeAtExecute { get; set; }
         public float timeAtWrite { get; set; }
         public int type { get; set; }
@@ -79,6 +80,10 @@ public class MainSchedual : MonoBehaviour
 
         schedualHeap.Add(selectedTicket);
     }
+    public static void UpdateTicket(EventTicketHeapItem ticket)
+    {
+        schedualHeap.UpdateItem(ticket);
+    }
 
     public static void PlanEvent<T>(T item, int type)
     {
@@ -105,7 +110,7 @@ public class MainSchedual : MonoBehaviour
         {
             EventTicketHeapItem selectedTicket = selectedTickets[i];
 
-            if (selectedTicket.type == 0)
+            if (selectedTicket.type == 0 && selectedTicket.shipReference.currentTicket==selectedTicket)
             {
                 selectedTicket.shipReference.WarpNext();
             }
@@ -116,6 +121,10 @@ public class MainSchedual : MonoBehaviour
             if (selectedTicket.type == 2)
             {
                 selectedTicket.shipReference.ExploreSystem();
+            }
+            if (selectedTicket.type == 3 && selectedTicket.shipReference.currentTicket==selectedTicket)
+            {
+                selectedTicket.shipReference.WarpToWayPointIndex(selectedTicket.wayPointJumpIndex, false, Vector3.zero);
             }
 
 
