@@ -12,6 +12,11 @@ public class OOSSystem
         public float timeAtDeparture;
         public int waypointIndex;
     }
+    internal class OOSSpaceShip
+    {
+        public int Id { get; set; }
+        public Dictionary<int, OOSTravelTicket> outstandingTravelTickets { get; set; }
+    }
 
     internal class OOSContainer
     {
@@ -27,16 +32,25 @@ public class OOSSystem
         }
     }
 
+    void AddOOSTicket(float timeAtActivate, Ship ship, int shipsWaypointIndex)
+    {
+        MainSchedual.AddToHeap(timeAtActivate, 3, ship);
+        ship.currentTicket.wayPointJumpIndex = shipsWaypointIndex;
+    }
 
     internal Dictionary<int, OOSContainer> OOSContainers;
-
+    /// <summary>
+    /// We call this function on a ships WarpNext
+    /// </summary>
+    /// <param name="ship"></param>
+    /// <returns></returns>
     public bool PlanAndSchedualRoute(Ship ship)
     {
-        
+
         float currentTime = MainSchedual.masterTime;
         bool shipEntersOOS = false;
-        //We call this function on a ships WarpNext
-        if (OOSContainers[ship.wayPoints[ship.wayPoints.Count-1]].isSimulated)
+
+        if (OOSContainers[ship.wayPoints[ship.wayPoints.Count-1]].isSimulated || ship.wayPoints.Count - 1 == 0)
         {
             return shipEntersOOS;
         }
@@ -45,18 +59,13 @@ public class OOSSystem
             shipEntersOOS = true;
         }
 
-        if (ship.wayPoints.Count-1==0)
-        {
-            return false;
-        }
         //Going through waypoints
         for (int i = ship.wayPoints.Count-1; i >= 1; i--)
         {
             //if we've hit a simulated system we set a ticket with a type 3 which executes a WarpToWaypointIndex method upon executing
             if (OOSContainers[ship.wayPoints[i]].isSimulated)
             {
-                MainSchedual.AddToHeap(currentTime, 3, ship);
-                ship.currentTicket.wayPointJumpIndex = i;
+                AddOOSTicket(currentTime, ship, i);
                 return shipEntersOOS;
             }
             
@@ -89,43 +98,52 @@ public class OOSSystem
 
             currentTime += time;
 
-            if (i-1==0)
-            {
-                MainSchedual.AddToHeap(currentTime, 3, ship);
-                ship.currentTicket.wayPointJumpIndex = 0;
-                return shipEntersOOS;
-            }
+            
 
         }
+
+        AddOOSTicket(currentTime, ship, 0);
 
         return shipEntersOOS;
 
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Id"></param>
     public void SimulateSystem(int Id)
     {
         var container = OOSContainers[Id];
         container.isSimulated = true;
+        UniverseSystem system = UniverseGenerator.universe.systemWorks.GetSystem(Id);
+
+
         foreach (var ticket in container.travelTickets)
         {
             if (ticket.timeAtArrival<=MainSchedual.masterTime&&ticket.timeAtDeparture>MainSchedual.masterTime)
             {
                 Ship ship = ticket.shipReference;
-                UniverseSystem system = ship.masterAI.universe.systemWorks.GetSystem(Id);
 
                 Vector3 target = system.connections[ship.wayPoints[ticket.waypointIndex - 1]].Position;
                 Vector3 origin = ship.wayPoints.Count-1==ticket.waypointIndex ? system.connections[ship.currentSystemId].Position : system.connections[ship.wayPoints[ticket.waypointIndex + 1]].Position;
-
                 Vector3 pos = Vector3.Lerp(origin, target, Mathf.InverseLerp(ticket.timeAtArrival, ticket.timeAtDeparture, MainSchedual.masterTime));
 
+                if (ship.wayPoints[ticket.waypointIndex]!=Id)
+                {
+                    Debug.LogError("here");
+                }
+
                 ship.WarpToWayPointIndex(ticket.waypointIndex, true, pos);
-                ticket.shipReference.GetNextPosition();
+                //ticket.shipReference.GetNextPosition();
             }
             else if (ticket.timeAtArrival>MainSchedual.masterTime)
             {
-                MainSchedual.AddToHeap(ticket.timeAtArrival, 3, ticket.shipReference);
+                AddOOSTicket(ticket.timeAtArrival, ticket.shipReference, ticket.waypointIndex);
             }
         }
+
+
         container.travelTickets.Clear();
 
     }

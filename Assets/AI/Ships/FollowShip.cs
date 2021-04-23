@@ -39,7 +39,6 @@ public class FollowShip
         {
             MonoBehaviour.print("FollowShip changing Pos");
             UniverseGenerator.universe.systemWorks.EnterUniverse();
-            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(ship.currentSystemId);
             UniverseGenerator.universe.systemWorks.EnterSystem(ship.currentSystemId);
         }
     }

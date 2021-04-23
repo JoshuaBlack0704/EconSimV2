@@ -91,7 +91,7 @@ public class SystemWorks : MonoBehaviour
         masterUniverse.inSystem = true;
         GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(Id);
         EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
-        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
+        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.Temp);
         foreach (var entity in entitesToDestroy)
         {
             entityManager.DestroyEntity(entity);
@@ -121,9 +121,10 @@ public class SystemWorks : MonoBehaviour
         var star = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[3]);
         entityManager.AddComponent(star, typeof(systemSubObjectTag));
         entityManager.SetComponentData(star, new Translation { Value = system.star.position });
+
         foreach (var ship in system.containedShips.Values)
         {
-            if (ship.activeEntity==Entity.Null)
+            if (ship.activeEntity==Entity.Null&&ship.currentTicket.type!=3)
             {
                 ship.CreateEntityFor();
             }

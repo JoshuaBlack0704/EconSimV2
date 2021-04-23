@@ -75,7 +75,7 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, missionType, this);
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, missionType, this);
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -100,6 +100,7 @@ public class Ship
             flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystemId).connections[wayPoints[wayPoints.Count - 1]].Position;
             vector = flyToPosition;
             MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, 0, this);
+            currentTicket.wayPointJumpIndex = wayPoints.Count - 1;
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -184,6 +185,13 @@ public class Ship
         FlyToNextTarget();
     }
 
+
+    /// <summary>
+    /// We 
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="useIntermidiate"></param>
+    /// <param name="intermidiatePos"></param>
     public void WarpToWayPointIndex(int index, bool useIntermidiate, Vector3 intermidiatePos)
     {
         UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[index]);
@@ -301,10 +309,18 @@ public class Ship
     /// </summary>
     public void CreateEntityFor(bool newSpawn = false)
     {
+        
         if (activeEntity != Entity.Null)
         {
-            Debug.LogError("Entity being made for a ship who already has an active entity");
-            Debug.LogError(string.Format("current selected system: {0} ship current system: {1} ship cuurent ticket type: {2}", UniverseGenerator.universe.selectedSystem, currentSystemId, currentTicket.type));
+            Debug.LogError("Entity being made for a ship who already has an active entity, Id: " + Id);
+            Debug.LogError(string.Format("current selected system: {0} ship current system: {1} ship current ticket type: {2}", UniverseGenerator.universe.selectedSystem, currentSystemId, currentTicket.type));
+            Debug.LogError("Ship current ticket info:");
+            Debug.LogError("Id: " + currentTicket.Id);
+            Debug.LogError("ship reference id: " + currentTicket.shipReference.Id);
+            Debug.LogError("waypoint jump index: " + currentTicket.wayPointJumpIndex);
+            Debug.LogError("time at write: " + currentTicket.timeAtWrite);
+            Debug.LogError("time at execute: " + currentTicket.timeAtExecute);
+            Debug.LogError("type: " + currentTicket.type);
         }
         Entity shipClone = entityManager.Instantiate(StaticShipData.shipEntityTemplate);
         if (newSpawn)
