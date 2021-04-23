@@ -14,9 +14,9 @@ public class UniverseSystem : MonoBehaviour
     public int Id;
     public UniquePoint definingPoint;
     public Dictionary<int, ConnectionData> connections;
-    public Star star;
-    public Planet[] planets;
-    public Asterioid[] asteroids;
+    public Entity star;
+    public Entity[] planets;
+    public Entity[] asteroids;
     public float size;
     public SystemWorks systemWorks;
     public Dictionary<int, Ship> containedShips { get; set; }
