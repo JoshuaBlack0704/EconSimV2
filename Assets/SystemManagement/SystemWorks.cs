@@ -7,7 +7,7 @@ using Unity.Transforms;
 using Unity.Collections;
 using UnityEngine;
 
-public class SystemWorks : MonoBehaviour
+public class SystemWorks
 {
     public Universe masterUniverse { get; set; }
     public Pathfinder pathFinder;
@@ -65,6 +65,10 @@ public class SystemWorks : MonoBehaviour
     public void EnterUniverse()
     {
         masterUniverse.inSystem = false;
+        if (Time.frameCount>1)
+        {
+            MainSchedual.OOSSystem.StopSimulatingSystem(UniverseGenerator.universe.selectedSystem);
+        }
         EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
         
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;

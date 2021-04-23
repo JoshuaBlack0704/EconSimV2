@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asterioid : MonoBehaviour, ISystemSubObject<Asterioid>
+public class Asterioid : ISystemSubObject<Asterioid>
 {
     public UniverseSystem masterSystem { get; set; }
 

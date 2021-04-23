@@ -309,7 +309,7 @@ public class Ship
     /// </summary>
     public void CreateEntityFor(bool newSpawn = false)
     {
-        
+
         if (activeEntity != Entity.Null)
         {
             Debug.LogError("Entity being made for a ship who already has an active entity, Id: " + Id);
@@ -334,7 +334,7 @@ public class Ship
         entityManager.AddComponent<shipCloneId>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
         entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
-        entityManager.SetComponentData(shipClone, new shipCloneId { Id=Id });
+        entityManager.SetComponentData(shipClone, new shipCloneId { Id = Id });
         activeEntity = shipClone;
     }
     public void DestoryEntityFor()

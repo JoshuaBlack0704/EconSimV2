@@ -13,7 +13,7 @@ public class AICoordinator : MonoBehaviour
     void Start()
     {
         AIDictionary = new Dictionary<int, AI>(startingAiNum);
-        AIDictionary.Add(0, new AI(UniverseGenerator.universe, 0, startingShipsPerAi, false));
+        AIDictionary.Add(0, new AI(UniverseGenerator.universe, 0, startingShipsPerAi, true));
         for (int i = 1; i < startingAiNum; i++)
         {
             AIDictionary.Add(i , new AI(UniverseGenerator.universe, Random.Range(0, UniverseGenerator.universe.maxPointId+1), startingShipsPerAi, false));

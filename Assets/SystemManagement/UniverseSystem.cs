@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public class UniverseSystem : MonoBehaviour
+public class UniverseSystem
 {
     public struct ConnectionData
     {
