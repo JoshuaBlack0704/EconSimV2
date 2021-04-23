@@ -7,7 +7,7 @@ using Unity.Transforms;
 using Unity.Collections;
 using UnityEngine;
 
-public class SystemWorks : MonoBehaviour
+public class SystemWorks
 {
     public Universe masterUniverse { get; set; }
     public Pathfinder pathFinder;
@@ -64,6 +64,11 @@ public class SystemWorks : MonoBehaviour
     public EntityManager entityManager;
     public void EnterUniverse()
     {
+        masterUniverse.inSystem = false;
+        if (Time.frameCount>1)
+        {
+            MainSchedual.OOSSystem.StopSimulatingSystem(UniverseGenerator.universe.selectedSystem);
+        }
         EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
         
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
@@ -84,12 +89,13 @@ public class SystemWorks : MonoBehaviour
             entityManager.AddComponent(newSystem, typeof(systemCloneTag));
             entityManager.SetComponentData(newSystem, new Translation { Value = system.Position});
         }
-        masterUniverse.inSystem = false;
     }
     public void EnterSystem(int Id)
     {
+        masterUniverse.inSystem = true;
+        GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(Id);
         EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
-        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
+        NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.Temp);
         foreach (var entity in entitesToDestroy)
         {
             entityManager.DestroyEntity(entity);
@@ -119,11 +125,14 @@ public class SystemWorks : MonoBehaviour
         var star = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[3]);
         entityManager.AddComponent(star, typeof(systemSubObjectTag));
         entityManager.SetComponentData(star, new Translation { Value = system.star.position });
+
         foreach (var ship in system.containedShips.Values)
         {
-            ship.CreateEntityFor();
+            if (ship.activeEntity==Entity.Null&&ship.currentTicket.type!=3)
+            {
+                ship.CreateEntityFor();
+            }
         }
-        masterUniverse.inSystem = true;
     }
     //End Entity Functions
 

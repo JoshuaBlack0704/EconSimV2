@@ -19,12 +19,14 @@ public class MainSchedual : MonoBehaviour
     {
         public int Id { get; set; }
         public Ship shipReference { get; set; }
+        public int wayPointJumpIndex { get; set; }
         public float timeAtExecute { get; set; }
         public float timeAtWrite { get; set; }
         public int type { get; set; }
 
         private int heapIndex;
         public int HeapIndex { get { return heapIndex; } set { heapIndex = value; } }
+
 
         public int CompareTo(EventTicketHeapItem other)
         {
@@ -42,6 +44,7 @@ public class MainSchedual : MonoBehaviour
     }
     private static Heap<EventTicketHeapItem> schedualHeap;
     private static List<EventTicketHeapItem> ticketPool;
+    public static OOSSystem OOSSystem;
     private static int currentTicketIndex = 0;
     internal static int maxTicketId = 0;
     /// <summary>
@@ -77,6 +80,15 @@ public class MainSchedual : MonoBehaviour
 
         schedualHeap.Add(selectedTicket);
     }
+    public static void UpdateTicket(EventTicketHeapItem ticket)
+    {
+        schedualHeap.UpdateItem(ticket);
+    }
+
+    public static void PlanEvent<T>(T item, int type)
+    {
+        
+    }
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
     internal static int currentSelectedTicketIndex = 0;
     private void ExecuteTickets()
@@ -98,7 +110,7 @@ public class MainSchedual : MonoBehaviour
         {
             EventTicketHeapItem selectedTicket = selectedTickets[i];
 
-            if (selectedTicket.type == 0)
+            if (selectedTicket.type == 0 && selectedTicket.shipReference.currentTicket==selectedTicket)
             {
                 selectedTicket.shipReference.WarpNext();
             }
@@ -109,6 +121,10 @@ public class MainSchedual : MonoBehaviour
             if (selectedTicket.type == 2)
             {
                 selectedTicket.shipReference.ExploreSystem();
+            }
+            if (selectedTicket.type == 3 && selectedTicket.shipReference.currentTicket==selectedTicket)
+            {
+                OOSSystem.MoveShipToWaypointIndex(selectedTicket.shipReference, selectedTicket.wayPointJumpIndex, false, Vector3.zero);
             }
 
 
@@ -141,6 +157,7 @@ public class MainSchedual : MonoBehaviour
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
         timeMultiplier = 1;
+        OOSSystem = new OOSSystem();
     }
 
     // Update is called once per frame

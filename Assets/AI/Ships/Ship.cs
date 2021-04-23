@@ -75,7 +75,7 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, missionType, this);
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, missionType, this);
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -100,6 +100,7 @@ public class Ship
             flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystemId).connections[wayPoints[wayPoints.Count - 1]].Position;
             vector = flyToPosition;
             MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, 0, this);
+            currentTicket.wayPointJumpIndex = wayPoints.Count - 1;
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -114,6 +115,18 @@ public class Ship
     /// </summary>
     public void WarpNext()
     {
+        if (MainSchedual.OOSSystem.PlanAndSchedualRoute(this))
+        {
+            if (masterAI.universe.inSystem && currentSystemId == masterAI.universe.selectedSystem)
+            {
+                DestoryEntityFor();
+            }
+            if (GameObject.Find("Main Camera").GetComponent<cameraMovement>().followAShipWithCode && UniverseGenerator.universe.inSystem)
+            {
+                GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(wayPoints[wayPoints.Count - 1]);
+            }
+            return;
+        }
         UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[wayPoints.Count - 1]);
         if (targetSystemJump.Id != wayPoints[wayPoints.Count-1])
         {
@@ -125,7 +138,9 @@ public class Ship
         {
             Debug.DrawLine(targetSystemJump.definingPoint.Position, currentSystem.definingPoint.Position, Color.green);
         }
+
         targetSystemJump.containedShips.Add(Id, this);
+
         if (targetSystemJump.connections.ContainsKey(currentSystemId)!=true)
         {
             MonoBehaviour.print("current system: " + currentSystemId);
@@ -155,7 +170,6 @@ public class Ship
 
 
         currentSystem.containedShips.Remove(Id);
-        wayPoints.RemoveAt(wayPoints.Count - 1);
 
         if (masterAI.universe.inSystem && currentSystemId == masterAI.universe.selectedSystem)
         {
@@ -167,8 +181,12 @@ public class Ship
         }
 
         currentSystemId = targetSystemJump.Id;
+        wayPoints.RemoveAt(wayPoints.Count - 1);
         FlyToNextTarget();
     }
+
+
+   
     /// <summary>
     /// We set our position to our target, 
     /// set our vector to zero, 
@@ -220,9 +238,18 @@ public class Ship
     /// </summary>
     public void CreateEntityFor(bool newSpawn = false)
     {
+
         if (activeEntity != Entity.Null)
         {
-            Debug.LogError("Entity being made for a ship who already has an active entity");
+            Debug.LogError("Entity being made for a ship who already has an active entity, Id: " + Id);
+            Debug.LogError(string.Format("current selected system: {0} ship current system: {1} ship current ticket type: {2}", UniverseGenerator.universe.selectedSystem, currentSystemId, currentTicket.type));
+            Debug.LogError("Ship current ticket info:");
+            Debug.LogError("Id: " + currentTicket.Id);
+            Debug.LogError("ship reference id: " + currentTicket.shipReference.Id);
+            Debug.LogError("waypoint jump index: " + currentTicket.wayPointJumpIndex);
+            Debug.LogError("time at write: " + currentTicket.timeAtWrite);
+            Debug.LogError("time at execute: " + currentTicket.timeAtExecute);
+            Debug.LogError("type: " + currentTicket.type);
         }
         Entity shipClone = entityManager.Instantiate(StaticShipData.shipEntityTemplate);
         if (newSpawn)
@@ -236,7 +263,7 @@ public class Ship
         entityManager.AddComponent<shipCloneId>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
         entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
-        entityManager.SetComponentData(shipClone, new shipCloneId { Id=Id });
+        entityManager.SetComponentData(shipClone, new shipCloneId { Id = Id });
         activeEntity = shipClone;
     }
     public void DestoryEntityFor()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Star : MonoBehaviour, ISystemSubObject<Star>
+public class Star : ISystemSubObject<Star>
 {
 
     public Vector3 position { get; set; }

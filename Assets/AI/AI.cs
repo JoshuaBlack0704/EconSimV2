@@ -153,6 +153,7 @@ public class AI
                 knownSystems.Add(system.Id, new AiSystem(this, system));
                 knownSystems[system.Id].ExploreSystem(false);
             }
+            
         }
         else
         {
