@@ -124,7 +124,7 @@ public class MainSchedual : MonoBehaviour
             }
             if (selectedTicket.type == 3 && selectedTicket.shipReference.currentTicket==selectedTicket)
             {
-                selectedTicket.shipReference.WarpToWayPointIndex(selectedTicket.wayPointJumpIndex, false, Vector3.zero);
+                OOSSystem.MoveShipToWaypointIndex(selectedTicket.shipReference, selectedTicket.wayPointJumpIndex, false, Vector3.zero);
             }
 
 

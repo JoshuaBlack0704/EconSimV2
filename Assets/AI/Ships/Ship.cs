@@ -186,78 +186,7 @@ public class Ship
     }
 
 
-    /// <summary>
-    /// We 
-    /// </summary>
-    /// <param name="index"></param>
-    /// <param name="useIntermidiate"></param>
-    /// <param name="intermidiatePos"></param>
-    public void WarpToWayPointIndex(int index, bool useIntermidiate, Vector3 intermidiatePos)
-    {
-        UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[index]);
-        UniverseSystem currentSystem;
-        if (index+1>wayPoints.Count-1)
-        {
-            currentSystem = masterAI.universe.systemWorks.GetSystem(currentSystemId);
-
-        }
-        else
-        {
-            currentSystem = masterAI.universe.systemWorks.GetSystem(wayPoints[index + 1]);
-        }
-
-        if (masterAI.universe.inSystem == false)
-        {
-            Debug.DrawLine(targetSystemJump.definingPoint.Position, masterAI.universe.systemWorks.GetSystem(currentSystemId).definingPoint.Position, Color.green);
-        }
-
-        targetSystemJump.containedShips.Add(Id, this);
-
-        if (targetSystemJump.connections.ContainsKey(currentSystem.Id) != true)
-        {
-            MonoBehaviour.print("current system: " + currentSystemId);
-            MonoBehaviour.print("targetJump system: " + wayPoints[wayPoints.Count - 1]);
-            MonoBehaviour.print("Final target system: " + targetSystem);
-            foreach (var item in targetSystemJump.connections.Keys)
-            {
-                MonoBehaviour.print(string.Format("Target system: {0} contains connection to system: {1}", targetSystemJump.Id, item));
-                if (targetSystemJump.Id != wayPoints[wayPoints.Count - 1])
-                {
-                    Debug.LogError("here");
-                }
-            }
-            foreach (var item in currentSystem.connections.Keys)
-            {
-                MonoBehaviour.print(string.Format("current system: {0} contains connection to system: {1}", currentSystemId, item));
-
-            }
-            foreach (var item in wayPoints)
-            {
-                MonoBehaviour.print("Waypoint step: " + item);
-            }
-        }
-
-        if (useIntermidiate)
-        {
-            Position = intermidiatePos;
-        }
-        else
-        {
-            Position = targetSystemJump.connections[currentSystem.Id].Position;
-        }
-
-
-        masterAI.universe.systemWorks.GetSystem(currentSystemId).containedShips.Remove(Id);
-
-        if (masterAI.universe.inSystem && targetSystemJump.Id == masterAI.universe.selectedSystem)
-        {
-            CreateEntityFor(true);
-        }
-
-        currentSystemId = targetSystemJump.Id;
-        wayPoints.RemoveRange(index, (wayPoints.Count)-index);
-        FlyToNextTarget();
-    }
+   
     /// <summary>
     /// We set our position to our target, 
     /// set our vector to zero, 

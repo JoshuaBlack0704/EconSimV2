@@ -617,7 +617,7 @@ MonoBehaviour:
   currentTime: 0
   pauseTime: 0
   timeMultiplier: 3
-  autoTimMultiplierAdjust: 1
+  autoTimMultiplierAdjust: 0
   ticketsProcessed: 0
   ticketsProcessedLastFrame: 0
 --- !u!1 &1870435489
