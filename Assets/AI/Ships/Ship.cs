@@ -54,7 +54,7 @@ public class Ship
     public void SetTargetAndGo(Entity target, int _missionType)
     {
         assigned = true;
-        missionType = 1;
+        missionType = _missionType;
         targetSystem = PrefabAccessor.entityManager.GetComponentData<masterSystemId>(target).Id;
         finalTargetPosition = PrefabAccessor.entityManager.GetComponentData<Translation>(target).Value;
         if (targetSystem != currentSystemId)
@@ -197,6 +197,13 @@ public class Ship
         else if (missionType == 4)
         {
             EconomicMethods.WithdrawResource<FoodResource>(targetEntity, 10);
+        }
+        else if (missionType==2)
+        {
+            ExploreSystem();
+        }
+        {
+
         }
         masterAI.unassignedShips.Add(this);
         if (activeEntity != Entity.Null)

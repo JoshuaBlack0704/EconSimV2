@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.Entities;
+using System.Threading.Tasks;
 
 public class AI
 {
@@ -89,8 +90,17 @@ public class AI
         unassignedShips.Clear();
 
     }
+    internal struct shipTask {
+        public int index;
+        public float distance;
+
+    }
     public void EconomicAssign()
     {
+        if (unassignedShips.Count<=0)
+        {
+            return;
+        }
         List<Entity> asteroids = new List<Entity>();
         foreach (var sys in knownSystems.Values)
         {
@@ -102,22 +112,39 @@ public class AI
 
         foreach (var asteroid in asteroids)
         {
+            if (unassignedShips.Count <= 0)
+            {
+                return;
+            }
+            else if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) < 10)
+            {
+                continue;
+            }
+            List<Task<shipTask>> tasks = new List<Task<shipTask>>(unassignedShips.Count);
+            for (int i = 0; i < unassignedShips.Count; i++)
+            {
+                var ship = unassignedShips[i];
+                tasks.Add(Task.Run(() => new shipTask() { index = i, distance = Vector3.Distance(universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position, universe.systemWorks.GetSystem(PrefabAccessor.entityManager.GetComponentData<masterSystemId>(asteroid).Id).definingPoint.Position) / ship.velocity }));
+            }
+            Task.WhenAll(tasks);
+
+            var results = tasks.Select(o => o.Result);
+            results.OrderBy(o => o.distance);
             while (true)
             {
-                if (unassignedShips.Count <= 0)
+                if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) >= 10)
+                {
+                    unassignedShips[0].SetTargetAndGo(asteroid, 4);
+                    unassignedShips.RemoveAt(0);
+                }
+                else { break; }
+                if (unassignedShips.Count==0)
                 {
                     return;
                 }
-                if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) >= 10)
-                {
-                    unassignedShips[unassignedShips.Count - 1].SetTargetAndGo(asteroid, 4);
-                    unassignedShips.RemoveAt(unassignedShips.Count - 1);
-                }
-                else
-                {
-                    break;
-                }
             }
+
+            
             
         }
         var keys = knownSystems.Keys.ToArray();

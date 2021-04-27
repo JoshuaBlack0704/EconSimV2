@@ -22,6 +22,19 @@ public class cameraMovement : MonoBehaviour
         FollowShipCode = 0;
         shipFollower = new FollowShip();
         gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x/2, y = UniverseGenerator.universe.universeMaximums.y/2, z = -10};
+        int bestSystem = 0;
+        int bestCount = 0;
+        for (int i = 0; i < UniverseGenerator.universe.maxPointId; i++)
+        {
+            if (UniverseGenerator.universe.systemWorks.GetSystem(i).asteroids.Count>bestCount)
+            {
+                bestSystem = i;
+                bestCount = UniverseGenerator.universe.systemWorks.GetSystem(i).asteroids.Count;
+            }
+            
+        }
+        GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().selectedSystem = bestSystem;
+        GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().switchSystemView = true;
     }
     public static Unity.Mathematics.float3 pos;
     // Update is called once per frame
