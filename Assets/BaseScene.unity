@@ -476,7 +476,7 @@ MonoBehaviour:
   zoomToPoint: 0
   AiCodeForShip: 0
   FollowShipCode: 0
-  followAShipWithCode: 0
+  followAShipWithCode: 1
 --- !u!114 &1675281806
 MonoBehaviour:
   m_ObjectHideFlags: 0
