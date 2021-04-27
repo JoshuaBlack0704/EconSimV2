@@ -21,7 +21,7 @@ public class AI
         public Dictionary<int, UniverseSystem.ConnectionData> connections;
         public Entity star;
         public Entity[] planets;
-        public Entity[] asteroids;
+        public List<Entity> asteroids;
         public float size;
 
         public AiSystem(AI _masterAI, UniverseSystem _masterSystem)
@@ -83,11 +83,51 @@ public class AI
             }
             else if (randType == 1)
             {
-                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Length)], 1);
+                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Count)], 4);
             }
         }
         unassignedShips.Clear();
 
+    }
+    public void EconomicAssign()
+    {
+        List<Entity> asteroids = new List<Entity>();
+        foreach (var sys in knownSystems.Values)
+        {
+            foreach (var ast in sys.asteroids)
+            {
+                asteroids.Add(ast);
+            }
+        }
+
+        foreach (var asteroid in asteroids)
+        {
+            while (true)
+            {
+                if (unassignedShips.Count <= 0)
+                {
+                    return;
+                }
+                if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) >= 10)
+                {
+                    unassignedShips[unassignedShips.Count - 1].SetTargetAndGo(asteroid, 4);
+                    unassignedShips.RemoveAt(unassignedShips.Count - 1);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
+        }
+        var keys = knownSystems.Keys.ToArray();
+        foreach (var ship in unassignedShips)
+        {
+            int randSystem = keys[Random.Range(0, keys.Length - 1)];
+            ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)], 1);
+
+        }
+        unassignedShips.Clear();
     }
 
     public void RandomExploreShips()
@@ -130,7 +170,7 @@ public class AI
     public void MasterCall()
     {
         RandomExploreShips();
-        RandomAssignShips();
+        EconomicAssign();
         
     }
 

@@ -17,7 +17,7 @@ public class UniverseSystem
     public Dictionary<int, ConnectionData> connections;
     public Entity star;
     public Entity[] planets;
-    public Entity[] asteroids;
+    public List<Entity> asteroids;
     public float size;
     public SystemWorks systemWorks;
     public Dictionary<int, Ship> containedShips { get; set; }
@@ -65,14 +65,15 @@ public class UniverseSystem
             manager.SetComponentData<masterSystemId>(planet, new masterSystemId() { Id = Id});
             planets[i] = planet;
         }
-        asteroids = new Entity[numAsteroids]; ;
+        asteroids = new List<Entity>(); ;
         for (int i = 0; i < numAsteroids; i++)
         {
             var asteroid = PrefabAccessor.entityManager.CreateEntity(PrefabAccessor.asteroidArc);
-            manager.SetComponentData<asteroidId>(asteroid, new asteroidId() { Id = i });
+            manager.SetComponentData<asteroidId>(asteroid, new asteroidId() { Id = AsteroidMethods.MaxId });
             manager.SetComponentData<Translation>(asteroid, new Translation() { Value = new Unity.Mathematics.float3(Random.Range(0, size), Random.Range(0, size), Random.Range(0, size)) });
             manager.SetComponentData<masterSystemId>(asteroid, new masterSystemId() { Id = Id });
-            asteroids[i] = asteroid;
+            manager.SetComponentData<FoodResource>(asteroid, new FoodResource() { volume = 1000, reservedVolume =0 });
+            asteroids.Add(asteroid);
         }
         star = manager.CreateEntity(PrefabAccessor.starArc);
         manager.SetComponentData<starId>(star, new starId() { Id = 0});

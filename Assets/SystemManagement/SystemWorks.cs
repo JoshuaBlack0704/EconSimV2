@@ -102,12 +102,15 @@ public class SystemWorks : MonoBehaviour
         {
             var newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[1]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
+            entityManager.AddComponentData<planetId>(newItem, new planetId() { Id = entityManager.GetComponentData<planetId>(item).Id});
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach (var item in system.asteroids)
         {
             var newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
+            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId() { Id = entityManager.GetComponentData<asteroidId>(item).Id });
+
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach (var item in system.connections.Values)

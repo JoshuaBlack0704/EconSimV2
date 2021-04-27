@@ -13,6 +13,7 @@ public class Ship
     public MainSchedual.EventTicketHeapItem currentTicket { get { return _currentTicket; } set { _posAtTicketWrite = Position; _currentTicket = value; } }
     private MainSchedual.EventTicketHeapItem _currentTicket;
     private Vector3 _posAtTicketWrite;
+    private Entity targetEntity;
     public bool assigned { get; set; }
     public int missionType;
     //End Identification Data
@@ -53,12 +54,18 @@ public class Ship
     public void SetTargetAndGo(Entity target, int _missionType)
     {
         assigned = true;
-        missionType = _missionType;
+        missionType = 1;
         targetSystem = PrefabAccessor.entityManager.GetComponentData<masterSystemId>(target).Id;
         finalTargetPosition = PrefabAccessor.entityManager.GetComponentData<Translation>(target).Value;
         if (targetSystem != currentSystemId)
         {
             wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, this);
+        }
+        if (_missionType==4)
+        {
+            missionType = _missionType;
+            EconomicMethods.ReserveResource<FoodResource>(target, 10);
+            targetEntity = target;
         }
         FlyToNextTarget();
     }
@@ -75,7 +82,8 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity+MainSchedual.masterTime, missionType, this);
+            var ticket = MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity, 1, this);
+            ticket.entityReference = targetEntity;
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -99,7 +107,8 @@ public class Ship
             }
             flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystemId).connections[wayPoints[wayPoints.Count - 1]].Position;
             vector = flyToPosition;
-            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity + MainSchedual.masterTime, 0, this);
+            MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity, 0, this);
+            
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -181,6 +190,14 @@ public class Ship
         Position = flyToPosition;
         vector = Position;
         assigned = false;
+        if (missionType == 3)
+        {
+            ExploreSystem();
+        }
+        else if (missionType == 4)
+        {
+            EconomicMethods.WithdrawResource<FoodResource>(targetEntity, 10);
+        }
         masterAI.unassignedShips.Add(this);
         if (activeEntity != Entity.Null)
         {
