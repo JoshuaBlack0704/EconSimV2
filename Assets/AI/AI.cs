@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.Entities;
 
 public class AI
 {
@@ -18,9 +19,9 @@ public class AI
         public UniverseSystem masterSystem;
         public UniquePoint definingPoint;
         public Dictionary<int, UniverseSystem.ConnectionData> connections;
-        public Star star;
-        public Planet[] planets;
-        public Asterioid[] asteroids;
+        public Entity star;
+        public Entity[] planets;
+        public Entity[] asteroids;
         public float size;
 
         public AiSystem(AI _masterAI, UniverseSystem _masterSystem)

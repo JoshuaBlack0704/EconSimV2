@@ -102,13 +102,13 @@ public class SystemWorks : MonoBehaviour
         {
             var newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[1]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.SetComponentData(newItem, new Translation { Value = item.position });
+            entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach (var item in system.asteroids)
         {
             var newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.SetComponentData(newItem, new Translation { Value = item.position });
+            entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach (var item in system.connections.Values)
         {
@@ -118,7 +118,7 @@ public class SystemWorks : MonoBehaviour
         }
         var star = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[3]);
         entityManager.AddComponent(star, typeof(systemSubObjectTag));
-        entityManager.SetComponentData(star, new Translation { Value = system.star.position });
+        entityManager.SetComponentData(star, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(system.star).Value });
         foreach (var ship in system.containedShips.Values)
         {
             ship.CreateEntityFor();

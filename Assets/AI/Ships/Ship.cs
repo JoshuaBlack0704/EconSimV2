@@ -50,12 +50,12 @@ public class Ship
     /// </summary>
     /// <typeparam name="T">The type ob object must inherit ISystemSubObject</typeparam>
     /// <param name="target">The target System Sub Object</param>
-    public void SetTargetAndGo<T>(T target, int _missionType) where T : ISystemSubObject<T>
+    public void SetTargetAndGo(Entity target, int _missionType)
     {
         assigned = true;
         missionType = _missionType;
-        targetSystem = target.masterSystem.Id;
-        finalTargetPosition = target.position;
+        targetSystem = PrefabAccessor.entityManager.GetComponentData<masterSystemId>(target).Id;
+        finalTargetPosition = PrefabAccessor.entityManager.GetComponentData<Translation>(target).Value;
         if (targetSystem != currentSystemId)
         {
             wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, this);
