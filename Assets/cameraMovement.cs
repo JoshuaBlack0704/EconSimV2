@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 public class cameraMovement : MonoBehaviour
@@ -10,10 +12,12 @@ public class cameraMovement : MonoBehaviour
     public int FollowShipCode;
     public bool followAShipWithCode;
     internal FollowShip shipFollower;
+    EntityManager manager;
     Vector3 Vector;
     // Start is called before the first frame update
     void Start()
     {
+        manager = PrefabAccessor.entityManager;
         AiCodeForShip = 0;
         FollowShipCode = 0;
         shipFollower = new FollowShip();
@@ -23,6 +27,7 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         var target = GameObject.Find("TargetCone");
 
         Universe uni = UniverseGenerator.universe;
@@ -61,7 +66,8 @@ public class cameraMovement : MonoBehaviour
                 var center = uni.universeMaximums / 2;
                 if (uni.inSystem)
                 {
-                    center = uni.systemWorks.GetSystem(uni.selectedSystem).star.position;
+                    
+                    center = manager.GetComponentData<Translation>(uni.systemWorks.GetSystem(uni.selectedSystem).star).Value;
                     radius = uni.systemWorks.GetSystem(uni.selectedSystem).size + 10;
                 }
 

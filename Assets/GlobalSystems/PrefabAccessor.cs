@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 public class PrefabAccessor : MonoBehaviour
@@ -11,7 +10,10 @@ public class PrefabAccessor : MonoBehaviour
     public GameObject starPrefab;
     public GameObject wormholePrefab;
     public GameObject shipPrefab;
-    
+    public static EntityArchetype planetArc;
+    public static EntityArchetype asteroidArc;
+    public static EntityArchetype starArc;
+    public static EntityManager entityManager;
     // Start is called before the first frame update
     /// <summary>
     /// 0-system ,
@@ -32,6 +34,9 @@ public class PrefabAccessor : MonoBehaviour
         entityTemplateArray[3] = GameObjectConversionUtility.ConvertGameObjectHierarchy(starPrefab, settings);
         entityTemplateArray[4] = GameObjectConversionUtility.ConvertGameObjectHierarchy(wormholePrefab, settings);
         entityTemplateArray[5] = GameObjectConversionUtility.ConvertGameObjectHierarchy(shipPrefab, settings);
+        planetArc = entityManager.CreateArchetype(new ComponentType[] { typeof(planetId), typeof(Translation), typeof(masterSystemId)});
+        asteroidArc = entityManager.CreateArchetype(new ComponentType[] { typeof(asteroidId), typeof(Translation), typeof(masterSystemId) });
+        starArc = entityManager.CreateArchetype(new ComponentType[] { typeof(starId), typeof(Translation), typeof(masterSystemId) });
     }
 
 }
