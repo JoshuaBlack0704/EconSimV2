@@ -184,8 +184,9 @@ public class MainSchedual : MonoBehaviour
         }
         if (notPaused)
         {
-            masterTime += Time.deltaTime * timeMultiplier;
             masterDeltaTime = Time.deltaTime * timeMultiplier;
+            masterTime += masterDeltaTime;
+
         }
         ExecuteTickets();
     }
