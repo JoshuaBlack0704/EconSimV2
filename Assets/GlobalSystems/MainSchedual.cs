@@ -11,7 +11,7 @@ public class MainSchedual : MonoBehaviour
     public static float masterTime;
     public static float masterDeltaTime;
     [Range(0f, 100f)]
-    public float timeMultiplier = 1;
+    public float timeMultiplier;
     public bool autoTimMultiplierAdjust;
     public int ticketsProcessed;
     public int ticketsProcessedLastFrame;
@@ -148,7 +148,6 @@ public class MainSchedual : MonoBehaviour
     {
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
-        timeMultiplier = 1;
     }
 
     // Update is called once per frame
