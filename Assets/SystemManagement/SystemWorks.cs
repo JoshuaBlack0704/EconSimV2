@@ -110,7 +110,7 @@ public class SystemWorks : MonoBehaviour
             var newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
             entityManager.AddComponentData<asteroidId>(newItem, new asteroidId() { Id = entityManager.GetComponentData<asteroidId>(item).Id });
-
+            entityManager.SetComponentData<Rotation>(newItem, new Rotation() { Value = EconomicMethods.rand.NextQuaternionRotation() });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach (var item in system.connections.Values)

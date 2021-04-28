@@ -11,7 +11,7 @@ using Unity.Transforms;
 public static class EconomicMethods
 {
     static EntityManager em = PrefabAccessor.entityManager;
-    static Unity.Mathematics.Random rand = new Unity.Mathematics.Random(1);
+    public static Unity.Mathematics.Random rand = new Unity.Mathematics.Random(1);
 
     public static float CheckRemainingResource<T>(Entity entity) where T : struct, IContainsResource, IComponentData
     {
@@ -91,6 +91,7 @@ public static class EconomicMethods
             em.AddComponent(newItem, typeof(systemSubObjectTag));
             em.AddComponentData<asteroidId>(newItem, new asteroidId() { Id = em.GetComponentData<asteroidId>(asteroid).Id });
             em.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(asteroid).Value });
+            em.SetComponentData<Rotation>(newItem, new Rotation() { Value = rand.NextQuaternionRotation() });
         }
     }
 }
