@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
 public class MainSchedual : MonoBehaviour
@@ -10,7 +11,7 @@ public class MainSchedual : MonoBehaviour
     public static float masterTime;
     public static float masterDeltaTime;
     [Range(0f, 100f)]
-    public float timeMultiplier = 1;
+    public float timeMultiplier;
     public bool autoTimMultiplierAdjust;
     public int ticketsProcessed;
     public int ticketsProcessedLastFrame;
@@ -19,9 +20,11 @@ public class MainSchedual : MonoBehaviour
     {
         public int Id { get; set; }
         public Ship shipReference { get; set; }
+        public Entity entityReference;
         public float timeAtExecute { get; set; }
         public float timeAtWrite { get; set; }
         public int type { get; set; }
+        public int systemID;
 
         private int heapIndex;
         public int HeapIndex { get { return heapIndex; } set { heapIndex = value; } }
@@ -50,7 +53,7 @@ public class MainSchedual : MonoBehaviour
     /// <param name="timeToExecute">Using main schedual master time</param>
     /// <param name="type">0-WarpTo, 1-ArrivedAtTarget, </param>
     /// <param name="ship">If ticket is for a ship</param>
-    public static void AddToHeap(float timeToExecute, int type, Ship ship = null)
+    public static EventTicketHeapItem AddToHeap(float timeToExecute, int type, Ship ship = null)
     {
         EventTicketHeapItem selectedTicket;
         if (currentTicketIndex==0)
@@ -66,7 +69,7 @@ public class MainSchedual : MonoBehaviour
             ticketPool.RemoveAt(currentTicketIndex);
         }
 
-        selectedTicket.timeAtExecute = timeToExecute;
+        selectedTicket.timeAtExecute = timeToExecute+masterTime;
         selectedTicket.timeAtWrite = masterTime;
         selectedTicket.type = type;
         if (ship!=null)
@@ -76,6 +79,7 @@ public class MainSchedual : MonoBehaviour
         }
 
         schedualHeap.Add(selectedTicket);
+        return selectedTicket;
     }
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
     internal static int currentSelectedTicketIndex = 0;
@@ -110,6 +114,10 @@ public class MainSchedual : MonoBehaviour
             {
                 selectedTicket.shipReference.ExploreSystem();
             }
+            if (selectedTicket.type == 5)
+            {
+                EconomicMethods.ReplaceAsteroid(selectedTicket.systemID);
+            }
 
 
 
@@ -140,7 +148,6 @@ public class MainSchedual : MonoBehaviour
     {
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
-        timeMultiplier = 1;
     }
 
     // Update is called once per frame
@@ -177,8 +184,9 @@ public class MainSchedual : MonoBehaviour
         }
         if (notPaused)
         {
-            masterTime += Time.deltaTime * timeMultiplier;
             masterDeltaTime = Time.deltaTime * timeMultiplier;
+            masterTime += masterDeltaTime;
+
         }
         ExecuteTickets();
     }

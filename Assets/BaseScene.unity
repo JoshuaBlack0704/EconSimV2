@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SystemPrefab: {fileID: 2825206808367957111, guid: 243788200e3ed744c9465eb4acd0258a, type: 3}
   planetPrefab: {fileID: 7477919345146220862, guid: 0876b07dacea9d0439a5c20761ab1b01, type: 3}
-  asteroidPrefab: {fileID: 6934816408981268688, guid: 26d499389d79381438bf545deef71f3d, type: 3}
+  asteroidPrefab: {fileID: 919132149155446097, guid: 36d3e310c3a631b408221b4e4622fcc4, type: 3}
   starPrefab: {fileID: 8563922998043095240, guid: 84124320755c6cf4881b04f451c98bee, type: 3}
   wormholePrefab: {fileID: 6398414221921560691, guid: 2451b66bc46187940b7878206699cf91, type: 3}
   shipPrefab: {fileID: 6212154462366113583, guid: ebffdfa1872cbce44925af2c3f86c9aa, type: 3}
@@ -181,7 +181,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f1fcf88d13613d845ac559b32a5ebea3, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f1fcf88d13613d845ac559b32a5ebea3, type: 3}
       propertyPath: m_LocalScale.x
@@ -285,7 +285,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113708449 stripped
 GameObject:
@@ -421,8 +421,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609062091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124.39118, y: 171.70512, z: 68.06355}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 124.39118, y: 171.70514, z: 68.06355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -476,7 +476,7 @@ MonoBehaviour:
   zoomToPoint: 0
   AiCodeForShip: 0
   FollowShipCode: 0
-  followAShipWithCode: 1
+  followAShipWithCode: 0
 --- !u!114 &1675281806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1675281810
 MonoBehaviour:
@@ -616,8 +616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   pauseTime: 0
-  timeMultiplier: 1
-  autoTimMultiplierAdjust: 1
+  timeMultiplier: 3
+  autoTimMultiplierAdjust: 0
   ticketsProcessed: 0
   ticketsProcessedLastFrame: 0
 --- !u!1 &1870435489

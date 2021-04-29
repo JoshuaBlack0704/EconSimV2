@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.Entities;
+using System.Threading.Tasks;
 
 public class AI
 {
@@ -21,7 +22,7 @@ public class AI
         public Dictionary<int, UniverseSystem.ConnectionData> connections;
         public Entity star;
         public Entity[] planets;
-        public Entity[] asteroids;
+        public List<Entity> asteroids;
         public float size;
 
         public AiSystem(AI _masterAI, UniverseSystem _masterSystem)
@@ -83,11 +84,77 @@ public class AI
             }
             else if (randType == 1)
             {
-                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Length)], 1);
+                ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).asteroids[Random.Range(0, universe.systemWorks.GetSystem(randSystem).asteroids.Count)], 4);
             }
         }
         unassignedShips.Clear();
 
+    }
+    internal struct shipTask {
+        public int index;
+        public float distance;
+
+    }
+    public void EconomicAssign()
+    {
+        if (unassignedShips.Count<=0)
+        {
+            return;
+        }
+        List<Entity> asteroids = new List<Entity>();
+        foreach (var sys in knownSystems.Values)
+        {
+            foreach (var ast in sys.asteroids)
+            {
+                asteroids.Add(ast);
+            }
+        }
+
+        foreach (var asteroid in asteroids)
+        {
+            if (unassignedShips.Count <= 0)
+            {
+                return;
+            }
+            else if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) < 10)
+            {
+                continue;
+            }
+            List<Task<shipTask>> tasks = new List<Task<shipTask>>(unassignedShips.Count);
+            for (int i = 0; i < unassignedShips.Count; i++)
+            {
+                var ship = unassignedShips[i];
+                tasks.Add(Task.Run(() => new shipTask() { index = i, distance = Vector3.Distance(universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position, universe.systemWorks.GetSystem(PrefabAccessor.entityManager.GetComponentData<masterSystemId>(asteroid).Id).definingPoint.Position) / ship.velocity }));
+            }
+            Task.WhenAll(tasks);
+
+            var results = tasks.Select(o => o.Result);
+            results.OrderBy(o => o.distance);
+            while (true)
+            {
+                if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) >= 10)
+                {
+                    unassignedShips[0].SetTargetAndGo(asteroid, 4);
+                    unassignedShips.RemoveAt(0);
+                }
+                else { break; }
+                if (unassignedShips.Count==0)
+                {
+                    return;
+                }
+            }
+
+            
+            
+        }
+        var keys = knownSystems.Keys.ToArray();
+        foreach (var ship in unassignedShips)
+        {
+            int randSystem = keys[Random.Range(0, keys.Length - 1)];
+            ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)], 1);
+
+        }
+        unassignedShips.Clear();
     }
 
     public void RandomExploreShips()
@@ -130,7 +197,7 @@ public class AI
     public void MasterCall()
     {
         RandomExploreShips();
-        RandomAssignShips();
+        EconomicAssign();
         
     }
 
