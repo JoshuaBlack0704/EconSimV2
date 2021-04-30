@@ -4,6 +4,10 @@ using UnityEngine;
 using System.Linq;
 using Unity.Entities;
 using System.Threading.Tasks;
+using Unity.Jobs;
+using Unity.Burst;
+using Unity.Collections;
+using Unity.Transforms;
 
 public class AI
 {
@@ -95,6 +99,17 @@ public class AI
         public float distance;
 
     }
+    [BurstCompile]
+    internal struct shipDistJob : IJobParallelFor
+    {
+        public Unity.Mathematics.float3 target;
+        public NativeArray<Vector3> positions;
+        public NativeArray<float> results;
+        public void Execute(int index)
+        {
+            results[index] = Unity.Mathematics.math.distance(target, positions[index]);
+        }
+    }
     public void EconomicAssign()
     {
         if (unassignedShips.Count<=0)
@@ -120,16 +135,17 @@ public class AI
             {
                 continue;
             }
-            List<Task<shipTask>> tasks = new List<Task<shipTask>>(unassignedShips.Count);
-            for (int i = 0; i < unassignedShips.Count; i++)
-            {
-                var ship = unassignedShips[i];
-                tasks.Add(Task.Run(() => new shipTask() { index = i, distance = Vector3.Distance(universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position, universe.systemWorks.GetSystem(PrefabAccessor.entityManager.GetComponentData<masterSystemId>(asteroid).Id).definingPoint.Position) / ship.velocity }));
-            }
-            Task.WhenAll(tasks);
+            var job = new shipDistJob();
+            NativeArray<Vector3> positions = new NativeArray<Vector3>(unassignedShips.Count, Allocator.TempJob);
+            positions.CopyFrom(unassignedShips.Select(o => universe.systemWorks.GetSystem(o.currentSystemId).definingPoint.Position).ToArray());
+            NativeArray<float> results = new NativeArray<float>(unassignedShips.Count, Allocator.TempJob);
+            job.target = PrefabAccessor.entityManager.GetComponentData<Translation>(asteroid).Value;
+            job.positions = positions;
+            job.results = results;
+            var handle = job.Schedule(unassignedShips.Count, 1);
+            handle.Complete();
 
-            var results = tasks.Select(o => o.Result);
-            results.OrderBy(o => o.distance);
+            results.OrderBy(o => o);
             while (true)
             {
                 if (EconomicMethods.CheckRemainingResource<FoodResource>(asteroid) >= 10)
@@ -140,10 +156,13 @@ public class AI
                 else { break; }
                 if (unassignedShips.Count==0)
                 {
+                    positions.Dispose();
+                    results.Dispose();
                     return;
                 }
             }
-
+            positions.Dispose();
+            results.Dispose();
             
             
         }
