@@ -10,6 +10,7 @@ public class PrefabAccessor : MonoBehaviour
     public GameObject starPrefab;
     public GameObject wormholePrefab;
     public GameObject shipPrefab;
+
     public static EntityArchetype planetArc;
     public static EntityArchetype asteroidArc;
     public static EntityArchetype starArc;
