@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingAiNum: 1
-  startingShipsPerAi: 0
+  startingShipsPerAi: 100000
   showAIExploration: 0
 --- !u!4 &790734084
 Transform:
@@ -482,7 +482,7 @@ MonoBehaviour:
   AiCodeForShip: 0
   FollowShipCode: 0
   followAShipWithCode: 0
-  startEntered: 0
+  startEntered: 1
 --- !u!114 &1675281806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   pauseTime: 0
-  timeMultiplier: 1
+  timeMultiplier: 3
   autoTimMultiplierAdjust: 0
   ticketsProcessed: 0
   ticketsProcessedLastFrame: 0
@@ -687,8 +687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897c468f8b70cf4f8107a3b02a63e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeSize: 100
-  numberOfSystems: 1000000
+  universeSize: 50
+  numberOfSystems: 100
   selectedSystem: 0
   switchSystemView: 0
 --- !u!4 &1870435491
