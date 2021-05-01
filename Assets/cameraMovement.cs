@@ -46,7 +46,7 @@ public class cameraMovement : MonoBehaviour
     void Update()
     {
         
-        var target = GameObject.Find("TargetCone");
+        var target = GameObject.Find("PointerModel");
 
         Universe uni = UniverseGenerator.universe;
 
