@@ -27,7 +27,7 @@ public class FollowShip
         ShipCode = shipCode;
         AICode = AiCode;
         gameObject.transform.position = GetShipCoords(gameObject);
-        gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, GetShipRotation(), .02f);
+        gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, GetShipRotation(), .05f);
     }
 
     void CheckSystem()

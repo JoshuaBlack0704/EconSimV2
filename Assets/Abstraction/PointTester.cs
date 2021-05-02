@@ -1,24 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
 public class PointTester : MonoBehaviour
 {
     public int PointCount;
     UniversePoint current;
+    public bool destroyAll;
     // Start is called before the first frame update
     void Start()
     {
         UniversePoint.GeneratePoints(PointCount);
-        current = UniversePoint.allPoints[0];
+        current = UniversePoint.SelfCollection[0];
     }
 
+    private bool isDestroyed;
     // Update is called once per frame
     void Update()
     {
-        if (Time.frameCount % 1 == 0)
+        if (destroyAll&&isDestroyed==false)
         {
-            current = UniversePoint.GetAConnection(current);
+            IBaseEntity.DestroyAllClones(World.DefaultGameObjectInjectionWorld.EntityManager);
+            isDestroyed = true;
         }
+        else if (destroyAll&&isDestroyed)
+        {
+            UniversePoint.SpawnAllClones();
+            isDestroyed = false;
+        }
+        destroyAll = false;
     }
 }

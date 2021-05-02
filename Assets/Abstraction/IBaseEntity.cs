@@ -6,20 +6,88 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 
 public abstract class IBaseEntity
 {
+
     public Entity BaseEntity { get { return baseEntity; } set { baseEntity = value; } }
+    public Entity CloneEntity { get { return cloneEntity; } set { cloneEntity = value; } }
     private Entity baseEntity;
+    private Entity cloneEntity;
     public EntityManager em { get; set; }
+
+    /// <summary>
+    /// Destroys all clons
+    /// </summary>
+    public static void DestroyAllClones(EntityManager em)
+    {
+        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<CloneTag>()});;
+        NativeArray<Entity> pull = query.ToEntityArray(Allocator.Temp);
+        em.DestroyEntity(pull);
+        pull.Dispose();
+    }
+    /// <summary>
+    /// Destroys all clones with a certain ID tag
+    /// </summary>
+    /// <typeparam name="T">ID tag to destroy for</typeparam>
+    public static void DestroyClonesWithTag<T>(EntityManager em) where T : struct, IComponentData, IIdTag
+    {
+        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<T>() }); ;
+        NativeArray<Entity> pull = query.ToEntityArray(Allocator.Temp);
+        em.DestroyEntity(pull);
+        pull.Dispose();
+    }
+
+    /// <summary>
+    /// Destroys the base entity for the object
+    /// </summary>
+    public void DestroyBaseEntityFor()
+    {
+        if (em.Exists(cloneEntity))
+        {
+            Debug.LogError("Destroying Entity which does not exist");
+        }
+        em.DestroyEntity(baseEntity);
+    }
+    /// <summary>
+    /// Destroys the clone for the object
+    /// </summary>
+    public void DestroyCloneEntityFor()
+    {
+        if (em.Exists(cloneEntity))
+        {
+            Debug.LogError("Destroying Entity which does not exist");
+        }
+        em.DestroyEntity(cloneEntity);
+    }
+    /// <summary>
+    /// Creates a clone using existing position data
+    /// </summary>
+    /// <typeparam name="T">ID type</typeparam>
+    public Entity CreateCloneWithSelfPosition<T>(Entity cloneModel) where T : struct, IComponentData, IIdTag
+    {
+        var clone = em.Instantiate(cloneModel);
+        em.AddComponent<T>(clone);
+        em.AddComponent<CloneTag>(clone);
+        em.SetComponentData<T>(clone, new T() { Id = em.GetComponentData<T>(baseEntity).Id });
+        em.SetComponentData<Translation>(clone, new Translation() { Value = em.GetComponentData<PositionData>(baseEntity).position });
+        cloneEntity = clone;
+        return clone;
+    }
     public IBaseEntity(EntityManager _em)
     {
         em = _em;
         BaseEntity = em.CreateEntity();
     }
 }
-
+public struct PositionData : IComponentData
+{
+    public Vector3 vPos { get; set; }
+    public Unity.Mathematics.float3 position { get; set; }
+}
+public struct CloneTag : IComponentData { }
 public interface IPositionAutomater
 {
     public void SetPosition(Unity.Mathematics.float3 pos);
@@ -52,6 +120,12 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
         public int index;
     }
 
+    /// <summary>
+    /// A brute force calculation to all other points
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="count"></param>
+    /// <returns></returns>
     public Entity[] BruteForceClosestCount<T>(int count) where T : IComponentData
     {
         var watch = new System.Diagnostics.Stopwatch();
@@ -110,39 +184,4 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
         em.SetComponentData<PositionData>(BaseEntity, new PositionData { position = pos, vPos = pos });
     }
 }
-public struct PositionData : IComponentData
-{
-    public Vector3 vPos { get; set; }
-    public Unity.Mathematics.float3 position { get; set; }
-}
 
-public class UniversePoint : IPositionController
-{
-    public static int maxPointId = 0;
-    public static List<UniversePoint> allPoints = new List<UniversePoint>();
-    public static Unity.Mathematics.Random rand = new Unity.Mathematics.Random(1);
-    public static void GeneratePoints(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            allPoints.Add(new UniversePoint(World.DefaultGameObjectInjectionWorld.EntityManager, rand.NextFloat3(0, 200) ));
-        }
-    }
-    public static UniversePoint GetAConnection(UniversePoint point)
-    {
-        var ent = point.BruteForceClosestCount<UniversePointTag>(4);
-        var randInt = rand.NextInt(0, 3);
-        return allPoints[point.em.GetComponentData<UniversePointTag>(ent[randInt]).Id];
-    }
-    public UniversePoint(EntityManager _em, float3 pos) : base(_em)
-    {
-        em = _em;
-        em.AddComponentData<UniversePointTag>(BaseEntity, new UniversePointTag { Id=maxPointId});
-        maxPointId++;
-        SetPosition(pos);
-    }
-}
-public struct UniversePointTag : IComponentData, IIdTag
-{
-    public int Id { get; set; }
-}
