@@ -8,11 +8,16 @@ public class PointTester : MonoBehaviour
     public int PointCount;
     UniversePoint current;
     public bool destroyAll;
+
+    public void StartSim(string count)
+    {
+        UniversePoint.GeneratePoints(int.Parse(count));
+        current = UniversePoint.SelfCollection[0];
+    }
     // Start is called before the first frame update
     void Start()
     {
-        UniversePoint.GeneratePoints(PointCount);
-        current = UniversePoint.SelfCollection[0];
+        
     }
 
     private bool isDestroyed;

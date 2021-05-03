@@ -39,6 +39,7 @@ public class UniversePoint : IVectorController
         SetVelocity(EntityPrefabBank.rand.NextFloat(.5f, 5f));
         SetVector(EntityPrefabBank.rand.NextFloat3Direction());
     }
+
 }
 
 public struct UniversePointTag : IComponentData, IIdTag
