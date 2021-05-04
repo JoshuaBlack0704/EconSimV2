@@ -15,7 +15,7 @@ public abstract class IVectorController : IPositionController, IVectorAutomator
         Em.AddComponent<MovementData>(BaseEntity);
     }
 
-    public void CreateCloneWithVelocity<T>(Entity model) where T : struct, IComponentData, IIdTag
+    public void CreateCloneWithVelocity<T>( Entity model ) where T : struct, IComponentData, IIdTag
     {
         CreateCloneWithPosition<T>(model);
         Em.AddComponentData<MovementData>(CloneEntity, Em.GetComponentData<MovementData>(BaseEntity));
@@ -93,7 +93,7 @@ public interface IVectorAutomator
     float3 Vector { get; set; }
     float Velocity { get; set; }
     Vector3 Vect3 { get; }
-    void CreateCloneWithVelocity<T>(Entity model) where T : struct, IComponentData, IIdTag;
+    void CreateCloneWithVelocity<T>( Entity model ) where T : struct, IComponentData, IIdTag;
 }
 public struct MovementData : IComponentData
 {
@@ -105,10 +105,10 @@ public struct MovementData : IComponentData
 
 public class MoveCloneVectors : SystemBase
 {
-    
+
     protected override void OnUpdate()
     {
         float step = Time.DeltaTime;
-        Entities.WithAll<CloneTag>().ForEach((ref Translation pos, in MovementData move) => { pos.Value += move.vector * move.velocity*step; }).ScheduleParallel();
+        Entities.WithAll<CloneTag>().ForEach(( ref Translation pos, in MovementData move ) => { pos.Value += move.vector * move.velocity * step; }).ScheduleParallel();
     }
 }

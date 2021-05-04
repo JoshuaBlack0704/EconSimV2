@@ -41,7 +41,7 @@ namespace TMPro.Examples
         }
 
 
-        void ON_TEXT_CHANGED(Object obj)
+        void ON_TEXT_CHANGED( Object obj )
         {
             if (obj == m_TextComponent)
                 hasTextChanged = true;
@@ -130,7 +130,7 @@ namespace TMPro.Examples
 
                     // Determine the random scale change for each character.
                     float randomScale = Random.Range(1f, 1.5f);
-                    
+
                     // Add modified scale and index
                     modifiedCharScale.Add(randomScale);
                     scaleSortingOrder.Add(modifiedCharScale.Count - 1);
@@ -172,7 +172,7 @@ namespace TMPro.Examples
                 for (int i = 0; i < textInfo.meshInfo.Length; i++)
                 {
                     //// Sort Quads based modified scale
-                    scaleSortingOrder.Sort((a, b) => modifiedCharScale[a].CompareTo(modifiedCharScale[b]));
+                    scaleSortingOrder.Sort(( a, b ) => modifiedCharScale[a].CompareTo(modifiedCharScale[b]));
 
                     textInfo.meshInfo[i].SortGeometry(scaleSortingOrder);
 

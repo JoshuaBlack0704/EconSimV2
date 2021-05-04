@@ -22,7 +22,7 @@ public class cameraMovement : MonoBehaviour
         AiCodeForShip = 0;
         FollowShipCode = 0;
         shipFollower = new FollowShip();
-        gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x/2, y = UniverseGenerator.universe.universeMaximums.y/2, z = -10};
+        gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x / 2, y = UniverseGenerator.universe.universeMaximums.y / 2, z = -10 };
         if (startEntered)
         {
             int bestSystem = 0;
@@ -39,14 +39,14 @@ public class cameraMovement : MonoBehaviour
             GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().selectedSystem = bestSystem;
             GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().switchSystemView = true;
         }
-        
+
     }
     public static Unity.Mathematics.float3 pos;
     // Update is called once per frame
     void Update()
     {
-        
-        var target = GameObject.Find("PointerModel");
+
+        GameObject target = GameObject.Find("PointerModel");
 
         Universe uni = UniverseGenerator.universe;
 
@@ -59,7 +59,7 @@ public class cameraMovement : MonoBehaviour
             target.GetComponent<MeshRenderer>().enabled = true;
         }
 
-        if (followAShipWithCode&&uni.inSystem==true)
+        if (followAShipWithCode && uni.inSystem == true)
         {
             shipFollower.FollowAShip(gameObject, FollowShipCode, AiCodeForShip);
         }
@@ -74,22 +74,22 @@ public class cameraMovement : MonoBehaviour
 
             if (zoomToPoint != true)
             {
-                var progress = Mathf.InverseLerp(-1, 1, Mathf.Sin(Time.time / 5));
+                float progress = Mathf.InverseLerp(-1, 1, Mathf.Sin(Time.time / 5));
 
-                var angularVelocity = (2 * Mathf.PI) / 20;
+                float angularVelocity = (2 * Mathf.PI) / 20;
 
-                var angle = angularVelocity * Time.time;
+                float angle = angularVelocity * Time.time;
 
-                var radius = uni.universeMaximums.x;
-                var center = uni.universeMaximums / 2;
+                float radius = uni.universeMaximums.x;
+                Vector3 center = uni.universeMaximums / 2;
                 if (uni.inSystem)
                 {
-                    
+
                     center = manager.GetComponentData<Translation>(uni.systemWorks.GetSystem(uni.selectedSystem).star).Value;
                     radius = uni.systemWorks.GetSystem(uni.selectedSystem).size + 10;
                 }
 
-                var positiion = new Vector3()
+                Vector3 positiion = new Vector3()
                 {
                     x = Mathf.Cos(angle) * radius + center.x,
                     z = Mathf.Sin(angle) * radius + center.z,
@@ -97,7 +97,7 @@ public class cameraMovement : MonoBehaviour
                 };
 
 
-                var dir = center - positiion;
+                Vector3 dir = center - positiion;
 
                 gameObject.transform.position = positiion;
                 gameObject.transform.LookAt(center);
@@ -114,11 +114,11 @@ public class cameraMovement : MonoBehaviour
                 gameObject.transform.rotation = rot;
             }
         }
-        
 
-        
+
+
     }
 
-    
+
 
 }

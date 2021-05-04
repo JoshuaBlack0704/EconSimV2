@@ -16,7 +16,7 @@ public class MainSchedual : MonoBehaviour
     public int ticketsProcessed;
     public int ticketsProcessedLastFrame;
 
-    public class EventTicketHeapItem: IHeapItem<EventTicketHeapItem>
+    public class EventTicketHeapItem : IHeapItem<EventTicketHeapItem>
     {
         public int Id { get; set; }
         public Ship shipReference { get; set; }
@@ -29,7 +29,7 @@ public class MainSchedual : MonoBehaviour
         private int heapIndex;
         public int HeapIndex { get { return heapIndex; } set { heapIndex = value; } }
 
-        public int CompareTo(EventTicketHeapItem other)
+        public int CompareTo( EventTicketHeapItem other )
         {
             int compare = 1;
             if (timeAtExecute >= other.timeAtExecute)
@@ -53,10 +53,10 @@ public class MainSchedual : MonoBehaviour
     /// <param name="timeToExecute">Using main schedual master time</param>
     /// <param name="type">0-WarpTo, 1-ArrivedAtTarget, </param>
     /// <param name="ship">If ticket is for a ship</param>
-    public static EventTicketHeapItem AddToHeap(float timeToExecute, int type, Ship ship = null)
+    public static EventTicketHeapItem AddToHeap( float timeToExecute, int type, Ship ship = null )
     {
         EventTicketHeapItem selectedTicket;
-        if (currentTicketIndex==0)
+        if (currentTicketIndex == 0)
         {
             selectedTicket = new EventTicketHeapItem();
             selectedTicket.Id = maxTicketId;
@@ -69,10 +69,10 @@ public class MainSchedual : MonoBehaviour
             ticketPool.RemoveAt(currentTicketIndex);
         }
 
-        selectedTicket.timeAtExecute = timeToExecute+masterTime;
+        selectedTicket.timeAtExecute = timeToExecute + masterTime;
         selectedTicket.timeAtWrite = masterTime;
         selectedTicket.type = type;
-        if (ship!=null)
+        if (ship != null)
         {
             selectedTicket.shipReference = ship;
             ship.currentTicket = selectedTicket;
@@ -85,7 +85,7 @@ public class MainSchedual : MonoBehaviour
     internal static int currentSelectedTicketIndex = 0;
     private void ExecuteTickets()
     {
-        while (schedualHeap.peakRoot() != null && schedualHeap.peakRoot().timeAtExecute<masterTime)
+        while (schedualHeap.peakRoot() != null && schedualHeap.peakRoot().timeAtExecute < masterTime)
         {
             if (selectedTickets.Count == 0 || selectedTickets.Count <= currentSelectedTicketIndex)
             {
@@ -123,7 +123,7 @@ public class MainSchedual : MonoBehaviour
 
             //return Ticket to pool
 
-            if (currentTicketIndex+1 >= ticketPool.Count)
+            if (currentTicketIndex + 1 >= ticketPool.Count)
             {
                 if (ticketPool.Contains(selectedTicket))
                 {
@@ -158,9 +158,9 @@ public class MainSchedual : MonoBehaviour
         {
             if (Time.deltaTime > .016f)
             {
-                var dist = Mathf.Abs(.016f - Time.deltaTime);
-                
-                float result = 1 - Mathf.Clamp(Mathf.Sqrt(dist)*3, 0, .95f);
+                float dist = Mathf.Abs(.016f - Time.deltaTime);
+
+                float result = 1 - Mathf.Clamp(Mathf.Sqrt(dist) * 3, 0, .95f);
 
                 timeMultiplier = Mathf.Lerp(0, 1f, result);
 
@@ -170,9 +170,9 @@ public class MainSchedual : MonoBehaviour
                 timeMultiplier = Mathf.Lerp(timeMultiplier, 1, .05f);
             }
         }
-        
-        
-        
+
+
+
         currentTime = masterTime;
         if (pauseTime)
         {

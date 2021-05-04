@@ -16,7 +16,7 @@ public class ShipTester : MonoBehaviour
         ships = new List<Ship>();
         for (int i = 0; i < 50; i++)
         {
-            testPoints.Add(new Vector3 { x = Random.Range(0, 300) , y = Random.Range(0, 300) , z = Random.Range(0, 300) });
+            testPoints.Add(new Vector3 { x = Random.Range(0, 300), y = Random.Range(0, 300), z = Random.Range(0, 300) });
         }
 
         for (int i = 0; i < numShips; i++)
@@ -29,5 +29,5 @@ public class ShipTester : MonoBehaviour
     }
 
     // Update is called once per frame
-    
+
 }

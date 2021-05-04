@@ -140,14 +140,14 @@ namespace TMPro.Examples
         }
 
 
-        public void OnPointerEnter(PointerEventData eventData)
+        public void OnPointerEnter( PointerEventData eventData )
         {
             Debug.Log("OnPointerEnter()");
             m_isHoveringObject = true;
         }
 
 
-        public void OnPointerExit(PointerEventData eventData)
+        public void OnPointerExit( PointerEventData eventData )
         {
             Debug.Log("OnPointerExit()");
             m_isHoveringObject = false;

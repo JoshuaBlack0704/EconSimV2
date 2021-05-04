@@ -11,7 +11,7 @@ namespace TMPro.Examples
     {
         // Since this script is used for debugging, we exclude it from builds.
         // TODO: Rework this script to make it into an editor utility.
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         public bool ShowCharacters;
         public bool ShowWords;
         public bool ShowLinks;
@@ -195,64 +195,64 @@ namespace TMPro.Examples
                 DrawCrosshair(advancePosition, 0.0125f / m_ScaleMultiplier, Color.yellow);
 
                 // Draw text labels for metrics
-               if (m_HandleSize < 0.5f)
-               {
-                   GUIStyle style = new GUIStyle(GUI.skin.GetStyle("Label"));
-                   style.normal.textColor = new Color(0.6f, 0.6f, 0.6f, 1.0f);
-                   style.fontSize = 12;
-                   style.fixedWidth = 200;
-                   style.fixedHeight = 20;
+                if (m_HandleSize < 0.5f)
+                {
+                    GUIStyle style = new GUIStyle(GUI.skin.GetStyle("Label"));
+                    style.normal.textColor = new Color(0.6f, 0.6f, 0.6f, 1.0f);
+                    style.fontSize = 12;
+                    style.fixedWidth = 200;
+                    style.fixedHeight = 20;
 
-                   Vector3 labelPosition;
-                   float center = (origin + advance) / 2;
+                    Vector3 labelPosition;
+                    float center = (origin + advance) / 2;
 
-                   //float baselineMetrics = 0;
-                   //float ascentlineMetrics = ascentline - baseline;
-                   //float caplineMetrics = capline - baseline;
-                   //float meanlineMetrics = meanline - baseline;
-                   //float descentlineMetrics = descentline - baseline;
+                    //float baselineMetrics = 0;
+                    //float ascentlineMetrics = ascentline - baseline;
+                    //float caplineMetrics = capline - baseline;
+                    //float meanlineMetrics = meanline - baseline;
+                    //float descentlineMetrics = descentline - baseline;
 
-                   // Ascent Line
-                   labelPosition = m_Transform.TransformPoint(new Vector3(center, ascentline, 0));
-                   style.alignment = TextAnchor.UpperCenter;
-                   Handles.Label(labelPosition, "Ascent Line", style);
-                   //Handles.Label(labelPosition, "Ascent Line (" + ascentlineMetrics.ToString("f3") + ")" , style);
+                    // Ascent Line
+                    labelPosition = m_Transform.TransformPoint(new Vector3(center, ascentline, 0));
+                    style.alignment = TextAnchor.UpperCenter;
+                    Handles.Label(labelPosition, "Ascent Line", style);
+                    //Handles.Label(labelPosition, "Ascent Line (" + ascentlineMetrics.ToString("f3") + ")" , style);
 
-                   // Base Line
-                   labelPosition = m_Transform.TransformPoint(new Vector3(center, baseline, 0));
-                   Handles.Label(labelPosition, "Base Line", style);
-                   //Handles.Label(labelPosition, "Base Line (" + baselineMetrics.ToString("f3") + ")" , style);
+                    // Base Line
+                    labelPosition = m_Transform.TransformPoint(new Vector3(center, baseline, 0));
+                    Handles.Label(labelPosition, "Base Line", style);
+                    //Handles.Label(labelPosition, "Base Line (" + baselineMetrics.ToString("f3") + ")" , style);
 
-                   // Descent line
-                   labelPosition = m_Transform.TransformPoint(new Vector3(center, descentline, 0));
-                   Handles.Label(labelPosition, "Descent Line", style);
-                   //Handles.Label(labelPosition, "Descent Line (" + descentlineMetrics.ToString("f3") + ")" , style);
+                    // Descent line
+                    labelPosition = m_Transform.TransformPoint(new Vector3(center, descentline, 0));
+                    Handles.Label(labelPosition, "Descent Line", style);
+                    //Handles.Label(labelPosition, "Descent Line (" + descentlineMetrics.ToString("f3") + ")" , style);
 
-                   if (characterInfo.isVisible)
-                   {
-                       // Cap Line
-                       labelPosition = m_Transform.TransformPoint(new Vector3(center, capline, 0));
-                       style.alignment = TextAnchor.UpperCenter;
-                       Handles.Label(labelPosition, "Cap Line", style);
-                       //Handles.Label(labelPosition, "Cap Line (" + caplineMetrics.ToString("f3") + ")" , style);
+                    if (characterInfo.isVisible)
+                    {
+                        // Cap Line
+                        labelPosition = m_Transform.TransformPoint(new Vector3(center, capline, 0));
+                        style.alignment = TextAnchor.UpperCenter;
+                        Handles.Label(labelPosition, "Cap Line", style);
+                        //Handles.Label(labelPosition, "Cap Line (" + caplineMetrics.ToString("f3") + ")" , style);
 
-                       // Mean Line
-                       labelPosition = m_Transform.TransformPoint(new Vector3(center, meanline, 0));
-                       style.alignment = TextAnchor.UpperCenter;
-                       Handles.Label(labelPosition, "Mean Line", style);
-                       //Handles.Label(labelPosition, "Mean Line (" + ascentlineMetrics.ToString("f3") + ")" , style);
+                        // Mean Line
+                        labelPosition = m_Transform.TransformPoint(new Vector3(center, meanline, 0));
+                        style.alignment = TextAnchor.UpperCenter;
+                        Handles.Label(labelPosition, "Mean Line", style);
+                        //Handles.Label(labelPosition, "Mean Line (" + ascentlineMetrics.ToString("f3") + ")" , style);
 
-                       // Origin
-                       labelPosition = m_Transform.TransformPoint(new Vector3(origin, baseline, 0));
-                       style.alignment = TextAnchor.UpperRight;
-                       Handles.Label(labelPosition, "Origin ", style);
+                        // Origin
+                        labelPosition = m_Transform.TransformPoint(new Vector3(origin, baseline, 0));
+                        style.alignment = TextAnchor.UpperRight;
+                        Handles.Label(labelPosition, "Origin ", style);
 
-                       // Advance
-                       labelPosition = m_Transform.TransformPoint(new Vector3(advance, baseline, 0));
-                       style.alignment = TextAnchor.UpperLeft;
-                       Handles.Label(labelPosition, "  Advance", style);
-                   }
-               }
+                        // Advance
+                        labelPosition = m_Transform.TransformPoint(new Vector3(advance, baseline, 0));
+                        style.alignment = TextAnchor.UpperLeft;
+                        Handles.Label(labelPosition, "  Advance", style);
+                    }
+                }
             }
         }
 
@@ -573,7 +573,7 @@ namespace TMPro.Examples
 
 
         // Draw Rectangles
-        void DrawRectangle(Vector3 BL, Vector3 TR, Color color)
+        void DrawRectangle( Vector3 BL, Vector3 TR, Color color )
         {
             Gizmos.color = color;
 
@@ -583,7 +583,7 @@ namespace TMPro.Examples
             Gizmos.DrawLine(new Vector3(TR.x, BL.y, 0), new Vector3(BL.x, BL.y, 0));
         }
 
-        void DrawDottedRectangle(Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f)
+        void DrawDottedRectangle( Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f )
         {
             Handles.color = color;
             Handles.DrawDottedLine(bottomLeft, new Vector3(bottomLeft.x, topRight.y, bottomLeft.z), size);
@@ -592,14 +592,14 @@ namespace TMPro.Examples
             Handles.DrawDottedLine(new Vector3(topRight.x, bottomLeft.y, bottomLeft.z), bottomLeft, size);
         }
 
-        void DrawSolidRectangle(Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f)
+        void DrawSolidRectangle( Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f )
         {
             Handles.color = color;
             Rect rect = new Rect(bottomLeft, topRight - bottomLeft);
             Handles.DrawSolidRectangleWithOutline(rect, color, Color.black);
         }
 
-        void DrawSquare(Vector3 position, float size, Color color)
+        void DrawSquare( Vector3 position, float size, Color color )
         {
             Handles.color = color;
             Vector3 bottomLeft = new Vector3(position.x - size, position.y - size, position.z);
@@ -613,7 +613,7 @@ namespace TMPro.Examples
             Handles.DrawLine(bottomRight, bottomLeft);
         }
 
-        void DrawCrosshair(Vector3 position, float size, Color color)
+        void DrawCrosshair( Vector3 position, float size, Color color )
         {
             Handles.color = color;
 
@@ -623,7 +623,7 @@ namespace TMPro.Examples
 
 
         // Draw Rectangles
-        void DrawRectangle(Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color)
+        void DrawRectangle( Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color )
         {
             Gizmos.color = color;
 
@@ -635,9 +635,9 @@ namespace TMPro.Examples
 
 
         // Draw Rectangles
-        void DrawDottedRectangle(Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color)
+        void DrawDottedRectangle( Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color )
         {
-            var cam = Camera.current;
+            Camera cam = Camera.current;
             float dotSpacing = (cam.WorldToScreenPoint(br).x - cam.WorldToScreenPoint(bl).x) / 75f;
             UnityEditor.Handles.color = color;
 
@@ -646,7 +646,7 @@ namespace TMPro.Examples
             UnityEditor.Handles.DrawDottedLine(tr, br, dotSpacing);
             UnityEditor.Handles.DrawDottedLine(br, bl, dotSpacing);
         }
-        #endif
+#endif
     }
 }
 

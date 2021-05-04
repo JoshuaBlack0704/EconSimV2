@@ -29,7 +29,7 @@ public class AI
         public List<Entity> asteroids;
         public float size;
 
-        public AiSystem(AI _masterAI, UniverseSystem _masterSystem)
+        public AiSystem( AI _masterAI, UniverseSystem _masterSystem )
         {
             Id = _masterSystem.Id;
             masterAI = _masterAI;
@@ -39,16 +39,16 @@ public class AI
             star = _masterSystem.star;
             size = masterSystem.size;
         }
-        public void ExploreSystem(bool addUnknowns = true)
+        public void ExploreSystem( bool addUnknowns = true )
         {
             planets = masterSystem.planets;
             asteroids = masterSystem.asteroids;
             masterAI.knownSystems[Id] = this;
             if (addUnknowns)
             {
-                foreach (var connection in connections.Keys)
+                foreach (int connection in connections.Keys)
                 {
-                    if (masterAI.systemsBeingExplored.ContainsKey(connection)!=true && masterAI.systemsToExplore.FirstOrDefault(sys => sys.Id == connection) == null && masterAI.knownSystems.ContainsKey(connection)!=true)
+                    if (masterAI.systemsBeingExplored.ContainsKey(connection) != true && masterAI.systemsToExplore.FirstOrDefault(sys => sys.Id == connection) == null && masterAI.knownSystems.ContainsKey(connection) != true)
                     {
                         AddUnknownSystemToAI(connection);
                     }
@@ -60,7 +60,7 @@ public class AI
             }
         }
 
-        public void AddUnknownSystemToAI(int conId)
+        public void AddUnknownSystemToAI( int conId )
         {
             masterAI.systemsToExplore.Add(new AiSystem(masterAI, masterSystem.systemWorks.GetSystem(conId)));
         }
@@ -77,11 +77,11 @@ public class AI
     {
         for (int i = 0; i < unassignedShips.Count; i++)
         {
-            var ship = unassignedShips[i];
-            var randType = Random.Range(0, 2);
+            Ship ship = unassignedShips[i];
+            int randType = Random.Range(0, 2);
             //int randSystem = 0;
-            var keys = knownSystems.Keys.ToArray();
-            int randSystem = keys[Random.Range(0, keys.Length-1)];
+            int[] keys = knownSystems.Keys.ToArray();
+            int randSystem = keys[Random.Range(0, keys.Length - 1)];
             if (randType == 0)
             {
                 ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)], 1);
@@ -94,7 +94,8 @@ public class AI
         unassignedShips.Clear();
 
     }
-    internal struct shipTask {
+    internal struct shipTask
+    {
         public int index;
         public float distance;
 
@@ -105,27 +106,27 @@ public class AI
         public Unity.Mathematics.float3 target;
         public NativeArray<Vector3> positions;
         public NativeArray<float> results;
-        public void Execute(int index)
+        public void Execute( int index )
         {
             results[index] = Unity.Mathematics.math.distance(target, positions[index]);
         }
     }
     public void EconomicAssign()
     {
-        if (unassignedShips.Count<=0)
+        if (unassignedShips.Count <= 0)
         {
             return;
         }
         List<Entity> asteroids = new List<Entity>();
-        foreach (var sys in knownSystems.Values)
+        foreach (AiSystem sys in knownSystems.Values)
         {
-            foreach (var ast in sys.asteroids)
+            foreach (Entity ast in sys.asteroids)
             {
                 asteroids.Add(ast);
             }
         }
 
-        foreach (var asteroid in asteroids)
+        foreach (Entity asteroid in asteroids)
         {
             if (unassignedShips.Count <= 0)
             {
@@ -135,14 +136,14 @@ public class AI
             {
                 continue;
             }
-            var job = new shipDistJob();
+            shipDistJob job = new shipDistJob();
             NativeArray<Vector3> positions = new NativeArray<Vector3>(unassignedShips.Count, Allocator.TempJob);
             positions.CopyFrom(unassignedShips.Select(o => universe.systemWorks.GetSystem(o.currentSystemId).definingPoint.Position).ToArray());
             NativeArray<float> results = new NativeArray<float>(unassignedShips.Count, Allocator.TempJob);
             job.target = PrefabAccessor.entityManager.GetComponentData<Translation>(asteroid).Value;
             job.positions = positions;
             job.results = results;
-            var handle = job.Schedule(unassignedShips.Count, 1);
+            JobHandle handle = job.Schedule(unassignedShips.Count, 1);
             handle.Complete();
 
             results.OrderBy(o => o);
@@ -154,7 +155,7 @@ public class AI
                     unassignedShips.RemoveAt(0);
                 }
                 else { break; }
-                if (unassignedShips.Count==0)
+                if (unassignedShips.Count == 0)
                 {
                     positions.Dispose();
                     results.Dispose();
@@ -163,11 +164,11 @@ public class AI
             }
             positions.Dispose();
             results.Dispose();
-            
-            
+
+
         }
-        var keys = knownSystems.Keys.ToArray();
-        foreach (var ship in unassignedShips)
+        int[] keys = knownSystems.Keys.ToArray();
+        foreach (Ship ship in unassignedShips)
         {
             int randSystem = keys[Random.Range(0, keys.Length - 1)];
             ship.SetTargetAndGo(universe.systemWorks.GetSystem(randSystem).planets[Random.Range(0, universe.systemWorks.GetSystem(randSystem).planets.Length)], 1);
@@ -178,29 +179,29 @@ public class AI
 
     public void RandomExploreShips()
     {
-        while (unassignedShips.Count>0)
+        while (unassignedShips.Count > 0)
         {
             if (systemsToExplore.Count == 0)
             {
                 break;
             }
-            var systemToExplore = systemsToExplore[systemsToExplore.Count - 1];
+            AiSystem systemToExplore = systemsToExplore[systemsToExplore.Count - 1];
             systemsBeingExplored[systemToExplore.Id] = systemToExplore;
 
 
-            var ship = unassignedShips[unassignedShips.Count - 1];
-            foreach (var item in unassignedShips)
+            Ship ship = unassignedShips[unassignedShips.Count - 1];
+            foreach (Ship item in unassignedShips)
             {
                 if (item == ship)
                 {
                     continue;
                 }
-                var itemPos = universe.systemWorks.GetSystem(item.currentSystemId).definingPoint.Position;
-                var targetPos = systemToExplore.definingPoint.Position;
-                var time = Vector3.Distance(itemPos, targetPos)/item.velocity;
-                var shipPos = universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position;
-                var currentBestTime = Vector3.Distance(targetPos, shipPos)/ship.velocity;
-                if (time<currentBestTime)
+                Vector3 itemPos = universe.systemWorks.GetSystem(item.currentSystemId).definingPoint.Position;
+                Vector3 targetPos = systemToExplore.definingPoint.Position;
+                float time = Vector3.Distance(itemPos, targetPos) / item.velocity;
+                Vector3 shipPos = universe.systemWorks.GetSystem(ship.currentSystemId).definingPoint.Position;
+                float currentBestTime = Vector3.Distance(targetPos, shipPos) / ship.velocity;
+                if (time < currentBestTime)
                 {
                     ship = item;
                 }
@@ -209,19 +210,19 @@ public class AI
             unassignedShips.Remove(ship);
 
 
-            systemsToExplore.RemoveAt(systemsToExplore.Count-1);
-            
+            systemsToExplore.RemoveAt(systemsToExplore.Count - 1);
+
         }
     }
     public void MasterCall()
     {
         RandomExploreShips();
         EconomicAssign();
-        
+
     }
 
 
-    public AI(Universe uni, int _startingSystem, int numStatingShips, bool exploredAllSystems = false)
+    public AI( Universe uni, int _startingSystem, int numStatingShips, bool exploredAllSystems = false )
     {
         Id = AiStaticData.maxAiId;
         AiStaticData.maxAiId++;
@@ -234,9 +235,9 @@ public class AI
         //Build ai system data base
         if (exploredAllSystems)
         {
-            foreach (var systemKey in uni.masterPointsDatabase.Keys)
+            foreach (int systemKey in uni.masterPointsDatabase.Keys)
             {
-                var system = uni.systemWorks.GetSystem(systemKey);
+                UniverseSystem system = uni.systemWorks.GetSystem(systemKey);
                 knownSystems.Add(system.Id, new AiSystem(this, system));
                 knownSystems[system.Id].ExploreSystem(false);
             }
@@ -251,7 +252,7 @@ public class AI
         UniverseSystem Startsystem = uni.systemWorks.GetSystem(_startingSystem);
         for (int i = 0; i < numStatingShips; i++)
         {
-            Ship newShip = new Ship(new Vector3 {x = Random.Range(0, Startsystem.size), y = Random.Range(0, Startsystem.size), z = Random.Range(0, Startsystem.size) } , uni.systemWorks.entityManager, Startsystem.Id, this);
+            Ship newShip = new Ship(new Vector3 { x = Random.Range(0, Startsystem.size), y = Random.Range(0, Startsystem.size), z = Random.Range(0, Startsystem.size) }, uni.systemWorks.entityManager, Startsystem.Id, this);
             ownedShips.Add(newShip.Id, newShip);
             unassignedShips.Add(newShip);
         }

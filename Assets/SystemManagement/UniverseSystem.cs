@@ -22,28 +22,32 @@ public class UniverseSystem
     public SystemWorks systemWorks;
     public Dictionary<int, Ship> containedShips { get; set; }
 
-    public UniverseSystem(SystemWorks _systemWorks, int _Id, UniquePoint heraldPoint, int numPlanets, int numAsteroids)
+    public UniverseSystem( SystemWorks _systemWorks, int _Id, UniquePoint heraldPoint, int numPlanets, int numAsteroids )
     {
         Id = _Id;
         definingPoint = heraldPoint;
         connections = new Dictionary<int, ConnectionData>(definingPoint.Connections.Count);
-        var manager = PrefabAccessor.entityManager;
+        EntityManager manager = PrefabAccessor.entityManager;
         size = Random.Range(70, 200f);
-        foreach (var item in definingPoint.Connections)
+        foreach (UniquePoint item in definingPoint.Connections)
         {
-            connections.Add(item.Id, new ConnectionData() { 
-                conId = item.Id, 
-                connectionDistances = new Dictionary<int, float>(definingPoint.Connections.Count-1), 
-                Position = new Vector3() { x = Random.Range(0, size),
-                                           y = Random.Range(0, size),
-                                           z = Random.Range(0, size)} 
+            connections.Add(item.Id, new ConnectionData()
+            {
+                conId = item.Id,
+                connectionDistances = new Dictionary<int, float>(definingPoint.Connections.Count - 1),
+                Position = new Vector3()
+                {
+                    x = Random.Range(0, size),
+                    y = Random.Range(0, size),
+                    z = Random.Range(0, size)
+                }
             });
         }
-        foreach (var con in connections.Values)
+        foreach (ConnectionData con in connections.Values)
         {
-            foreach (var iterCon in connections.Keys)
+            foreach (int iterCon in connections.Keys)
             {
-                var secondaryCon = connections[iterCon];
+                ConnectionData secondaryCon = connections[iterCon];
                 if (secondaryCon.conId == con.conId)
                 {
                     continue;
@@ -58,25 +62,25 @@ public class UniverseSystem
         planets = new Entity[numPlanets];
         for (int i = 0; i < numPlanets; i++)
         {
-            
-            var planet = PrefabAccessor.entityManager.CreateEntity(PrefabAccessor.planetArc);
-            manager.SetComponentData<planetId>(planet, new planetId() { Id = i});
+
+            Entity planet = PrefabAccessor.entityManager.CreateEntity(PrefabAccessor.planetArc);
+            manager.SetComponentData<planetId>(planet, new planetId() { Id = i });
             manager.SetComponentData<Translation>(planet, new Translation() { Value = new Unity.Mathematics.float3(Random.Range(0, size), Random.Range(0, size), Random.Range(0, size)) });
-            manager.SetComponentData<masterSystemId>(planet, new masterSystemId() { Id = Id});
+            manager.SetComponentData<masterSystemId>(planet, new masterSystemId() { Id = Id });
             planets[i] = planet;
         }
         asteroids = new List<Entity>(); ;
         for (int i = 0; i < numAsteroids; i++)
         {
-            var asteroid = PrefabAccessor.entityManager.CreateEntity(PrefabAccessor.asteroidArc);
+            Entity asteroid = PrefabAccessor.entityManager.CreateEntity(PrefabAccessor.asteroidArc);
             manager.SetComponentData<asteroidId>(asteroid, new asteroidId() { Id = AsteroidMethods.MaxId });
             manager.SetComponentData<Translation>(asteroid, new Translation() { Value = new Unity.Mathematics.float3(Random.Range(0, size), Random.Range(0, size), Random.Range(0, size)) });
             manager.SetComponentData<masterSystemId>(asteroid, new masterSystemId() { Id = Id });
-            manager.SetComponentData<FoodResource>(asteroid, new FoodResource() { volume = 1000, reservedVolume =0 });
+            manager.SetComponentData<FoodResource>(asteroid, new FoodResource() { volume = 1000, reservedVolume = 0 });
             asteroids.Add(asteroid);
         }
         star = manager.CreateEntity(PrefabAccessor.starArc);
-        manager.SetComponentData<starId>(star, new starId() { Id = 0});
+        manager.SetComponentData<starId>(star, new starId() { Id = 0 });
         manager.SetComponentData<Translation>(star, new Translation() { Value = new Vector3() { x = size / 2, y = size / 2, z = size / 2 } });
         manager.SetComponentData<masterSystemId>(star, new masterSystemId { Id = Id });
 

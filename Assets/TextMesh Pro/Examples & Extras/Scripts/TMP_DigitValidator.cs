@@ -12,7 +12,7 @@ namespace TMPro
     public class TMP_DigitValidator : TMP_InputValidator
     {
         // Custom text input validation function
-        public override char Validate(ref string text, ref int pos, char ch)
+        public override char Validate( ref string text, ref int pos, char ch )
         {
             if (ch >= '0' && ch <= '9')
             {

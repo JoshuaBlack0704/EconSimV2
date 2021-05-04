@@ -31,10 +31,10 @@ public class UIforwarder : MonoBehaviour
 
     public void Restart()
     {
-        var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
         UniversePoint.maxPointId = 0;
         UniversePoint.SelfCollection.Clear();
-        var arr = em.GetAllEntities();
+        Unity.Collections.NativeArray<Entity> arr = em.GetAllEntities();
         em.DestroyEntity(arr);
         arr.Dispose();
         SceneManager.LoadScene(0);

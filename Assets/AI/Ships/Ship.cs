@@ -51,7 +51,7 @@ public class Ship
     /// </summary>
     /// <typeparam name="T">The type ob object must inherit ISystemSubObject</typeparam>
     /// <param name="target">The target System Sub Object</param>
-    public void SetTargetAndGo(Entity target, int _missionType)
+    public void SetTargetAndGo( Entity target, int _missionType )
     {
         assigned = true;
         missionType = _missionType;
@@ -61,7 +61,7 @@ public class Ship
         {
             wayPoints = masterAI.universe.systemWorks.GetPath(currentSystemId, targetSystem, this);
         }
-        if (_missionType==4)
+        if (_missionType == 4)
         {
             missionType = _missionType;
             EconomicMethods.ReserveResource<FoodResource>(target, 10);
@@ -82,7 +82,7 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            var ticket = MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity, 1, this);
+            MainSchedual.EventTicketHeapItem ticket = MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity, 1, this);
             ticket.entityReference = targetEntity;
             if (activeEntity != Entity.Null)
             {
@@ -91,16 +91,16 @@ public class Ship
         }
         else
         {
-            
+
             if (masterAI.universe.systemWorks.GetSystem(currentSystemId).connections.ContainsKey(wayPoints[wayPoints.Count - 1]) != true)
             {
                 MonoBehaviour.print("Target system: " + targetSystem);
                 MonoBehaviour.print(string.Format("Current System: {0}, next waypoint Step: {1}", currentSystemId, wayPoints[wayPoints.Count - 1]));
-                foreach (var item in masterAI.universe.systemWorks.GetSystem(currentSystemId).connections.Keys)
+                foreach (int item in masterAI.universe.systemWorks.GetSystem(currentSystemId).connections.Keys)
                 {
                     MonoBehaviour.print(string.Format("System: {0} contains connection: {1}", currentSystemId, item));
                 }
-                foreach (var step in wayPoints)
+                foreach (int step in wayPoints)
                 {
                     MonoBehaviour.print(string.Format("waypoint step: {0}", step));
                 }
@@ -108,7 +108,7 @@ public class Ship
             flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystemId).connections[wayPoints[wayPoints.Count - 1]].Position;
             vector = flyToPosition;
             MainSchedual.AddToHeap(Vector3.Distance(Position, flyToPosition) / velocity, 0, this);
-            
+
             if (activeEntity != Entity.Null)
             {
                 SetEntityData();
@@ -124,36 +124,36 @@ public class Ship
     public void WarpNext()
     {
         UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[wayPoints.Count - 1]);
-        if (targetSystemJump.Id != wayPoints[wayPoints.Count-1])
+        if (targetSystemJump.Id != wayPoints[wayPoints.Count - 1])
         {
             Debug.LogError("here");
         }
         UniverseSystem currentSystem = masterAI.universe.systemWorks.GetSystem(currentSystemId);
 
-        if (masterAI.universe.inSystem==false)
+        if (masterAI.universe.inSystem == false)
         {
             Debug.DrawLine(targetSystemJump.definingPoint.Position, currentSystem.definingPoint.Position, Color.green);
         }
         targetSystemJump.containedShips.Add(Id, this);
-        if (targetSystemJump.connections.ContainsKey(currentSystemId)!=true)
+        if (targetSystemJump.connections.ContainsKey(currentSystemId) != true)
         {
             MonoBehaviour.print("current system: " + currentSystemId);
-            MonoBehaviour.print("targetJump system: " + wayPoints[wayPoints.Count-1]);
+            MonoBehaviour.print("targetJump system: " + wayPoints[wayPoints.Count - 1]);
             MonoBehaviour.print("Final target system: " + targetSystem);
-            foreach (var item in targetSystemJump.connections.Keys)
+            foreach (int item in targetSystemJump.connections.Keys)
             {
                 MonoBehaviour.print(string.Format("Target system: {0} contains connection to system: {1}", targetSystemJump.Id, item));
-                if (targetSystemJump.Id!=wayPoints[wayPoints.Count-1])
+                if (targetSystemJump.Id != wayPoints[wayPoints.Count - 1])
                 {
                     Debug.LogError("here");
                 }
             }
-            foreach (var item in currentSystem.connections.Keys)
+            foreach (int item in currentSystem.connections.Keys)
             {
-                MonoBehaviour.print(string.Format("current system: {0} contains connection to system: {1}", currentSystemId,item));
+                MonoBehaviour.print(string.Format("current system: {0} contains connection to system: {1}", currentSystemId, item));
 
             }
-            foreach (var item in wayPoints)
+            foreach (int item in wayPoints)
             {
                 MonoBehaviour.print("Waypoint step: " + item);
             }
@@ -198,7 +198,7 @@ public class Ship
         {
             EconomicMethods.WithdrawResource<FoodResource>(targetEntity, 10);
         }
-        else if (missionType==2)
+        else if (missionType == 2)
         {
             ExploreSystem();
         }
@@ -230,7 +230,7 @@ public class Ship
     /// <returns>ships next vector 3</returns>
     public Vector3 GetNextPosition()
     {
-        Position = _posAtTicketWrite+vector*velocity*(MainSchedual.masterTime-currentTicket.timeAtWrite);
+        Position = _posAtTicketWrite + vector * velocity * (MainSchedual.masterTime - currentTicket.timeAtWrite);
         return Position;
     }
 
@@ -242,7 +242,7 @@ public class Ship
     /// add and set ShipMoveData, 
     /// We set its active entity, 
     /// </summary>
-    public void CreateEntityFor(bool newSpawn = false)
+    public void CreateEntityFor( bool newSpawn = false )
     {
         if (activeEntity != Entity.Null)
         {
@@ -260,7 +260,7 @@ public class Ship
         entityManager.AddComponent<shipCloneId>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
         entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
-        entityManager.SetComponentData(shipClone, new shipCloneId { Id=Id });
+        entityManager.SetComponentData(shipClone, new shipCloneId { Id = Id });
         activeEntity = shipClone;
     }
     public void DestoryEntityFor()
@@ -271,10 +271,10 @@ public class Ship
     public void SetEntityData()
     {
         entityManager.SetComponentData(activeEntity, new Translation { Value = Position });
-        entityManager.SetComponentData(activeEntity, new shipMoveData { vector = vector, velocity = velocity});
-        entityManager.SetComponentData(activeEntity, new Rotation { Value = quaternion.LookRotation(vector, math.up())});
+        entityManager.SetComponentData(activeEntity, new shipMoveData { vector = vector, velocity = velocity });
+        entityManager.SetComponentData(activeEntity, new Rotation { Value = quaternion.LookRotation(vector, math.up()) });
     }
-    
+
     /// <summary>
     /// We build the ship, 
     /// set its id, 
@@ -292,7 +292,7 @@ public class Ship
     /// <param name="_entityManager"></param>
     /// <param name="startSystem"></param>
     /// <param name="_masterAI"></param>
-    public Ship(Vector3 startPos, EntityManager _entityManager, int startSystem, AI _masterAI)
+    public Ship( Vector3 startPos, EntityManager _entityManager, int startSystem, AI _masterAI )
     {
         Id = StaticShipData.count;
         masterAI = _masterAI;
@@ -306,7 +306,7 @@ public class Ship
         entityManager = _entityManager;
     }
 
-    
+
 }
 
 public static class StaticShipData
@@ -322,7 +322,7 @@ public struct shipMoveData : IComponentData
     public float velocity;
 }
 
-public struct shipCloneId : IComponentData { public int Id { get; set; }}
+public struct shipCloneId : IComponentData { public int Id { get; set; } }
 
 public class ShipAnimator : SystemBase
 {
@@ -331,7 +331,8 @@ public class ShipAnimator : SystemBase
         float timePassed = MainSchedual.masterDeltaTime;
         if (MainSchedual.notPaused)
         {
-            Entities.WithAll<shipCloneId>().ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) => {
+            Entities.WithAll<shipCloneId>().ForEach(( ref Translation position, ref Rotation rotation, in shipMoveData moveData ) =>
+            {
 
                 position.Value.x += (moveData.vector.x * moveData.velocity * timePassed);
                 position.Value.y += (moveData.vector.y * moveData.velocity * timePassed);
@@ -340,6 +341,6 @@ public class ShipAnimator : SystemBase
 
             }).ScheduleParallel();
         }
-        
+
     }
 }

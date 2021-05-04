@@ -18,7 +18,7 @@ public class UniverseGenerator : MonoBehaviour
         MonoBehaviour.print("Generation Complete");
     }
 
-    public void ExternalSystemSelector(int id)
+    public void ExternalSystemSelector( int id )
     {
         selectedSystem = id;
         universe.selectedSystem = id;
@@ -27,7 +27,7 @@ public class UniverseGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
+
     }
 
     // Update is called once per frame

@@ -16,16 +16,16 @@ public class AICoordinator : MonoBehaviour
         AIDictionary.Add(0, new AI(UniverseGenerator.universe, 0, startingShipsPerAi, true));
         for (int i = 1; i < startingAiNum; i++)
         {
-            AIDictionary.Add(i , new AI(UniverseGenerator.universe, Random.Range(0, UniverseGenerator.universe.maxPointId+1), startingShipsPerAi, false));
+            AIDictionary.Add(i, new AI(UniverseGenerator.universe, Random.Range(0, UniverseGenerator.universe.maxPointId + 1), startingShipsPerAi, false));
         }
     }
     private void OnDrawGizmos()
     {
         if (showAIExploration && UniverseGenerator.universe.inSystem == false)
         {
-            foreach (var AI in AIDictionary.Values)
+            foreach (AI AI in AIDictionary.Values)
             {
-                foreach (var sys in AI.knownSystems.Values)
+                foreach (AI.AiSystem sys in AI.knownSystems.Values)
                 {
                     Gizmos.DrawSphere(sys.definingPoint.Position, 2);
                 }
@@ -34,10 +34,10 @@ public class AICoordinator : MonoBehaviour
     }
     void Update()
     {
-        foreach (var AI in AIDictionary.Values)
+        foreach (AI AI in AIDictionary.Values)
         {
             AI.MasterCall();
         }
-        
+
     }
 }

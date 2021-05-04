@@ -35,7 +35,7 @@ namespace TMPro.Examples
 
 
         // Event received when the text object has changed.
-        void ON_TEXT_CHANGED(Object obj)
+        void ON_TEXT_CHANGED( Object obj )
         {
             hasTextChanged = true;
         }
@@ -45,7 +45,7 @@ namespace TMPro.Examples
         /// Method revealing the text one character at a time.
         /// </summary>
         /// <returns></returns>
-        IEnumerator RevealCharacters(TMP_Text textComponent)
+        IEnumerator RevealCharacters( TMP_Text textComponent )
         {
             textComponent.ForceMeshUpdate();
 
@@ -59,7 +59,7 @@ namespace TMPro.Examples
                 if (hasTextChanged)
                 {
                     totalVisibleCharacters = textInfo.characterCount; // Update visible character count.
-                    hasTextChanged = false; 
+                    hasTextChanged = false;
                 }
 
                 if (visibleCount > totalVisibleCharacters)
@@ -81,7 +81,7 @@ namespace TMPro.Examples
         /// Method revealing the text one word at a time.
         /// </summary>
         /// <returns></returns>
-        IEnumerator RevealWords(TMP_Text textComponent)
+        IEnumerator RevealWords( TMP_Text textComponent )
         {
             textComponent.ForceMeshUpdate();
 

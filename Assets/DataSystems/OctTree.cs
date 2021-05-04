@@ -12,7 +12,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
     Universe parentUniverse;
     int maxCubeId = 0;
     int maxPointsPerCube;
-    int subCubesCreated=1;
+    int subCubesCreated = 1;
     public Dictionary<int, Cube> masterCubeDatabase = new Dictionary<int, Cube>();
 
     public class Cube
@@ -23,7 +23,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
         public List<T> contents { get; set; }
         public Cube[] Branches { get; set; }
 
-        public Cube(OctTree<T> octTree, Vector3 minimumVertex, Vector3 maximumVertex, List<T> predefinedContents = null)
+        public Cube( OctTree<T> octTree, Vector3 minimumVertex, Vector3 maximumVertex, List<T> predefinedContents = null )
         {
             Id = octTree.maxCubeId;
             octTree.maxCubeId++;
@@ -45,9 +45,9 @@ public class OctTree<T> where T : IOctTreeItem<T>
     Cube rootCube;
 
 
-    public bool IsBetween(Vector3 min, Vector3 max, Vector3 point)
+    public bool IsBetween( Vector3 min, Vector3 max, Vector3 point )
     {
-        if (point.x < max.x && point.x >= min.x && 
+        if (point.x < max.x && point.x >= min.x &&
             point.y < max.y && point.y >= min.y &&
             point.z < max.z && point.z >= min.z)
         {
@@ -67,7 +67,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
     /// Progress through the cube network to find the deepest cube, adding to every cube on the way
     /// </summary>
     /// <param name="item"></param>
-    public Cube PlaceItem(T item)
+    public Cube PlaceItem( T item )
     {
         Cube currentCube = rootCube;
 
@@ -86,7 +86,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
                 //MonoBehaviour.print("Branches not null");
                 for (int i = 0; i < currentCube.Branches.Length; i++)
                 {
-                    var branch = currentCube.Branches[i];
+                    Cube branch = currentCube.Branches[i];
                     if (IsBetween(branch.minimums, branch.maximums, item.Position))
                     {
                         //MonoBehaviour.print("Found matching branch");
@@ -102,17 +102,17 @@ public class OctTree<T> where T : IOctTreeItem<T>
         }
     }
 
-    public void SplitCube(Cube cube)
+    public void SplitCube( Cube cube )
     {
 
         //We will split the cube into 8 different subsections
         subCubesCreated += 8;
         //The half change in vertext coordinates
         float incrementx = (cube.maximums.x - cube.minimums.x) / 2;
-        
+
         float incrementy = (cube.maximums.y - cube.minimums.y) / 2;
-        
-        float incrementz= (cube.maximums.z - cube.minimums.z) / 2;
+
+        float incrementz = (cube.maximums.z - cube.minimums.z) / 2;
 
         //We iterate twice in all three dimensions because we only split twince in all three dimensions
         int cubeCount = 0;
@@ -145,15 +145,15 @@ public class OctTree<T> where T : IOctTreeItem<T>
         }
 
         //We go through our master cubes parition and distribute the points and repeat the splitcube funtion
-        foreach (var point in cube.contents)
+        foreach (T point in cube.contents)
         {
-            foreach (var subCube in cube.Branches)
+            foreach (Cube subCube in cube.Branches)
             {
                 if (IsBetween(subCube.minimums, subCube.maximums, point.Position))
                 {
                     subCube.contents.Add(point);
                     point.OctTreeAddress.Add(subCube.Id);
-                    
+
 
                     if (subCube.contents.Count > maxPointsPerCube)
                     {
@@ -164,17 +164,17 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
                     break;
                 }
-            } 
+            }
         }
     }
 
-    public void AddToOctTree(T item)
+    public void AddToOctTree( T item )
     {
         //We will place an item
         Cube leafCube = PlaceItem(item);
         //MonoBehaviour.print("leafNode found, contents count: " + leafCube.contents.Count + " max points per cube: " + maxPointsPerCube);
         //Then we will check if that cube is over capacity
-        if (leafCube.contents.Count > maxPointsPerCube+1)
+        if (leafCube.contents.Count > maxPointsPerCube + 1)
         {
             //If it is over capacity we will split the cube and re-distribute the points inside
             SplitCube(leafCube);
@@ -185,19 +185,19 @@ public class OctTree<T> where T : IOctTreeItem<T>
     [BurstCompile]
     public void ConnectSystems()
     {
-        var numConnections = parentUniverse.targetConnections;
+        int numConnections = parentUniverse.targetConnections;
 
-        
 
-        distStruct[] GetSortedDistances(UniquePoint point, List<Cube> cubeList)
+
+        distStruct[] GetSortedDistances( UniquePoint point, List<Cube> cubeList )
         {
             distStruct mainPoint = new distStruct { Id = point.Id, position = point.Position };
 
             List<distStruct> tempList = new List<distStruct>();
 
-            foreach (var cube in cubeList)
+            foreach (Cube cube in cubeList)
             {
-                foreach (var item in cube.contents)
+                foreach (T item in cube.contents)
                 {
                     distStruct newDistStruct = new distStruct { Id = item.Id, position = item.Position };
 
@@ -206,23 +206,23 @@ public class OctTree<T> where T : IOctTreeItem<T>
             }
 
             NativeArray<distStruct> positions = new NativeArray<distStruct>(tempList.Count, Allocator.TempJob);
-            
+
             positions.CopyFrom(tempList.ToArray());
 
-            var distJob = new DistCalcBatch()
+            DistCalcBatch distJob = new DistCalcBatch()
             {
                 pos = mainPoint,
                 resultDistStructs = positions
             };
             JobHandle distJobHandle = distJob.Schedule(distJob.resultDistStructs.Length, 1);
 
-            distJobHandle.Complete();   
+            distJobHandle.Complete();
 
             distStruct[] resultArr = new distStruct[tempList.Count];
 
             positions.CopyTo(resultArr);
 
-            var finalArr = resultArr.OrderBy(dist => dist.result).ToArray();
+            distStruct[] finalArr = resultArr.OrderBy(dist => dist.result).ToArray();
 
             positions.Dispose();
 
@@ -230,16 +230,16 @@ public class OctTree<T> where T : IOctTreeItem<T>
         }
 
         //We first want to iterate through all systems
-        foreach (var point in parentUniverse.masterPointsDatabase.Values)
+        foreach (UniquePoint point in parentUniverse.masterPointsDatabase.Values)
         {
-            var Address = point.OctTreeAddress;
+            List<int> Address = point.OctTreeAddress;
             //We will use the points oct tree address recursivley to fingthefirst cube that contains atleast target connections
             Cube startingCube = rootCube;
-            for (int i = Address.Count-1; i >= 0; i--)
+            for (int i = Address.Count - 1; i >= 0; i--)
             {
                 startingCube = masterCubeDatabase[Address[i]];
 
-                if (startingCube.contents.Count >= parentUniverse.targetConnections+1)
+                if (startingCube.contents.Count >= parentUniverse.targetConnections + 1)
                 {
                     //MonoBehaviour.print("Address Recursions: " + (Address.Count - i));
                     //MonoBehaviour.print("Starting Cube contents count: " + startingCube.contents.Count);
@@ -250,9 +250,9 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
             //We must now find the closest four points
 
-            distStruct[] sortedList = GetSortedDistances(point, new List<Cube>() { startingCube});
+            distStruct[] sortedList = GetSortedDistances(point, new List<Cube>() { startingCube });
 
-            var maxDistance = sortedList[maxPointsPerCube].result;
+            float maxDistance = sortedList[maxPointsPerCube].result;
 
 
             List<Cube> cubesOfIntrest = new List<Cube>(10);
@@ -273,7 +273,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
                 //MonoBehaviour.print("Max Distance: " + maxDistance);
                 for (int i = 0; i < currentCube.Branches.Length; i++)
                 {
-                    
+
                     Cube cube = currentCube.Branches[i];
 
                     Vector3 maxRange = new Vector3()
@@ -366,7 +366,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
                         cubesOfIntrest.Add(cube);
                         //MonoBehaviour.print("subCube added");
                     }
-                    
+
 
                 }
                 cubesOfIntrest.Remove(currentCube);
@@ -374,7 +374,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
             }
 
-            var finalSortedList = GetSortedDistances(point, cubesOfIntrest);
+            distStruct[] finalSortedList = GetSortedDistances(point, cubesOfIntrest);
 
             for (int i = 1; i <= parentUniverse.targetConnections; i++)
             {
@@ -387,14 +387,14 @@ public class OctTree<T> where T : IOctTreeItem<T>
                     point.Connections.Add(connectedPoint);
                     connectedPoint.Connections.Add(point);
                 }
-                
+
             }
 
         }
 
-        foreach (var item in parentUniverse.masterPointsDatabase.Values)
+        foreach (UniquePoint item in parentUniverse.masterPointsDatabase.Values)
         {
-            foreach (var connection in item.Connections)
+            foreach (UniquePoint connection in item.Connections)
             {
                 if (parentUniverse.masterPointsDatabase[connection.Id].Connections.Contains(item) != true)
                 {
@@ -406,7 +406,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
 
 
-    public OctTree(Universe universe, Vector3 origin, Vector3 maxVertex, bool manualSystemPartitions, int systemPartitions = 0)
+    public OctTree( Universe universe, Vector3 origin, Vector3 maxVertex, bool manualSystemPartitions, int systemPartitions = 0 )
     {
         parentUniverse = universe;
         rootCube = new Cube(this, origin, maxVertex);
@@ -444,12 +444,12 @@ public struct DistCalcBatch : IJobParallelFor
 {
     [ReadOnly]
     public distStruct pos;
-    
+
     public NativeArray<distStruct> resultDistStructs;
 
-    public void Execute(int index)
+    public void Execute( int index )
     {
-        distStruct res = new distStruct() { Id = resultDistStructs[index].Id, position = resultDistStructs[index].position};
+        distStruct res = new distStruct() { Id = resultDistStructs[index].Id, position = resultDistStructs[index].position };
         //you must sqrt
         res.result = math.sqrt(math.pow(resultDistStructs[index].position.x - pos.position.x, 2) + math.pow(resultDistStructs[index].position.y - pos.position.y, 2) + math.pow(resultDistStructs[index].position.z - pos.position.z, 2));
         resultDistStructs[index] = res;

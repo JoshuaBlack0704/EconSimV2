@@ -16,7 +16,7 @@ public class KDtree<T> where T : IKDItem<T>
         public KDNode[] branches { get; set; }
         public T contents { get; set; }
 
-        public KDNode(KDtree<T> KDtree, T Contents, KDNode Parent = null, KDNode leftChild = null, KDNode rightChild = null)
+        public KDNode( KDtree<T> KDtree, T Contents, KDNode Parent = null, KDNode leftChild = null, KDNode rightChild = null )
         {
             Id = KDtree.maxKDnodeId;
             KDtree.maxKDnodeId++;
@@ -51,7 +51,7 @@ public class KDtree<T> where T : IKDItem<T>
     /// </summary>
     /// <param name="item"></param>
     /// <returns>Bool</returns>
-    public bool addItemToKdTree(T item)
+    public bool addItemToKdTree( T item )
     {
         //We start at the root node
         KDNode currentNode = rootNode;
@@ -121,7 +121,7 @@ public class KDtree<T> where T : IKDItem<T>
 
 
 
-    public KDtree(T rootObject)
+    public KDtree( T rootObject )
     {
         rootNode = new KDNode(this, rootObject);
     }
@@ -143,7 +143,7 @@ public interface IKDCompare<T>
     /// <param name="item"></param>
     /// <param name="dimensionIndex"></param>
     /// <returns></returns>
-    int CompareToWithIndex(T item, int dimensionIndex);
+    int CompareToWithIndex( T item, int dimensionIndex );
 }
 
 

@@ -9,7 +9,7 @@ public class PointTester : MonoBehaviour
     UniversePoint current;
     public bool destroyAll;
 
-    public void StartSim(string count)
+    public void StartSim( string count )
     {
         UniversePoint.GeneratePoints(int.Parse(count));
         current = UniversePoint.SelfCollection[0];
@@ -17,19 +17,19 @@ public class PointTester : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private bool isDestroyed;
     // Update is called once per frame
     void Update()
     {
-        if (destroyAll&&isDestroyed==false)
+        if (destroyAll && isDestroyed == false)
         {
             IBaseEntity.DestroyAllClones(World.DefaultGameObjectInjectionWorld.EntityManager);
             isDestroyed = true;
         }
-        else if (destroyAll&&isDestroyed)
+        else if (destroyAll && isDestroyed)
         {
             UniversePoint.SpawnAllClones();
             isDestroyed = false;

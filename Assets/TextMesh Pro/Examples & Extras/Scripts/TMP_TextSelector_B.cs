@@ -68,7 +68,7 @@ namespace TMPro.Examples
         }
 
 
-        void ON_TEXT_CHANGED(Object obj)
+        void ON_TEXT_CHANGED( Object obj )
         {
             if (obj == m_TextMeshPro)
             {
@@ -286,25 +286,25 @@ namespace TMPro.Examples
                     m_lastIndex = -1;
                 }
             }
-            
+
         }
 
 
-        public void OnPointerEnter(PointerEventData eventData)
+        public void OnPointerEnter( PointerEventData eventData )
         {
             //Debug.Log("OnPointerEnter()");
             isHoveringObject = true;
         }
 
 
-        public void OnPointerExit(PointerEventData eventData)
+        public void OnPointerExit( PointerEventData eventData )
         {
             //Debug.Log("OnPointerExit()");
             isHoveringObject = false;
         }
 
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerClick( PointerEventData eventData )
         {
             //Debug.Log("Click at POS: " + eventData.position + "  World POS: " + eventData.worldPosition);
 
@@ -447,13 +447,13 @@ namespace TMPro.Examples
         }
 
 
-        public void OnPointerUp(PointerEventData eventData)
+        public void OnPointerUp( PointerEventData eventData )
         {
             //Debug.Log("OnPointerUp()");
         }
 
 
-        void RestoreCachedVertexAttributes(int index)
+        void RestoreCachedVertexAttributes( int index )
         {
             if (index == -1 || index > m_TextMeshPro.textInfo.characterCount - 1) return;
 

@@ -15,16 +15,16 @@ public class UniversePoint : IVectorController, IIdTag
 
     public int Id { get; set; }
 
-    public static void GeneratePoints(int count)
+    public static void GeneratePoints( int count )
     {
         for (int i = 0; i < count; i++)
         {
-            var point = new UniversePoint(EntityPrefabBank.rand.NextFloat3(0, 200));
+            UniversePoint point = new UniversePoint(EntityPrefabBank.rand.NextFloat3(0, 200));
             point.SpawnClone();
             SelfCollection.Add(i, point);
         }
     }
-    
+
     public void SpawnClone()
     {
         //CreateCloneWithSelfPosition<UniversePointTag>(EntityPrefabBank.models[0]);
@@ -32,15 +32,15 @@ public class UniversePoint : IVectorController, IIdTag
     }
     public static void SpawnAllClones()
     {
-        foreach (var item in SelfCollection.Values)
+        foreach (UniversePoint item in SelfCollection.Values)
         {
             item.SpawnClone();
         }
     }
 
-    public UniversePoint(float3 pos)
+    public UniversePoint( float3 pos )
     {
-        
+
         Em.AddComponentData<UniversePointTag>(BaseEntity, new UniversePointTag { Id = maxPointId });
         maxPointId++;
         Position = pos;
@@ -66,7 +66,7 @@ public struct UniversePointTag : IComponentData, IIdTag
 
 public abstract class IPositionController : IBaseEntity, IPositionAutomater
 {
-    
+
     protected IPositionController() : base()
     {
         Em.AddComponent<PositionData>(BaseEntity);
@@ -77,7 +77,7 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
         public NativeArray<PositionData> targets;
         public NativeArray<distBatchContainer> containers;
         public float3 origin;
-        public void Execute(int index)
+        public void Execute( int index )
         {
             distBatchContainer cont = new distBatchContainer { index = index, dist = math.distancesq(targets[index].position, origin) };
             containers[index] = cont;
@@ -95,23 +95,23 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
     /// <typeparam name="T"></typeparam>
     /// <param name="count"></param>
     /// <returns></returns>
-    public Entity[] BruteForceClosestCount<T>(int count) where T : IComponentData
+    public Entity[] BruteForceClosestCount<T>( int count ) where T : IComponentData
     {
-        var watch = new System.Diagnostics.Stopwatch();
+        System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
         watch.Start();
         EntityQuery query = Em.CreateEntityQuery(new ComponentType[] { typeof(PositionData), ComponentType.ReadOnly<UniversePointTag>() });
 
-        var entityPull = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle1);
-        var positionPull = query.ToComponentDataArrayAsync<PositionData>(Allocator.TempJob, out JobHandle handle2);
+        NativeArray<Entity> entityPull = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle1);
+        NativeArray<PositionData> positionPull = query.ToComponentDataArrayAsync<PositionData>(Allocator.TempJob, out JobHandle handle2);
         NativeArray<distBatchContainer> containers = new NativeArray<distBatchContainer>(query.CalculateEntityCount(), Allocator.TempJob);
 
 
-        var batch = new DistBatch();
+        DistBatch batch = new DistBatch();
         batch.origin = Position;
         handle2.Complete();
         batch.targets = positionPull;
         batch.containers = containers;
-        var finalHandle = batch.Schedule(positionPull.Length, 1);
+        JobHandle finalHandle = batch.Schedule(positionPull.Length, 1);
 
         handle1.Complete();
         finalHandle.Complete();
@@ -135,10 +135,10 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
 
     }
 
-    public Entity CreateCloneWithPosition<T>(Entity model) where T : struct, IComponentData, IIdTag
+    public Entity CreateCloneWithPosition<T>( Entity model ) where T : struct, IComponentData, IIdTag
     {
         //pos, tag, return
-        var clone = CreateCloneEntityFor<T>(model);
+        Entity clone = CreateCloneEntityFor<T>(model);
         Em.SetComponentData<Translation>(clone, new Translation() { Value = Position });
         return clone;
     }
@@ -152,7 +152,7 @@ public interface IPositionAutomater
 {
     public float3 Position { get; set; }
     public Vector3 vPosition { get; }
-    public Entity CreateCloneWithPosition<T>(Entity model) where T : struct, IComponentData, IIdTag;
+    public Entity CreateCloneWithPosition<T>( Entity model ) where T : struct, IComponentData, IIdTag;
 }
 
 public struct PositionData : IComponentData

@@ -36,7 +36,7 @@ public class PrefabAccessor : MonoBehaviour
         entityTemplateArray[4] = GameObjectConversionUtility.ConvertGameObjectHierarchy(wormholePrefab, settings);
         entityTemplateArray[5] = GameObjectConversionUtility.ConvertGameObjectHierarchy(shipPrefab, settings);
         entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        planetArc = entityManager.CreateArchetype(new ComponentType[] { typeof(planetId), typeof(Translation), typeof(masterSystemId), typeof(PopulationResource), typeof(FoodResource)});
+        planetArc = entityManager.CreateArchetype(new ComponentType[] { typeof(planetId), typeof(Translation), typeof(masterSystemId), typeof(PopulationResource), typeof(FoodResource) });
         asteroidArc = entityManager.CreateArchetype(new ComponentType[] { typeof(asteroidId), typeof(Translation), typeof(masterSystemId), typeof(FoodResource) });
         starArc = entityManager.CreateArchetype(new ComponentType[] { typeof(starId), typeof(Translation), typeof(masterSystemId) });
     }

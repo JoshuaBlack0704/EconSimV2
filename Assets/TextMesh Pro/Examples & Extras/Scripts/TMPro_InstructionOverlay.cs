@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace TMPro.Examples
 {
-    
+
     public class TMPro_InstructionOverlay : MonoBehaviour
     {
 
@@ -53,7 +53,7 @@ namespace TMPro.Examples
 
 
 
-        void Set_FrameCounter_Position(FpsCounterAnchorPositions anchor_position)
+        void Set_FrameCounter_Position( FpsCounterAnchorPositions anchor_position )
         {
 
             switch (anchor_position)

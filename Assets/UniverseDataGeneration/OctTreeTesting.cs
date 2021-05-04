@@ -21,19 +21,19 @@ public class OctTreeTesting : MonoBehaviour
             OctCoords = new List<int>();
             Connections.Clear();
 
-            var point = uni.masterPointsDatabase[pointCode];
+            UniquePoint point = uni.masterPointsDatabase[pointCode];
 
-            foreach (var step in point.OctTreeAddress)
+            foreach (int step in point.OctTreeAddress)
             {
                 OctCoords.Add(step);
             }
-            foreach (var con in point.Connections)
+            foreach (UniquePoint con in point.Connections)
             {
                 Connections.Add(con.Id);
             }
         }
 
-        
+
 
 
     }

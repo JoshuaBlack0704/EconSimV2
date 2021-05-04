@@ -21,9 +21,9 @@ public abstract class IBaseEntity
     /// <summary>
     /// Destroys all clons
     /// </summary>
-    public static void DestroyAllClones(EntityManager em)
+    public static void DestroyAllClones( EntityManager em )
     {
-        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<CloneTag>()});;
+        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<CloneTag>() }); ;
         NativeArray<Entity> pull = query.ToEntityArray(Allocator.Temp);
         em.DestroyEntity(pull);
         pull.Dispose();
@@ -32,7 +32,7 @@ public abstract class IBaseEntity
     /// Destroys all clones with a certain ID tag
     /// </summary>
     /// <typeparam name="T">ID tag to destroy for</typeparam>
-    public static void DestroyClonesWithTag<T>(EntityManager em) where T : struct, IComponentData, IIdTag
+    public static void DestroyClonesWithTag<T>( EntityManager em ) where T : struct, IComponentData, IIdTag
     {
         EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<T>() }); ;
         NativeArray<Entity> pull = query.ToEntityArray(Allocator.Temp);
@@ -67,7 +67,7 @@ public abstract class IBaseEntity
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-    public Entity CreateCloneEntityFor<T>(Entity model) where T : struct, IComponentData, IIdTag
+    public Entity CreateCloneEntityFor<T>( Entity model ) where T : struct, IComponentData, IIdTag
     {
         cloneEntity = Em.Instantiate(model);
         Em.AddComponentData<T>(cloneEntity, new T() { Id = Em.GetComponentData<T>(BaseEntity).Id });

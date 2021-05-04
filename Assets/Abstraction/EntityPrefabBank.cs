@@ -14,7 +14,7 @@ public class EntityPrefabBank : MonoBehaviour
     void Awake()
     {
         models = new Entity[1];
-        var settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
+        GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
         models[0] = GameObjectConversionUtility.ConvertGameObjectHierarchy(system, settings);
     }
 }

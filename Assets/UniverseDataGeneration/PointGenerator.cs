@@ -10,7 +10,7 @@ public class PointGenerator
     /// <param name="universe"></param>
     /// <param name="maximums"></param>
     /// <returns></returns>
-    public static KDtree<UniquePoint> MakeNewPointKDtree(Universe universe, Vector3 maximums)
+    public static KDtree<UniquePoint> MakeNewPointKDtree( Universe universe, Vector3 maximums )
     {
         UniquePoint point = new UniquePoint(universe, Random.Range(0, maximums.x), Random.Range(0, maximums.y), Random.Range(0, maximums.z));
         KDtree<UniquePoint> kdTree = new KDtree<UniquePoint>(point);
@@ -28,7 +28,7 @@ public class PointGenerator
     /// <param name="kdtree"></param>
     /// <param name="numOfPoints"></param>
     /// <param name="maximums"></param>
-    public static void GenerateUniversePoints(Universe universe, KDtree<UniquePoint> kdtree, int numOfPoints, Vector3 maximums)
+    public static void GenerateUniversePoints( Universe universe, KDtree<UniquePoint> kdtree, int numOfPoints, Vector3 maximums )
     {
         while (universe.maxPointId < numOfPoints)
         {

@@ -28,7 +28,7 @@ namespace TMPro.Examples
         }
 
 
-        private AnimationCurve CopyAnimationCurve(AnimationCurve curve)
+        private AnimationCurve CopyAnimationCurve( AnimationCurve curve )
         {
             AnimationCurve newCurve = new AnimationCurve();
 
