@@ -5,6 +5,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 
 public class UniversePoint : IVectorController, IIdTag
@@ -18,7 +19,7 @@ public class UniversePoint : IVectorController, IIdTag
     {
         for (int i = 0; i < count; i++)
         {
-            var point = new UniversePoint(World.DefaultGameObjectInjectionWorld.EntityManager, EntityPrefabBank.rand.NextFloat3(0, 200));
+            var point = new UniversePoint(EntityPrefabBank.rand.NextFloat3(0, 200));
             point.SpawnClone();
             SelfCollection.Add(i, point);
         }
@@ -37,14 +38,14 @@ public class UniversePoint : IVectorController, IIdTag
         }
     }
 
-    public UniversePoint(EntityManager _em, float3 pos) : base(_em)
+    public UniversePoint(float3 pos)
     {
-        em = _em;
-        em.AddComponentData<UniversePointTag>(BaseEntity, new UniversePointTag { Id = maxPointId });
+        
+        Em.AddComponentData<UniversePointTag>(BaseEntity, new UniversePointTag { Id = maxPointId });
         maxPointId++;
         Position = pos;
-        SetVelocity(EntityPrefabBank.rand.NextFloat(.5f, 5f));
-        SetVector(EntityPrefabBank.rand.NextFloat3Direction());
+        Velocity = EntityPrefabBank.rand.NextFloat(.5f, 5f);
+        Vector = EntityPrefabBank.rand.NextFloat3Direction();
     }
 
 }
@@ -65,12 +66,11 @@ public struct UniversePointTag : IComponentData, IIdTag
 
 public abstract class IPositionController : IBaseEntity, IPositionAutomater
 {
-    protected IPositionController(EntityManager _em) : base(_em)
+    
+    protected IPositionController() : base()
     {
-        em = _em;
-        em.AddComponent<PositionData>(BaseEntity);
+        Em.AddComponent<PositionData>(BaseEntity);
     }
-
     [BurstCompile]
     struct DistBatch : IJobParallelFor
     {
@@ -99,7 +99,7 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
     {
         var watch = new System.Diagnostics.Stopwatch();
         watch.Start();
-        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { typeof(PositionData), ComponentType.ReadOnly<UniversePointTag>() });
+        EntityQuery query = Em.CreateEntityQuery(new ComponentType[] { typeof(PositionData), ComponentType.ReadOnly<UniversePointTag>() });
 
         var entityPull = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle1);
         var positionPull = query.ToComponentDataArrayAsync<PositionData>(Allocator.TempJob, out JobHandle handle2);
@@ -122,7 +122,7 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
         for (int i = 0; i < count; i++)
         {
             final[i] = entityPull[containers[i + 1].index];
-            Debug.DrawLine(em.GetComponentData<PositionData>(BaseEntity).vPos, em.GetComponentData<PositionData>(entityPull[containers[i + 1].index]).vPos, Color.green, .25f);
+            Debug.DrawLine(Em.GetComponentData<PositionData>(BaseEntity).vPos, Em.GetComponentData<PositionData>(entityPull[containers[i + 1].index]).vPos, Color.green, .25f);
         }
 
         entityPull.Dispose();
@@ -135,18 +135,28 @@ public abstract class IPositionController : IBaseEntity, IPositionAutomater
 
     }
 
+    public Entity CreateCloneWithPosition<T>(Entity model) where T : struct, IComponentData, IIdTag
+    {
+        //pos, tag, return
+        var clone = CreateCloneEntityFor<T>(model);
+        Em.SetComponentData<Translation>(clone, new Translation() { Value = Position });
+        return clone;
+    }
 
+    public float3 Position { get { return Em.GetComponentData<PositionData>(BaseEntity).position; } set { Em.SetComponentData<PositionData>(BaseEntity, new PositionData { position = value, vPos = value }); } }
+    public Vector3 vPosition { get { return Em.GetComponentData<PositionData>(BaseEntity).vPos; } private set { } }
+}
 
-    public float3 Position { get { return em.GetComponentData<PositionData>(BaseEntity).position; } set { em.SetComponentData<PositionData>(BaseEntity, new PositionData { position = value, vPos = value }); } }
-    public Vector3 vPosition { get { return em.GetComponentData<PositionData>(BaseEntity).vPos; } private set { } }
-}
-public abstract class ISelfCollection<T> where  T : IIdTag
-{
-    public static Dictionary<int, T> SelfCollection = new Dictionary<int, T>();
-}
 
 public interface IPositionAutomater
 {
     public float3 Position { get; set; }
     public Vector3 vPosition { get; }
+    public Entity CreateCloneWithPosition<T>(Entity model) where T : struct, IComponentData, IIdTag;
+}
+
+public struct PositionData : IComponentData
+{
+    public Vector3 vPos { get; set; }
+    public Unity.Mathematics.float3 position { get; set; }
 }

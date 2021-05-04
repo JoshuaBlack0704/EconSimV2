@@ -16,7 +16,7 @@ public abstract class IBaseEntity
     public Entity CloneEntity { get { return cloneEntity; } set { cloneEntity = value; } }
     private Entity baseEntity;
     private Entity cloneEntity;
-    public EntityManager em { get; set; }
+    public EntityManager Em { get { return World.DefaultGameObjectInjectionWorld.EntityManager; } }
 
     /// <summary>
     /// Destroys all clons
@@ -45,48 +45,41 @@ public abstract class IBaseEntity
     /// </summary>
     public void DestroyBaseEntityFor()
     {
-        if (em.Exists(cloneEntity))
+        if (Em.Exists(cloneEntity))
         {
             Debug.LogError("Destroying Entity which does not exist");
         }
-        em.DestroyEntity(baseEntity);
+        Em.DestroyEntity(baseEntity);
     }
     /// <summary>
     /// Destroys the clone for the object
     /// </summary>
     public void DestroyCloneEntityFor()
     {
-        if (em.Exists(cloneEntity))
+        if (Em.Exists(cloneEntity))
         {
             Debug.LogError("Destroying Entity which does not exist");
         }
-        em.DestroyEntity(cloneEntity);
+        Em.DestroyEntity(cloneEntity);
     }
     /// <summary>
-    /// Creates a clone using existing position data
+    /// Creates
     /// </summary>
-    /// <typeparam name="T">ID type</typeparam>
-    public Entity CreateCloneWithSelfPosition<T>(Entity cloneModel) where T : struct, IComponentData, IIdTag
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public Entity CreateCloneEntityFor<T>(Entity model) where T : struct, IComponentData, IIdTag
     {
-        var clone = em.Instantiate(cloneModel);
-        em.AddComponent<T>(clone);
-        em.AddComponent<CloneTag>(clone);
-        em.SetComponentData<T>(clone, new T() { Id = em.GetComponentData<T>(baseEntity).Id });
-        em.SetComponentData<Translation>(clone, new Translation() { Value = em.GetComponentData<PositionData>(baseEntity).position });
-        cloneEntity = clone;
-        return clone;
+        cloneEntity = Em.Instantiate(model);
+        Em.AddComponentData<T>(cloneEntity, new T() { Id = Em.GetComponentData<T>(BaseEntity).Id });
+        Em.AddComponent<CloneTag>(cloneEntity);
+        return cloneEntity;
     }
-    public IBaseEntity(EntityManager _em)
+    public IBaseEntity()
     {
-        em = _em;
-        BaseEntity = em.CreateEntity();
+        BaseEntity = Em.CreateEntity();
     }
 }
-public struct PositionData : IComponentData
-{
-    public Vector3 vPos { get; set; }
-    public Unity.Mathematics.float3 position { get; set; }
-}
+
 public struct CloneTag : IComponentData { }
 
 

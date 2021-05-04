@@ -10,54 +10,89 @@ using UnityEngine;
 
 public abstract class IVectorController : IPositionController, IVectorAutomator
 {
-    protected IVectorController(EntityManager _em) : base(_em)
+    protected IVectorController() : base()
     {
-        em = _em;
-        em.AddComponent<MovementData>(BaseEntity);
+        Em.AddComponent<MovementData>(BaseEntity);
     }
 
     public void CreateCloneWithVelocity<T>(Entity model) where T : struct, IComponentData, IIdTag
     {
-        CreateCloneWithSelfPosition<T>(model);
-        em.AddComponentData<MovementData>(CloneEntity, em.GetComponentData<MovementData>(BaseEntity));
+        CreateCloneWithPosition<T>(model);
+        Em.AddComponentData<MovementData>(CloneEntity, Em.GetComponentData<MovementData>(BaseEntity));
     }
 
-    public float3 GetVector()
+    public float3 Vector
     {
-        return em.GetComponentData<MovementData>(BaseEntity).vector;
-    }
-
-    public Vector3 GetVector3()
-    {
-        return em.GetComponentData<MovementData>(BaseEntity).vector3;
-    }
-
-    public void SetVector(float3 vector)
-    {
-        float velo = em.GetComponentData<MovementData>(BaseEntity).velocity;
-        em.SetComponentData<MovementData>(BaseEntity, new MovementData { vector = vector, vector3 = vector, velocity = velo});
-        if (em.Exists(CloneEntity))
+        get
         {
-            em.SetComponentData<MovementData>(CloneEntity, new MovementData() { vector = vector, vector3 = vector, velocity = velo });
+            return Em.GetComponentData<MovementData>(BaseEntity).vector;
+        }
+        set
+        {
+            float velo = Em.GetComponentData<MovementData>(BaseEntity).velocity;
+            Em.SetComponentData<MovementData>(BaseEntity, new MovementData { vector = value, vector3 = value, velocity = velo });
+            if (Em.Exists(CloneEntity))
+            {
+                Em.SetComponentData<MovementData>(CloneEntity, new MovementData() { vector = value, vector3 = value, velocity = velo });
+            }
         }
     }
-    public void SetVelocity(float velocity)
+    public float Velocity
     {
-        float vect = em.GetComponentData<MovementData>(BaseEntity).velocity;
-        Vector3 vect3 = em.GetComponentData<MovementData>(BaseEntity).vector3;
-        em.SetComponentData<MovementData>(BaseEntity, new MovementData { vector = vect, vector3 = vect3, velocity = velocity });
-        if (em.Exists(CloneEntity))
+        get
         {
-            em.SetComponentData<MovementData>(CloneEntity, new MovementData() { vector = vect, vector3 = vect3, velocity = velocity });
+            return Em.GetComponentData<MovementData>(BaseEntity).velocity;
+        }
+        set
+        {
+            float vect = Em.GetComponentData<MovementData>(BaseEntity).velocity;
+            Vector3 vect3 = Em.GetComponentData<MovementData>(BaseEntity).vector3;
+            Em.SetComponentData<MovementData>(BaseEntity, new MovementData { vector = vect, vector3 = vect3, velocity = value });
+            if (Em.Exists(CloneEntity))
+            {
+                Em.SetComponentData<MovementData>(CloneEntity, new MovementData() { vector = vect, vector3 = vect3, velocity = value });
+            }
         }
     }
+    public Vector3 Vect3
+    {
+        get
+        {
+            return Em.GetComponentData<MovementData>(BaseEntity).vector3;
+        }
+        private set { }
+    }
+
+    //public Vector3 GetVector3()
+    //{
+    //    return em.GetComponentData<MovementData>(BaseEntity).vector3;
+    //}
+
+    //public void SetVector(float3 vector)
+    //{
+    //    float velo = em.GetComponentData<MovementData>(BaseEntity).velocity;
+    //    em.SetComponentData<MovementData>(BaseEntity, new MovementData { vector = vector, vector3 = vector, velocity = velo});
+    //    if (em.Exists(CloneEntity))
+    //    {
+    //        em.SetComponentData<MovementData>(CloneEntity, new MovementData() { vector = vector, vector3 = vector, velocity = velo });
+    //    }
+    //}
+    //public void SetVelocity(float velocity)
+    //{
+    //    float vect = em.GetComponentData<MovementData>(BaseEntity).velocity;
+    //    Vector3 vect3 = em.GetComponentData<MovementData>(BaseEntity).vector3;
+    //    em.SetComponentData<MovementData>(BaseEntity, new MovementData { vector = vect, vector3 = vect3, velocity = velocity });
+    //    if (em.Exists(CloneEntity))
+    //    {
+    //        em.SetComponentData<MovementData>(CloneEntity, new MovementData() { vector = vect, vector3 = vect3, velocity = velocity });
+    //    }
+    //}
 }
 public interface IVectorAutomator
 {
-    void SetVector(float3 vector);
-    float3 GetVector();
-    Vector3 GetVector3();
-    void SetVelocity(float velocity);
+    float3 Vector { get; set; }
+    float Velocity { get; set; }
+    Vector3 Vect3 { get; }
     void CreateCloneWithVelocity<T>(Entity model) where T : struct, IComponentData, IIdTag;
 }
 public struct MovementData : IComponentData
