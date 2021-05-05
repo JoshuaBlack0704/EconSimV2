@@ -18,6 +18,7 @@ public abstract class IBaseEntity
     private Entity cloneEntity;
     public EntityManager Em { get { return World.DefaultGameObjectInjectionWorld.EntityManager; } }
 
+
     /// <summary>
     /// Destroys all clons
     /// </summary>
