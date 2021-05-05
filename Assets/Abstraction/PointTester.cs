@@ -17,7 +17,13 @@ public class PointTester : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var x = new ECollection();
+        for (int i = 0; i < 200; i++)
+        {
+            var e = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntity();
 
+            x.Add(e);
+        }
     }
 
     private bool isDestroyed;
