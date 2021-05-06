@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingAiNum: 1
-  startingShipsPerAi: 100000
+  startingShipsPerAi: 1000000
   showAIExploration: 0
 --- !u!4 &790734084
 Transform:
@@ -466,8 +466,8 @@ MonoBehaviour:
   zoomToPoint: 0
   AiCodeForShip: 0
   FollowShipCode: 0
-  followAShipWithCode: 1
-  startEntered: 1
+  followAShipWithCode: 0
+  startEntered: 0
 --- !u!114 &1675281806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
   currentTime: 0
   pauseTime: 0
   timeMultiplier: 1
-  autoTimMultiplierAdjust: 0
+  autoTimMultiplierAdjust: 1
   ticketsProcessed: 0
   ticketsProcessedLastFrame: 0
 --- !u!1 &1870435489

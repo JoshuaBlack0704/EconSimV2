@@ -70,7 +70,7 @@ public static class EconomicMethods
 
     internal static void SchedualReplaceAsteroid( int systemID )
     {
-        MainSchedual.EventTicketHeapItem ticket = MainSchedual.AddToHeap(UnityEngine.Random.Range(10, 100f), 5);
+        MainSchedual.EventTicketHeapItem ticket = MainSchedual.AddToHeapV2(UnityEngine.Random.Range(10, 100f), 5);
         ticket.systemID = systemID;
         //Debug.Log("Asteroid replacement schedualerd for system: " + systemID);
     }

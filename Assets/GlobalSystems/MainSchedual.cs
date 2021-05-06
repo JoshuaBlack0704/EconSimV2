@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
@@ -15,9 +16,13 @@ public class MainSchedual : MonoBehaviour
     public bool autoTimMultiplierAdjust;
     public int ticketsProcessed;
     public int ticketsProcessedLastFrame;
+    static EntityArchetype ticketEntity;
+    static EntityManager em;
 
     public class EventTicketHeapItem : IHeapItem<EventTicketHeapItem>
     {
+        
+        public static int maxId = 0;
         public int Id { get; set; }
         public Ship shipReference { get; set; }
         public Entity entityReference;
@@ -42,11 +47,18 @@ public class MainSchedual : MonoBehaviour
             }
             return -compare;
         }
+        public EventTicketHeapItem()
+        {
+            Id = maxId;
+            maxId++;
+            tickets[Id] = this;
+        }
     }
+    
+    internal static Dictionary<int, EventTicketHeapItem> tickets;
     private static Heap<EventTicketHeapItem> schedualHeap;
     private static List<EventTicketHeapItem> ticketPool;
     private static int currentTicketIndex = 0;
-    internal static int maxTicketId = 0;
     /// <summary>
     /// Performs all tasks needed to operate the heap
     /// </summary>
@@ -59,8 +71,6 @@ public class MainSchedual : MonoBehaviour
         if (currentTicketIndex == 0)
         {
             selectedTicket = new EventTicketHeapItem();
-            selectedTicket.Id = maxTicketId;
-            maxTicketId++;
         }
         else
         {
@@ -81,6 +91,37 @@ public class MainSchedual : MonoBehaviour
         schedualHeap.Add(selectedTicket);
         return selectedTicket;
     }
+
+    public static EventTicketHeapItem AddToHeapV2( float timeToExecute, int type, Ship ship = null )
+    {
+        EventTicketHeapItem selectedTicket;
+        if (currentTicketIndex == 0)
+        {
+            selectedTicket = new EventTicketHeapItem();
+        }
+        else
+        {
+            currentTicketIndex--;
+            selectedTicket = ticketPool[currentTicketIndex];
+            ticketPool.RemoveAt(currentTicketIndex);
+        }
+
+        selectedTicket.timeAtExecute = timeToExecute + masterTime;
+        selectedTicket.timeAtWrite = masterTime;
+        selectedTicket.type = type;
+        if (ship != null)
+        {
+            selectedTicket.shipReference = ship;
+            ship.currentTicket = selectedTicket;
+        }
+
+        var ticket = em.CreateEntity(ticketEntity);
+        em.SetComponentData<EventTicketTimeAtWrite>(ticket, new EventTicketTimeAtWrite() { timeAtWrite = selectedTicket.timeAtWrite });
+        em.SetComponentData<EventTicketTimeAtExecute>(ticket, new EventTicketTimeAtExecute() { timeAtExecute = selectedTicket.timeAtExecute });
+        em.SetComponentData<EventTicketData>(ticket, new EventTicketData() { Id = selectedTicket.Id });
+        return selectedTicket;
+    }
+
     internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
     internal static int currentSelectedTicketIndex = 0;
     private void ExecuteTickets()
@@ -141,13 +182,73 @@ public class MainSchedual : MonoBehaviour
             ticketsProcessed++;
         }
         ticketsProcessedLastFrame = currentSelectedTicketIndex;
+        Debug.Log(string.Format("Execute tickets found {0} tickets", ticketsProcessedLastFrame));
         currentSelectedTicketIndex = 0;
+    }
+
+    private void ExecuteTicketsV2()
+    {
+        var updater = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SchedualUpdater>();
+        updater.Enabled = true;
+        updater.Update();
+        NativeArray<Entity> ticketsToExecute = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Execute>() }).ToEntityArray(Allocator.Temp);
+
+        for (int i = 0; i < ticketsToExecute.Length; i++)
+        {
+            EventTicketHeapItem selectedTicket = tickets[em.GetComponentData<EventTicketData>(ticketsToExecute[i]).Id];
+
+            if (selectedTicket.type == 0)
+            {
+                selectedTicket.shipReference.WarpNext();
+            }
+            if (selectedTicket.type == 1)
+            {
+                selectedTicket.shipReference.ArrivedAtTarget();
+            }
+            if (selectedTicket.type == 2)
+            {
+                selectedTicket.shipReference.ExploreSystem();
+            }
+            if (selectedTicket.type == 5)
+            {
+                EconomicMethods.ReplaceAsteroid(selectedTicket.systemID);
+            }
+
+
+
+            //return Ticket to pool
+
+            if (currentTicketIndex + 1 >= ticketPool.Count)
+            {
+                if (ticketPool.Contains(selectedTicket))
+                {
+                    Debug.LogError("here");
+                }
+                ticketPool.Add(selectedTicket);
+                currentTicketIndex++;
+            }
+            else
+            {
+                ticketPool[currentTicketIndex] = selectedTicket;
+                currentTicketIndex++;
+            }
+
+            ticketsProcessed++;
+        }
+        ticketsProcessedLastFrame = ticketsToExecute.Length;
+        Debug.Log(string.Format("Execute tickets found {0} tickets", ticketsProcessedLastFrame));
+        em.DestroyEntity(ticketsToExecute);
+        ticketsToExecute.Dispose();
+        updater.Enabled = false;
     }
     // Start is called before the first frame update
     void Start()
     {
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
+        tickets = new Dictionary<int, EventTicketHeapItem>();
+        em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        ticketEntity = em.CreateArchetype(new ComponentType[] { typeof(EventTicketTimeAtWrite), typeof(EventTicketTimeAtExecute), typeof(EventTicketData)});
     }
 
     // Update is called once per frame
@@ -188,8 +289,45 @@ public class MainSchedual : MonoBehaviour
             masterTime += masterDeltaTime;
 
         }
-        ExecuteTickets();
+        ExecuteTicketsV2();
     }
 }
 
+public struct Execute : IComponentData { }
+public struct EventTicketTimeAtWrite : IComponentData
+{
+    public float timeAtWrite;
+}
+public struct EventTicketTimeAtExecute : IComponentData
+{
+    public float timeAtExecute;
+}
+public struct EventTicketData : IComponentData
+{
+    public int Id;
+}
 
+[DisableAutoCreation]
+public class SchedualUpdater : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        float currentTime = MainSchedual.masterTime;
+        Entities.ForEach((Entity ent, int entityInQueryIndex, in EventTicketTimeAtExecute timeAt) => {
+
+            if (timeAt.timeAtExecute<currentTime)
+            {
+                ecb.AddComponent<Execute>(entityInQueryIndex, ent);
+            }
+        }).ScheduleParallel();
+        ecbs.AddJobHandleForProducer(Dependency);
+        ecbs.Update();
+    }
+}
