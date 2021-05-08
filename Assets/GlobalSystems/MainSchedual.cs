@@ -65,34 +65,8 @@ public class MainSchedual : MonoBehaviour
     /// <param name="timeToExecute">Using main schedual master time</param>
     /// <param name="type">0-WarpTo, 1-ArrivedAtTarget, </param>
     /// <param name="ship">If ticket is for a ship</param>
-    public static EventTicketHeapItem AddToHeap( float timeToExecute, int type, Ship ship = null )
-    {
-        EventTicketHeapItem selectedTicket;
-        if (currentTicketIndex == 0)
-        {
-            selectedTicket = new EventTicketHeapItem();
-        }
-        else
-        {
-            currentTicketIndex--;
-            selectedTicket = ticketPool[currentTicketIndex];
-            ticketPool.RemoveAt(currentTicketIndex);
-        }
-
-        selectedTicket.timeAtExecute = timeToExecute + masterTime;
-        selectedTicket.timeAtWrite = masterTime;
-        selectedTicket.type = type;
-        if (ship != null)
-        {
-            selectedTicket.shipReference = ship;
-            ship.currentTicket = selectedTicket;
-        }
-
-        schedualHeap.Add(selectedTicket);
-        return selectedTicket;
-    }
-
-    public static EventTicketHeapItem AddToHeapV2( float timeToExecute, int type, Ship ship = null )
+    
+    public static EventTicketHeapItem AddToSystemV2( float timeToExecute, int type, Ship ship = null )
     {
         EventTicketHeapItem selectedTicket;
         if (currentTicketIndex == 0)
@@ -120,70 +94,6 @@ public class MainSchedual : MonoBehaviour
         em.SetComponentData<EventTicketTimeAtExecute>(ticket, new EventTicketTimeAtExecute() { timeAtExecute = selectedTicket.timeAtExecute });
         em.SetComponentData<EventTicketData>(ticket, new EventTicketData() { Id = selectedTicket.Id });
         return selectedTicket;
-    }
-
-    internal static List<EventTicketHeapItem> selectedTickets = new List<EventTicketHeapItem>(10);
-    internal static int currentSelectedTicketIndex = 0;
-    private void ExecuteTickets()
-    {
-        while (schedualHeap.peakRoot() != null && schedualHeap.peakRoot().timeAtExecute < masterTime)
-        {
-            if (selectedTickets.Count == 0 || selectedTickets.Count <= currentSelectedTicketIndex)
-            {
-                selectedTickets.Add(schedualHeap.RemoveFirst());
-            }
-            else
-            {
-                selectedTickets[currentSelectedTicketIndex] = schedualHeap.RemoveFirst();
-            }
-            currentSelectedTicketIndex++;
-        }
-
-        for (int i = 0; i < currentSelectedTicketIndex; i++)
-        {
-            EventTicketHeapItem selectedTicket = selectedTickets[i];
-
-            if (selectedTicket.type == 0)
-            {
-                selectedTicket.shipReference.WarpNext();
-            }
-            if (selectedTicket.type == 1)
-            {
-                selectedTicket.shipReference.ArrivedAtTarget();
-            }
-            if (selectedTicket.type == 2)
-            {
-                selectedTicket.shipReference.ExploreSystem();
-            }
-            if (selectedTicket.type == 5)
-            {
-                EconomicMethods.ReplaceAsteroid(selectedTicket.systemID);
-            }
-
-
-
-            //return Ticket to pool
-
-            if (currentTicketIndex + 1 >= ticketPool.Count)
-            {
-                if (ticketPool.Contains(selectedTicket))
-                {
-                    Debug.LogError("here");
-                }
-                ticketPool.Add(selectedTicket);
-                currentTicketIndex++;
-            }
-            else
-            {
-                ticketPool[currentTicketIndex] = selectedTicket;
-                currentTicketIndex++;
-            }
-
-            ticketsProcessed++;
-        }
-        ticketsProcessedLastFrame = currentSelectedTicketIndex;
-        Debug.Log(string.Format("Execute tickets found {0} tickets", ticketsProcessedLastFrame));
-        currentSelectedTicketIndex = 0;
     }
 
     private void ExecuteTicketsV2()

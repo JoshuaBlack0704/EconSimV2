@@ -82,7 +82,7 @@ public class Ship
         {
             flyToPosition = finalTargetPosition;
             vector = flyToPosition;
-            MainSchedual.EventTicketHeapItem ticket = MainSchedual.AddToHeapV2(Vector3.Distance(Position, flyToPosition) / velocity, 1, this);
+            MainSchedual.EventTicketHeapItem ticket = MainSchedual.AddToSystemV2(Vector3.Distance(Position, flyToPosition) / velocity, 1, this);
             ticket.entityReference = targetEntity;
             if (activeEntity != Entity.Null)
             {
@@ -107,7 +107,7 @@ public class Ship
             }
             flyToPosition = masterAI.universe.systemWorks.GetSystem(currentSystemId).connections[wayPoints[wayPoints.Count - 1]].Position;
             vector = flyToPosition;
-            MainSchedual.AddToHeapV2(Vector3.Distance(Position, flyToPosition) / velocity, 0, this);
+            MainSchedual.AddToSystemV2(Vector3.Distance(Position, flyToPosition) / velocity, 0, this);
 
             if (activeEntity != Entity.Null)
             {
