@@ -39,7 +39,7 @@ public static class EconomicMethods
         float currentVolume = em.GetComponentData<T>(entity).volume;
         if (currentVolume - volume <= 0)
         {
-            SchedualReplaceAsteroid(em.GetComponentData<masterSystemId>(entity).Id);
+            SchedualReplaceAsteroid(em.GetComponentData<masterSystemId>(entity).id);
             if (UniverseGenerator.universe.inSystem && UniverseGenerator.universe.selectedSystem == GetTypeId<masterSystemId>(entity))
             {
                 EntityQuery query = em.CreateEntityQuery(typeof(asteroidId), typeof(systemSubObjectTag));
@@ -65,7 +65,7 @@ public static class EconomicMethods
     }
     internal static int GetTypeId<T>( Entity entity ) where T : struct, IComponentData, IIdTag
     {
-        return em.GetComponentData<T>(entity).Id;
+        return em.GetComponentData<T>(entity).id;
     }
 
     internal static void SchedualReplaceAsteroid( int systemID )
@@ -80,16 +80,16 @@ public static class EconomicMethods
         UniverseSystem system = UniverseGenerator.universe.systemWorks.GetSystem(systemID);
 
         Entity asteroid = em.CreateEntity(PrefabAccessor.asteroidArc);
-        em.SetComponentData<masterSystemId>(asteroid, new masterSystemId() { Id = systemID });
+        em.SetComponentData<masterSystemId>(asteroid, new masterSystemId() { id = systemID });
         em.SetComponentData<Translation>(asteroid, new Translation() { Value = rand.NextFloat3(0, system.size) });
-        em.SetComponentData<asteroidId>(asteroid, new asteroidId() { Id = AsteroidMethods.MaxId });
+        em.SetComponentData<asteroidId>(asteroid, new asteroidId() { id = AsteroidMethods.MaxId });
         em.SetComponentData<FoodResource>(asteroid, new FoodResource() { volume = 1000, reservedVolume = 0 });
         system.asteroids.Add(asteroid);
         if (UniverseGenerator.universe.inSystem && UniverseGenerator.universe.selectedSystem == systemID)
         {
             Entity newItem = em.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             em.AddComponent(newItem, typeof(systemSubObjectTag));
-            em.AddComponentData<asteroidId>(newItem, new asteroidId() { Id = em.GetComponentData<asteroidId>(asteroid).Id });
+            em.AddComponentData<asteroidId>(newItem, new asteroidId() { id = em.GetComponentData<asteroidId>(asteroid).id });
             em.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(asteroid).Value });
             em.SetComponentData<Rotation>(newItem, new Rotation() { Value = rand.NextQuaternionRotation() });
         }

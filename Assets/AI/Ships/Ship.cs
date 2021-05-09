@@ -55,7 +55,7 @@ public class Ship
     {
         assigned = true;
         missionType = _missionType;
-        targetSystem = PrefabAccessor.entityManager.GetComponentData<masterSystemId>(target).Id;
+        targetSystem = PrefabAccessor.entityManager.GetComponentData<masterSystemId>(target).id;
         finalTargetPosition = PrefabAccessor.entityManager.GetComponentData<Translation>(target).Value;
         if (targetSystem != currentSystemId)
         {

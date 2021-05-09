@@ -102,14 +102,14 @@ public class SystemWorks : MonoBehaviour
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[1]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.AddComponentData<planetId>(newItem, new planetId() { Id = entityManager.GetComponentData<planetId>(item).Id });
+            entityManager.AddComponentData<planetId>(newItem, new planetId() { id = entityManager.GetComponentData<planetId>(item).id });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach (Entity item in system.asteroids)
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId() { Id = entityManager.GetComponentData<asteroidId>(item).Id });
+            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId() { id = entityManager.GetComponentData<asteroidId>(item).id });
             entityManager.SetComponentData<Rotation>(newItem, new Rotation() { Value = EconomicMethods.rand.NextQuaternionRotation() });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
