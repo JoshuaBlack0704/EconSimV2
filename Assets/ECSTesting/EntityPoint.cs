@@ -123,8 +123,8 @@ public static class EntityPoint
                 {
                     var secondBufer = em.GetBuffer<ePointConnnectionBuffer>(points[results[x + 1].id]);
                     var secondBuff = secondBufer.Reinterpret<ConnectionData>();
-                    secondBuff.Add(new ConnectionData() { target = pointIndex });
-                    buff.Add(new ConnectionData() { target = results[x + 1].id });
+                    secondBuff.Add(new ConnectionData() { target = pointIndex, targetEntity = points[pointIndex] });
+                    buff.Add(new ConnectionData() { target = results[x + 1].id, targetEntity = points[results[x+1].id] });
                 }
                 
             }
