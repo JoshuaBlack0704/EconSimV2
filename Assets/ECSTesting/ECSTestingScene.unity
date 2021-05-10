@@ -345,6 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1589ed00fb70cc2409a192946bdbb827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointCount: 100000
+  pointCount: 1000
   render: 0
   clone: {fileID: 8743325363669963007, guid: 0630b04542df72f46a3021acc90b2652, type: 3}

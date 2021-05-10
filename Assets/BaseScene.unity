@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingAiNum: 1
-  startingShipsPerAi: 100000
+  startingShipsPerAi: 10
   showAIExploration: 0
 --- !u!4 &790734084
 Transform:

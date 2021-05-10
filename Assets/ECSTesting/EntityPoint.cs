@@ -1,7 +1,11 @@
-﻿using Unity.Collections;
+﻿using System.Linq;
+using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
+using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 public static class EntityPoint
 {
@@ -21,11 +25,7 @@ public static class EntityPoint
             em.SetComponentData<Translation>(point, new Translation() { Value = rand.NextFloat3(0, 100)});
             var connections = em.GetBuffer<ePointConnnectionBuffer>(point);
 
-            for (int x = 0; x < 4; x++)
-            {
-                var buff = connections.Reinterpret<ConnectionData>();
-                buff.Add(new ConnectionData() { target = rand.NextInt(0, 100), position = rand.NextFloat3(0, 100)});
-            }
+            
         }
     }
 
@@ -38,6 +38,100 @@ public static class EntityPoint
             em.AddComponentData<CloneTag>(clone, new CloneTag());
             em.SetComponentData<Translation>(clone, new Translation() { Value = em.GetComponentData<Translation>(points[i]).Value });
         }
+    }
+
+    struct connectStruct
+    {
+        public int id;
+        public float distance;
+    }
+    [BurstCompile]
+    struct distBatch : IJob
+    {
+        [ReadOnly]
+        public float3 pos;
+        [ReadOnly]
+        public NativeArray<Translation> locations;
+        public NativeArray<connectStruct> distances;
+
+        public void Execute()
+        {
+            for (int i = 0; i < locations.Length; i++)
+            {
+                distances[i] = new connectStruct() { id = i, distance = math.distancesq(pos, locations[i].Value)};
+            }
+        }
+    }
+    public static void BruteForceConnect()
+    {
+        var query = em.CreateEntityQuery(new ComponentType[] { typeof(Id) });
+
+        NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { typeof(Id) }).ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+
+        NativeArray<Translation> locations = em.CreateEntityQuery(new ComponentType[] { typeof(Id), typeof(Translation) }).ToComponentDataArrayAsync<Translation>(Allocator.TempJob, out JobHandle poshandle);
+
+        int count = query.CalculateEntityCount();
+        NativeArray<connectStruct>[] resultContainer = new NativeArray<connectStruct>[count];
+
+        var combined = JobHandle.CombineDependencies(handle, poshandle);
+
+        for (int i = 0; i < count; i++)
+        {
+            resultContainer[i] = new NativeArray<connectStruct>(count, Allocator.TempJob);
+
+        }
+        combined.Complete();
+        JobHandle[] runs = new JobHandle[count];
+        for (int i = 0; i < points.Length; i++)
+        {
+            var distRun = new distBatch();
+            distRun.pos = locations[i].Value;
+            distRun.locations = locations;
+            distRun.distances = resultContainer[i];
+
+            runs[i] = distRun.Schedule(); ;
+
+        }
+
+
+
+        connectStruct[] results = new connectStruct[count];
+
+
+
+        for (int pointIndex = 0; pointIndex < count; pointIndex++)
+        {
+            runs[pointIndex].Complete();
+            results = resultContainer[pointIndex].OrderBy(o => o.distance).ToArray();
+            resultContainer[pointIndex].Dispose();
+            var buffer = em.GetBuffer<ePointConnnectionBuffer>(points[pointIndex]);
+            var buff = buffer.Reinterpret<ConnectionData>();
+            for (int x = 0; x < 4; x++)
+            {
+                bool unique = true;
+                for (int i = 0; i < buff.Length; i++)
+                {
+                    if (buff[i].target == results[x+1].id)
+                    {
+                        unique = false;
+                        break;
+
+                    }
+                }
+
+                if (unique)
+                {
+                    var secondBufer = em.GetBuffer<ePointConnnectionBuffer>(points[results[x + 1].id]);
+                    var secondBuff = secondBufer.Reinterpret<ConnectionData>();
+                    secondBuff.Add(new ConnectionData() { target = pointIndex });
+                    buff.Add(new ConnectionData() { target = results[x + 1].id });
+                }
+                
+            }
+        }
+
+        points.Dispose();
+        locations.Dispose();
     }
 
 
