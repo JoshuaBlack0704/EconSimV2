@@ -27,7 +27,7 @@ public static class EntityPathFinder
         public float distFromStart { get; set; }
         public float distToEnd { get; set; }
         public float totalCost { get { return distFromStart + distToEnd; } }
-        public EntityPoint.ConnectionData[] connections { get; set; }
+        public SystemEntity.ConnectionData[] connections { get; set; }
 
         public float3 position { get; set; }
         public void Reset()
@@ -47,7 +47,7 @@ public static class EntityPathFinder
             }
             return -compare;
         }
-        public Node( float3 _pos, EntityPoint.ConnectionData[] _connections, int _id ) { position = _pos; connections = _connections; Id = _id; }
+        public Node( float3 _pos, SystemEntity.ConnectionData[] _connections, int _id ) { position = _pos; connections = _connections; Id = _id; }
 
 
     }
@@ -160,14 +160,14 @@ public static class EntityPathFinder
     public static void Initialize()
     {
         var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-        var query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<EntityPoint.Id>()});
+        var query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>()});
         NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
         nodeCache = new Node[points.Length];
         heap = new Heap<Node>(points.Length);
         foreach (var ent in points)
         {
-            var id = em.GetComponentData<EntityPoint.Id>(ent).id;
-            var connectionsNative = em.GetBuffer<EntityPoint.ePointConnnectionBuffer>(ent).Reinterpret<EntityPoint.ConnectionData>().ToNativeArray(Allocator.Temp);
+            var id = em.GetComponentData<SystemEntity.Id>(ent).id;
+            var connectionsNative = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(ent).Reinterpret<SystemEntity.ConnectionData>().ToNativeArray(Allocator.Temp);
             var connecitons = connectionsNative.ToArray();
             var pos = em.GetComponentData<Translation>(ent).Value;
 

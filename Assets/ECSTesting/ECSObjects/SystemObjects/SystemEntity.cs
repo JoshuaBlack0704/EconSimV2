@@ -7,13 +7,15 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-public static class EntityPoint
+public static class SystemEntity
 {
     static EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
     static EntityArchetype ePoint = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(ePointConnnectionBuffer), typeof(Translation)});
     static Entity ePointClone = ECSController.cloneEntity;
     static int pointCount = 0;
     static Unity.Mathematics.Random rand = new Unity.Mathematics.Random(1);
+
+
 
     public static void GenerateRandomPoints(int count)
     {
@@ -28,7 +30,6 @@ public static class EntityPoint
             
         }
     }
-
     public static void RenderPoints()
     {
         NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>() }).ToEntityArray(Allocator.Temp);
@@ -39,7 +40,6 @@ public static class EntityPoint
             em.SetComponentData<Translation>(clone, new Translation() { Value = em.GetComponentData<Translation>(points[i]).Value });
         }
     }
-
     struct connectStruct
     {
         public int id;
@@ -133,6 +133,15 @@ public static class EntityPoint
         points.Dispose();
         locations.Dispose();
     }
+
+
+
+
+
+
+
+
+
 
 
 

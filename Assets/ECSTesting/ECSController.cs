@@ -18,7 +18,7 @@ public class ECSController : MonoBehaviour
     public void RenderRandomPath()
     {
         var ids = new NativeArray<int>(points.Length, Allocator.Temp);
-        ids.CopyFrom(points.Select(o => em.GetComponentData<EntityPoint.Id>(o).id).ToArray());
+        ids.CopyFrom(points.Select(o => em.GetComponentData<SystemEntity.Id>(o).id).ToArray());
         var dummy = new NativeArray<int>(1, Allocator.Temp);
 
         EntityPathFinder.GetPath(Random.Range(0, points.Length), Random.Range(0, points.Length), ids, dummy, false, out NativeArray<int> pathIds);
@@ -38,10 +38,10 @@ public class ECSController : MonoBehaviour
     {
         em = World.DefaultGameObjectInjectionWorld.EntityManager;
         cloneEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(clone, GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null));
-        EntityPoint.GenerateRandomPoints(pointCount);
-        EntityPoint.BruteForceConnect();
+        SystemEntity.GenerateRandomPoints(pointCount);
+        SystemEntity.BruteForceConnect();
         EntityPathFinder.Initialize();
-        points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<EntityPoint.Id>() }).ToEntityArray(Allocator.Persistent);
+        points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() }).ToEntityArray(Allocator.Persistent);
     }
 
     private void OnDrawGizmos()
@@ -62,12 +62,12 @@ public class ECSController : MonoBehaviour
     
     void Update()
     {
-        RenderRandomPath();
+        
 
 
         if (render  && !isRendered)
         {
-            EntityPoint.RenderPoints();
+            SystemEntity.RenderPoints();
             isRendered = true;
         }
         else if (render && isRendered)
