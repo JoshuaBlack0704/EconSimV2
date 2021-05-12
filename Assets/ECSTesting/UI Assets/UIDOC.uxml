@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="FPSVIew" style="height: 43px; background-image: none; background-color: rgb(190, 187, 187); position: absolute; left: 0; top: 0; right: 90%; bottom: auto; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: flex-start; justify-content: space-around; border-left-color: rgb(24, 21, 21); border-right-color: rgb(24, 21, 21); border-top-color: rgb(24, 21, 21); border-bottom-color: rgb(24, 21, 21); font-size: 20px;">
+        <ui:Label text="FPS:" display-tooltip-when-elided="true" name="FPS" style="width: 27px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="SystemSelector" style="position: absolute; bottom: 0; right: 1648px; top: 908px; left: 0;">
+        <ui:TextField picking-mode="Ignore" label="Selected System ID" value="0" text="0&#10;" tooltip="Type Id to enter" name="SystemSelector" style="flex-direction: column; height: 80px; font-size: 20px;" />
+        <ui:Button text="Enter System" display-tooltip-when-elided="true" name="EnterSysButton" style="height: 68px; font-size: 23px;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -38,10 +38,10 @@ public class GenerationSettings : MonoBehaviour
     void GenerateUniverse()
     {
         SystemEntity.GenerateRandomPoints(systemCount, maxSystemSize, planetsPerSystem, asteroidsPerSystem, randomPopulate);
-        SystemEntity.BruteForceConnect(connectionsPerSystem);
+        //SystemEntity.BruteForceConnect(connectionsPerSystem);
         Planets.GeneratePlanets();
         Asteroids.GenerateAsteroids();
-        EntityPathFinder.Initialize();
+        //EntityPathFinder.Initialize();
         SystemEntity.RenderPoints();
         CameraController.Initialize();
     }
