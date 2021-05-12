@@ -146,7 +146,7 @@ public class MainSchedual : MonoBehaviour
             ticketsProcessed++;
         }
         ticketsProcessedLastFrame = ticketsToExecute.Length;
-        Debug.Log(string.Format("Execute tickets found {0} tickets", ticketsProcessedLastFrame));
+        //Debug.Log(string.Format("Execute tickets found {0} tickets", ticketsProcessedLastFrame));
         em.DestroyEntity(ticketsToExecute);
         ticketsToExecute.Dispose();
         updater.Enabled = false;

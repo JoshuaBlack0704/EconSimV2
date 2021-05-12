@@ -20,4 +20,5 @@ public static class BaseEntity
     {
         em.SetComponentData<Translation>(recipient, new Translation() { Value = em.GetComponentData<Translation>(sender).Value});
     }
+
 }

@@ -24,7 +24,6 @@ public struct masterSystemId : IComponentData, IIdTag
     public int id { get; set; }
 }
 
-public struct CloneTag : IComponentData { }
 public struct FoodResource : IComponentData, IContainsResource { public float volume { get; set; } public float reservedVolume { get; set; } public float freeVolume { get { return volume - reservedVolume; } set { } } }
 public struct PopulationResource : IComponentData, IContainsPopulation { public int population { get; set; } public float volumeConsumedPerPop { get; set; } public int growthPerPop { get; set; } }
 
