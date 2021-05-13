@@ -61,3 +61,49 @@ public static class Asteroids
         public int id { get; set; }
     }
 }
+
+public class AsteroidCloneDeleter : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
+
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
+        {
+
+        }).ScheduleParallel();
+        ecbs.AddJobHandleForProducer(Dependency);
+
+        throw new System.NotImplementedException();
+    }
+}
+
+public class AsteroidCloneSpawner : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
+
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
+        {
+
+        }).ScheduleParallel();
+        ecbs.AddJobHandleForProducer(Dependency);
+
+        throw new System.NotImplementedException();
+    }
+}

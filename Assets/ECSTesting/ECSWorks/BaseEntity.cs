@@ -8,7 +8,7 @@ public static class BaseEntity
     public static void DestroyAllClones()
     {
         NativeArray<Entity> clones = em.CreateEntityQuery(new ComponentType[] { typeof(CloneTag) }).ToEntityArray(Allocator.Temp);
-        em.DestroyEntity(clones);
+        em.AddComponent<DeleteCloneTag>(clones);
         clones.Dispose();
     }
 
@@ -21,4 +21,7 @@ public static class BaseEntity
         em.SetComponentData<Translation>(recipient, new Translation() { Value = em.GetComponentData<Translation>(sender).Value});
     }
 
+    public struct DeleteCloneTag : IComponentData { }
+
+    public struct SpawnCloneTag : IComponentData { }
 }

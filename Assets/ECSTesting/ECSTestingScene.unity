@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 100
-  systemCount: 100000
+  systemCount: 100
   universeSize: 50
   maxSystemSize: 50
   planetsPerSystem: 10

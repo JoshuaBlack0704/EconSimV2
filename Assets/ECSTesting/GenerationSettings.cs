@@ -16,6 +16,8 @@ public class GenerationSettings : MonoBehaviour
     public bool render;
     public int selectedSystem;
     public int shipsPerSystem;
+    [Range(0, 100)]
+    public float timeMultiplier;
 
     public GameObject SystemModel;
     public GameObject planetModel;
@@ -61,6 +63,8 @@ public class GenerationSettings : MonoBehaviour
 
     void Update()
     {
+        SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
+        SB.masterTime += SB.masterDeltaTime;
 
         if (render && !isRendered)
         {
@@ -84,6 +88,9 @@ public static class SB
     static GenerationSettings genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
     public static Unity.Mathematics.Random rand;
     public static EntityManager em;
+    public static float masterTime;
+    public static float masterDeltaTime;
+
     public static Entity systemClone = GameObjectConversionUtility.ConvertGameObjectHierarchy(genSettings.SystemModel, GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null));
 
     public static Entity starClone = GameObjectConversionUtility.ConvertGameObjectHierarchy(genSettings.starModel, GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null));

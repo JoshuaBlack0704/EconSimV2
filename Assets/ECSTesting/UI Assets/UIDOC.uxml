@@ -1,9 +1,20 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="FPSVIew" style="height: 43px; background-image: none; background-color: rgb(190, 187, 187); position: absolute; left: 0; top: 0; right: 90%; bottom: auto; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: flex-start; justify-content: space-around; border-left-color: rgb(24, 21, 21); border-right-color: rgb(24, 21, 21); border-top-color: rgb(24, 21, 21); border-bottom-color: rgb(24, 21, 21); font-size: 20px;">
+    <ui:VisualElement name="FPSVIew" style="height: 33px; background-image: none; background-color: rgb(190, 187, 187); position: absolute; left: 0; top: 0; right: 90%; bottom: auto; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: flex-start; justify-content: space-around; border-left-color: rgb(24, 21, 21); border-right-color: rgb(24, 21, 21); border-top-color: rgb(24, 21, 21); border-bottom-color: rgb(24, 21, 21); font-size: 20px;">
         <ui:Label text="FPS:" display-tooltip-when-elided="true" name="FPS" style="width: 27px;" />
     </ui:VisualElement>
-    <ui:VisualElement name="SystemSelector" style="position: absolute; bottom: 0; right: 1648px; top: 908px; left: 0;">
+    <ui:VisualElement name="SystemSelector" style="position: absolute; bottom: 0; right: 1673px; top: 908px; left: 0;">
         <ui:TextField picking-mode="Ignore" label="Selected System ID" value="0" text="0&#10;" tooltip="Type Id to enter" name="SystemSelector" style="flex-direction: column; height: 80px; font-size: 20px;" />
         <ui:Button text="Enter System" display-tooltip-when-elided="true" name="EnterSysButton" style="height: 68px; font-size: 23px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="TimeData" style="position: absolute; bottom: 90%; left: 0; top: 42px; right: 90%;">
+        <ui:Label text="Game TIme" display-tooltip-when-elided="true" name="gameTime" />
+        <ui:Label text="Real TIme" display-tooltip-when-elided="true" name="realTime" />
+        <ui:Label text="TIme Multiplier" display-tooltip-when-elided="true" name="timeMultiplier" />
+        <ui:Label text="Game Delta Time" display-tooltip-when-elided="true" name="gameDeltaTime" />
+    </ui:VisualElement>
+    <ui:VisualElement style="position: absolute; left: 250px; top: 940px; right: 1405px; bottom: 22px; background-color: rgba(224, 224, 224, 255);">
+        <ui:Label text="Time Multiplier" display-tooltip-when-elided="true" name="TimeMultiplierTitle" style="color: rgba(0, 0, 0, 255); padding-left: 5px; padding-right: 5px; padding-top: 2px; font-size: 23px;" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="CurrentMultiplier" style="position: absolute; bottom: 20%; width: 61px; color: rgba(0, 0, 0, 255); font-size: 23px;" />
+        <ui:Slider picking-mode="Ignore" value="1" high-value="10" name="timeMultiplierBar" />
     </ui:VisualElement>
 </ui:UXML>

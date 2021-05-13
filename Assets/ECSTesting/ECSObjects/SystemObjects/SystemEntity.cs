@@ -174,11 +174,32 @@ public static class SystemEntity
         var asteroidQuery = em.CreateEntityQuery(typeof(Asteroids.Id));
         var asteroidArray = asteroidQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle asteroidHandle);
 
-
+        shipHandle.Complete();
         sysHandle.Complete();
         planetHandle.Complete();
         asteroidHandle.Complete();
-        shipHandle.Complete();
+
+        var shipCopys = shipArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
+        var shipCopyArray = new NativeArray<Entity>(shipCopys.Length, Allocator.Temp);
+        shipCopyArray.CopyFrom(shipCopys);
+        shipCopys = null;
+
+        var planetsCopys = planetsArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
+        var planetsCopyArray = new NativeArray<Entity>(planetsCopys.Length, Allocator.Temp);
+        planetsCopyArray.CopyFrom(planetsCopys);
+        planetsCopys = null;
+
+        var asteroidCopys = asteroidArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
+        var asteroidCopyArray = new NativeArray<Entity>(asteroidCopys.Length, Allocator.Temp);
+        asteroidCopyArray.CopyFrom(asteroidCopys);
+        asteroidCopys = null;
+
+        em.AddComponent<BaseEntity.SpawnCloneTag>(shipCopyArray);
+        em.AddComponent<BaseEntity.SpawnCloneTag>(planetsCopyArray);
+        em.AddComponent<BaseEntity.SpawnCloneTag>(asteroidCopyArray);
+        
+        
+
 
         Entity system = systemsArray.FirstOrDefault(o => em.GetComponentData<Id>(o).id==id);
         var buff = em.GetBuffer<ePointConnnectionBuffer>(system).Reinterpret<ConnectionData>();
@@ -191,16 +212,15 @@ public static class SystemEntity
 
         Star.SpawnStar(em.GetComponentData<SystemData>(system).starPos);
         Wormholes.SpawnWormholes(wormHoles);
-        Planets.SpawnPlanets(planetsArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray());
-        Asteroids.SpawnAsteroids(asteroidArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray());
-        Ships.SpawnShips(shipArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray());
 
-
-        systemsArray.Dispose();
+        shipArray.Dispose();
         planetsArray.Dispose();
         asteroidArray.Dispose();
+        systemsArray.Dispose();
         wormHoles.Dispose();
-        shipArray.Dispose();
+        shipCopyArray.Dispose();
+        planetsCopyArray.Dispose();
+        asteroidCopyArray.Dispose();
 
     }
 
@@ -238,3 +258,50 @@ public static class SystemEntity
     }
 }
 
+public class SystemCloneDeleter : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
+
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
+        {
+
+        }).ScheduleParallel();
+        ecbs.AddJobHandleForProducer(Dependency);
+
+        throw new System.NotImplementedException();
+    }
+}
+
+
+
+public class SystemCloneSpawner : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
+
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
+        {
+
+        }).ScheduleParallel();
+        ecbs.AddJobHandleForProducer(Dependency);
+
+        throw new System.NotImplementedException();
+    }
+}
