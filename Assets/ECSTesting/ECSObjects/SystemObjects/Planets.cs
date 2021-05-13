@@ -68,30 +68,30 @@ public static class Planets
 public class PlanetCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-
+    EntityQuery deletionQuery;
     protected override void OnCreate()
     {
         base.OnCreate();
         ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Planets.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
     }
 
     protected override void OnUpdate()
     {
-        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
-        {
+        //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
-        }).ScheduleParallel();
-        ecbs.AddJobHandleForProducer(Dependency);
 
-        throw new System.NotImplementedException();
+        var planets = deletionQuery.ToEntityArray(Allocator.Temp);
+        World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(planets);
+        planets.Dispose();
+
     }
 }
 
 public class PlanetCloneSpawner : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-
+    
     protected override void OnCreate()
     {
         base.OnCreate();
@@ -101,12 +101,20 @@ public class PlanetCloneSpawner : SystemBase
     protected override void OnUpdate()
     {
         var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
+        Entity planetClone = SB.planetClone;
+
+        Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity planet, int entityInQueryIndex, in Translation pos, in Planets.Id id) =>
         {
 
+            var clone = ecb.Instantiate(entityInQueryIndex, planetClone);
+            ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+            ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+            ecb.AddComponent<Planets.Id>(entityInQueryIndex, clone, id);
+            ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, planet);
+
         }).ScheduleParallel();
+
         ecbs.AddJobHandleForProducer(Dependency);
 
-        throw new System.NotImplementedException();
     }
 }

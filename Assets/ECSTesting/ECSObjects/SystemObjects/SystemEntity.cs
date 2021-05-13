@@ -57,12 +57,8 @@ public static class SystemEntity
     public static void RenderPoints()
     {
         NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>() }).ToEntityArray(Allocator.Temp);
-        for (int i = 0; i < points.Length; i++)
-        {
-            var clone = em.Instantiate(SB.systemClone);
-            em.AddComponentData<CloneTag>(clone, new CloneTag());
-            em.SetComponentData<Translation>(clone, new Translation() { Value = em.GetComponentData<Translation>(points[i]).Value });
-        }
+        em.AddComponent<BaseEntity.SpawnCloneTag>(points);
+        points.Dispose();
     }
     struct connectStruct
     {
@@ -210,7 +206,7 @@ public static class SystemEntity
             wormHoles[i] = new Translation() { Value = buff[i].position};
         }
 
-        Star.SpawnStar(em.GetComponentData<SystemData>(system).starPos);
+        Stars.SpawnStar(em.GetComponentData<SystemData>(system).starPos);
         Wormholes.SpawnWormholes(wormHoles);
 
         shipArray.Dispose();
@@ -261,47 +257,54 @@ public static class SystemEntity
 public class SystemCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-
+    EntityQuery deletionQuery;
     protected override void OnCreate()
     {
         base.OnCreate();
         ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
     }
 
     protected override void OnUpdate()
     {
-        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
-        {
+        //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
-        }).ScheduleParallel();
-        ecbs.AddJobHandleForProducer(Dependency);
 
-        throw new System.NotImplementedException();
+        var systems = deletionQuery.ToEntityArray(Allocator.Temp);
+        World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(systems);
+        systems.Dispose();
+
     }
 }
-
-
 
 public class SystemCloneSpawner : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-
     protected override void OnCreate()
     {
         base.OnCreate();
         ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
+    
+
     protected override void OnUpdate()
     {
         var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
+        Entity systemClone = SB.systemClone;
+
+        Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity system, int entityInQueryIndex, in Translation pos, in SystemEntity.Id id) =>
         {
 
+            var clone = ecb.Instantiate(entityInQueryIndex, systemClone);
+            ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+            ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+            ecb.AddComponent<SystemEntity.Id>(entityInQueryIndex, clone, id);
+            ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, system);
+
         }).ScheduleParallel();
+
         ecbs.AddJobHandleForProducer(Dependency);
 
-        throw new System.NotImplementedException();
     }
 }

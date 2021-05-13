@@ -38,6 +38,7 @@ public class GenerationSettings : MonoBehaviour
         Planets.Initialize(planetModel);
         Asteroids.Initialize(asteroidModel);
         Ships.Initialize();
+        
     }
 
     void GenerateUniverse()

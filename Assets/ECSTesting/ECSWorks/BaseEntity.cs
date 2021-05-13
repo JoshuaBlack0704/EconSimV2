@@ -24,4 +24,6 @@ public static class BaseEntity
     public struct DeleteCloneTag : IComponentData { }
 
     public struct SpawnCloneTag : IComponentData { }
+
+    public struct CloneHolder : IComponentData { public Entity clone; }
 }

@@ -14,31 +14,32 @@ public static class Wormholes
             var hole = em.Instantiate(SB.wormholeClone);
             em.AddComponent<CloneTag>(hole);
             em.SetComponentData<Translation>(hole, pos);
+            em.AddComponent<Id>(hole);
         }
     }
 
-    
+    public struct Id : IComponentData { }
 }
 
-public class WormholeCloneDeleter : SystemBase
+public class WormHoleCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-
+    EntityQuery deletionQuery;
     protected override void OnCreate()
     {
         base.OnCreate();
         ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Wormholes.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
     }
 
     protected override void OnUpdate()
     {
-        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-        Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex) =>
-        {
+        //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
-        }).ScheduleParallel();
-        ecbs.AddJobHandleForProducer(Dependency);
 
-        throw new System.NotImplementedException();
+        var wormHoles = deletionQuery.ToEntityArray(Allocator.Temp);
+        World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(wormHoles);
+        wormHoles.Dispose();
+
     }
 }
