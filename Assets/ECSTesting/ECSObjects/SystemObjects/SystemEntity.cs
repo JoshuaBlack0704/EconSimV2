@@ -162,6 +162,9 @@ public static class SystemEntity
 
     public static void EnterSystem(int id)
     {
+        var shipQuery = em.CreateEntityQuery(typeof(Ships.Id));
+        var shipArray = shipQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle shipHandle) ;
+
         var sysQuery = em.CreateEntityQuery(typeof(Id));
         var systemsArray = sysQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle sysHandle);
 
@@ -175,6 +178,7 @@ public static class SystemEntity
         sysHandle.Complete();
         planetHandle.Complete();
         asteroidHandle.Complete();
+        shipHandle.Complete();
 
         Entity system = systemsArray.FirstOrDefault(o => em.GetComponentData<Id>(o).id==id);
         var buff = em.GetBuffer<ePointConnnectionBuffer>(system).Reinterpret<ConnectionData>();
@@ -189,12 +193,14 @@ public static class SystemEntity
         Wormholes.SpawnWormholes(wormHoles);
         Planets.SpawnPlanets(planetsArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray());
         Asteroids.SpawnAsteroids(asteroidArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray());
+        Ships.SpawnShips(shipArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray());
 
 
         systemsArray.Dispose();
         planetsArray.Dispose();
         asteroidArray.Dispose();
         wormHoles.Dispose();
+        shipArray.Dispose();
 
     }
 

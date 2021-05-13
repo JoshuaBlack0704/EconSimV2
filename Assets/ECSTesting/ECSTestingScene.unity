@@ -269,11 +269,13 @@ MonoBehaviour:
   connectionsPerSystem: 4
   render: 0
   selectedSystem: 0
+  shipsPerSystem: 100
   SystemModel: {fileID: 145793442879228363, guid: 0630b04542df72f46a3021acc90b2652, type: 3}
   planetModel: {fileID: 4662956109507208945, guid: 0876b07dacea9d0439a5c20761ab1b01, type: 3}
   asteroidModel: {fileID: 919132149155446097, guid: 3c837951a0b53c84d89fa57b242f4aad, type: 3}
   wormholeModel: {fileID: 919132149155446097, guid: a287de6e96565c948bd54cb61c65c05d, type: 3}
   starModel: {fileID: 898529887385815449, guid: 150d6c12afbb46f47b1b4879968445ba, type: 3}
+  shipModel: {fileID: 37025386801123705, guid: 1a61663265ee2ec4697958d455e71c24, type: 3}
 --- !u!1 &1038004385
 GameObject:
   m_ObjectHideFlags: 0

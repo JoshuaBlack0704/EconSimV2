@@ -15,12 +15,14 @@ public class GenerationSettings : MonoBehaviour
     public int connectionsPerSystem;
     public bool render;
     public int selectedSystem;
+    public int shipsPerSystem;
 
     public GameObject SystemModel;
     public GameObject planetModel;
     public GameObject asteroidModel;
     public GameObject wormholeModel;
     public GameObject starModel;
+    public GameObject shipModel;
     private void Awake()
     {
         SB.rand = new Unity.Mathematics.Random(1);
@@ -33,6 +35,7 @@ public class GenerationSettings : MonoBehaviour
         SB.systemCount = systemCount;
         Planets.Initialize(planetModel);
         Asteroids.Initialize(asteroidModel);
+        Ships.Initialize();
     }
 
     void GenerateUniverse()
@@ -41,6 +44,7 @@ public class GenerationSettings : MonoBehaviour
         //SystemEntity.BruteForceConnect(connectionsPerSystem);
         Planets.GeneratePlanets();
         Asteroids.GenerateAsteroids();
+        Ships.GenerateShipsForAll(shipsPerSystem);
         //EntityPathFinder.Initialize();
         SystemEntity.RenderPoints();
         CameraController.Initialize();
@@ -89,6 +93,10 @@ public static class SB
     public static Entity asteroidClone = GameObjectConversionUtility.ConvertGameObjectHierarchy(genSettings.asteroidModel, GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null));
 
     public static Entity wormholeClone = GameObjectConversionUtility.ConvertGameObjectHierarchy(genSettings.wormholeModel, GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null));
+
+    public static Entity shipClone = GameObjectConversionUtility.ConvertGameObjectHierarchy(genSettings.shipModel, GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null));
+
+
 
 
     public static int systemCount;
