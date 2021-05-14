@@ -7806,8 +7806,8 @@ public:
 };
 
 
-// Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>
-struct HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728 
+// Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>
+struct HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB 
 {
 public:
 	union
@@ -7821,14 +7821,14 @@ public:
 public:
 };
 
-struct HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728_StaticFields
+struct HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB_StaticFields
 {
 public:
 	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
 	int64_t ___Value_0;
 
 public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728_StaticFields, ___Value_0)); }
+	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB_StaticFields, ___Value_0)); }
 	inline int64_t get_Value_0() const { return ___Value_0; }
 	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
 	inline void set_Value_0(int64_t value)
@@ -7925,38 +7925,6 @@ public:
 
 public:
 	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t6AE4057E6EBD179BCA1E78D1C209AE1F90CB737A_StaticFields, ___Value_0)); }
-	inline int64_t get_Value_0() const { return ___Value_0; }
-	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
-	inline void set_Value_0(int64_t value)
-	{
-		___Value_0 = value;
-	}
-};
-
-
-// Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>
-struct HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE 
-{
-public:
-	union
-	{
-		struct
-		{
-		};
-		uint8_t HashCode64_1_t84D44525C8ED71A45F8546FC52C91401340BD30C__padding[1];
-	};
-
-public:
-};
-
-struct HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE_StaticFields
-{
-public:
-	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
-	int64_t ___Value_0;
-
-public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE_StaticFields, ___Value_0)); }
 	inline int64_t get_Value_0() const { return ___Value_0; }
 	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
 	inline void set_Value_0(int64_t value)
@@ -8510,8 +8478,8 @@ public:
 };
 
 
-// Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeAtExecute>
-struct HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5 
+// Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeData>
+struct HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB 
 {
 public:
 	union
@@ -8525,46 +8493,14 @@ public:
 public:
 };
 
-struct HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5_StaticFields
+struct HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB_StaticFields
 {
 public:
 	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
 	int64_t ___Value_0;
 
 public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5_StaticFields, ___Value_0)); }
-	inline int64_t get_Value_0() const { return ___Value_0; }
-	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
-	inline void set_Value_0(int64_t value)
-	{
-		___Value_0 = value;
-	}
-};
-
-
-// Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeAtWrite>
-struct HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE 
-{
-public:
-	union
-	{
-		struct
-		{
-		};
-		uint8_t HashCode64_1_t84D44525C8ED71A45F8546FC52C91401340BD30C__padding[1];
-	};
-
-public:
-};
-
-struct HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE_StaticFields
-{
-public:
-	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
-	int64_t ___Value_0;
-
-public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE_StaticFields, ___Value_0)); }
+	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB_StaticFields, ___Value_0)); }
 	inline int64_t get_Value_0() const { return ___Value_0; }
 	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
 	inline void set_Value_0(int64_t value)
@@ -35816,13 +35752,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisU3CU3Ec
 		return (int64_t)L_0;
 	}
 }
-// System.Int64 Unity.Burst.BurstRuntime::GetHashCode64<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m53B37069A1C138D382595F348606BB148C293C92_gshared (const RuntimeMethod* method)
+// System.Int64 Unity.Burst.BurstRuntime::GetHashCode64<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m56B4D8C4BCC630DF82EF1F57BBF0823543A4D412_gshared (const RuntimeMethod* method)
 {
 	{
 		// return HashCode64<T>.Value;
 		IL2CPP_RUNTIME_CLASS_INIT(IL2CPP_RGCTX_DATA(method->rgctx_data, 0));
-		int64_t L_0 = ((HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
+		int64_t L_0 = ((HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
 		return (int64_t)L_0;
 	}
 }
@@ -35853,16 +35789,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisU3CU3Ec
 		// return HashCode64<T>.Value;
 		IL2CPP_RUNTIME_CLASS_INIT(IL2CPP_RGCTX_DATA(method->rgctx_data, 0));
 		int64_t L_0 = ((HashCode64_1_t6AE4057E6EBD179BCA1E78D1C209AE1F90CB737A_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
-		return (int64_t)L_0;
-	}
-}
-// System.Int64 Unity.Burst.BurstRuntime::GetHashCode64<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m6D7C2220D5F713696507849C8ED590104A907350_gshared (const RuntimeMethod* method)
-{
-	{
-		// return HashCode64<T>.Value;
-		IL2CPP_RUNTIME_CLASS_INIT(IL2CPP_RGCTX_DATA(method->rgctx_data, 0));
-		int64_t L_0 = ((HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
 		return (int64_t)L_0;
 	}
 }
@@ -36036,23 +35962,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisTRSToLo
 		return (int64_t)L_0;
 	}
 }
-// System.Int64 Unity.Burst.BurstRuntime::GetHashCode64<Tickets/TimeAtExecute>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE32F8BFF41E0A232B7A49B454BCB7B0E62A67229_gshared (const RuntimeMethod* method)
+// System.Int64 Unity.Burst.BurstRuntime::GetHashCode64<Tickets/TimeData>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m8AE22C8A76B5C49A22D1D0C36E85CA45BE83E0CA_gshared (const RuntimeMethod* method)
 {
 	{
 		// return HashCode64<T>.Value;
 		IL2CPP_RUNTIME_CLASS_INIT(IL2CPP_RGCTX_DATA(method->rgctx_data, 0));
-		int64_t L_0 = ((HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
-		return (int64_t)L_0;
-	}
-}
-// System.Int64 Unity.Burst.BurstRuntime::GetHashCode64<Tickets/TimeAtWrite>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t BurstRuntime_GetHashCode64_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m2AD66E1A86DAC4E9BE12E587A191D3D73A014B95_gshared (const RuntimeMethod* method)
-{
-	{
-		// return HashCode64<T>.Value;
-		IL2CPP_RUNTIME_CLASS_INIT(IL2CPP_RGCTX_DATA(method->rgctx_data, 0));
-		int64_t L_0 = ((HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
+		int64_t L_0 = ((HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(method->rgctx_data, 0)))->get_Value_0();
 		return (int64_t)L_0;
 	}
 }

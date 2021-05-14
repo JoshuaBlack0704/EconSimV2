@@ -38,12 +38,12 @@ static Il2CppMethodPointer s_methodPointers[7] =
 };
 static const int32_t s_InvokerIndices[7] = 
 {
-	13216,
-	13061,
-	12350,
+	13372,
+	13217,
+	12506,
 	3294,
-	7952,
-	2070,
+	8110,
+	2072,
 	6396,
 };
 extern const CustomAttributesCacheGenerator g_Unity_Jobs_AttributeGenerators[];

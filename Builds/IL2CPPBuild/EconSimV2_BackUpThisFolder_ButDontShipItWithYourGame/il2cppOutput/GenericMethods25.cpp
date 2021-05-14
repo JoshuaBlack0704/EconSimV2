@@ -7003,6 +7003,88 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
+// Unity.Entities.ComponentTypeHandle`1<Ships/Idle>
+struct ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE 
+{
+public:
+	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
+	int32_t ___m_TypeIndex_0;
+	// System.UInt32 Unity.Entities.ComponentTypeHandle`1::m_GlobalSystemVersion
+	uint32_t ___m_GlobalSystemVersion_1;
+	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsReadOnly
+	bool ___m_IsReadOnly_2;
+	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsZeroSized
+	bool ___m_IsZeroSized_3;
+	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_Length
+	int32_t ___m_Length_4;
+
+public:
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_TypeIndex_0)); }
+	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
+	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
+	inline void set_m_TypeIndex_0(int32_t value)
+	{
+		___m_TypeIndex_0 = value;
+	}
+
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_GlobalSystemVersion_1)); }
+	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
+	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
+	inline void set_m_GlobalSystemVersion_1(uint32_t value)
+	{
+		___m_GlobalSystemVersion_1 = value;
+	}
+
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_IsReadOnly_2)); }
+	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
+	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
+	inline void set_m_IsReadOnly_2(bool value)
+	{
+		___m_IsReadOnly_2 = value;
+	}
+
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_IsZeroSized_3)); }
+	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
+	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
+	inline void set_m_IsZeroSized_3(bool value)
+	{
+		___m_IsZeroSized_3 = value;
+	}
+
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_Length_4)); }
+	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
+	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
+	inline void set_m_Length_4(int32_t value)
+	{
+		___m_Length_4 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of Unity.Entities.ComponentTypeHandle`1
+#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
+#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
+struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke
+{
+	int32_t ___m_TypeIndex_0;
+	uint32_t ___m_GlobalSystemVersion_1;
+	int32_t ___m_IsReadOnly_2;
+	int32_t ___m_IsZeroSized_3;
+	int32_t ___m_Length_4;
+};
+#endif
+// Native definition for COM marshalling of Unity.Entities.ComponentTypeHandle`1
+#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
+#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
+struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com
+{
+	int32_t ___m_TypeIndex_0;
+	uint32_t ___m_GlobalSystemVersion_1;
+	int32_t ___m_IsReadOnly_2;
+	int32_t ___m_IsZeroSized_3;
+	int32_t ___m_Length_4;
+};
+#endif
+
 // Unity.Entities.ComponentTypeHandle`1<Ships/MovementData>
 struct ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9 
 {
@@ -7249,8 +7331,8 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
-// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtExecute>
-struct ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 
+// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeData>
+struct ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E 
 {
 public:
 	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
@@ -7265,7 +7347,7 @@ public:
 	int32_t ___m_Length_4;
 
 public:
-	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_TypeIndex_0)); }
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_TypeIndex_0)); }
 	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
 	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
 	inline void set_m_TypeIndex_0(int32_t value)
@@ -7273,7 +7355,7 @@ public:
 		___m_TypeIndex_0 = value;
 	}
 
-	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_GlobalSystemVersion_1)); }
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_GlobalSystemVersion_1)); }
 	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
 	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
 	inline void set_m_GlobalSystemVersion_1(uint32_t value)
@@ -7281,7 +7363,7 @@ public:
 		___m_GlobalSystemVersion_1 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_IsReadOnly_2)); }
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_IsReadOnly_2)); }
 	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
 	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
 	inline void set_m_IsReadOnly_2(bool value)
@@ -7289,7 +7371,7 @@ public:
 		___m_IsReadOnly_2 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_IsZeroSized_3)); }
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_IsZeroSized_3)); }
 	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
 	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
 	inline void set_m_IsZeroSized_3(bool value)
@@ -7297,89 +7379,7 @@ public:
 		___m_IsZeroSized_3 = value;
 	}
 
-	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_Length_4)); }
-	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
-	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
-	inline void set_m_Length_4(int32_t value)
-	{
-		___m_Length_4 = value;
-	}
-};
-
-// Native definition for P/Invoke marshalling of Unity.Entities.ComponentTypeHandle`1
-#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
-#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
-struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke
-{
-	int32_t ___m_TypeIndex_0;
-	uint32_t ___m_GlobalSystemVersion_1;
-	int32_t ___m_IsReadOnly_2;
-	int32_t ___m_IsZeroSized_3;
-	int32_t ___m_Length_4;
-};
-#endif
-// Native definition for COM marshalling of Unity.Entities.ComponentTypeHandle`1
-#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
-#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
-struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com
-{
-	int32_t ___m_TypeIndex_0;
-	uint32_t ___m_GlobalSystemVersion_1;
-	int32_t ___m_IsReadOnly_2;
-	int32_t ___m_IsZeroSized_3;
-	int32_t ___m_Length_4;
-};
-#endif
-
-// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtWrite>
-struct ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 
-{
-public:
-	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
-	int32_t ___m_TypeIndex_0;
-	// System.UInt32 Unity.Entities.ComponentTypeHandle`1::m_GlobalSystemVersion
-	uint32_t ___m_GlobalSystemVersion_1;
-	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsReadOnly
-	bool ___m_IsReadOnly_2;
-	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsZeroSized
-	bool ___m_IsZeroSized_3;
-	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_Length
-	int32_t ___m_Length_4;
-
-public:
-	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_TypeIndex_0)); }
-	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
-	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
-	inline void set_m_TypeIndex_0(int32_t value)
-	{
-		___m_TypeIndex_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_GlobalSystemVersion_1)); }
-	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
-	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
-	inline void set_m_GlobalSystemVersion_1(uint32_t value)
-	{
-		___m_GlobalSystemVersion_1 = value;
-	}
-
-	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_IsReadOnly_2)); }
-	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
-	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
-	inline void set_m_IsReadOnly_2(bool value)
-	{
-		___m_IsReadOnly_2 = value;
-	}
-
-	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_IsZeroSized_3)); }
-	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
-	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
-	inline void set_m_IsZeroSized_3(bool value)
-	{
-		___m_IsZeroSized_3 = value;
-	}
-
-	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_Length_4)); }
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_Length_4)); }
 	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
 	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
 	inline void set_m_Length_4(int32_t value)
@@ -32271,6 +32271,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t576D028BE1854D17FF8124
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t29FF8A44FAB1BA90570E6FA905EA36D80A3A5FA6  EntityManager_GetComponentTypeHandle_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mBD27CB72236E0B77C44213C65E3F3E091ED1668E_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
 // Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Ships/Id>(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t29FF8A44FAB1BA90570E6FA905EA36D80A3A5FA6  SystemState_GetComponentTypeHandle_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_m1009CB78B2B05ABCAAE019F3515043247E150F01_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Ships/Idle>(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  EntityManager_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m2DFD1A064615766AB0DC0A3F7351F478871D3069_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Ships/Idle>(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  SystemState_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_mB07A3ECE2623053C5ED09C5A22ED494CE2D1633F_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
 // Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Ships/MovementData>(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9  EntityManager_GetComponentTypeHandle_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mC5A46FC170E4940958AD985603106BE1C60ED018_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
 // Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Ships/MovementData>(System.Boolean)
@@ -32283,14 +32287,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tBE0DB0A6E070A0EE4D9958
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  EntityManager_GetComponentTypeHandle_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC994F4D3650922F8040B072373C2F32023BC97CE_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
 // Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<SystemEntity/Id>(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  SystemState_GetComponentTypeHandle_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_m08B863E2AEEBC246A4DDCB47535A4400A1193762_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Tickets/TimeAtExecute>(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  EntityManager_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m290566C6CF46452EDA9BDB5A54801716866F2678_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeAtExecute>(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  SystemState_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m668C3FF19B4159DA6E0CE39E4489602B2269C88E_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Tickets/TimeAtWrite>(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  EntityManager_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m5A38A08B897C888631E40956D1408B757482B791_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeAtWrite>(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  SystemState_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mD24D733351F36E9DB41D6E06887CFE6B31130805_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Tickets/TimeData>(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  EntityManager_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m68620B23B3EA467E888CE4F93EA2B024FF44797A_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeData>(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  SystemState_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m059D7AF4B2406F73934C39FB567247A2D68EA02A_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method);
 // Unity.Entities.SharedComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetSharedComponentTypeHandle<Unity.Entities.EditorRenderData>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedComponentTypeHandle_1_tF07961037E9F3E61FD430C9D41117DAA6B7AF257  EntityManager_GetSharedComponentTypeHandle_TisEditorRenderData_t19EE26073BAF73A96F9896C58515FA79FD595ADA_mD2A61DB2F9B6080F046690473B21BDCBCF3CA939_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, const RuntimeMethod* method);
 // Unity.Entities.SharedComponentTypeHandle`1<T> Unity.Entities.SystemState::GetSharedComponentTypeHandle<Unity.Entities.EditorRenderData>()
@@ -33235,6 +33235,16 @@ inline ComponentTypeHandle_1_t29FF8A44FAB1BA90570E6FA905EA36D80A3A5FA6  SystemSt
 {
 	return ((  ComponentTypeHandle_1_t29FF8A44FAB1BA90570E6FA905EA36D80A3A5FA6  (*) (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *, bool, const RuntimeMethod*))SystemState_GetComponentTypeHandle_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_m1009CB78B2B05ABCAAE019F3515043247E150F01_gshared)(__this, ___isReadOnly0, method);
 }
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Ships/Idle>(System.Boolean)
+inline ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  EntityManager_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m2DFD1A064615766AB0DC0A3F7351F478871D3069 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+{
+	return ((  ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, bool, const RuntimeMethod*))EntityManager_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m2DFD1A064615766AB0DC0A3F7351F478871D3069_gshared)(__this, ___isReadOnly0, method);
+}
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Ships/Idle>(System.Boolean)
+inline ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  SystemState_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_mB07A3ECE2623053C5ED09C5A22ED494CE2D1633F (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+{
+	return ((  ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  (*) (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *, bool, const RuntimeMethod*))SystemState_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_mB07A3ECE2623053C5ED09C5A22ED494CE2D1633F_gshared)(__this, ___isReadOnly0, method);
+}
 // Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Ships/MovementData>(System.Boolean)
 inline ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9  EntityManager_GetComponentTypeHandle_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mC5A46FC170E4940958AD985603106BE1C60ED018 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
 {
@@ -33265,25 +33275,15 @@ inline ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  SystemSt
 {
 	return ((  ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  (*) (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *, bool, const RuntimeMethod*))SystemState_GetComponentTypeHandle_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_m08B863E2AEEBC246A4DDCB47535A4400A1193762_gshared)(__this, ___isReadOnly0, method);
 }
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Tickets/TimeAtExecute>(System.Boolean)
-inline ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  EntityManager_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m290566C6CF46452EDA9BDB5A54801716866F2678 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Tickets/TimeData>(System.Boolean)
+inline ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  EntityManager_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m68620B23B3EA467E888CE4F93EA2B024FF44797A (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
 {
-	return ((  ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, bool, const RuntimeMethod*))EntityManager_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m290566C6CF46452EDA9BDB5A54801716866F2678_gshared)(__this, ___isReadOnly0, method);
+	return ((  ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, bool, const RuntimeMethod*))EntityManager_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m68620B23B3EA467E888CE4F93EA2B024FF44797A_gshared)(__this, ___isReadOnly0, method);
 }
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeAtExecute>(System.Boolean)
-inline ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  SystemState_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m668C3FF19B4159DA6E0CE39E4489602B2269C88E (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeData>(System.Boolean)
+inline ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  SystemState_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m059D7AF4B2406F73934C39FB567247A2D68EA02A (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
 {
-	return ((  ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  (*) (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *, bool, const RuntimeMethod*))SystemState_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m668C3FF19B4159DA6E0CE39E4489602B2269C88E_gshared)(__this, ___isReadOnly0, method);
-}
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetComponentTypeHandle<Tickets/TimeAtWrite>(System.Boolean)
-inline ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  EntityManager_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m5A38A08B897C888631E40956D1408B757482B791 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
-{
-	return ((  ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, bool, const RuntimeMethod*))EntityManager_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m5A38A08B897C888631E40956D1408B757482B791_gshared)(__this, ___isReadOnly0, method);
-}
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeAtWrite>(System.Boolean)
-inline ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  SystemState_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mD24D733351F36E9DB41D6E06887CFE6B31130805 (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
-{
-	return ((  ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  (*) (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *, bool, const RuntimeMethod*))SystemState_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mD24D733351F36E9DB41D6E06887CFE6B31130805_gshared)(__this, ___isReadOnly0, method);
+	return ((  ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  (*) (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *, bool, const RuntimeMethod*))SystemState_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m059D7AF4B2406F73934C39FB567247A2D68EA02A_gshared)(__this, ___isReadOnly0, method);
 }
 // Unity.Entities.SharedComponentTypeHandle`1<T> Unity.Entities.EntityManager::GetSharedComponentTypeHandle<Unity.Entities.EditorRenderData>()
 inline SharedComponentTypeHandle_1_tF07961037E9F3E61FD430C9D41117DAA6B7AF257  EntityManager_GetSharedComponentTypeHandle_TisEditorRenderData_t19EE26073BAF73A96F9896C58515FA79FD595ADA_mD2A61DB2F9B6080F046690473B21BDCBCF3CA939 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, const RuntimeMethod* method)
@@ -51381,6 +51381,63 @@ IL2CPP_EXTERN_C  ComponentTypeHandle_1_t29FF8A44FAB1BA90570E6FA905EA36D80A3A5FA6
 	_returnValue = SystemState_GetComponentTypeHandle_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_m1009CB78B2B05ABCAAE019F3515043247E150F01(_thisAdjusted, ___isReadOnly0, method);
 	return _returnValue;
 }
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Ships/Idle>(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  SystemState_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_mB07A3ECE2623053C5ED09C5A22ED494CE2D1633F_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+{
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * G_B2_0 = NULL;
+	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * G_B1_0 = NULL;
+	ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  G_B3_0;
+	memset((&G_B3_0), 0, sizeof(G_B3_0));
+	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * G_B3_1 = NULL;
+	{
+		// AddReaderWriter(isReadOnly ? ComponentType.ReadOnly<T>() : ComponentType.ReadWrite<T>());
+		bool L_0 = ___isReadOnly0;
+		G_B1_0 = __this;
+		if (L_0)
+		{
+			G_B2_0 = __this;
+			goto IL_000b;
+		}
+	}
+	{
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_1;
+		L_1 = ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0));
+		G_B3_0 = L_1;
+		G_B3_1 = G_B1_0;
+		goto IL_0010;
+	}
+
+IL_000b:
+	{
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_2;
+		L_2 = ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 1)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 1));
+		G_B3_0 = L_2;
+		G_B3_1 = G_B2_0;
+	}
+
+IL_0010:
+	{
+		SystemState_AddReaderWriter_m7D89F50F8D971FE885D04AE6C0144F8D7826E9DC((SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)(SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)G_B3_1, (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )G_B3_0, /*hidden argument*/NULL);
+		// return EntityManager.GetComponentTypeHandle<T>(isReadOnly);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
+		L_3 = SystemState_get_EntityManager_mF52E5B82470A99B9796976F262249CD37C55DD40_inline((SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)(SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)__this, /*hidden argument*/NULL);
+		V_0 = (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 )L_3;
+		bool L_4 = ___isReadOnly0;
+		ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  L_5;
+		L_5 = EntityManager_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m2DFD1A064615766AB0DC0A3F7351F478871D3069((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), (bool)L_4, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 2));
+		return (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE )L_5;
+	}
+}
+IL2CPP_EXTERN_C  ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  SystemState_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_mB07A3ECE2623053C5ED09C5A22ED494CE2D1633F_AdjustorThunk (RuntimeObject * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+{
+	int32_t _offset = 1;
+	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * _thisAdjusted = reinterpret_cast<SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *>(__this + _offset);
+	ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  _returnValue;
+	_returnValue = SystemState_GetComponentTypeHandle_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_mB07A3ECE2623053C5ED09C5A22ED494CE2D1633F(_thisAdjusted, ___isReadOnly0, method);
+	return _returnValue;
+}
 // Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Ships/MovementData>(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9  SystemState_GetComponentTypeHandle_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m067BEDBD17B165AF8684007408AA3C0F3A9514D3_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
 {
@@ -51552,8 +51609,8 @@ IL2CPP_EXTERN_C  ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359
 	_returnValue = SystemState_GetComponentTypeHandle_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_m08B863E2AEEBC246A4DDCB47535A4400A1193762(_thisAdjusted, ___isReadOnly0, method);
 	return _returnValue;
 }
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeAtExecute>(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  SystemState_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m668C3FF19B4159DA6E0CE39E4489602B2269C88E_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeData>(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  SystemState_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m059D7AF4B2406F73934C39FB567247A2D68EA02A_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
 {
 	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_0;
 	memset((&V_0), 0, sizeof(V_0));
@@ -51596,74 +51653,17 @@ IL_0010:
 		L_3 = SystemState_get_EntityManager_mF52E5B82470A99B9796976F262249CD37C55DD40_inline((SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)(SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)__this, /*hidden argument*/NULL);
 		V_0 = (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 )L_3;
 		bool L_4 = ___isReadOnly0;
-		ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  L_5;
-		L_5 = EntityManager_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m290566C6CF46452EDA9BDB5A54801716866F2678((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), (bool)L_4, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 2));
-		return (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 )L_5;
+		ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  L_5;
+		L_5 = EntityManager_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m68620B23B3EA467E888CE4F93EA2B024FF44797A((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), (bool)L_4, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 2));
+		return (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E )L_5;
 	}
 }
-IL2CPP_EXTERN_C  ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  SystemState_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m668C3FF19B4159DA6E0CE39E4489602B2269C88E_AdjustorThunk (RuntimeObject * __this, bool ___isReadOnly0, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  SystemState_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m059D7AF4B2406F73934C39FB567247A2D68EA02A_AdjustorThunk (RuntimeObject * __this, bool ___isReadOnly0, const RuntimeMethod* method)
 {
 	int32_t _offset = 1;
 	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * _thisAdjusted = reinterpret_cast<SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *>(__this + _offset);
-	ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  _returnValue;
-	_returnValue = SystemState_GetComponentTypeHandle_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m668C3FF19B4159DA6E0CE39E4489602B2269C88E(_thisAdjusted, ___isReadOnly0, method);
-	return _returnValue;
-}
-// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.SystemState::GetComponentTypeHandle<Tickets/TimeAtWrite>(System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  SystemState_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mD24D733351F36E9DB41D6E06887CFE6B31130805_gshared (SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * __this, bool ___isReadOnly0, const RuntimeMethod* method)
-{
-	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * G_B2_0 = NULL;
-	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * G_B1_0 = NULL;
-	ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  G_B3_0;
-	memset((&G_B3_0), 0, sizeof(G_B3_0));
-	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * G_B3_1 = NULL;
-	{
-		// AddReaderWriter(isReadOnly ? ComponentType.ReadOnly<T>() : ComponentType.ReadWrite<T>());
-		bool L_0 = ___isReadOnly0;
-		G_B1_0 = __this;
-		if (L_0)
-		{
-			G_B2_0 = __this;
-			goto IL_000b;
-		}
-	}
-	{
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_1;
-		L_1 = ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0));
-		G_B3_0 = L_1;
-		G_B3_1 = G_B1_0;
-		goto IL_0010;
-	}
-
-IL_000b:
-	{
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_2;
-		L_2 = ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 1)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 1));
-		G_B3_0 = L_2;
-		G_B3_1 = G_B2_0;
-	}
-
-IL_0010:
-	{
-		SystemState_AddReaderWriter_m7D89F50F8D971FE885D04AE6C0144F8D7826E9DC((SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)(SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)G_B3_1, (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )G_B3_0, /*hidden argument*/NULL);
-		// return EntityManager.GetComponentTypeHandle<T>(isReadOnly);
-		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
-		L_3 = SystemState_get_EntityManager_mF52E5B82470A99B9796976F262249CD37C55DD40_inline((SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)(SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *)__this, /*hidden argument*/NULL);
-		V_0 = (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 )L_3;
-		bool L_4 = ___isReadOnly0;
-		ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  L_5;
-		L_5 = EntityManager_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m5A38A08B897C888631E40956D1408B757482B791((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), (bool)L_4, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 2));
-		return (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 )L_5;
-	}
-}
-IL2CPP_EXTERN_C  ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  SystemState_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mD24D733351F36E9DB41D6E06887CFE6B31130805_AdjustorThunk (RuntimeObject * __this, bool ___isReadOnly0, const RuntimeMethod* method)
-{
-	int32_t _offset = 1;
-	SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 * _thisAdjusted = reinterpret_cast<SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95 *>(__this + _offset);
-	ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  _returnValue;
-	_returnValue = SystemState_GetComponentTypeHandle_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mD24D733351F36E9DB41D6E06887CFE6B31130805(_thisAdjusted, ___isReadOnly0, method);
+	ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  _returnValue;
+	_returnValue = SystemState_GetComponentTypeHandle_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m059D7AF4B2406F73934C39FB567247A2D68EA02A(_thisAdjusted, ___isReadOnly0, method);
 	return _returnValue;
 }
 // Unity.Entities.SharedComponentTypeHandle`1<T> Unity.Entities.SystemState::GetSharedComponentTypeHandle<Unity.Entities.EditorRenderData>()

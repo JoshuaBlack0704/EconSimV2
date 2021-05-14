@@ -20,7 +20,7 @@ static Il2CppMethodPointer s_methodPointers[1] =
 };
 static const int32_t s_InvokerIndices[1] = 
 {
-	12686,
+	12842,
 };
 extern const CustomAttributesCacheGenerator g_Unity_Mathematics_Extensions_Hybrid_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Mathematics_Extensions_Hybrid_CodeGenModule;

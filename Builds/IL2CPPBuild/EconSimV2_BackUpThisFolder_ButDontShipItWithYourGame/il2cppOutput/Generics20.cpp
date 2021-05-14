@@ -10096,8 +10096,8 @@ public:
 };
 
 
-// Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>
-struct HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728 
+// Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>
+struct HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB 
 {
 public:
 	union
@@ -10111,14 +10111,14 @@ public:
 public:
 };
 
-struct HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728_StaticFields
+struct HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB_StaticFields
 {
 public:
 	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
 	int64_t ___Value_0;
 
 public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728_StaticFields, ___Value_0)); }
+	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB_StaticFields, ___Value_0)); }
 	inline int64_t get_Value_0() const { return ___Value_0; }
 	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
 	inline void set_Value_0(int64_t value)
@@ -10215,38 +10215,6 @@ public:
 
 public:
 	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t6AE4057E6EBD179BCA1E78D1C209AE1F90CB737A_StaticFields, ___Value_0)); }
-	inline int64_t get_Value_0() const { return ___Value_0; }
-	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
-	inline void set_Value_0(int64_t value)
-	{
-		___Value_0 = value;
-	}
-};
-
-
-// Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>
-struct HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE 
-{
-public:
-	union
-	{
-		struct
-		{
-		};
-		uint8_t HashCode64_1_t84D44525C8ED71A45F8546FC52C91401340BD30C__padding[1];
-	};
-
-public:
-};
-
-struct HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE_StaticFields
-{
-public:
-	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
-	int64_t ___Value_0;
-
-public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE_StaticFields, ___Value_0)); }
 	inline int64_t get_Value_0() const { return ___Value_0; }
 	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
 	inline void set_Value_0(int64_t value)
@@ -10800,8 +10768,8 @@ public:
 };
 
 
-// Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeAtExecute>
-struct HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5 
+// Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeData>
+struct HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB 
 {
 public:
 	union
@@ -10815,46 +10783,14 @@ public:
 public:
 };
 
-struct HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5_StaticFields
+struct HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB_StaticFields
 {
 public:
 	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
 	int64_t ___Value_0;
 
 public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5_StaticFields, ___Value_0)); }
-	inline int64_t get_Value_0() const { return ___Value_0; }
-	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
-	inline void set_Value_0(int64_t value)
-	{
-		___Value_0 = value;
-	}
-};
-
-
-// Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeAtWrite>
-struct HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE 
-{
-public:
-	union
-	{
-		struct
-		{
-		};
-		uint8_t HashCode64_1_t84D44525C8ED71A45F8546FC52C91401340BD30C__padding[1];
-	};
-
-public:
-};
-
-struct HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE_StaticFields
-{
-public:
-	// System.Int64 Unity.Burst.BurstRuntime/HashCode64`1::Value
-	int64_t ___Value_0;
-
-public:
-	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE_StaticFields, ___Value_0)); }
+	inline static int32_t get_offset_of_Value_0() { return static_cast<int32_t>(offsetof(HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB_StaticFields, ___Value_0)); }
 	inline int64_t get_Value_0() const { return ___Value_0; }
 	inline int64_t* get_address_of_Value_0() { return &___Value_0; }
 	inline void set_Value_0(int64_t value)
@@ -43412,8 +43348,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m8F3660B52421A6A92E1
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>::.cctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_mAE716512FD2AB2EABB9D3854500303AD64FF0E6A_gshared (const RuntimeMethod* method)
+// System.Void Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m98430B6A09E2171A0DD5483B3782B655AACB5AFA_gshared (const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -43432,7 +43368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_mAE716512FD2AB2EABB9
 		L_2 = VirtFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_AssemblyQualifiedName() */, (Type_t *)L_1);
 		int64_t L_3;
 		L_3 = BurstRuntime_HashStringWithFNV1A64_m36354952510DAE5551D8576CAEE0CC23BC49864E((String_t*)L_2, /*hidden argument*/NULL);
-		((HashCode64_1_t6DEA8E3384593FFCC13DE6FCA20749B8B1C30728_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
+		((HashCode64_1_tF72F22CB68EC809077077226B6752227A931B4CB_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
 		return;
 	}
 }
@@ -43529,38 +43465,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_mAB9414268C339B47A4A
 		int64_t L_3;
 		L_3 = BurstRuntime_HashStringWithFNV1A64_m36354952510DAE5551D8576CAEE0CC23BC49864E((String_t*)L_2, /*hidden argument*/NULL);
 		((HashCode64_1_t6AE4057E6EBD179BCA1E78D1C209AE1F90CB737A_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
-		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void Unity.Burst.BurstRuntime/HashCode64`1<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>::.cctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m333490A8B4103B3C9773A4FAE5AD2861BE38FBE1_gshared (const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// public static readonly long Value = HashStringWithFNV1A64(typeof(T).AssemblyQualifiedName);
-		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_0 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(InitializedTypeInfo(method->klass)->rgctx_data, 0)) };
-		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
-		Type_t * L_1;
-		L_1 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_0, /*hidden argument*/NULL);
-		NullCheck((Type_t *)L_1);
-		String_t* L_2;
-		L_2 = VirtFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_AssemblyQualifiedName() */, (Type_t *)L_1);
-		int64_t L_3;
-		L_3 = BurstRuntime_HashStringWithFNV1A64_m36354952510DAE5551D8576CAEE0CC23BC49864E((String_t*)L_2, /*hidden argument*/NULL);
-		((HashCode64_1_tD5C224DBAA88818EE62EC09D1F27CED47BCCEBFE_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
 		return;
 	}
 }
@@ -44116,8 +44020,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_mF991BF7A926B74B7B40
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeAtExecute>::.cctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m21870AAB603D84209EF5E72A2A26836AFF794826_gshared (const RuntimeMethod* method)
+// System.Void Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeData>::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m07BDA3F6183E3672E48DFEA100797315A9EFD5BA_gshared (const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -44136,39 +44040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m21870AAB603D84209EF
 		L_2 = VirtFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_AssemblyQualifiedName() */, (Type_t *)L_1);
 		int64_t L_3;
 		L_3 = BurstRuntime_HashStringWithFNV1A64_m36354952510DAE5551D8576CAEE0CC23BC49864E((String_t*)L_2, /*hidden argument*/NULL);
-		((HashCode64_1_t0696523F76A4FC7D7760FC2492C93B988C8432B5_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
-		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void Unity.Burst.BurstRuntime/HashCode64`1<Tickets/TimeAtWrite>::.cctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HashCode64_1__cctor_m1948044CD0EAB28B6127C5AF4D8E81F27712218A_gshared (const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// public static readonly long Value = HashStringWithFNV1A64(typeof(T).AssemblyQualifiedName);
-		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_0 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(InitializedTypeInfo(method->klass)->rgctx_data, 0)) };
-		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
-		Type_t * L_1;
-		L_1 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_0, /*hidden argument*/NULL);
-		NullCheck((Type_t *)L_1);
-		String_t* L_2;
-		L_2 = VirtFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_AssemblyQualifiedName() */, (Type_t *)L_1);
-		int64_t L_3;
-		L_3 = BurstRuntime_HashStringWithFNV1A64_m36354952510DAE5551D8576CAEE0CC23BC49864E((String_t*)L_2, /*hidden argument*/NULL);
-		((HashCode64_1_t4F1F57F23DEEF2B98DD97B15582FAD1A5941AAEE_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
+		((HashCode64_1_t19C5FDC973EE0D33B571EB6A7A3BF51CC7D411CB_StaticFields*)il2cpp_codegen_static_fields_for(IL2CPP_RGCTX_DATA(InitializedTypeInfo(method->klass)->rgctx_data, 1)))->set_Value_0(L_3);
 		return;
 	}
 }

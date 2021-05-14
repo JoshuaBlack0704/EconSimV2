@@ -7450,6 +7450,88 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
+// Unity.Entities.ComponentTypeHandle`1<Ships/Idle>
+struct ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE 
+{
+public:
+	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
+	int32_t ___m_TypeIndex_0;
+	// System.UInt32 Unity.Entities.ComponentTypeHandle`1::m_GlobalSystemVersion
+	uint32_t ___m_GlobalSystemVersion_1;
+	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsReadOnly
+	bool ___m_IsReadOnly_2;
+	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsZeroSized
+	bool ___m_IsZeroSized_3;
+	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_Length
+	int32_t ___m_Length_4;
+
+public:
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_TypeIndex_0)); }
+	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
+	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
+	inline void set_m_TypeIndex_0(int32_t value)
+	{
+		___m_TypeIndex_0 = value;
+	}
+
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_GlobalSystemVersion_1)); }
+	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
+	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
+	inline void set_m_GlobalSystemVersion_1(uint32_t value)
+	{
+		___m_GlobalSystemVersion_1 = value;
+	}
+
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_IsReadOnly_2)); }
+	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
+	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
+	inline void set_m_IsReadOnly_2(bool value)
+	{
+		___m_IsReadOnly_2 = value;
+	}
+
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_IsZeroSized_3)); }
+	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
+	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
+	inline void set_m_IsZeroSized_3(bool value)
+	{
+		___m_IsZeroSized_3 = value;
+	}
+
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_Length_4)); }
+	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
+	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
+	inline void set_m_Length_4(int32_t value)
+	{
+		___m_Length_4 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of Unity.Entities.ComponentTypeHandle`1
+#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
+#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
+struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke
+{
+	int32_t ___m_TypeIndex_0;
+	uint32_t ___m_GlobalSystemVersion_1;
+	int32_t ___m_IsReadOnly_2;
+	int32_t ___m_IsZeroSized_3;
+	int32_t ___m_Length_4;
+};
+#endif
+// Native definition for COM marshalling of Unity.Entities.ComponentTypeHandle`1
+#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
+#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
+struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com
+{
+	int32_t ___m_TypeIndex_0;
+	uint32_t ___m_GlobalSystemVersion_1;
+	int32_t ___m_IsReadOnly_2;
+	int32_t ___m_IsZeroSized_3;
+	int32_t ___m_Length_4;
+};
+#endif
+
 // Unity.Entities.ComponentTypeHandle`1<Ships/MovementData>
 struct ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9 
 {
@@ -7696,8 +7778,8 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
-// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtExecute>
-struct ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 
+// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeData>
+struct ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E 
 {
 public:
 	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
@@ -7712,7 +7794,7 @@ public:
 	int32_t ___m_Length_4;
 
 public:
-	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_TypeIndex_0)); }
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_TypeIndex_0)); }
 	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
 	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
 	inline void set_m_TypeIndex_0(int32_t value)
@@ -7720,7 +7802,7 @@ public:
 		___m_TypeIndex_0 = value;
 	}
 
-	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_GlobalSystemVersion_1)); }
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_GlobalSystemVersion_1)); }
 	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
 	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
 	inline void set_m_GlobalSystemVersion_1(uint32_t value)
@@ -7728,7 +7810,7 @@ public:
 		___m_GlobalSystemVersion_1 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_IsReadOnly_2)); }
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_IsReadOnly_2)); }
 	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
 	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
 	inline void set_m_IsReadOnly_2(bool value)
@@ -7736,7 +7818,7 @@ public:
 		___m_IsReadOnly_2 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_IsZeroSized_3)); }
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_IsZeroSized_3)); }
 	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
 	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
 	inline void set_m_IsZeroSized_3(bool value)
@@ -7744,89 +7826,7 @@ public:
 		___m_IsZeroSized_3 = value;
 	}
 
-	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_Length_4)); }
-	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
-	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
-	inline void set_m_Length_4(int32_t value)
-	{
-		___m_Length_4 = value;
-	}
-};
-
-// Native definition for P/Invoke marshalling of Unity.Entities.ComponentTypeHandle`1
-#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
-#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
-struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke
-{
-	int32_t ___m_TypeIndex_0;
-	uint32_t ___m_GlobalSystemVersion_1;
-	int32_t ___m_IsReadOnly_2;
-	int32_t ___m_IsZeroSized_3;
-	int32_t ___m_Length_4;
-};
-#endif
-// Native definition for COM marshalling of Unity.Entities.ComponentTypeHandle`1
-#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
-#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
-struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com
-{
-	int32_t ___m_TypeIndex_0;
-	uint32_t ___m_GlobalSystemVersion_1;
-	int32_t ___m_IsReadOnly_2;
-	int32_t ___m_IsZeroSized_3;
-	int32_t ___m_Length_4;
-};
-#endif
-
-// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtWrite>
-struct ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 
-{
-public:
-	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
-	int32_t ___m_TypeIndex_0;
-	// System.UInt32 Unity.Entities.ComponentTypeHandle`1::m_GlobalSystemVersion
-	uint32_t ___m_GlobalSystemVersion_1;
-	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsReadOnly
-	bool ___m_IsReadOnly_2;
-	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsZeroSized
-	bool ___m_IsZeroSized_3;
-	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_Length
-	int32_t ___m_Length_4;
-
-public:
-	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_TypeIndex_0)); }
-	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
-	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
-	inline void set_m_TypeIndex_0(int32_t value)
-	{
-		___m_TypeIndex_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_GlobalSystemVersion_1)); }
-	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
-	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
-	inline void set_m_GlobalSystemVersion_1(uint32_t value)
-	{
-		___m_GlobalSystemVersion_1 = value;
-	}
-
-	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_IsReadOnly_2)); }
-	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
-	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
-	inline void set_m_IsReadOnly_2(bool value)
-	{
-		___m_IsReadOnly_2 = value;
-	}
-
-	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_IsZeroSized_3)); }
-	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
-	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
-	inline void set_m_IsZeroSized_3(bool value)
-	{
-		___m_IsZeroSized_3 = value;
-	}
-
-	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_Length_4)); }
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_Length_4)); }
 	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
 	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
 	inline void set_m_Length_4(int32_t value)
@@ -11220,6 +11220,24 @@ public:
 };
 
 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<Ships/Idle>
+struct Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A 
+{
+public:
+	// System.Byte* Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime::ptr
+	uint8_t* ___ptr_0;
+
+public:
+	inline static int32_t get_offset_of_ptr_0() { return static_cast<int32_t>(offsetof(Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A, ___ptr_0)); }
+	inline uint8_t* get_ptr_0() const { return ___ptr_0; }
+	inline uint8_t** get_address_of_ptr_0() { return &___ptr_0; }
+	inline void set_ptr_0(uint8_t* value)
+	{
+		___ptr_0 = value;
+	}
+};
+
+
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<Ships/MovementData>
 struct Runtime_t81B6A7F5CDEA564C9A932CC66FC0177C6E25BB2E 
 {
@@ -11274,33 +11292,15 @@ public:
 };
 
 
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<Tickets/TimeAtExecute>
-struct Runtime_t2D994F89833848F78513FB62BEF44DC538054317 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<Tickets/TimeData>
+struct Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21 
 {
 public:
 	// System.Byte* Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime::ptr
 	uint8_t* ___ptr_0;
 
 public:
-	inline static int32_t get_offset_of_ptr_0() { return static_cast<int32_t>(offsetof(Runtime_t2D994F89833848F78513FB62BEF44DC538054317, ___ptr_0)); }
-	inline uint8_t* get_ptr_0() const { return ___ptr_0; }
-	inline uint8_t** get_address_of_ptr_0() { return &___ptr_0; }
-	inline void set_ptr_0(uint8_t* value)
-	{
-		___ptr_0 = value;
-	}
-};
-
-
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<Tickets/TimeAtWrite>
-struct Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1 
-{
-public:
-	// System.Byte* Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime::ptr
-	uint8_t* ___ptr_0;
-
-public:
-	inline static int32_t get_offset_of_ptr_0() { return static_cast<int32_t>(offsetof(Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1, ___ptr_0)); }
+	inline static int32_t get_offset_of_ptr_0() { return static_cast<int32_t>(offsetof(Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21, ___ptr_0)); }
 	inline uint8_t* get_ptr_0() const { return ___ptr_0; }
 	inline uint8_t** get_address_of_ptr_0() { return &___ptr_0; }
 	inline void set_ptr_0(uint8_t* value)
@@ -14832,6 +14832,24 @@ public:
 };
 
 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>
+struct LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 
+{
+public:
+	// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1::_typeHandle
+	ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  ____typeHandle_0;
+
+public:
+	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41, ____typeHandle_0)); }
+	inline ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  get__typeHandle_0() const { return ____typeHandle_0; }
+	inline ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE * get_address_of__typeHandle_0() { return &____typeHandle_0; }
+	inline void set__typeHandle_0(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  value)
+	{
+		____typeHandle_0 = value;
+	}
+};
+
+
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData>
 struct LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D 
 {
@@ -14886,36 +14904,18 @@ public:
 };
 
 
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>
-struct LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>
+struct LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F 
 {
 public:
 	// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1::_typeHandle
-	ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  ____typeHandle_0;
+	ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  ____typeHandle_0;
 
 public:
-	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436, ____typeHandle_0)); }
-	inline ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  get__typeHandle_0() const { return ____typeHandle_0; }
-	inline ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 * get_address_of__typeHandle_0() { return &____typeHandle_0; }
-	inline void set__typeHandle_0(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  value)
-	{
-		____typeHandle_0 = value;
-	}
-};
-
-
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>
-struct LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 
-{
-public:
-	// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1::_typeHandle
-	ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  ____typeHandle_0;
-
-public:
-	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24, ____typeHandle_0)); }
-	inline ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  get__typeHandle_0() const { return ____typeHandle_0; }
-	inline ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 * get_address_of__typeHandle_0() { return &____typeHandle_0; }
-	inline void set__typeHandle_0(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  value)
+	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F, ____typeHandle_0)); }
+	inline ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  get__typeHandle_0() const { return ____typeHandle_0; }
+	inline ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E * get_address_of__typeHandle_0() { return &____typeHandle_0; }
+	inline void set__typeHandle_0(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  value)
 	{
 		____typeHandle_0 = value;
 	}
@@ -17767,6 +17767,44 @@ public:
 };
 
 
+// Unity.Collections.NativeArray`1<Ships/Idle>
+struct NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6 
+{
+public:
+	// System.Void* Unity.Collections.NativeArray`1::m_Buffer
+	void* ___m_Buffer_0;
+	// System.Int32 Unity.Collections.NativeArray`1::m_Length
+	int32_t ___m_Length_1;
+	// Unity.Collections.Allocator Unity.Collections.NativeArray`1::m_AllocatorLabel
+	int32_t ___m_AllocatorLabel_2;
+
+public:
+	inline static int32_t get_offset_of_m_Buffer_0() { return static_cast<int32_t>(offsetof(NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6, ___m_Buffer_0)); }
+	inline void* get_m_Buffer_0() const { return ___m_Buffer_0; }
+	inline void** get_address_of_m_Buffer_0() { return &___m_Buffer_0; }
+	inline void set_m_Buffer_0(void* value)
+	{
+		___m_Buffer_0 = value;
+	}
+
+	inline static int32_t get_offset_of_m_Length_1() { return static_cast<int32_t>(offsetof(NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6, ___m_Length_1)); }
+	inline int32_t get_m_Length_1() const { return ___m_Length_1; }
+	inline int32_t* get_address_of_m_Length_1() { return &___m_Length_1; }
+	inline void set_m_Length_1(int32_t value)
+	{
+		___m_Length_1 = value;
+	}
+
+	inline static int32_t get_offset_of_m_AllocatorLabel_2() { return static_cast<int32_t>(offsetof(NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6, ___m_AllocatorLabel_2)); }
+	inline int32_t get_m_AllocatorLabel_2() const { return ___m_AllocatorLabel_2; }
+	inline int32_t* get_address_of_m_AllocatorLabel_2() { return &___m_AllocatorLabel_2; }
+	inline void set_m_AllocatorLabel_2(int32_t value)
+	{
+		___m_AllocatorLabel_2 = value;
+	}
+};
+
+
 // Unity.Collections.NativeArray`1<Ships/MovementData>
 struct NativeArray_1_tE51579B5990DF750EEA815103893F9F1B306727F 
 {
@@ -17881,8 +17919,8 @@ public:
 };
 
 
-// Unity.Collections.NativeArray`1<Tickets/TimeAtExecute>
-struct NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 
+// Unity.Collections.NativeArray`1<Tickets/TimeData>
+struct NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4 
 {
 public:
 	// System.Void* Unity.Collections.NativeArray`1::m_Buffer
@@ -17893,7 +17931,7 @@ public:
 	int32_t ___m_AllocatorLabel_2;
 
 public:
-	inline static int32_t get_offset_of_m_Buffer_0() { return static_cast<int32_t>(offsetof(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4, ___m_Buffer_0)); }
+	inline static int32_t get_offset_of_m_Buffer_0() { return static_cast<int32_t>(offsetof(NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4, ___m_Buffer_0)); }
 	inline void* get_m_Buffer_0() const { return ___m_Buffer_0; }
 	inline void** get_address_of_m_Buffer_0() { return &___m_Buffer_0; }
 	inline void set_m_Buffer_0(void* value)
@@ -17901,7 +17939,7 @@ public:
 		___m_Buffer_0 = value;
 	}
 
-	inline static int32_t get_offset_of_m_Length_1() { return static_cast<int32_t>(offsetof(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4, ___m_Length_1)); }
+	inline static int32_t get_offset_of_m_Length_1() { return static_cast<int32_t>(offsetof(NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4, ___m_Length_1)); }
 	inline int32_t get_m_Length_1() const { return ___m_Length_1; }
 	inline int32_t* get_address_of_m_Length_1() { return &___m_Length_1; }
 	inline void set_m_Length_1(int32_t value)
@@ -17909,45 +17947,7 @@ public:
 		___m_Length_1 = value;
 	}
 
-	inline static int32_t get_offset_of_m_AllocatorLabel_2() { return static_cast<int32_t>(offsetof(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4, ___m_AllocatorLabel_2)); }
-	inline int32_t get_m_AllocatorLabel_2() const { return ___m_AllocatorLabel_2; }
-	inline int32_t* get_address_of_m_AllocatorLabel_2() { return &___m_AllocatorLabel_2; }
-	inline void set_m_AllocatorLabel_2(int32_t value)
-	{
-		___m_AllocatorLabel_2 = value;
-	}
-};
-
-
-// Unity.Collections.NativeArray`1<Tickets/TimeAtWrite>
-struct NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427 
-{
-public:
-	// System.Void* Unity.Collections.NativeArray`1::m_Buffer
-	void* ___m_Buffer_0;
-	// System.Int32 Unity.Collections.NativeArray`1::m_Length
-	int32_t ___m_Length_1;
-	// Unity.Collections.Allocator Unity.Collections.NativeArray`1::m_AllocatorLabel
-	int32_t ___m_AllocatorLabel_2;
-
-public:
-	inline static int32_t get_offset_of_m_Buffer_0() { return static_cast<int32_t>(offsetof(NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427, ___m_Buffer_0)); }
-	inline void* get_m_Buffer_0() const { return ___m_Buffer_0; }
-	inline void** get_address_of_m_Buffer_0() { return &___m_Buffer_0; }
-	inline void set_m_Buffer_0(void* value)
-	{
-		___m_Buffer_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_Length_1() { return static_cast<int32_t>(offsetof(NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427, ___m_Length_1)); }
-	inline int32_t get_m_Length_1() const { return ___m_Length_1; }
-	inline int32_t* get_address_of_m_Length_1() { return &___m_Length_1; }
-	inline void set_m_Length_1(int32_t value)
-	{
-		___m_Length_1 = value;
-	}
-
-	inline static int32_t get_offset_of_m_AllocatorLabel_2() { return static_cast<int32_t>(offsetof(NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427, ___m_AllocatorLabel_2)); }
+	inline static int32_t get_offset_of_m_AllocatorLabel_2() { return static_cast<int32_t>(offsetof(NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4, ___m_AllocatorLabel_2)); }
 	inline int32_t get_m_AllocatorLabel_2() const { return ___m_AllocatorLabel_2; }
 	inline int32_t* get_address_of_m_AllocatorLabel_2() { return &___m_AllocatorLabel_2; }
 	inline void set_m_AllocatorLabel_2(int32_t value)
@@ -20880,6 +20880,52 @@ struct StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshal
 };
 #endif
 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<Ships/Idle>
+struct StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470 
+{
+public:
+	// Unity.Entities.EntityManager Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime::_manager
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  ____manager_0;
+	// System.Int32 Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime::_typeIndex
+	int32_t ____typeIndex_1;
+
+public:
+	inline static int32_t get_offset_of__manager_0() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470, ____manager_0)); }
+	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  get__manager_0() const { return ____manager_0; }
+	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * get_address_of__manager_0() { return &____manager_0; }
+	inline void set__manager_0(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  value)
+	{
+		____manager_0 = value;
+	}
+
+	inline static int32_t get_offset_of__typeIndex_1() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470, ____typeIndex_1)); }
+	inline int32_t get__typeIndex_1() const { return ____typeIndex_1; }
+	inline int32_t* get_address_of__typeIndex_1() { return &____typeIndex_1; }
+	inline void set__typeIndex_1(int32_t value)
+	{
+		____typeIndex_1 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime
+#ifndef StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_pinvoke_define
+#define StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_pinvoke_define
+struct StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_pinvoke
+{
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0_marshaled_pinvoke ____manager_0;
+	int32_t ____typeIndex_1;
+};
+#endif
+// Native definition for COM marshalling of Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime
+#ifndef StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_com_define
+#define StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_com_define
+struct StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_com
+{
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0_marshaled_com ____manager_0;
+	int32_t ____typeIndex_1;
+};
+#endif
+
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<Ships/MovementData>
 struct StructuralChangeRuntime_tCAF18B324B4FEAFE067D7C9427CA7BF049378B06 
 {
@@ -21018,8 +21064,8 @@ struct StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshal
 };
 #endif
 
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<Tickets/TimeAtExecute>
-struct StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<Tickets/TimeData>
+struct StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13 
 {
 public:
 	// Unity.Entities.EntityManager Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime::_manager
@@ -21028,7 +21074,7 @@ public:
 	int32_t ____typeIndex_1;
 
 public:
-	inline static int32_t get_offset_of__manager_0() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE, ____manager_0)); }
+	inline static int32_t get_offset_of__manager_0() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13, ____manager_0)); }
 	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  get__manager_0() const { return ____manager_0; }
 	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * get_address_of__manager_0() { return &____manager_0; }
 	inline void set__manager_0(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  value)
@@ -21036,53 +21082,7 @@ public:
 		____manager_0 = value;
 	}
 
-	inline static int32_t get_offset_of__typeIndex_1() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE, ____typeIndex_1)); }
-	inline int32_t get__typeIndex_1() const { return ____typeIndex_1; }
-	inline int32_t* get_address_of__typeIndex_1() { return &____typeIndex_1; }
-	inline void set__typeIndex_1(int32_t value)
-	{
-		____typeIndex_1 = value;
-	}
-};
-
-// Native definition for P/Invoke marshalling of Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime
-#ifndef StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_pinvoke_define
-#define StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_pinvoke_define
-struct StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_pinvoke
-{
-	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0_marshaled_pinvoke ____manager_0;
-	int32_t ____typeIndex_1;
-};
-#endif
-// Native definition for COM marshalling of Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime
-#ifndef StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_com_define
-#define StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_com_define
-struct StructuralChangeRuntime_t6179906746B2C9E74816610C15C756D5B9A2BEBA_marshaled_com
-{
-	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0_marshaled_com ____manager_0;
-	int32_t ____typeIndex_1;
-};
-#endif
-
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<Tickets/TimeAtWrite>
-struct StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36 
-{
-public:
-	// Unity.Entities.EntityManager Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime::_manager
-	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  ____manager_0;
-	// System.Int32 Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime::_typeIndex
-	int32_t ____typeIndex_1;
-
-public:
-	inline static int32_t get_offset_of__manager_0() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36, ____manager_0)); }
-	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  get__manager_0() const { return ____manager_0; }
-	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * get_address_of__manager_0() { return &____manager_0; }
-	inline void set__manager_0(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  value)
-	{
-		____manager_0 = value;
-	}
-
-	inline static int32_t get_offset_of__typeIndex_1() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36, ____typeIndex_1)); }
+	inline static int32_t get_offset_of__typeIndex_1() { return static_cast<int32_t>(offsetof(StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13, ____typeIndex_1)); }
 	inline int32_t get__typeIndex_1() const { return ____typeIndex_1; }
 	inline int32_t* get_address_of__typeIndex_1() { return &____typeIndex_1; }
 	inline void set__typeIndex_1(int32_t value)
@@ -24161,6 +24161,16 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_Is
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_tA65E454251247CB368CCA7367CC96D4B3CD8366C  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mE9EF48E6666DA1EE8EB74989E00485076B24A853_gshared (LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method);
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Id>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_tBDF32582028299D48CE45A43702A874B5FAA082F  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m4B0DBDA13D59134BC742DA234AA2F75402905B3F_gshared (LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
+// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mAA2C166ADA1D0563479C2CBFA4F68BD2D0738166_gshared (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method);
+// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Ships/Idle>(Unity.Entities.ComponentTypeHandle`1<T>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  ArchetypeChunk_GetNativeArray_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m11846AC9DB849206D0A34EE3AF7320BA3172292B_gshared (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  ___chunkComponentTypeHandle0, const RuntimeMethod* method);
+// System.Boolean Unity.Entities.ComponentTypeHandle`1<Ships/Idle>::get_IsReadOnly()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_m4B0BF5EBF89FB2A45F1E3F18B4ACB9DC49E41904_gshared_inline (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE * __this, const RuntimeMethod* method);
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mA5D57151230A8396AF5F1DD4E190C256553AB79B_gshared (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method);
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m8CF0A5AE05242C8D8C9611EAF4AD690E5E0DB4F5_gshared (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
 // System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mB69C66B7F98891B2EE6EF2ACB57DD4586786DB88_gshared (LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method);
 // Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Ships/MovementData>(Unity.Entities.ComponentTypeHandle`1<T>)
@@ -24191,26 +24201,16 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_Is
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_tA4F37E09DD7AE34B9415F5A5A7A2CBFEC48CD0B9  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m9F970185A0E8297F8988BED5B6EBCC52825D3F3B_gshared (LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method);
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<SystemEntity/Id>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_tEDD7BDCFA98C3B8EBCA705577395C4AB78FEB403  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m31BCACE5F46542811A2F2013793975E78BFA68B4_gshared (LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
-// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m475F6F6995624E1501DA54125434A5F585A275C1_gshared (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method);
-// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Tickets/TimeAtExecute>(Unity.Entities.ComponentTypeHandle`1<T>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  ArchetypeChunk_GetNativeArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m0B1DD92727503D9D9533F65012DA7C0EEDC43731_gshared (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  ___chunkComponentTypeHandle0, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtExecute>::get_IsReadOnly()
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_mFE9004318D81CC0373EAD6B3F768795C2AD8D35F_gshared_inline (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 * __this, const RuntimeMethod* method);
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_t2D994F89833848F78513FB62BEF44DC538054317  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1A236F413DFD8D0F28041D23D6CC3289B38B8A3F_gshared (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method);
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mB08B2EF8F68D8378162F5A0BD074039D83CFAE07_gshared (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
-// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m574ECBFBD2940285E4B64A407C8D90F77FE445F0_gshared (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method);
-// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Tickets/TimeAtWrite>(Unity.Entities.ComponentTypeHandle`1<T>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  ArchetypeChunk_GetNativeArray_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m09F2107BAD0683B1A1902B27B8C157DB874B00C2_gshared (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  ___chunkComponentTypeHandle0, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtWrite>::get_IsReadOnly()
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_mA2EBB313F14F0759F7EFE116F42D91B2D77A98C0_gshared_inline (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 * __this, const RuntimeMethod* method);
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mBC7376CAA8427077508F82BD4EE8EEB7A0BBDE75_gshared (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method);
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m7EACB8FF364A97F9014E10C049DC2F67E4EDA0D7_gshared (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
+// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mA84270E86D503E0B51A06FB96D1542D917D96C5E_gshared (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method);
+// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Tickets/TimeData>(Unity.Entities.ComponentTypeHandle`1<T>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  ArchetypeChunk_GetNativeArray_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m066E20358E96E56AE61BD817C35D569BCA5C8122_gshared (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  ___chunkComponentTypeHandle0, const RuntimeMethod* method);
+// System.Boolean Unity.Entities.ComponentTypeHandle`1<Tickets/TimeData>::get_IsReadOnly()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_mCD3A9193AD223BB2F49487FE5E8001F00D16D802_gshared_inline (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E * __this, const RuntimeMethod* method);
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1C9F15F87105B84A3D0ADA91E6FDEA95DF96C970_gshared (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method);
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mF7E6E32586060D14CB72CBF85D5454784F5E12C2_gshared (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_ISharedComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_ISharedComponentData`1<Unity.Entities.BlobAssetOwner>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t73F4A22CB7388EB3FB14FDAB733CD0AA00539B60  LambdaParameterValueProvider_ISharedComponentData_1_PrepareToExecuteWithStructuralChanges_m2A619A397B3B2222985218AA7CEA6259FEEA0337_gshared (LambdaParameterValueProvider_ISharedComponentData_1_tE871547CB822CE66B2C193D94183ACD389503DF6 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method);
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_ISharedComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_ISharedComponentData`1<Unity.Rendering.RenderMesh>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
@@ -25958,6 +25958,31 @@ inline StructuralChangeRuntime_tBDF32582028299D48CE45A43702A874B5FAA082F  Lambda
 {
 	return ((  StructuralChangeRuntime_tBDF32582028299D48CE45A43702A874B5FAA082F  (*) (LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m4B0DBDA13D59134BC742DA234AA2F75402905B3F_gshared)(__this, ___componentSystem0, ___query1, method);
 }
+// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
+inline void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mAA2C166ADA1D0563479C2CBFA4F68BD2D0738166 (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
+{
+	((  void (*) (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mAA2C166ADA1D0563479C2CBFA4F68BD2D0738166_gshared)(__this, ___jobComponentSystem0, ___isReadOnly1, method);
+}
+// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Ships/Idle>(Unity.Entities.ComponentTypeHandle`1<T>)
+inline NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  ArchetypeChunk_GetNativeArray_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m11846AC9DB849206D0A34EE3AF7320BA3172292B (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  ___chunkComponentTypeHandle0, const RuntimeMethod* method)
+{
+	return ((  NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  (*) (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE , const RuntimeMethod*))ArchetypeChunk_GetNativeArray_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m11846AC9DB849206D0A34EE3AF7320BA3172292B_gshared)(__this, ___chunkComponentTypeHandle0, method);
+}
+// System.Boolean Unity.Entities.ComponentTypeHandle`1<Ships/Idle>::get_IsReadOnly()
+inline bool ComponentTypeHandle_1_get_IsReadOnly_m4B0BF5EBF89FB2A45F1E3F18B4ACB9DC49E41904_inline (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE * __this, const RuntimeMethod* method)
+{
+	return ((  bool (*) (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE *, const RuntimeMethod*))ComponentTypeHandle_1_get_IsReadOnly_m4B0BF5EBF89FB2A45F1E3F18B4ACB9DC49E41904_gshared_inline)(__this, method);
+}
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
+inline Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mA5D57151230A8396AF5F1DD4E190C256553AB79B (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
+{
+	return ((  Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  (*) (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 *, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mA5D57151230A8396AF5F1DD4E190C256553AB79B_gshared)(__this, ___chunk0, method);
+}
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
+inline StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m8CF0A5AE05242C8D8C9611EAF4AD690E5E0DB4F5 (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
+{
+	return ((  StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  (*) (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m8CF0A5AE05242C8D8C9611EAF4AD690E5E0DB4F5_gshared)(__this, ___componentSystem0, ___query1, method);
+}
 // System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
 inline void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mB69C66B7F98891B2EE6EF2ACB57DD4586786DB88 (LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
 {
@@ -26033,55 +26058,30 @@ inline StructuralChangeRuntime_tEDD7BDCFA98C3B8EBCA705577395C4AB78FEB403  Lambda
 {
 	return ((  StructuralChangeRuntime_tEDD7BDCFA98C3B8EBCA705577395C4AB78FEB403  (*) (LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m31BCACE5F46542811A2F2013793975E78BFA68B4_gshared)(__this, ___componentSystem0, ___query1, method);
 }
-// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
-inline void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m475F6F6995624E1501DA54125434A5F585A275C1 (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
+// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
+inline void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mA84270E86D503E0B51A06FB96D1542D917D96C5E (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
 {
-	((  void (*) (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m475F6F6995624E1501DA54125434A5F585A275C1_gshared)(__this, ___jobComponentSystem0, ___isReadOnly1, method);
+	((  void (*) (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mA84270E86D503E0B51A06FB96D1542D917D96C5E_gshared)(__this, ___jobComponentSystem0, ___isReadOnly1, method);
 }
-// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Tickets/TimeAtExecute>(Unity.Entities.ComponentTypeHandle`1<T>)
-inline NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  ArchetypeChunk_GetNativeArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m0B1DD92727503D9D9533F65012DA7C0EEDC43731 (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  ___chunkComponentTypeHandle0, const RuntimeMethod* method)
+// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Tickets/TimeData>(Unity.Entities.ComponentTypeHandle`1<T>)
+inline NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  ArchetypeChunk_GetNativeArray_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m066E20358E96E56AE61BD817C35D569BCA5C8122 (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  ___chunkComponentTypeHandle0, const RuntimeMethod* method)
 {
-	return ((  NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  (*) (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 , const RuntimeMethod*))ArchetypeChunk_GetNativeArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m0B1DD92727503D9D9533F65012DA7C0EEDC43731_gshared)(__this, ___chunkComponentTypeHandle0, method);
+	return ((  NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  (*) (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E , const RuntimeMethod*))ArchetypeChunk_GetNativeArray_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m066E20358E96E56AE61BD817C35D569BCA5C8122_gshared)(__this, ___chunkComponentTypeHandle0, method);
 }
-// System.Boolean Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtExecute>::get_IsReadOnly()
-inline bool ComponentTypeHandle_1_get_IsReadOnly_mFE9004318D81CC0373EAD6B3F768795C2AD8D35F_inline (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 * __this, const RuntimeMethod* method)
+// System.Boolean Unity.Entities.ComponentTypeHandle`1<Tickets/TimeData>::get_IsReadOnly()
+inline bool ComponentTypeHandle_1_get_IsReadOnly_mCD3A9193AD223BB2F49487FE5E8001F00D16D802_inline (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E * __this, const RuntimeMethod* method)
 {
-	return ((  bool (*) (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 *, const RuntimeMethod*))ComponentTypeHandle_1_get_IsReadOnly_mFE9004318D81CC0373EAD6B3F768795C2AD8D35F_gshared_inline)(__this, method);
+	return ((  bool (*) (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E *, const RuntimeMethod*))ComponentTypeHandle_1_get_IsReadOnly_mCD3A9193AD223BB2F49487FE5E8001F00D16D802_gshared_inline)(__this, method);
 }
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
-inline Runtime_t2D994F89833848F78513FB62BEF44DC538054317  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1A236F413DFD8D0F28041D23D6CC3289B38B8A3F (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
+inline Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1C9F15F87105B84A3D0ADA91E6FDEA95DF96C970 (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
 {
-	return ((  Runtime_t2D994F89833848F78513FB62BEF44DC538054317  (*) (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 *, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1A236F413DFD8D0F28041D23D6CC3289B38B8A3F_gshared)(__this, ___chunk0, method);
+	return ((  Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  (*) (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F *, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1C9F15F87105B84A3D0ADA91E6FDEA95DF96C970_gshared)(__this, ___chunk0, method);
 }
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
-inline StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mB08B2EF8F68D8378162F5A0BD074039D83CFAE07 (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
+inline StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mF7E6E32586060D14CB72CBF85D5454784F5E12C2 (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
 {
-	return ((  StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  (*) (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mB08B2EF8F68D8378162F5A0BD074039D83CFAE07_gshared)(__this, ___componentSystem0, ___query1, method);
-}
-// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
-inline void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m574ECBFBD2940285E4B64A407C8D90F77FE445F0 (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
-{
-	((  void (*) (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m574ECBFBD2940285E4B64A407C8D90F77FE445F0_gshared)(__this, ___jobComponentSystem0, ___isReadOnly1, method);
-}
-// Unity.Collections.NativeArray`1<T> Unity.Entities.ArchetypeChunk::GetNativeArray<Tickets/TimeAtWrite>(Unity.Entities.ComponentTypeHandle`1<T>)
-inline NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  ArchetypeChunk_GetNativeArray_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m09F2107BAD0683B1A1902B27B8C157DB874B00C2 (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * __this, ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  ___chunkComponentTypeHandle0, const RuntimeMethod* method)
-{
-	return ((  NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  (*) (ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 , const RuntimeMethod*))ArchetypeChunk_GetNativeArray_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m09F2107BAD0683B1A1902B27B8C157DB874B00C2_gshared)(__this, ___chunkComponentTypeHandle0, method);
-}
-// System.Boolean Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtWrite>::get_IsReadOnly()
-inline bool ComponentTypeHandle_1_get_IsReadOnly_mA2EBB313F14F0759F7EFE116F42D91B2D77A98C0_inline (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 *, const RuntimeMethod*))ComponentTypeHandle_1_get_IsReadOnly_mA2EBB313F14F0759F7EFE116F42D91B2D77A98C0_gshared_inline)(__this, method);
-}
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
-inline Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mBC7376CAA8427077508F82BD4EE8EEB7A0BBDE75 (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
-{
-	return ((  Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  (*) (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 *, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *, const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mBC7376CAA8427077508F82BD4EE8EEB7A0BBDE75_gshared)(__this, ___chunk0, method);
-}
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
-inline StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m7EACB8FF364A97F9014E10C049DC2F67E4EDA0D7 (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
-{
-	return ((  StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  (*) (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m7EACB8FF364A97F9014E10C049DC2F67E4EDA0D7_gshared)(__this, ___componentSystem0, ___query1, method);
+	return ((  StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  (*) (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F *, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , const RuntimeMethod*))LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mF7E6E32586060D14CB72CBF85D5454784F5E12C2_gshared)(__this, ___componentSystem0, ___query1, method);
 }
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_ISharedComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_ISharedComponentData`1<Unity.Entities.BlobAssetOwner>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
 inline StructuralChangeRuntime_t73F4A22CB7388EB3FB14FDAB733CD0AA00539B60  LambdaParameterValueProvider_ISharedComponentData_1_PrepareToExecuteWithStructuralChanges_m2A619A397B3B2222985218AA7CEA6259FEEA0337 (LambdaParameterValueProvider_ISharedComponentData_1_tE871547CB822CE66B2C193D94183ACD389503DF6 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
@@ -49388,6 +49388,138 @@ IL2CPP_EXTERN_C  StructuralChangeRuntime_tBDF32582028299D48CE45A43702A874B5FAA08
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mAA2C166ADA1D0563479C2CBFA4F68BD2D0738166_gshared (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
+{
+	{
+		// _typeHandle = jobComponentSystem.GetComponentTypeHandle<T>(isReadOnly);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_0 = ___jobComponentSystem0;
+		bool L_1 = ___isReadOnly1;
+		NullCheck((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0);
+		ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  L_2;
+		L_2 = ((  ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  (*) (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
+		__this->set__typeHandle_0(L_2);
+		// }
+		return;
+	}
+}
+IL2CPP_EXTERN_C  void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mAA2C166ADA1D0563479C2CBFA4F68BD2D0738166_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
+{
+	int32_t _offset = 1;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 *>(__this + _offset);
+	LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mAA2C166ADA1D0563479C2CBFA4F68BD2D0738166(_thisAdjusted, ___jobComponentSystem0, ___isReadOnly1, method);
+}
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mA5D57151230A8396AF5F1DD4E190C256553AB79B_gshared (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
+{
+	NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A * G_B2_0 = NULL;
+	Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A * G_B1_0 = NULL;
+	void* G_B3_0 = NULL;
+	Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A * G_B3_1 = NULL;
+	{
+		// var componentDatas = chunk.GetNativeArray(_typeHandle);
+		ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * L_0 = ___chunk0;
+		ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  L_1 = (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE )__this->get__typeHandle_0();
+		NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  L_2;
+		L_2 = ArchetypeChunk_GetNativeArray_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m11846AC9DB849206D0A34EE3AF7320BA3172292B((ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)(ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)L_0, (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE )L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
+		V_0 = (NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6 )L_2;
+		// return new Runtime()
+		// {
+		//     ptr = (byte*)(_typeHandle.IsReadOnly
+		//         ? componentDatas.GetUnsafeReadOnlyPtr()
+		//         : componentDatas.GetUnsafePtr()),
+		// };
+		il2cpp_codegen_initobj((&V_1), sizeof(Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A ));
+		ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE * L_3 = (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE *)__this->get_address_of__typeHandle_0();
+		bool L_4;
+		L_4 = ComponentTypeHandle_1_get_IsReadOnly_m4B0BF5EBF89FB2A45F1E3F18B4ACB9DC49E41904_inline((ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE *)(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE *)L_3, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 2));
+		G_B1_0 = (&V_1);
+		if (L_4)
+		{
+			G_B2_0 = (&V_1);
+			goto IL_002c;
+		}
+	}
+	{
+		NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  L_5 = V_0;
+		void* L_6;
+		L_6 = ((  void* (*) (NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3)->methodPointer)((NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6 )L_5, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3));
+		G_B3_0 = L_6;
+		G_B3_1 = G_B1_0;
+		goto IL_0032;
+	}
+
+IL_002c:
+	{
+		NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6  L_7 = V_0;
+		void* L_8;
+		L_8 = ((  void* (*) (NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4)->methodPointer)((NativeArray_1_t0A4A5297D524A47A7AE3B7348998B079DFCB72C6 )L_7, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4));
+		G_B3_0 = L_8;
+		G_B3_1 = G_B2_0;
+	}
+
+IL_0032:
+	{
+		G_B3_1->set_ptr_0((uint8_t*)G_B3_0);
+		Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  L_9 = V_1;
+		return (Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A )L_9;
+	}
+}
+IL2CPP_EXTERN_C  Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mA5D57151230A8396AF5F1DD4E190C256553AB79B_AdjustorThunk (RuntimeObject * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
+{
+	int32_t _offset = 1;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 *>(__this + _offset);
+	Runtime_tCAA776EDB4C6212AAA634ABB70C8C7B040DE9F4A  _returnValue;
+	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mA5D57151230A8396AF5F1DD4E190C256553AB79B(_thisAdjusted, ___chunk0, method);
+	return _returnValue;
+}
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m8CF0A5AE05242C8D8C9611EAF4AD690E5E0DB4F5_gshared (LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TypeManager_t86367CFDF39ACA45C54EEA6FB9DDAA1AD4E9B134_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		// return new StructuralChangeRuntime() { _manager = componentSystem.EntityManager, _typeIndex = TypeManager.GetTypeIndex<T>() };
+		il2cpp_codegen_initobj((&V_0), sizeof(StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470 ));
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_0 = ___componentSystem0;
+		NullCheck((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_1;
+		L_1 = ComponentSystemBase_get_EntityManager_mEA56D9178F087FFF35990C12D2195FF634413AA5((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0, /*hidden argument*/NULL);
+		(&V_0)->set__manager_0(L_1);
+		IL2CPP_RUNTIME_CLASS_INIT(TypeManager_t86367CFDF39ACA45C54EEA6FB9DDAA1AD4E9B134_il2cpp_TypeInfo_var);
+		int32_t L_2;
+		L_2 = ((  int32_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 5)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 5));
+		(&V_0)->set__typeIndex_1(L_2);
+		StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  L_3 = V_0;
+		return (StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470 )L_3;
+	}
+}
+IL2CPP_EXTERN_C  StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m8CF0A5AE05242C8D8C9611EAF4AD690E5E0DB4F5_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
+{
+	int32_t _offset = 1;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 *>(__this + _offset);
+	StructuralChangeRuntime_t85B137D88D02B0CF9985E2815B23ADAEEA483470  _returnValue;
+	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m8CF0A5AE05242C8D8C9611EAF4AD690E5E0DB4F5(_thisAdjusted, ___componentSystem0, ___query1, method);
+	return _returnValue;
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 // System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mB69C66B7F98891B2EE6EF2ACB57DD4586786DB88_gshared (LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
 {
@@ -49784,55 +49916,55 @@ IL2CPP_EXTERN_C  StructuralChangeRuntime_tEDD7BDCFA98C3B8EBCA705577395C4AB78FEB4
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m475F6F6995624E1501DA54125434A5F585A275C1_gshared (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
+// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mA84270E86D503E0B51A06FB96D1542D917D96C5E_gshared (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
 {
 	{
 		// _typeHandle = jobComponentSystem.GetComponentTypeHandle<T>(isReadOnly);
 		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_0 = ___jobComponentSystem0;
 		bool L_1 = ___isReadOnly1;
 		NullCheck((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0);
-		ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  L_2;
-		L_2 = ((  ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  (*) (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
+		ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  L_2;
+		L_2 = ((  ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  (*) (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
 		__this->set__typeHandle_0(L_2);
 		// }
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m475F6F6995624E1501DA54125434A5F585A275C1_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mA84270E86D503E0B51A06FB96D1542D917D96C5E_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
 {
 	int32_t _offset = 1;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 *>(__this + _offset);
-	LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m475F6F6995624E1501DA54125434A5F585A275C1(_thisAdjusted, ___jobComponentSystem0, ___isReadOnly1, method);
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F *>(__this + _offset);
+	LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_mA84270E86D503E0B51A06FB96D1542D917D96C5E(_thisAdjusted, ___jobComponentSystem0, ___isReadOnly1, method);
 }
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_t2D994F89833848F78513FB62BEF44DC538054317  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1A236F413DFD8D0F28041D23D6CC3289B38B8A3F_gshared (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1C9F15F87105B84A3D0ADA91E6FDEA95DF96C970_gshared (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
 {
-	NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  V_0;
+	NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	Runtime_t2D994F89833848F78513FB62BEF44DC538054317  V_1;
+	Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	Runtime_t2D994F89833848F78513FB62BEF44DC538054317 * G_B2_0 = NULL;
-	Runtime_t2D994F89833848F78513FB62BEF44DC538054317 * G_B1_0 = NULL;
+	Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21 * G_B2_0 = NULL;
+	Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21 * G_B1_0 = NULL;
 	void* G_B3_0 = NULL;
-	Runtime_t2D994F89833848F78513FB62BEF44DC538054317 * G_B3_1 = NULL;
+	Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21 * G_B3_1 = NULL;
 	{
 		// var componentDatas = chunk.GetNativeArray(_typeHandle);
 		ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * L_0 = ___chunk0;
-		ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  L_1 = (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 )__this->get__typeHandle_0();
-		NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  L_2;
-		L_2 = ArchetypeChunk_GetNativeArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m0B1DD92727503D9D9533F65012DA7C0EEDC43731((ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)(ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)L_0, (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 )L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		V_0 = (NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 )L_2;
+		ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  L_1 = (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E )__this->get__typeHandle_0();
+		NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  L_2;
+		L_2 = ArchetypeChunk_GetNativeArray_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m066E20358E96E56AE61BD817C35D569BCA5C8122((ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)(ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)L_0, (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E )L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
+		V_0 = (NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4 )L_2;
 		// return new Runtime()
 		// {
 		//     ptr = (byte*)(_typeHandle.IsReadOnly
 		//         ? componentDatas.GetUnsafeReadOnlyPtr()
 		//         : componentDatas.GetUnsafePtr()),
 		// };
-		il2cpp_codegen_initobj((&V_1), sizeof(Runtime_t2D994F89833848F78513FB62BEF44DC538054317 ));
-		ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 * L_3 = (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 *)__this->get_address_of__typeHandle_0();
+		il2cpp_codegen_initobj((&V_1), sizeof(Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21 ));
+		ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E * L_3 = (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E *)__this->get_address_of__typeHandle_0();
 		bool L_4;
-		L_4 = ComponentTypeHandle_1_get_IsReadOnly_mFE9004318D81CC0373EAD6B3F768795C2AD8D35F_inline((ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 *)(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 *)L_3, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 2));
+		L_4 = ComponentTypeHandle_1_get_IsReadOnly_mCD3A9193AD223BB2F49487FE5E8001F00D16D802_inline((ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E *)(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E *)L_3, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 2));
 		G_B1_0 = (&V_1);
 		if (L_4)
 		{
@@ -49841,9 +49973,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_t2D994F89833848F78513FB62BEF44DC53805
 		}
 	}
 	{
-		NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  L_5 = V_0;
+		NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  L_5 = V_0;
 		void* L_6;
-		L_6 = ((  void* (*) (NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3)->methodPointer)((NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 )L_5, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3));
+		L_6 = ((  void* (*) (NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3)->methodPointer)((NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4 )L_5, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3));
 		G_B3_0 = L_6;
 		G_B3_1 = G_B1_0;
 		goto IL_0032;
@@ -49851,9 +49983,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_t2D994F89833848F78513FB62BEF44DC53805
 
 IL_002c:
 	{
-		NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  L_7 = V_0;
+		NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4  L_7 = V_0;
 		void* L_8;
-		L_8 = ((  void* (*) (NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4)->methodPointer)((NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 )L_7, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4));
+		L_8 = ((  void* (*) (NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4)->methodPointer)((NativeArray_1_t9BEF3B1239A76382FF0D6E899F0EB93EE3CCB3C4 )L_7, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4));
 		G_B3_0 = L_8;
 		G_B3_1 = G_B2_0;
 	}
@@ -49861,20 +49993,20 @@ IL_002c:
 IL_0032:
 	{
 		G_B3_1->set_ptr_0((uint8_t*)G_B3_0);
-		Runtime_t2D994F89833848F78513FB62BEF44DC538054317  L_9 = V_1;
-		return (Runtime_t2D994F89833848F78513FB62BEF44DC538054317 )L_9;
+		Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  L_9 = V_1;
+		return (Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21 )L_9;
 	}
 }
-IL2CPP_EXTERN_C  Runtime_t2D994F89833848F78513FB62BEF44DC538054317  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1A236F413DFD8D0F28041D23D6CC3289B38B8A3F_AdjustorThunk (RuntimeObject * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1C9F15F87105B84A3D0ADA91E6FDEA95DF96C970_AdjustorThunk (RuntimeObject * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
 {
 	int32_t _offset = 1;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 *>(__this + _offset);
-	Runtime_t2D994F89833848F78513FB62BEF44DC538054317  _returnValue;
-	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1A236F413DFD8D0F28041D23D6CC3289B38B8A3F(_thisAdjusted, ___chunk0, method);
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F *>(__this + _offset);
+	Runtime_t2A6C5DE2FD4957EE16AC3ACFC7544B53AF5BFD21  _returnValue;
+	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_m1C9F15F87105B84A3D0ADA91E6FDEA95DF96C970(_thisAdjusted, ___chunk0, method);
 	return _returnValue;
 }
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mB08B2EF8F68D8378162F5A0BD074039D83CFAE07_gshared (LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mF7E6E32586060D14CB72CBF85D5454784F5E12C2_gshared (LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -49882,11 +50014,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t9D48539263C7B5BD774D
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TypeManager_t86367CFDF39ACA45C54EEA6FB9DDAA1AD4E9B134_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  V_0;
+	StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
 		// return new StructuralChangeRuntime() { _manager = componentSystem.EntityManager, _typeIndex = TypeManager.GetTypeIndex<T>() };
-		il2cpp_codegen_initobj((&V_0), sizeof(StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE ));
+		il2cpp_codegen_initobj((&V_0), sizeof(StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13 ));
 		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_0 = ___componentSystem0;
 		NullCheck((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0);
 		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_1;
@@ -49896,148 +50028,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t9D48539263C7B5BD774D
 		int32_t L_2;
 		L_2 = ((  int32_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 5)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 5));
 		(&V_0)->set__typeIndex_1(L_2);
-		StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  L_3 = V_0;
-		return (StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE )L_3;
+		StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  L_3 = V_0;
+		return (StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13 )L_3;
 	}
 }
-IL2CPP_EXTERN_C  StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mB08B2EF8F68D8378162F5A0BD074039D83CFAE07_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mF7E6E32586060D14CB72CBF85D5454784F5E12C2_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
 {
 	int32_t _offset = 1;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 *>(__this + _offset);
-	StructuralChangeRuntime_t9D48539263C7B5BD774D6B7AE31519FB54B21CFE  _returnValue;
-	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mB08B2EF8F68D8378162F5A0BD074039D83CFAE07(_thisAdjusted, ___componentSystem0, ___query1, method);
-	return _returnValue;
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::ScheduleTimeInitialize(Unity.Entities.ComponentSystemBase,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m574ECBFBD2940285E4B64A407C8D90F77FE445F0_gshared (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
-{
-	{
-		// _typeHandle = jobComponentSystem.GetComponentTypeHandle<T>(isReadOnly);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_0 = ___jobComponentSystem0;
-		bool L_1 = ___isReadOnly1;
-		NullCheck((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0);
-		ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  L_2;
-		L_2 = ((  ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  (*) (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *, bool, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		__this->set__typeHandle_0(L_2);
-		// }
-		return;
-	}
-}
-IL2CPP_EXTERN_C  void LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m574ECBFBD2940285E4B64A407C8D90F77FE445F0_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___jobComponentSystem0, bool ___isReadOnly1, const RuntimeMethod* method)
-{
-	int32_t _offset = 1;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 *>(__this + _offset);
-	LambdaParameterValueProvider_IComponentData_1_ScheduleTimeInitialize_m574ECBFBD2940285E4B64A407C8D90F77FE445F0(_thisAdjusted, ___jobComponentSystem0, ___isReadOnly1, method);
-}
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/Runtime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::PrepareToExecuteOnEntitiesIn(Unity.Entities.ArchetypeChunk&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mBC7376CAA8427077508F82BD4EE8EEB7A0BBDE75_gshared (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
-{
-	NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1 * G_B2_0 = NULL;
-	Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1 * G_B1_0 = NULL;
-	void* G_B3_0 = NULL;
-	Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1 * G_B3_1 = NULL;
-	{
-		// var componentDatas = chunk.GetNativeArray(_typeHandle);
-		ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * L_0 = ___chunk0;
-		ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  L_1 = (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 )__this->get__typeHandle_0();
-		NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  L_2;
-		L_2 = ArchetypeChunk_GetNativeArray_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m09F2107BAD0683B1A1902B27B8C157DB874B00C2((ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)(ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D *)L_0, (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 )L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		V_0 = (NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427 )L_2;
-		// return new Runtime()
-		// {
-		//     ptr = (byte*)(_typeHandle.IsReadOnly
-		//         ? componentDatas.GetUnsafeReadOnlyPtr()
-		//         : componentDatas.GetUnsafePtr()),
-		// };
-		il2cpp_codegen_initobj((&V_1), sizeof(Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1 ));
-		ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 * L_3 = (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 *)__this->get_address_of__typeHandle_0();
-		bool L_4;
-		L_4 = ComponentTypeHandle_1_get_IsReadOnly_mA2EBB313F14F0759F7EFE116F42D91B2D77A98C0_inline((ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 *)(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 *)L_3, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 2));
-		G_B1_0 = (&V_1);
-		if (L_4)
-		{
-			G_B2_0 = (&V_1);
-			goto IL_002c;
-		}
-	}
-	{
-		NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  L_5 = V_0;
-		void* L_6;
-		L_6 = ((  void* (*) (NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3)->methodPointer)((NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427 )L_5, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3));
-		G_B3_0 = L_6;
-		G_B3_1 = G_B1_0;
-		goto IL_0032;
-	}
-
-IL_002c:
-	{
-		NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427  L_7 = V_0;
-		void* L_8;
-		L_8 = ((  void* (*) (NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427 , const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4)->methodPointer)((NativeArray_1_t795BE61FE71DEBF1EA77B8AB22767F718B461427 )L_7, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 4));
-		G_B3_0 = L_8;
-		G_B3_1 = G_B2_0;
-	}
-
-IL_0032:
-	{
-		G_B3_1->set_ptr_0((uint8_t*)G_B3_0);
-		Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  L_9 = V_1;
-		return (Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1 )L_9;
-	}
-}
-IL2CPP_EXTERN_C  Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mBC7376CAA8427077508F82BD4EE8EEB7A0BBDE75_AdjustorThunk (RuntimeObject * __this, ArchetypeChunk_t75295C4582284E1ACB977DD61C6A44E3B9BDFF5D * ___chunk0, const RuntimeMethod* method)
-{
-	int32_t _offset = 1;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 *>(__this + _offset);
-	Runtime_tB975D6303AD64C23DD15D525EA3F502231EACCC1  _returnValue;
-	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteOnEntitiesIn_mBC7376CAA8427077508F82BD4EE8EEB7A0BBDE75(_thisAdjusted, ___chunk0, method);
-	return _returnValue;
-}
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1/StructuralChangeRuntime<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>::PrepareToExecuteWithStructuralChanges(Unity.Entities.ComponentSystemBase,Unity.Entities.EntityQuery)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m7EACB8FF364A97F9014E10C049DC2F67E4EDA0D7_gshared (LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&TypeManager_t86367CFDF39ACA45C54EEA6FB9DDAA1AD4E9B134_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		// return new StructuralChangeRuntime() { _manager = componentSystem.EntityManager, _typeIndex = TypeManager.GetTypeIndex<T>() };
-		il2cpp_codegen_initobj((&V_0), sizeof(StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36 ));
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_0 = ___componentSystem0;
-		NullCheck((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0);
-		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_1;
-		L_1 = ComponentSystemBase_get_EntityManager_mEA56D9178F087FFF35990C12D2195FF634413AA5((ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC *)L_0, /*hidden argument*/NULL);
-		(&V_0)->set__manager_0(L_1);
-		IL2CPP_RUNTIME_CLASS_INIT(TypeManager_t86367CFDF39ACA45C54EEA6FB9DDAA1AD4E9B134_il2cpp_TypeInfo_var);
-		int32_t L_2;
-		L_2 = ((  int32_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 5)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 5));
-		(&V_0)->set__typeIndex_1(L_2);
-		StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  L_3 = V_0;
-		return (StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36 )L_3;
-	}
-}
-IL2CPP_EXTERN_C  StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m7EACB8FF364A97F9014E10C049DC2F67E4EDA0D7_AdjustorThunk (RuntimeObject * __this, ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, const RuntimeMethod* method)
-{
-	int32_t _offset = 1;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 *>(__this + _offset);
-	StructuralChangeRuntime_t78940831087923714BF978A053B61B7928C7FA36  _returnValue;
-	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_m7EACB8FF364A97F9014E10C049DC2F67E4EDA0D7(_thisAdjusted, ___componentSystem0, ___query1, method);
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * _thisAdjusted = reinterpret_cast<LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F *>(__this + _offset);
+	StructuralChangeRuntime_tFF5E781A36DEE3A0B773E292E28F653B0A5C1A13  _returnValue;
+	_returnValue = LambdaParameterValueProvider_IComponentData_1_PrepareToExecuteWithStructuralChanges_mF7E6E32586060D14CB72CBF85D5454784F5E12C2(_thisAdjusted, ___componentSystem0, ___query1, method);
 	return _returnValue;
 }
 #ifdef __clang__
@@ -53185,6 +53185,14 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_Is
 		return (bool)L_0;
 	}
 }
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_m4B0BF5EBF89FB2A45F1E3F18B4ACB9DC49E41904_gshared_inline (ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE * __this, const RuntimeMethod* method)
+{
+	{
+		// public bool IsReadOnly => m_IsReadOnly;
+		bool L_0 = (bool)__this->get_m_IsReadOnly_2();
+		return (bool)L_0;
+	}
+}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_m1DB5622F9587E5526B8FBCBDE5407872908B097E_gshared_inline (ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9 * __this, const RuntimeMethod* method)
 {
 	{
@@ -53209,15 +53217,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_Is
 		return (bool)L_0;
 	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_mFE9004318D81CC0373EAD6B3F768795C2AD8D35F_gshared_inline (ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 * __this, const RuntimeMethod* method)
-{
-	{
-		// public bool IsReadOnly => m_IsReadOnly;
-		bool L_0 = (bool)__this->get_m_IsReadOnly_2();
-		return (bool)L_0;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_mA2EBB313F14F0759F7EFE116F42D91B2D77A98C0_gshared_inline (ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 * __this, const RuntimeMethod* method)
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool ComponentTypeHandle_1_get_IsReadOnly_mCD3A9193AD223BB2F49487FE5E8001F00D16D802_gshared_inline (ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E * __this, const RuntimeMethod* method)
 {
 	{
 		// public bool IsReadOnly => m_IsReadOnly;

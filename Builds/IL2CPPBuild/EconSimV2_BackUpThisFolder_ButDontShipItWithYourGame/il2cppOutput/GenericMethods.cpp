@@ -46172,77 +46172,8 @@ IL_0016:
 		return (SharedStatic_1_t6DAF6BFFE7CB6295851C9E4567A9874B214BD088 )L_6;
 	}
 }
-// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.Int32>::GetOrCreate<System.Object,Tickets/TimeAtExecute>(System.UInt32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t6DAF6BFFE7CB6295851C9E4567A9874B214BD088  SharedStatic_1_GetOrCreate_TisRuntimeObject_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m89179654BFC2C81CF522FAF9DC5A02D952823AB6_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SharedStatic_t4A478B3109091C26ED6F772B9BEC1EA0802B2FFC_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	int32_t G_B2_0 = 0;
-	int64_t G_B2_1 = 0;
-	int64_t G_B2_2 = 0;
-	int32_t G_B1_0 = 0;
-	int64_t G_B1_1 = 0;
-	int64_t G_B1_2 = 0;
-	uint32_t G_B3_0 = 0;
-	int32_t G_B3_1 = 0;
-	int64_t G_B3_2 = 0;
-	int64_t G_B3_3 = 0;
-	{
-		// return new SharedStatic<T>(SharedStatic.GetOrCreateSharedStaticInternal(
-		//     BurstRuntime.GetHashCode64<TContext>(), BurstRuntime.GetHashCode64<TSubContext>(),
-		//     (uint)UnsafeUtility.SizeOf<T>(), alignment == 0 ? 4 : alignment));
-		int64_t L_0;
-		L_0 = ((  int64_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0));
-		int64_t L_1;
-		L_1 = ((  int64_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 1)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 1));
-		int32_t L_2;
-		L_2 = ((  int32_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		uint32_t L_3 = ___alignment0;
-		G_B1_0 = L_2;
-		G_B1_1 = L_1;
-		G_B1_2 = L_0;
-		if (!L_3)
-		{
-			G_B2_0 = L_2;
-			G_B2_1 = L_1;
-			G_B2_2 = L_0;
-			goto IL_0015;
-		}
-	}
-	{
-		uint32_t L_4 = ___alignment0;
-		G_B3_0 = L_4;
-		G_B3_1 = G_B1_0;
-		G_B3_2 = G_B1_1;
-		G_B3_3 = G_B1_2;
-		goto IL_0016;
-	}
-
-IL_0015:
-	{
-		G_B3_0 = ((uint32_t)(4));
-		G_B3_1 = G_B2_0;
-		G_B3_2 = G_B2_1;
-		G_B3_3 = G_B2_2;
-	}
-
-IL_0016:
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(SharedStatic_t4A478B3109091C26ED6F772B9BEC1EA0802B2FFC_il2cpp_TypeInfo_var);
-		void* L_5;
-		L_5 = SharedStatic_GetOrCreateSharedStaticInternal_m1FDD96EE55D49263DA5EA34EB6502507F1EAD254((int64_t)G_B3_3, (int64_t)G_B3_2, (uint32_t)G_B3_1, (uint32_t)G_B3_0, /*hidden argument*/NULL);
-		SharedStatic_1_t6DAF6BFFE7CB6295851C9E4567A9874B214BD088  L_6;
-		memset((&L_6), 0, sizeof(L_6));
-		SharedStatic_1__ctor_m2AEA25584A9CD2CB52011B280602F979D27BA261_inline((&L_6), (void*)(void*)L_5, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3));
-		return (SharedStatic_1_t6DAF6BFFE7CB6295851C9E4567A9874B214BD088 )L_6;
-	}
-}
-// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.Int32>::GetOrCreate<System.Object,Tickets/TimeAtWrite>(System.UInt32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t6DAF6BFFE7CB6295851C9E4567A9874B214BD088  SharedStatic_1_GetOrCreate_TisRuntimeObject_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE13367CC4F2E43A5E6F3575AD6AE4E891208C775_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
+// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.Int32>::GetOrCreate<System.Object,Tickets/TimeData>(System.UInt32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t6DAF6BFFE7CB6295851C9E4567A9874B214BD088  SharedStatic_1_GetOrCreate_TisRuntimeObject_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD31076796F1A4AF69EDE66508A1DD57A146D57D9_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -49811,8 +49742,8 @@ IL_0013:
 		return (SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6 )L_5;
 	}
 }
-// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.IntPtr>::GetOrCreate<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>(System.UInt32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6  SharedStatic_1_GetOrCreate_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m60150BDB67070636B874F4EB7A9348A52DC0BA04_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
+// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.IntPtr>::GetOrCreate<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>(System.UInt32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6  SharedStatic_1_GetOrCreate_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_mF85830B5289061F2D8C68F761C3DD3EB65D94350_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -50011,72 +49942,6 @@ IL_0013:
 }
 // Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.IntPtr>::GetOrCreate<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0>(System.UInt32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6  SharedStatic_1_GetOrCreate_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F_m70BEBC26C82FC5FFFBAFB1105BAD194334AD5655_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SharedStatic_t4A478B3109091C26ED6F772B9BEC1EA0802B2FFC_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	int32_t G_B2_0 = 0;
-	int64_t G_B2_1 = 0;
-	int64_t G_B2_2 = 0;
-	int32_t G_B1_0 = 0;
-	int64_t G_B1_1 = 0;
-	int64_t G_B1_2 = 0;
-	uint32_t G_B3_0 = 0;
-	int32_t G_B3_1 = 0;
-	int64_t G_B3_2 = 0;
-	int64_t G_B3_3 = 0;
-	{
-		// return new SharedStatic<T>(SharedStatic.GetOrCreateSharedStaticInternal(
-		//     BurstRuntime.GetHashCode64<TContext>(), 0, (uint)UnsafeUtility.SizeOf<T>(), alignment == 0 ? 4 : alignment));
-		int64_t L_0;
-		L_0 = ((  int64_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0));
-		int32_t L_1;
-		L_1 = ((  int32_t (*) (const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1)->methodPointer)(/*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		uint32_t L_2 = ___alignment0;
-		G_B1_0 = L_1;
-		G_B1_1 = ((int64_t)((int64_t)0));
-		G_B1_2 = L_0;
-		if (!L_2)
-		{
-			G_B2_0 = L_1;
-			G_B2_1 = ((int64_t)((int64_t)0));
-			G_B2_2 = L_0;
-			goto IL_0012;
-		}
-	}
-	{
-		uint32_t L_3 = ___alignment0;
-		G_B3_0 = L_3;
-		G_B3_1 = G_B1_0;
-		G_B3_2 = G_B1_1;
-		G_B3_3 = G_B1_2;
-		goto IL_0013;
-	}
-
-IL_0012:
-	{
-		G_B3_0 = ((uint32_t)(4));
-		G_B3_1 = G_B2_0;
-		G_B3_2 = G_B2_1;
-		G_B3_3 = G_B2_2;
-	}
-
-IL_0013:
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(SharedStatic_t4A478B3109091C26ED6F772B9BEC1EA0802B2FFC_il2cpp_TypeInfo_var);
-		void* L_4;
-		L_4 = SharedStatic_GetOrCreateSharedStaticInternal_m1FDD96EE55D49263DA5EA34EB6502507F1EAD254((int64_t)G_B3_3, (int64_t)G_B3_2, (uint32_t)G_B3_1, (uint32_t)G_B3_0, /*hidden argument*/NULL);
-		SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6  L_5;
-		memset((&L_5), 0, sizeof(L_5));
-		SharedStatic_1__ctor_m40CEBC2D5F73E78DAE50A7B1F2CB8558FDB3C708_inline((&L_5), (void*)(void*)L_4, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 3));
-		return (SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6 )L_5;
-	}
-}
-// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<System.IntPtr>::GetOrCreate<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>(System.UInt32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t863CDF56C5388EE162A39C9F8459F60F245008F6  SharedStatic_1_GetOrCreate_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m2F0B735E2A226DDDE4701BE7D3DDFB7380077CFF_gshared (uint32_t ___alignment0, const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)

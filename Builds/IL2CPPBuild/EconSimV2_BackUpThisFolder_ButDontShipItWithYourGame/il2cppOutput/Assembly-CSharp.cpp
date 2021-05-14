@@ -520,10 +520,18 @@ struct SimpleScript_t961D2D3FD565D738420646A1EF42244EDD972121;
 struct SkewTextExample_tA9F165D1BE969ED73FB86CA6C641386C22F1EE07;
 // UnityEngine.Sprite
 struct Sprite_t5B10B1178EC2E6F53D33FFD77557F31C08A51ED9;
+// StarCloneDeleter
+struct StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9;
 // System.String
 struct String_t;
+// StructMinHeap
+struct StructMinHeap_tE4E8A2AF10E6896FDBADA67C5325AE77AB914A1B;
 // Unity.Entities.SystemBase
 struct SystemBase_t236012EC818059A231628BBC6A7E0F142001EB75;
+// SystemCloneDeleter
+struct SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6;
+// SystemCloneSpawner
+struct SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7;
 // Unity.Entities.SystemState
 struct SystemState_t36E4EBEDC1A8DE324669E6A495E2CD70B8B12D95;
 // SystemWorks
@@ -572,8 +580,6 @@ struct TextMeshProFloatingText_t55B28EA1D0CCDF61ABE6CF421C752EBED7B37200;
 struct TextMeshProUGUI_tCC5BE8A76E6E9AF92521A462E8D81ACFBA7C85F1;
 // UnityEngine.Texture2D
 struct Texture2D_t9B604D0D8E28032123641A7E7338FA872E2698BF;
-// Unity.Core.TimeData
-struct TimeData_t1892793CB71746290FBEED4D53C605AF3A3FA91F;
 // UnityEngine.TouchScreenKeyboard
 struct TouchScreenKeyboard_t7964B2E9E52C4E095B14F01C32774B98CA11711E;
 // UnityEngine.Transform
@@ -664,20 +670,20 @@ struct Runtimes_t0506749BE8B86B9093193D298509EADEB92A6814;
 struct Runtimes_tD0FCD47C3CEC31BDDFF10BDC36F4469763D881E2;
 // ShipAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes
 struct Runtimes_t64691B10446A26AEA4B9234528C1CC779EE3CB76;
-// ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes
-struct Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A;
+// ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders/Runtimes
+struct Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465;
 // ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders/Runtimes
 struct Runtimes_t217F01AAA172CDFEEFAD7AC571874CB0E1201AAD;
 // ShipCloneDeleter/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes
 struct Runtimes_tAF2A6DA6E7341EBCE83BEFACE4EBA5FA64BC3D1E;
 // ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes
 struct Runtimes_t7E7DEF12E11A754B39CE603B7131925E95D8E782;
-// ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders/Runtimes
-struct Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7;
 // ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes
 struct Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170;
 // ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders/Runtimes
 struct Runtimes_t38CB48CC7AE1B4CEC5AA6F897FE638A447C35AC4;
+// SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes
+struct Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A;
 
 IL2CPP_EXTERN_C RuntimeClass* AICoordinator_t88B181D8D8ADF08C1D916EC7D80888C4A9141726_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* AI_t4A4B38FAB6D716C943E2B4CDA9933AF2FC493B8F_il2cpp_TypeInfo_var;
@@ -741,12 +747,12 @@ IL2CPP_EXTERN_C RuntimeClass* ShipTester_t33DB36FCBE06F089BC395440EDBC8068F15E24
 IL2CPP_EXTERN_C RuntimeClass* Ship_t03BCF5F62D0A7F03FEE2AA479AB36F8EF5B5295E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* StringU5BU5D_tACEBFEDE350025B554CD507C9AE8FFE49359549A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* String_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SystemEntity_t2CE9205B6AE9077627D26720EB92C6C186F76A75_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* TMP_FontAsset_tDD8F58129CF4A9094C82DD209531E9E71F9837B2_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* Tickets_tFAA9D3FFDE8BEEB8967F7DABB2BF8E43879AFE27_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Type_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CAnimatePropertiesU3Ed__6_t6EF9435006F3F335B99084BECD0ABFEFFEF4A32D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CStartU3Ed__10_t3D69371599D2A84DED6689D4FA6EA1720611EAD3_il2cpp_TypeInfo_var;
@@ -816,14 +822,14 @@ IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisHasClone_tCB1118E
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisId_t0004137D70428D987DF8DCD1B0565B5EB815E3B0_m69EB21A55E16F836D3111469638E4D27DD76595E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisId_t638F2C79E39AC26FFC0E00C8F19F79CA0E65C20A_m1B50A2DF064667EB8CE4C27E8ABD99C7C6AF7DBC_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisshipCloneId_tFD91330AF2B5994B84DBBDABAE1BF90A23F57453_mCEDC282961833FD8AF51EB068749DA053D93260E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadOnly_TisshipMoveData_t49DEA3CDAFA403614CADDBF83A6C68AD657C5264_mF570140F394EEA1F0F9768F7CC70C12296A32FB6_RuntimeMethod_var;
@@ -832,8 +838,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisIdle_t9B2010C9BB
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisRotation_t7CCB5FBBA0D2C6357C20B7EE527596EBD30F69E2_mED6F113A7769EB64DE089DE244E6409878494AB4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ComponentType_ReadWrite_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mB9A407CB58D8E35C1742ABDE4A90C70B98CCC620_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisLight_tA2F349FE839781469A0344CF6039B51512394275_m78431E28004B9C0FF3A712F157BFEDF8D42E36EA_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisRenderer_t58147AB5B00224FE1460FD47542DC0DA7EC9378C_m436E5B0F17DDEF3CC61F77DEA82B1A92668AF019_RuntimeMethod_var;
@@ -870,25 +875,19 @@ IL2CPP_EXTERN_C const RuntimeMethod* DynamicBuffer_1_ToNativeArray_mDB09A5701E4E
 IL2CPP_EXTERN_C const RuntimeMethod* EconomicMethods_CheckRemainingResource_TisFoodResource_t45AD827B04E975DCEDB3153E0A4AE02E0962807A_m800ED6D84D8945CD3CE94284E849DBD5C35089CD_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EconomicMethods_ReserveResource_TisFoodResource_t45AD827B04E975DCEDB3153E0A4AE02E0962807A_m1C67FC00B30523BBAD257789EBE48FD19AA3F31A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EconomicMethods_WithdrawResource_TisFoodResource_t45AD827B04E975DCEDB3153E0A4AE02E0962807A_m145B28577AFAA692B2B035E576951F5F5FAF3078_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponentData_TisasteroidId_t8BCB2070664238B3CB0735DD1E7A9C332BE080D4_m61C655DD5C2B66AD15C1181DC07FF831FC25C409_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mC0766E22B4EBD42C48A82C41D39444ACFDE83D52_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisshipCloneId_tFD91330AF2B5994B84DBBDABAE1BF90A23F57453_mF72BCF14049CEF4E453DB11DA577496ABE15CF75_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_AddComponent_TisshipMoveData_t49DEA3CDAFA403614CADDBF83A6C68AD657C5264_mF8DB52C7E147DE49C80A3DB1C6C4515110D1768A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetBuffer_TisePointConnnectionBuffer_t19F28F1379F9B342068A3C4705AE6DE9E91A8811_m3ECB62B8993D1E498FEB6E6D93774D9DF13C4705_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisEventTicketData_t90C94D61AE1F9E57A897FB044758EEE6F4C7B09A_mC6E2F0067682DD974FF8553135FF3AB0B86A09CF_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mD9D4A7A626434B48C91D6C9CE1ED87BBE002B634_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisSystemData_tBA72B1970DD1479D080BFEC2D424571C2A46B701_m8F46B168D30CF26CEC219BEF93BB98F7B1910050_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m146854CBF3F925693BB3D2A6DFFE6B4CB797815F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TisasteroidId_t8BCB2070664238B3CB0735DD1E7A9C332BE080D4_m8C106F5E0F7ED9B58BA624A0B4B9F4B06BB26A05_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_GetComponentData_TismasterSystemId_tCD98F663ABBEE7816F5735E365759686F61A9F18_m18B17ECE76E36DBB77FA49EEEB986F9CF69DE77F_RuntimeMethod_var;
@@ -907,7 +906,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_SetComponentData_TisasteroidI
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_SetComponentData_TismasterSystemId_tCD98F663ABBEE7816F5735E365759686F61A9F18_mD0BDA97EDD84CA249434FA5C3120AD553E65BBF3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_SetComponentData_TisshipCloneId_tFD91330AF2B5994B84DBBDABAE1BF90A23F57453_m39A76D1E73076EF5026F699C00BC24DF07B70DE2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EntityManager_SetComponentData_TisshipMoveData_t49DEA3CDAFA403614CADDBF83A6C68AD657C5264_m147003AC9EFBF5831C9AB893FB30FB206B2F808C_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerable_OrderBy_TisSingle_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_TisSingle_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_mD673B452F2A2A79456FAE28C4DDA06BB7EAD2853_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerable_Select_TisShip_t03BCF5F62D0A7F03FEE2AA479AB36F8EF5B5295E_TisVector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E_mCC847B6C40B564900DDF8900E1CA0951D5CD6670_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerable_Select_TisUniquePoint_t1DCD3C1E2396561EA4BADAD84EAD14A83C18080D_TisInt32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_m9546CC24B799C679473B3217B14A81545309ABDF_RuntimeMethod_var;
@@ -918,7 +916,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m2C72D8CBA5A58AC7AF95B05
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m343E83C8FBF20117ED08DB9E04C48D2F0B637504_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m34C771F294561C915F86A0AD5C3F1615EB0B15AC_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m34EA6AB05B675E86DDC0FE01FFAC4DF249375431_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_mB60BB79509D7E9B28E018263C510551B28E19314_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_mC769C01CCEDA1F461838AAF57A69805AF8278D98_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_mD0E4C288D461AABDAF55C355B61FDEE27B8A0714_RuntimeMethod_var;
@@ -930,7 +927,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_m51D70A08D61C8D0E4C1A89
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_m5B3C582E2931C84C5CB534982F6E0D01C06A5411_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_m7D5B02F0009E5477D29F0F9811F8F5E1B9DDA96E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_m836FADE59D5CF7B3947BEC6E27E4393E4EC2E448_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_mADBF0F844E8BACE2AB06DF9D01C6A07724BC4C73_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_mAF17C9CCAFCBA1D05E9DC1D15CF06986EA7CB89E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_mD1C7F3461D291FAB5D516949F6335C62CAAC53D9_RuntimeMethod_var;
@@ -945,7 +941,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_get_Current_mCE3EB82D5641F66D9A9
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_get_Current_mCFDB861BC2996B3E5FF383AC6602C28F35C6F4D8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_get_Current_mD7E84C19B902E9DBDF25476BF8F6C41EFBC1D2C0_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_get_Current_mFB7D6BEECF50DCD99180786E08F2AA708E5C25E7_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Func_2__ctor_m4F0F14ACA9CE9640DCA30B2651BAF3A917998BCB_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Func_2__ctor_m8174A07D7AE4A647711C97B056479719B4690F6E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Func_2__ctor_mCC1330A226D7E0273B042E1425E7431C48217049_RuntimeMethod_var;
@@ -970,16 +965,16 @@ IL2CPP_EXTERN_C const RuntimeMethod* Heap_1__ctor_m1E028803D7444FD37B54F4D8BE3A4
 IL2CPP_EXTERN_C const RuntimeMethod* Heap_1__ctor_m7DBE5FC8898DEC50BDA7DE5408D30E9E747C1973_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Heap_1__ctor_mB02FBF454CF661503AACC4E59EEBEA07BA82E40C_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* IJobParallelForExtensions_Schedule_TisshipDistJob_t3B65E9D3C40EF41B04DC2BC6C124F850AF3A0C4B_mE9937F4599C50B175784169E17FF12A22D0E89F6_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t0FA428C5C4DF24DD3946FA6EEA7881D3616C6138_m27E175674EAB5F95FBF5130D73DD032123736732_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t3CBF0141B46F4C868EA096D03A8E592A336E831C_mF376866D4C68163F7BF8A590A0ADABE369075D10_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t44AF7A71A5D3DB3695F5AE5EFA3E63CB2DEECAD8_m038883FE25F97C8D91C0A8812EB723155F8F0F8E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6C921FB91F8F1C4D7904E4A3737AC3AC8212BCF7_mD0C4254D1ED859C300F9626A110EC79A912219E9_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F_m26806B5607F57E5A64989D633DC5C3C1A5C853B2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tDEA29077CAB5357FE8C08A9652DAE416111AB482_mA1CDE0668098968A66EBFC582F1E06B22EA3D801_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tE78A64C4D347500D6D05ED5F074D31E80FFF1E24_mAF320291C221BFB06C67922BB767B51142BA3A97_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24_m43B0DF6E6758D68853D45F6F95697FA2568366AD_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* KDtree_1__ctor_m02D586C203CE47746FBA4149F867D598E047B4BF_RuntimeMethod_var;
@@ -1029,7 +1024,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_Dispose_m3F74AF38863F4C680C14
 IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_Dispose_m867A382096AF527E2B854ADC9ED75ED6BF95D76B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_Dispose_mC03B89A2188FC84335036FA76CEB1925D7DC4294_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_GetEnumerator_mFC3CC68598348734E3534636C57C37E94A3E6AD9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_ToArray_m0886ECA8EF45C54CB8E74AA178671881E7737C05_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* NativeArray_1_ToArray_m842F7C71357935B5F9FBB1F219C59342CE4F61E9_RuntimeMethod_var;
@@ -1086,17 +1080,17 @@ struct GUIStyleState_tC89202668617B1D7884980314F293AD382B9AAD9_marshaled_pinvoke
 struct GUIStyle_t29C59470ACD0A35C81EB0615653FD38C455A4726_marshaled_com;
 struct GUIStyle_t29C59470ACD0A35C81EB0615653FD38C455A4726_marshaled_pinvoke;
 struct RectOffset_tE3A58467CD0749AD9D3E1271F9E315B38F39AE70_marshaled_com;
-struct Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A ;
 struct Runtimes_t0506749BE8B86B9093193D298509EADEB92A6814 ;
-struct Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 ;
 struct Runtimes_t217F01AAA172CDFEEFAD7AC571874CB0E1201AAD ;
 struct Runtimes_t38CB48CC7AE1B4CEC5AA6F897FE638A447C35AC4 ;
 struct Runtimes_t64691B10446A26AEA4B9234528C1CC779EE3CB76 ;
 struct Runtimes_t724DFCD6BECBAC87D5388876C16518D46E098C81 ;
 struct Runtimes_t7E7DEF12E11A754B39CE603B7131925E95D8E782 ;
 struct Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 ;
+struct Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A ;
 struct Runtimes_tA304DBD300E5478F45E1086D6610C0D63CC60430 ;
 struct Runtimes_tAF2A6DA6E7341EBCE83BEFACE4EBA5FA64BC3D1E ;
+struct Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 ;
 struct Runtimes_tD0FCD47C3CEC31BDDFF10BDC36F4469763D881E2 ;
 struct WorldUnmanagedImpl_tF0B016C8B4F3F50C47B0FE9A703C9865A1A99967 ;
 
@@ -4308,6 +4302,88 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
+// Unity.Entities.ComponentTypeHandle`1<Ships/Idle>
+struct ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE 
+{
+public:
+	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
+	int32_t ___m_TypeIndex_0;
+	// System.UInt32 Unity.Entities.ComponentTypeHandle`1::m_GlobalSystemVersion
+	uint32_t ___m_GlobalSystemVersion_1;
+	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsReadOnly
+	bool ___m_IsReadOnly_2;
+	// System.Boolean Unity.Entities.ComponentTypeHandle`1::m_IsZeroSized
+	bool ___m_IsZeroSized_3;
+	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_Length
+	int32_t ___m_Length_4;
+
+public:
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_TypeIndex_0)); }
+	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
+	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
+	inline void set_m_TypeIndex_0(int32_t value)
+	{
+		___m_TypeIndex_0 = value;
+	}
+
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_GlobalSystemVersion_1)); }
+	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
+	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
+	inline void set_m_GlobalSystemVersion_1(uint32_t value)
+	{
+		___m_GlobalSystemVersion_1 = value;
+	}
+
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_IsReadOnly_2)); }
+	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
+	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
+	inline void set_m_IsReadOnly_2(bool value)
+	{
+		___m_IsReadOnly_2 = value;
+	}
+
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_IsZeroSized_3)); }
+	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
+	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
+	inline void set_m_IsZeroSized_3(bool value)
+	{
+		___m_IsZeroSized_3 = value;
+	}
+
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE, ___m_Length_4)); }
+	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
+	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
+	inline void set_m_Length_4(int32_t value)
+	{
+		___m_Length_4 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of Unity.Entities.ComponentTypeHandle`1
+#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
+#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke_define
+struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_pinvoke
+{
+	int32_t ___m_TypeIndex_0;
+	uint32_t ___m_GlobalSystemVersion_1;
+	int32_t ___m_IsReadOnly_2;
+	int32_t ___m_IsZeroSized_3;
+	int32_t ___m_Length_4;
+};
+#endif
+// Native definition for COM marshalling of Unity.Entities.ComponentTypeHandle`1
+#ifndef ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
+#define ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com_define
+struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled_com
+{
+	int32_t ___m_TypeIndex_0;
+	uint32_t ___m_GlobalSystemVersion_1;
+	int32_t ___m_IsReadOnly_2;
+	int32_t ___m_IsZeroSized_3;
+	int32_t ___m_Length_4;
+};
+#endif
+
 // Unity.Entities.ComponentTypeHandle`1<Ships/MovementData>
 struct ComponentTypeHandle_1_t4FFF3F9EFCAEE4DBF679F43093B25B24FE1C8EB9 
 {
@@ -4472,8 +4548,8 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
-// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtExecute>
-struct ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 
+// Unity.Entities.ComponentTypeHandle`1<SystemEntity/Id>
+struct ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359 
 {
 public:
 	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
@@ -4488,7 +4564,7 @@ public:
 	int32_t ___m_Length_4;
 
 public:
-	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_TypeIndex_0)); }
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359, ___m_TypeIndex_0)); }
 	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
 	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
 	inline void set_m_TypeIndex_0(int32_t value)
@@ -4496,7 +4572,7 @@ public:
 		___m_TypeIndex_0 = value;
 	}
 
-	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_GlobalSystemVersion_1)); }
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359, ___m_GlobalSystemVersion_1)); }
 	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
 	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
 	inline void set_m_GlobalSystemVersion_1(uint32_t value)
@@ -4504,7 +4580,7 @@ public:
 		___m_GlobalSystemVersion_1 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_IsReadOnly_2)); }
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359, ___m_IsReadOnly_2)); }
 	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
 	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
 	inline void set_m_IsReadOnly_2(bool value)
@@ -4512,7 +4588,7 @@ public:
 		___m_IsReadOnly_2 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_IsZeroSized_3)); }
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359, ___m_IsZeroSized_3)); }
 	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
 	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
 	inline void set_m_IsZeroSized_3(bool value)
@@ -4520,7 +4596,7 @@ public:
 		___m_IsZeroSized_3 = value;
 	}
 
-	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0, ___m_Length_4)); }
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359, ___m_Length_4)); }
 	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
 	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
 	inline void set_m_Length_4(int32_t value)
@@ -4554,8 +4630,8 @@ struct ComponentTypeHandle_1_t929E9CB8A030B721DF085804B75EF0E2651759A5_marshaled
 };
 #endif
 
-// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeAtWrite>
-struct ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 
+// Unity.Entities.ComponentTypeHandle`1<Tickets/TimeData>
+struct ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E 
 {
 public:
 	// System.Int32 Unity.Entities.ComponentTypeHandle`1::m_TypeIndex
@@ -4570,7 +4646,7 @@ public:
 	int32_t ___m_Length_4;
 
 public:
-	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_TypeIndex_0)); }
+	inline static int32_t get_offset_of_m_TypeIndex_0() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_TypeIndex_0)); }
 	inline int32_t get_m_TypeIndex_0() const { return ___m_TypeIndex_0; }
 	inline int32_t* get_address_of_m_TypeIndex_0() { return &___m_TypeIndex_0; }
 	inline void set_m_TypeIndex_0(int32_t value)
@@ -4578,7 +4654,7 @@ public:
 		___m_TypeIndex_0 = value;
 	}
 
-	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_GlobalSystemVersion_1)); }
+	inline static int32_t get_offset_of_m_GlobalSystemVersion_1() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_GlobalSystemVersion_1)); }
 	inline uint32_t get_m_GlobalSystemVersion_1() const { return ___m_GlobalSystemVersion_1; }
 	inline uint32_t* get_address_of_m_GlobalSystemVersion_1() { return &___m_GlobalSystemVersion_1; }
 	inline void set_m_GlobalSystemVersion_1(uint32_t value)
@@ -4586,7 +4662,7 @@ public:
 		___m_GlobalSystemVersion_1 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_IsReadOnly_2)); }
+	inline static int32_t get_offset_of_m_IsReadOnly_2() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_IsReadOnly_2)); }
 	inline bool get_m_IsReadOnly_2() const { return ___m_IsReadOnly_2; }
 	inline bool* get_address_of_m_IsReadOnly_2() { return &___m_IsReadOnly_2; }
 	inline void set_m_IsReadOnly_2(bool value)
@@ -4594,7 +4670,7 @@ public:
 		___m_IsReadOnly_2 = value;
 	}
 
-	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_IsZeroSized_3)); }
+	inline static int32_t get_offset_of_m_IsZeroSized_3() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_IsZeroSized_3)); }
 	inline bool get_m_IsZeroSized_3() const { return ___m_IsZeroSized_3; }
 	inline bool* get_address_of_m_IsZeroSized_3() { return &___m_IsZeroSized_3; }
 	inline void set_m_IsZeroSized_3(bool value)
@@ -4602,7 +4678,7 @@ public:
 		___m_IsZeroSized_3 = value;
 	}
 
-	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29, ___m_Length_4)); }
+	inline static int32_t get_offset_of_m_Length_4() { return static_cast<int32_t>(offsetof(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E, ___m_Length_4)); }
 	inline int32_t get_m_Length_4() const { return ___m_Length_4; }
 	inline int32_t* get_address_of_m_Length_4() { return &___m_Length_4; }
 	inline void set_m_Length_4(int32_t value)
@@ -7549,34 +7625,6 @@ public:
 };
 
 
-// Unity.Core.TimeData
-struct TimeData_t1892793CB71746290FBEED4D53C605AF3A3FA91F 
-{
-public:
-	// System.Double Unity.Core.TimeData::ElapsedTime
-	double ___ElapsedTime_0;
-	// System.Single Unity.Core.TimeData::DeltaTime
-	float ___DeltaTime_1;
-
-public:
-	inline static int32_t get_offset_of_ElapsedTime_0() { return static_cast<int32_t>(offsetof(TimeData_t1892793CB71746290FBEED4D53C605AF3A3FA91F, ___ElapsedTime_0)); }
-	inline double get_ElapsedTime_0() const { return ___ElapsedTime_0; }
-	inline double* get_address_of_ElapsedTime_0() { return &___ElapsedTime_0; }
-	inline void set_ElapsedTime_0(double value)
-	{
-		___ElapsedTime_0 = value;
-	}
-
-	inline static int32_t get_offset_of_DeltaTime_1() { return static_cast<int32_t>(offsetof(TimeData_t1892793CB71746290FBEED4D53C605AF3A3FA91F, ___DeltaTime_1)); }
-	inline float get_DeltaTime_1() const { return ___DeltaTime_1; }
-	inline float* get_address_of_DeltaTime_1() { return &___DeltaTime_1; }
-	inline void set_DeltaTime_1(float value)
-	{
-		___DeltaTime_1 = value;
-	}
-};
-
-
 // System.UInt32
 struct UInt32_tE60352A06233E4E69DD198BCC67142159F686B15 
 {
@@ -8405,6 +8453,34 @@ public:
 };
 
 
+// Ships/Idle
+struct Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F 
+{
+public:
+	// System.Boolean Ships/Idle::isIdle
+	bool ___isIdle_0;
+
+public:
+	inline static int32_t get_offset_of_isIdle_0() { return static_cast<int32_t>(offsetof(Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F, ___isIdle_0)); }
+	inline bool get_isIdle_0() const { return ___isIdle_0; }
+	inline bool* get_address_of_isIdle_0() { return &___isIdle_0; }
+	inline void set_isIdle_0(bool value)
+	{
+		___isIdle_0 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of Ships/Idle
+struct Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_marshaled_pinvoke
+{
+	int32_t ___isIdle_0;
+};
+// Native definition for COM marshalling of Ships/Idle
+struct Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_marshaled_com
+{
+	int32_t ___isIdle_0;
+};
+
 // SystemEntity/Id
 struct Id_tE2189A0BC90F034C8B7ED8510207F31A99C20073 
 {
@@ -8530,42 +8606,6 @@ struct TextBackingContainer_t50AA56C265D2A3DB961E3DD200165FE78270562B_marshaled_
 	Il2CppSafeArray/*NONE*/* ___m_Array_0;
 	int32_t ___m_Count_1;
 };
-
-// Tickets/TimeAtExecute
-struct TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED 
-{
-public:
-	// System.Single Tickets/TimeAtExecute::time
-	float ___time_0;
-
-public:
-	inline static int32_t get_offset_of_time_0() { return static_cast<int32_t>(offsetof(TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED, ___time_0)); }
-	inline float get_time_0() const { return ___time_0; }
-	inline float* get_address_of_time_0() { return &___time_0; }
-	inline void set_time_0(float value)
-	{
-		___time_0 = value;
-	}
-};
-
-
-// Tickets/TimeAtWrite
-struct TimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA 
-{
-public:
-	// System.Single Tickets/TimeAtWrite::time
-	float ___time_0;
-
-public:
-	inline static int32_t get_offset_of_time_0() { return static_cast<int32_t>(offsetof(TimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA, ___time_0)); }
-	inline float get_time_0() const { return ___time_0; }
-	inline float* get_address_of_time_0() { return &___time_0; }
-	inline void set_time_0(float value)
-	{
-		___time_0 = value;
-	}
-};
-
 
 // Unity.Mathematics.math/IntFloatUnion
 struct IntFloatUnion_t72279F27DE421D0251D66DEE108164593D88F463 
@@ -8827,6 +8867,24 @@ public:
 };
 
 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle>
+struct LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 
+{
+public:
+	// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1::_typeHandle
+	ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  ____typeHandle_0;
+
+public:
+	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41, ____typeHandle_0)); }
+	inline ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  get__typeHandle_0() const { return ____typeHandle_0; }
+	inline ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE * get_address_of__typeHandle_0() { return &____typeHandle_0; }
+	inline void set__typeHandle_0(ComponentTypeHandle_1_tC618CECF861FDA297623DA4EDD87867635F267DE  value)
+	{
+		____typeHandle_0 = value;
+	}
+};
+
+
 // Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData>
 struct LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D 
 {
@@ -8863,36 +8921,36 @@ public:
 };
 
 
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute>
-struct LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<SystemEntity/Id>
+struct LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF 
 {
 public:
 	// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1::_typeHandle
-	ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  ____typeHandle_0;
+	ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  ____typeHandle_0;
 
 public:
-	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436, ____typeHandle_0)); }
-	inline ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  get__typeHandle_0() const { return ____typeHandle_0; }
-	inline ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0 * get_address_of__typeHandle_0() { return &____typeHandle_0; }
-	inline void set__typeHandle_0(ComponentTypeHandle_1_tC8DB95551550E2A26D1DD4D1113CDCB59E0588B0  value)
+	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF, ____typeHandle_0)); }
+	inline ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  get__typeHandle_0() const { return ____typeHandle_0; }
+	inline ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359 * get_address_of__typeHandle_0() { return &____typeHandle_0; }
+	inline void set__typeHandle_0(ComponentTypeHandle_1_t5BF26D226FC014C9315101DCEB43EDD258E8B359  value)
 	{
 		____typeHandle_0 = value;
 	}
 };
 
 
-// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite>
-struct LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 
+// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData>
+struct LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F 
 {
 public:
 	// Unity.Entities.ComponentTypeHandle`1<T> Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1::_typeHandle
-	ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  ____typeHandle_0;
+	ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  ____typeHandle_0;
 
 public:
-	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24, ____typeHandle_0)); }
-	inline ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  get__typeHandle_0() const { return ____typeHandle_0; }
-	inline ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29 * get_address_of__typeHandle_0() { return &____typeHandle_0; }
-	inline void set__typeHandle_0(ComponentTypeHandle_1_tC8254775FB6A5B2C1BCF825DA33193E228E79C29  value)
+	inline static int32_t get_offset_of__typeHandle_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F, ____typeHandle_0)); }
+	inline ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  get__typeHandle_0() const { return ____typeHandle_0; }
+	inline ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E * get_address_of__typeHandle_0() { return &____typeHandle_0; }
+	inline void set__typeHandle_0(ComponentTypeHandle_1_tC7A39D87017267CB7E78E232BDA93E8A574F818E  value)
 	{
 		____typeHandle_0 = value;
 	}
@@ -10213,8 +10271,8 @@ struct ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672  : public Sys
 public:
 	// Unity.Entities.EntityCommandBufferSystem ShipCloneAnimator::ecbs
 	EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * ___ecbs_1;
-	// Unity.Entities.EntityQuery ShipCloneAnimator::<>OnUpdate_LambdaJob0_entityQuery
-	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2;
+	// Unity.Entities.EntityQuery ShipCloneAnimator::<>AnimatorPreUpdate_entityQuery
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EAnimatorPreUpdate_entityQuery_2;
 	// Unity.Entities.EntityQuery ShipCloneAnimator::<>OnUpdate_LambdaJob1_entityQuery
 	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob1_entityQuery_3;
 
@@ -10228,12 +10286,12 @@ public:
 		Il2CppCodeGenWriteBarrier((void**)(&___ecbs_1), (void*)value);
 	}
 
-	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_2() { return static_cast<int32_t>(offsetof(ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672, ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2)); }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob0_entityQuery_2() const { return ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2; }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_2() { return &___U3CU3EOnUpdate_LambdaJob0_entityQuery_2; }
-	inline void set_U3CU3EOnUpdate_LambdaJob0_entityQuery_2(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
+	inline static int32_t get_offset_of_U3CU3EAnimatorPreUpdate_entityQuery_2() { return static_cast<int32_t>(offsetof(ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672, ___U3CU3EAnimatorPreUpdate_entityQuery_2)); }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EAnimatorPreUpdate_entityQuery_2() const { return ___U3CU3EAnimatorPreUpdate_entityQuery_2; }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EAnimatorPreUpdate_entityQuery_2() { return &___U3CU3EAnimatorPreUpdate_entityQuery_2; }
+	inline void set_U3CU3EAnimatorPreUpdate_entityQuery_2(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
 	{
-		___U3CU3EOnUpdate_LambdaJob0_entityQuery_2 = value;
+		___U3CU3EAnimatorPreUpdate_entityQuery_2 = value;
 	}
 
 	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_3() { return static_cast<int32_t>(offsetof(ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672, ___U3CU3EOnUpdate_LambdaJob1_entityQuery_3)); }
@@ -10283,8 +10341,6 @@ public:
 	EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * ___ecbs_1;
 	// Unity.Entities.EntityQuery ShipCloneSpawner::<>OnUpdate_LambdaJob0_entityQuery
 	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2;
-	// Unity.Entities.EntityQuery ShipCloneSpawner::<>OnUpdate_LambdaJob1_entityQuery
-	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob1_entityQuery_3;
 
 public:
 	inline static int32_t get_offset_of_ecbs_1() { return static_cast<int32_t>(offsetof(ShipCloneSpawner_t2E8407C0B671C2F98624D70FDAF608786C2475AB, ___ecbs_1)); }
@@ -10303,14 +10359,6 @@ public:
 	{
 		___U3CU3EOnUpdate_LambdaJob0_entityQuery_2 = value;
 	}
-
-	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_3() { return static_cast<int32_t>(offsetof(ShipCloneSpawner_t2E8407C0B671C2F98624D70FDAF608786C2475AB, ___U3CU3EOnUpdate_LambdaJob1_entityQuery_3)); }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob1_entityQuery_3() const { return ___U3CU3EOnUpdate_LambdaJob1_entityQuery_3; }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_3() { return &___U3CU3EOnUpdate_LambdaJob1_entityQuery_3; }
-	inline void set_U3CU3EOnUpdate_LambdaJob1_entityQuery_3(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
-	{
-		___U3CU3EOnUpdate_LambdaJob1_entityQuery_3 = value;
-	}
 };
 
 
@@ -10320,14 +10368,12 @@ struct ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545  : public Sy
 public:
 	// Unity.Entities.EntityCommandBufferSystem ShipTicketExecutor::ecbs
 	EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * ___ecbs_1;
-	// Unity.Entities.EntityQuery ShipTicketExecutor::query
-	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query_2;
 	// System.Int32 ShipTicketExecutor::ticketsExecutedPerFrame
-	int32_t ___ticketsExecutedPerFrame_3;
+	int32_t ___ticketsExecutedPerFrame_2;
 	// Unity.Entities.EntityQuery ShipTicketExecutor::<>OnUpdate_LambdaJob0_entityQuery
-	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob0_entityQuery_4;
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob0_entityQuery_3;
 	// Unity.Entities.EntityQuery ShipTicketExecutor::<>OnUpdate_LambdaJob1_entityQuery
-	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob1_entityQuery_5;
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob1_entityQuery_4;
 
 public:
 	inline static int32_t get_offset_of_ecbs_1() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___ecbs_1)); }
@@ -10339,36 +10385,28 @@ public:
 		Il2CppCodeGenWriteBarrier((void**)(&___ecbs_1), (void*)value);
 	}
 
-	inline static int32_t get_offset_of_query_2() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___query_2)); }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_query_2() const { return ___query_2; }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_query_2() { return &___query_2; }
-	inline void set_query_2(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
+	inline static int32_t get_offset_of_ticketsExecutedPerFrame_2() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___ticketsExecutedPerFrame_2)); }
+	inline int32_t get_ticketsExecutedPerFrame_2() const { return ___ticketsExecutedPerFrame_2; }
+	inline int32_t* get_address_of_ticketsExecutedPerFrame_2() { return &___ticketsExecutedPerFrame_2; }
+	inline void set_ticketsExecutedPerFrame_2(int32_t value)
 	{
-		___query_2 = value;
+		___ticketsExecutedPerFrame_2 = value;
 	}
 
-	inline static int32_t get_offset_of_ticketsExecutedPerFrame_3() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___ticketsExecutedPerFrame_3)); }
-	inline int32_t get_ticketsExecutedPerFrame_3() const { return ___ticketsExecutedPerFrame_3; }
-	inline int32_t* get_address_of_ticketsExecutedPerFrame_3() { return &___ticketsExecutedPerFrame_3; }
-	inline void set_ticketsExecutedPerFrame_3(int32_t value)
+	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_3() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___U3CU3EOnUpdate_LambdaJob0_entityQuery_3)); }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob0_entityQuery_3() const { return ___U3CU3EOnUpdate_LambdaJob0_entityQuery_3; }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_3() { return &___U3CU3EOnUpdate_LambdaJob0_entityQuery_3; }
+	inline void set_U3CU3EOnUpdate_LambdaJob0_entityQuery_3(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
 	{
-		___ticketsExecutedPerFrame_3 = value;
+		___U3CU3EOnUpdate_LambdaJob0_entityQuery_3 = value;
 	}
 
-	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_4() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___U3CU3EOnUpdate_LambdaJob0_entityQuery_4)); }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob0_entityQuery_4() const { return ___U3CU3EOnUpdate_LambdaJob0_entityQuery_4; }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_4() { return &___U3CU3EOnUpdate_LambdaJob0_entityQuery_4; }
-	inline void set_U3CU3EOnUpdate_LambdaJob0_entityQuery_4(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
+	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_4() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___U3CU3EOnUpdate_LambdaJob1_entityQuery_4)); }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob1_entityQuery_4() const { return ___U3CU3EOnUpdate_LambdaJob1_entityQuery_4; }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_4() { return &___U3CU3EOnUpdate_LambdaJob1_entityQuery_4; }
+	inline void set_U3CU3EOnUpdate_LambdaJob1_entityQuery_4(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
 	{
-		___U3CU3EOnUpdate_LambdaJob0_entityQuery_4 = value;
-	}
-
-	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_5() { return static_cast<int32_t>(offsetof(ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545, ___U3CU3EOnUpdate_LambdaJob1_entityQuery_5)); }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob1_entityQuery_5() const { return ___U3CU3EOnUpdate_LambdaJob1_entityQuery_5; }
-	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob1_entityQuery_5() { return &___U3CU3EOnUpdate_LambdaJob1_entityQuery_5; }
-	inline void set_U3CU3EOnUpdate_LambdaJob1_entityQuery_5(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
-	{
-		___U3CU3EOnUpdate_LambdaJob1_entityQuery_5 = value;
+		___U3CU3EOnUpdate_LambdaJob1_entityQuery_4 = value;
 	}
 };
 
@@ -10387,6 +10425,35 @@ public:
 	inline void set_value___2(int32_t value)
 	{
 		___value___2 = value;
+	}
+};
+
+
+// StarCloneDeleter
+struct StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9  : public SystemBase_t236012EC818059A231628BBC6A7E0F142001EB75
+{
+public:
+	// Unity.Entities.EntityCommandBufferSystem StarCloneDeleter::ecbs
+	EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * ___ecbs_1;
+	// Unity.Entities.EntityQuery StarCloneDeleter::deletionQuery
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___deletionQuery_2;
+
+public:
+	inline static int32_t get_offset_of_ecbs_1() { return static_cast<int32_t>(offsetof(StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9, ___ecbs_1)); }
+	inline EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * get_ecbs_1() const { return ___ecbs_1; }
+	inline EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A ** get_address_of_ecbs_1() { return &___ecbs_1; }
+	inline void set_ecbs_1(EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * value)
+	{
+		___ecbs_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___ecbs_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_deletionQuery_2() { return static_cast<int32_t>(offsetof(StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9, ___deletionQuery_2)); }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_deletionQuery_2() const { return ___deletionQuery_2; }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_deletionQuery_2() { return &___deletionQuery_2; }
+	inline void set_deletionQuery_2(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
+	{
+		___deletionQuery_2 = value;
 	}
 };
 
@@ -10433,6 +10500,64 @@ public:
 	inline void set_shipEntityTemplate_2(Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  value)
 	{
 		___shipEntityTemplate_2 = value;
+	}
+};
+
+
+// SystemCloneDeleter
+struct SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6  : public SystemBase_t236012EC818059A231628BBC6A7E0F142001EB75
+{
+public:
+	// Unity.Entities.EntityCommandBufferSystem SystemCloneDeleter::ecbs
+	EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * ___ecbs_1;
+	// Unity.Entities.EntityQuery SystemCloneDeleter::deletionQuery
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___deletionQuery_2;
+
+public:
+	inline static int32_t get_offset_of_ecbs_1() { return static_cast<int32_t>(offsetof(SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6, ___ecbs_1)); }
+	inline EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * get_ecbs_1() const { return ___ecbs_1; }
+	inline EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A ** get_address_of_ecbs_1() { return &___ecbs_1; }
+	inline void set_ecbs_1(EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * value)
+	{
+		___ecbs_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___ecbs_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_deletionQuery_2() { return static_cast<int32_t>(offsetof(SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6, ___deletionQuery_2)); }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_deletionQuery_2() const { return ___deletionQuery_2; }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_deletionQuery_2() { return &___deletionQuery_2; }
+	inline void set_deletionQuery_2(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
+	{
+		___deletionQuery_2 = value;
+	}
+};
+
+
+// SystemCloneSpawner
+struct SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7  : public SystemBase_t236012EC818059A231628BBC6A7E0F142001EB75
+{
+public:
+	// Unity.Entities.EntityCommandBufferSystem SystemCloneSpawner::ecbs
+	EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * ___ecbs_1;
+	// Unity.Entities.EntityQuery SystemCloneSpawner::<>OnUpdate_LambdaJob0_entityQuery
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2;
+
+public:
+	inline static int32_t get_offset_of_ecbs_1() { return static_cast<int32_t>(offsetof(SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7, ___ecbs_1)); }
+	inline EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * get_ecbs_1() const { return ___ecbs_1; }
+	inline EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A ** get_address_of_ecbs_1() { return &___ecbs_1; }
+	inline void set_ecbs_1(EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * value)
+	{
+		___ecbs_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___ecbs_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_2() { return static_cast<int32_t>(offsetof(SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7, ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2)); }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  get_U3CU3EOnUpdate_LambdaJob0_entityQuery_2() const { return ___U3CU3EOnUpdate_LambdaJob0_entityQuery_2; }
+	inline EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * get_address_of_U3CU3EOnUpdate_LambdaJob0_entityQuery_2() { return &___U3CU3EOnUpdate_LambdaJob0_entityQuery_2; }
+	inline void set_U3CU3EOnUpdate_LambdaJob0_entityQuery_2(EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  value)
+	{
+		___U3CU3EOnUpdate_LambdaJob0_entityQuery_2 = value;
 	}
 };
 
@@ -11920,17 +12045,17 @@ public:
 };
 
 
-// ShipTicketExecutor/<>c__DisplayClass4_0
-struct U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659 
+// ShipTicketExecutor/<>c__DisplayClass3_0
+struct U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453 
 {
 public:
-	// System.Single ShipTicketExecutor/<>c__DisplayClass4_0::time
+	// System.Single ShipTicketExecutor/<>c__DisplayClass3_0::time
 	float ___time_0;
-	// Unity.Entities.EntityCommandBuffer/ParallelWriter ShipTicketExecutor/<>c__DisplayClass4_0::ecb
+	// Unity.Entities.EntityCommandBuffer/ParallelWriter ShipTicketExecutor/<>c__DisplayClass3_0::ecb
 	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  ___ecb_1;
 
 public:
-	inline static int32_t get_offset_of_time_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659, ___time_0)); }
+	inline static int32_t get_offset_of_time_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453, ___time_0)); }
 	inline float get_time_0() const { return ___time_0; }
 	inline float* get_address_of_time_0() { return &___time_0; }
 	inline void set_time_0(float value)
@@ -11938,30 +12063,12 @@ public:
 		___time_0 = value;
 	}
 
-	inline static int32_t get_offset_of_ecb_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659, ___ecb_1)); }
+	inline static int32_t get_offset_of_ecb_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453, ___ecb_1)); }
 	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  get_ecb_1() const { return ___ecb_1; }
 	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611 * get_address_of_ecb_1() { return &___ecb_1; }
 	inline void set_ecb_1(ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  value)
 	{
 		___ecb_1 = value;
-	}
-};
-
-
-// Ships/CloneData
-struct CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C 
-{
-public:
-	// Unity.Entities.Entity Ships/CloneData::masterShip
-	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___masterShip_0;
-
-public:
-	inline static int32_t get_offset_of_masterShip_0() { return static_cast<int32_t>(offsetof(CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C, ___masterShip_0)); }
-	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  get_masterShip_0() const { return ___masterShip_0; }
-	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 * get_address_of_masterShip_0() { return &___masterShip_0; }
-	inline void set_masterShip_0(Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  value)
-	{
-		___masterShip_0 = value;
 	}
 };
 
@@ -11994,20 +12101,30 @@ public:
 };
 
 
-// Ships/TargetPos
-struct TargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71 
+// SystemCloneSpawner/<>c__DisplayClass2_0
+struct U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635 
 {
 public:
-	// Unity.Mathematics.float3 Ships/TargetPos::position
-	float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  ___position_0;
+	// Unity.Entities.EntityCommandBuffer/ParallelWriter SystemCloneSpawner/<>c__DisplayClass2_0::ecb
+	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  ___ecb_0;
+	// Unity.Entities.Entity SystemCloneSpawner/<>c__DisplayClass2_0::systemClone
+	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___systemClone_1;
 
 public:
-	inline static int32_t get_offset_of_position_0() { return static_cast<int32_t>(offsetof(TargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71, ___position_0)); }
-	inline float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  get_position_0() const { return ___position_0; }
-	inline float3_t9500D105F273B3D86BD354142E891C48FFF9F71D * get_address_of_position_0() { return &___position_0; }
-	inline void set_position_0(float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  value)
+	inline static int32_t get_offset_of_ecb_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635, ___ecb_0)); }
+	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  get_ecb_0() const { return ___ecb_0; }
+	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611 * get_address_of_ecb_0() { return &___ecb_0; }
+	inline void set_ecb_0(ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  value)
 	{
-		___position_0 = value;
+		___ecb_0 = value;
+	}
+
+	inline static int32_t get_offset_of_systemClone_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635, ___systemClone_1)); }
+	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  get_systemClone_1() const { return ___systemClone_1; }
+	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 * get_address_of_systemClone_1() { return &___systemClone_1; }
+	inline void set_systemClone_1(Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  value)
+	{
+		___systemClone_1 = value;
 	}
 };
 
@@ -12507,44 +12624,6 @@ public:
 	}
 
 	inline static int32_t get_offset_of_m_AllocatorLabel_2() { return static_cast<int32_t>(offsetof(NativeArray_1_tEB815DC410EDC73750EDE1530E9CC57B1C900BA9, ___m_AllocatorLabel_2)); }
-	inline int32_t get_m_AllocatorLabel_2() const { return ___m_AllocatorLabel_2; }
-	inline int32_t* get_address_of_m_AllocatorLabel_2() { return &___m_AllocatorLabel_2; }
-	inline void set_m_AllocatorLabel_2(int32_t value)
-	{
-		___m_AllocatorLabel_2 = value;
-	}
-};
-
-
-// Unity.Collections.NativeArray`1<Tickets/TimeAtExecute>
-struct NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 
-{
-public:
-	// System.Void* Unity.Collections.NativeArray`1::m_Buffer
-	void* ___m_Buffer_0;
-	// System.Int32 Unity.Collections.NativeArray`1::m_Length
-	int32_t ___m_Length_1;
-	// Unity.Collections.Allocator Unity.Collections.NativeArray`1::m_AllocatorLabel
-	int32_t ___m_AllocatorLabel_2;
-
-public:
-	inline static int32_t get_offset_of_m_Buffer_0() { return static_cast<int32_t>(offsetof(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4, ___m_Buffer_0)); }
-	inline void* get_m_Buffer_0() const { return ___m_Buffer_0; }
-	inline void** get_address_of_m_Buffer_0() { return &___m_Buffer_0; }
-	inline void set_m_Buffer_0(void* value)
-	{
-		___m_Buffer_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_Length_1() { return static_cast<int32_t>(offsetof(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4, ___m_Length_1)); }
-	inline int32_t get_m_Length_1() const { return ___m_Length_1; }
-	inline int32_t* get_address_of_m_Length_1() { return &___m_Length_1; }
-	inline void set_m_Length_1(int32_t value)
-	{
-		___m_Length_1 = value;
-	}
-
-	inline static int32_t get_offset_of_m_AllocatorLabel_2() { return static_cast<int32_t>(offsetof(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4, ___m_AllocatorLabel_2)); }
 	inline int32_t get_m_AllocatorLabel_2() const { return ___m_AllocatorLabel_2; }
 	inline int32_t* get_address_of_m_AllocatorLabel_2() { return &___m_AllocatorLabel_2; }
 	inline void set_m_AllocatorLabel_2(int32_t value)
@@ -14146,12 +14225,12 @@ public:
 	LambdaParameterValueProvider_NativeThreadIndex_t7A92F9719FB527A60CC3F9F9481AC21C52F0F642  ___forParameter_nativeThreadIndex_2;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/TargetPos> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_target
 	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_target_3;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_write
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  ___forParameter_write_4;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_exe
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_5;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_timeData
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_timeData_4;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_moveData
-	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_6;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_5;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_idle
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_6;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Unity.Transforms.Translation> AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_pos
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_7;
 
@@ -14188,28 +14267,28 @@ public:
 		___forParameter_target_3 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_write_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_write_4)); }
-	inline LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  get_forParameter_write_4() const { return ___forParameter_write_4; }
-	inline LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * get_address_of_forParameter_write_4() { return &___forParameter_write_4; }
-	inline void set_forParameter_write_4(LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  value)
+	inline static int32_t get_offset_of_forParameter_timeData_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_timeData_4)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  get_forParameter_timeData_4() const { return ___forParameter_timeData_4; }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * get_address_of_forParameter_timeData_4() { return &___forParameter_timeData_4; }
+	inline void set_forParameter_timeData_4(LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  value)
 	{
-		___forParameter_write_4 = value;
+		___forParameter_timeData_4 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_exe_5() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_exe_5)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  get_forParameter_exe_5() const { return ___forParameter_exe_5; }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * get_address_of_forParameter_exe_5() { return &___forParameter_exe_5; }
-	inline void set_forParameter_exe_5(LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  value)
+	inline static int32_t get_offset_of_forParameter_moveData_5() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_moveData_5)); }
+	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  get_forParameter_moveData_5() const { return ___forParameter_moveData_5; }
+	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * get_address_of_forParameter_moveData_5() { return &___forParameter_moveData_5; }
+	inline void set_forParameter_moveData_5(LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  value)
 	{
-		___forParameter_exe_5 = value;
+		___forParameter_moveData_5 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_moveData_6() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_moveData_6)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  get_forParameter_moveData_6() const { return ___forParameter_moveData_6; }
-	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * get_address_of_forParameter_moveData_6() { return &___forParameter_moveData_6; }
-	inline void set_forParameter_moveData_6(LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  value)
+	inline static int32_t get_offset_of_forParameter_idle_6() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_idle_6)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  get_forParameter_idle_6() const { return ___forParameter_idle_6; }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * get_address_of_forParameter_idle_6() { return &___forParameter_idle_6; }
+	inline void set_forParameter_idle_6(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  value)
 	{
-		___forParameter_moveData_6 = value;
+		___forParameter_idle_6 = value;
 	}
 
 	inline static int32_t get_offset_of_forParameter_pos_7() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D, ___forParameter_pos_7)); }
@@ -14228,9 +14307,9 @@ struct LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D_m
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	LambdaParameterValueProvider_NativeThreadIndex_t7A92F9719FB527A60CC3F9F9481AC21C52F0F642  ___forParameter_nativeThreadIndex_2;
 	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_target_3;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  ___forParameter_write_4;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_5;
-	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_6;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_timeData_4;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_5;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_6;
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_7;
 };
 // Native definition for COM marshalling of AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
@@ -14240,9 +14319,9 @@ struct LambdaParameterValueProviders_t60C38A1884082EAC26311C047A9ED2ED5DAE000D_m
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	LambdaParameterValueProvider_NativeThreadIndex_t7A92F9719FB527A60CC3F9F9481AC21C52F0F642  ___forParameter_nativeThreadIndex_2;
 	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_target_3;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  ___forParameter_write_4;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_5;
-	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_6;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_timeData_4;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_5;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_6;
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_7;
 };
 
@@ -14478,19 +14557,21 @@ struct LambdaParameterValueProviders_t049B6AB3076597D5AA39639ECB13B59B036B4D18_m
 	LambdaParameterValueProvider_IComponentData_1_t12A163E596EF16C90D075098901B44814E0DA322  ___forParameter_moveData_2;
 };
 
-// ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
-struct LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101 
+// ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders
+struct LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC 
 {
 public:
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_EntityInQueryIndex ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_entityInQueryIndex
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_EntityInQueryIndex ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders::forParameter_entityInQueryIndex
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_0;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData> ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_moveData
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData> ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders::forParameter_moveData
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_1;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/HasClone> ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_clone
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/HasClone> ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders::forParameter_clone
 	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_2;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle> ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders::forParameter_idle
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
 
 public:
-	inline static int32_t get_offset_of_forParameter_entityInQueryIndex_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101, ___forParameter_entityInQueryIndex_0)); }
+	inline static int32_t get_offset_of_forParameter_entityInQueryIndex_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC, ___forParameter_entityInQueryIndex_0)); }
 	inline LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  get_forParameter_entityInQueryIndex_0() const { return ___forParameter_entityInQueryIndex_0; }
 	inline LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD * get_address_of_forParameter_entityInQueryIndex_0() { return &___forParameter_entityInQueryIndex_0; }
 	inline void set_forParameter_entityInQueryIndex_0(LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  value)
@@ -14498,7 +14579,7 @@ public:
 		___forParameter_entityInQueryIndex_0 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_moveData_1() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101, ___forParameter_moveData_1)); }
+	inline static int32_t get_offset_of_forParameter_moveData_1() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC, ___forParameter_moveData_1)); }
 	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  get_forParameter_moveData_1() const { return ___forParameter_moveData_1; }
 	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * get_address_of_forParameter_moveData_1() { return &___forParameter_moveData_1; }
 	inline void set_forParameter_moveData_1(LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  value)
@@ -14506,28 +14587,38 @@ public:
 		___forParameter_moveData_1 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_clone_2() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101, ___forParameter_clone_2)); }
+	inline static int32_t get_offset_of_forParameter_clone_2() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC, ___forParameter_clone_2)); }
 	inline LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  get_forParameter_clone_2() const { return ___forParameter_clone_2; }
 	inline LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F * get_address_of_forParameter_clone_2() { return &___forParameter_clone_2; }
 	inline void set_forParameter_clone_2(LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  value)
 	{
 		___forParameter_clone_2 = value;
 	}
+
+	inline static int32_t get_offset_of_forParameter_idle_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC, ___forParameter_idle_3)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  get_forParameter_idle_3() const { return ___forParameter_idle_3; }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * get_address_of_forParameter_idle_3() { return &___forParameter_idle_3; }
+	inline void set_forParameter_idle_3(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  value)
+	{
+		___forParameter_idle_3 = value;
+	}
 };
 
-// Native definition for P/Invoke marshalling of ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
-struct LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101_marshaled_pinvoke
+// Native definition for P/Invoke marshalling of ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders
+struct LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC_marshaled_pinvoke
 {
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_0;
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_1;
 	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_2;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
 };
-// Native definition for COM marshalling of ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
-struct LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101_marshaled_com
+// Native definition for COM marshalling of ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders
+struct LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC_marshaled_com
 {
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_0;
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_1;
 	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_2;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
 };
 
 // ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
@@ -14542,6 +14633,8 @@ public:
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_2;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/CloneData> ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_cloneData
 	LambdaParameterValueProvider_IComponentData_1_t2D5B829A671146EF7140C979F383CCEAD6B83C03  ___forParameter_cloneData_3;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle> ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_idle
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_4;
 
 public:
 	inline static int32_t get_offset_of_forParameter_trans_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_tCEEDE218B4D51DACEC8CC06BA6C2B1F27AB4AAF3, ___forParameter_trans_0)); }
@@ -14575,6 +14668,14 @@ public:
 	{
 		___forParameter_cloneData_3 = value;
 	}
+
+	inline static int32_t get_offset_of_forParameter_idle_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_tCEEDE218B4D51DACEC8CC06BA6C2B1F27AB4AAF3, ___forParameter_idle_4)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  get_forParameter_idle_4() const { return ___forParameter_idle_4; }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * get_address_of_forParameter_idle_4() { return &___forParameter_idle_4; }
+	inline void set_forParameter_idle_4(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  value)
+	{
+		___forParameter_idle_4 = value;
+	}
 };
 
 // Native definition for P/Invoke marshalling of ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
@@ -14584,6 +14685,7 @@ struct LambdaParameterValueProviders_tCEEDE218B4D51DACEC8CC06BA6C2B1F27AB4AAF3_m
 	LambdaParameterValueProvider_IComponentData_1_t7B0DC1B70476360EC05B9D7ED313673692157BF9  ___forParameter_rot_1;
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_2;
 	LambdaParameterValueProvider_IComponentData_1_t2D5B829A671146EF7140C979F383CCEAD6B83C03  ___forParameter_cloneData_3;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_4;
 };
 // Native definition for COM marshalling of ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
 struct LambdaParameterValueProviders_tCEEDE218B4D51DACEC8CC06BA6C2B1F27AB4AAF3_marshaled_com
@@ -14592,6 +14694,7 @@ struct LambdaParameterValueProviders_tCEEDE218B4D51DACEC8CC06BA6C2B1F27AB4AAF3_m
 	LambdaParameterValueProvider_IComponentData_1_t7B0DC1B70476360EC05B9D7ED313673692157BF9  ___forParameter_rot_1;
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_2;
 	LambdaParameterValueProvider_IComponentData_1_t2D5B829A671146EF7140C979F383CCEAD6B83C03  ___forParameter_cloneData_3;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_4;
 };
 
 // ShipCloneDeleter/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
@@ -14662,10 +14765,10 @@ public:
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/TargetPos> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_targetPosData
 	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPosData_5;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_exe
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_6;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtWrite> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_write
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  ___forParameter_write_7;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_timeData
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_timeData_6;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_idle
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_7;
 
 public:
 	inline static int32_t get_offset_of_forParameter_ship_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36, ___forParameter_ship_0)); }
@@ -14716,20 +14819,20 @@ public:
 		___forParameter_targetPosData_5 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_exe_6() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36, ___forParameter_exe_6)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  get_forParameter_exe_6() const { return ___forParameter_exe_6; }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * get_address_of_forParameter_exe_6() { return &___forParameter_exe_6; }
-	inline void set_forParameter_exe_6(LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  value)
+	inline static int32_t get_offset_of_forParameter_timeData_6() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36, ___forParameter_timeData_6)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  get_forParameter_timeData_6() const { return ___forParameter_timeData_6; }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * get_address_of_forParameter_timeData_6() { return &___forParameter_timeData_6; }
+	inline void set_forParameter_timeData_6(LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  value)
 	{
-		___forParameter_exe_6 = value;
+		___forParameter_timeData_6 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_write_7() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36, ___forParameter_write_7)); }
-	inline LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  get_forParameter_write_7() const { return ___forParameter_write_7; }
-	inline LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24 * get_address_of_forParameter_write_7() { return &___forParameter_write_7; }
-	inline void set_forParameter_write_7(LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  value)
+	inline static int32_t get_offset_of_forParameter_idle_7() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36, ___forParameter_idle_7)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  get_forParameter_idle_7() const { return ___forParameter_idle_7; }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * get_address_of_forParameter_idle_7() { return &___forParameter_idle_7; }
+	inline void set_forParameter_idle_7(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  value)
 	{
-		___forParameter_write_7 = value;
+		___forParameter_idle_7 = value;
 	}
 };
 
@@ -14742,8 +14845,8 @@ struct LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36_m
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_3;
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
 	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPosData_5;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_6;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  ___forParameter_write_7;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_timeData_6;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_7;
 };
 // Native definition for COM marshalling of ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
 struct LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36_marshaled_com
@@ -14754,84 +14857,8 @@ struct LambdaParameterValueProviders_t78BFFA65C862A52B27B3D15C6AD82F98D01A8A36_m
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_3;
 	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
 	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPosData_5;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_6;
-	LambdaParameterValueProvider_IComponentData_1_t853958AE19533C5FD92E4700EC0DC178D789FA24  ___forParameter_write_7;
-};
-
-// ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
-struct LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685 
-{
-public:
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_Entity ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_ship
-	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_EntityInQueryIndex ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_entityInQueryIndex
-	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Id> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_id
-	LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1  ___forParameter_id_2;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Unity.Transforms.Translation> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_pos
-	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_3;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData> ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_moveData
-	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
-
-public:
-	inline static int32_t get_offset_of_forParameter_ship_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685, ___forParameter_ship_0)); }
-	inline LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  get_forParameter_ship_0() const { return ___forParameter_ship_0; }
-	inline LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13 * get_address_of_forParameter_ship_0() { return &___forParameter_ship_0; }
-	inline void set_forParameter_ship_0(LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  value)
-	{
-		___forParameter_ship_0 = value;
-	}
-
-	inline static int32_t get_offset_of_forParameter_entityInQueryIndex_1() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685, ___forParameter_entityInQueryIndex_1)); }
-	inline LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  get_forParameter_entityInQueryIndex_1() const { return ___forParameter_entityInQueryIndex_1; }
-	inline LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD * get_address_of_forParameter_entityInQueryIndex_1() { return &___forParameter_entityInQueryIndex_1; }
-	inline void set_forParameter_entityInQueryIndex_1(LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  value)
-	{
-		___forParameter_entityInQueryIndex_1 = value;
-	}
-
-	inline static int32_t get_offset_of_forParameter_id_2() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685, ___forParameter_id_2)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1  get_forParameter_id_2() const { return ___forParameter_id_2; }
-	inline LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1 * get_address_of_forParameter_id_2() { return &___forParameter_id_2; }
-	inline void set_forParameter_id_2(LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1  value)
-	{
-		___forParameter_id_2 = value;
-	}
-
-	inline static int32_t get_offset_of_forParameter_pos_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685, ___forParameter_pos_3)); }
-	inline LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  get_forParameter_pos_3() const { return ___forParameter_pos_3; }
-	inline LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF * get_address_of_forParameter_pos_3() { return &___forParameter_pos_3; }
-	inline void set_forParameter_pos_3(LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  value)
-	{
-		___forParameter_pos_3 = value;
-	}
-
-	inline static int32_t get_offset_of_forParameter_moveData_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685, ___forParameter_moveData_4)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  get_forParameter_moveData_4() const { return ___forParameter_moveData_4; }
-	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * get_address_of_forParameter_moveData_4() { return &___forParameter_moveData_4; }
-	inline void set_forParameter_moveData_4(LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  value)
-	{
-		___forParameter_moveData_4 = value;
-	}
-};
-
-// Native definition for P/Invoke marshalling of ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
-struct LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685_marshaled_pinvoke
-{
-	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
-	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
-	LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1  ___forParameter_id_2;
-	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_3;
-	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
-};
-// Native definition for COM marshalling of ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
-struct LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685_marshaled_com
-{
-	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
-	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
-	LambdaParameterValueProvider_IComponentData_1_tD6503BE0BC59E42305D61B71C68B9B32B6C49FA1  ___forParameter_id_2;
-	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_3;
-	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_timeData_6;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_7;
 };
 
 // ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
@@ -14844,10 +14871,14 @@ public:
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Unity.Transforms.Translation> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_pos
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_exe
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_3;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_idle
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_moveData
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_exe
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_exe_5;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/TargetPos> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_targetPos
-	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_4;
+	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_6;
 
 public:
 	inline static int32_t get_offset_of_forParameter_ship_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_ship_0)); }
@@ -14874,20 +14905,36 @@ public:
 		___forParameter_pos_2 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_exe_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_exe_3)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  get_forParameter_exe_3() const { return ___forParameter_exe_3; }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * get_address_of_forParameter_exe_3() { return &___forParameter_exe_3; }
-	inline void set_forParameter_exe_3(LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  value)
+	inline static int32_t get_offset_of_forParameter_idle_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_idle_3)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  get_forParameter_idle_3() const { return ___forParameter_idle_3; }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * get_address_of_forParameter_idle_3() { return &___forParameter_idle_3; }
+	inline void set_forParameter_idle_3(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  value)
 	{
-		___forParameter_exe_3 = value;
+		___forParameter_idle_3 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_targetPos_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_targetPos_4)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  get_forParameter_targetPos_4() const { return ___forParameter_targetPos_4; }
-	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC * get_address_of_forParameter_targetPos_4() { return &___forParameter_targetPos_4; }
-	inline void set_forParameter_targetPos_4(LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  value)
+	inline static int32_t get_offset_of_forParameter_moveData_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_moveData_4)); }
+	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  get_forParameter_moveData_4() const { return ___forParameter_moveData_4; }
+	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * get_address_of_forParameter_moveData_4() { return &___forParameter_moveData_4; }
+	inline void set_forParameter_moveData_4(LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  value)
 	{
-		___forParameter_targetPos_4 = value;
+		___forParameter_moveData_4 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_exe_5() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_exe_5)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  get_forParameter_exe_5() const { return ___forParameter_exe_5; }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * get_address_of_forParameter_exe_5() { return &___forParameter_exe_5; }
+	inline void set_forParameter_exe_5(LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  value)
+	{
+		___forParameter_exe_5 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_targetPos_6() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50, ___forParameter_targetPos_6)); }
+	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  get_forParameter_targetPos_6() const { return ___forParameter_targetPos_6; }
+	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC * get_address_of_forParameter_targetPos_6() { return &___forParameter_targetPos_6; }
+	inline void set_forParameter_targetPos_6(LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  value)
+	{
+		___forParameter_targetPos_6 = value;
 	}
 };
 
@@ -14897,8 +14944,10 @@ struct LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_m
 	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_3;
-	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_4;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_exe_5;
+	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_6;
 };
 // Native definition for COM marshalling of ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
 struct LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_marshaled_com
@@ -14906,8 +14955,10 @@ struct LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_m
 	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_3;
-	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_4;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_exe_5;
+	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_6;
 };
 
 // ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
@@ -14920,12 +14971,16 @@ public:
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Unity.Transforms.Translation> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_pos
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
-	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeAtExecute> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_exe
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_3;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/Idle> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_idle
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/MovementData> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_moveData
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Tickets/TimeData> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_exe
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_exe_5;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/TargetPos> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_targetPos
-	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_4;
+	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_6;
 	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Ships/HasClone> ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders::forParameter_clone
-	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_5;
+	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_7;
 
 public:
 	inline static int32_t get_offset_of_forParameter_ship_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_ship_0)); }
@@ -14952,28 +15007,44 @@ public:
 		___forParameter_pos_2 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_exe_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_exe_3)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  get_forParameter_exe_3() const { return ___forParameter_exe_3; }
-	inline LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436 * get_address_of_forParameter_exe_3() { return &___forParameter_exe_3; }
-	inline void set_forParameter_exe_3(LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  value)
+	inline static int32_t get_offset_of_forParameter_idle_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_idle_3)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  get_forParameter_idle_3() const { return ___forParameter_idle_3; }
+	inline LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41 * get_address_of_forParameter_idle_3() { return &___forParameter_idle_3; }
+	inline void set_forParameter_idle_3(LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  value)
 	{
-		___forParameter_exe_3 = value;
+		___forParameter_idle_3 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_targetPos_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_targetPos_4)); }
-	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  get_forParameter_targetPos_4() const { return ___forParameter_targetPos_4; }
-	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC * get_address_of_forParameter_targetPos_4() { return &___forParameter_targetPos_4; }
-	inline void set_forParameter_targetPos_4(LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  value)
+	inline static int32_t get_offset_of_forParameter_moveData_4() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_moveData_4)); }
+	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  get_forParameter_moveData_4() const { return ___forParameter_moveData_4; }
+	inline LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D * get_address_of_forParameter_moveData_4() { return &___forParameter_moveData_4; }
+	inline void set_forParameter_moveData_4(LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  value)
 	{
-		___forParameter_targetPos_4 = value;
+		___forParameter_moveData_4 = value;
 	}
 
-	inline static int32_t get_offset_of_forParameter_clone_5() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_clone_5)); }
-	inline LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  get_forParameter_clone_5() const { return ___forParameter_clone_5; }
-	inline LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F * get_address_of_forParameter_clone_5() { return &___forParameter_clone_5; }
-	inline void set_forParameter_clone_5(LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  value)
+	inline static int32_t get_offset_of_forParameter_exe_5() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_exe_5)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  get_forParameter_exe_5() const { return ___forParameter_exe_5; }
+	inline LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F * get_address_of_forParameter_exe_5() { return &___forParameter_exe_5; }
+	inline void set_forParameter_exe_5(LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  value)
 	{
-		___forParameter_clone_5 = value;
+		___forParameter_exe_5 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_targetPos_6() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_targetPos_6)); }
+	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  get_forParameter_targetPos_6() const { return ___forParameter_targetPos_6; }
+	inline LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC * get_address_of_forParameter_targetPos_6() { return &___forParameter_targetPos_6; }
+	inline void set_forParameter_targetPos_6(LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  value)
+	{
+		___forParameter_targetPos_6 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_clone_7() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B, ___forParameter_clone_7)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  get_forParameter_clone_7() const { return ___forParameter_clone_7; }
+	inline LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F * get_address_of_forParameter_clone_7() { return &___forParameter_clone_7; }
+	inline void set_forParameter_clone_7(LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  value)
+	{
+		___forParameter_clone_7 = value;
 	}
 };
 
@@ -14983,9 +15054,11 @@ struct LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B_m
 	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_3;
-	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_4;
-	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_5;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_exe_5;
+	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_6;
+	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_7;
 };
 // Native definition for COM marshalling of ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders
 struct LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B_marshaled_com
@@ -14993,9 +15066,75 @@ struct LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B_m
 	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_ship_0;
 	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
 	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
-	LambdaParameterValueProvider_IComponentData_1_tF0B1C9CB15BD47D920D7A801FA5B72F88E75C436  ___forParameter_exe_3;
-	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_4;
-	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_5;
+	LambdaParameterValueProvider_IComponentData_1_t5045481FAFC118C501DCDD3C7C6957B2E55D0A41  ___forParameter_idle_3;
+	LambdaParameterValueProvider_IComponentData_1_tB4876830C0FB174FBDCB0DCC599492A401950F0D  ___forParameter_moveData_4;
+	LambdaParameterValueProvider_IComponentData_1_t3E9234567A1A96FFD206747F1B81D2F62343730F  ___forParameter_exe_5;
+	LambdaParameterValueProvider_IComponentData_1_tDF792C4E39D2F8D6C640BDAE7DA68CA03B5E5EAC  ___forParameter_targetPos_6;
+	LambdaParameterValueProvider_IComponentData_1_t2BEFBFA82529C5C4F19597DF4864726DAE71297F  ___forParameter_clone_7;
+};
+
+// SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
+struct LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F 
+{
+public:
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_Entity SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_system
+	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_system_0;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_EntityInQueryIndex SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_entityInQueryIndex
+	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<Unity.Transforms.Translation> SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_pos
+	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
+	// Unity.Entities.CodeGeneratedJobForEach.LambdaParameterValueProvider_IComponentData`1<SystemEntity/Id> SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders::forParameter_id
+	LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF  ___forParameter_id_3;
+
+public:
+	inline static int32_t get_offset_of_forParameter_system_0() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F, ___forParameter_system_0)); }
+	inline LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  get_forParameter_system_0() const { return ___forParameter_system_0; }
+	inline LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13 * get_address_of_forParameter_system_0() { return &___forParameter_system_0; }
+	inline void set_forParameter_system_0(LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  value)
+	{
+		___forParameter_system_0 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_entityInQueryIndex_1() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F, ___forParameter_entityInQueryIndex_1)); }
+	inline LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  get_forParameter_entityInQueryIndex_1() const { return ___forParameter_entityInQueryIndex_1; }
+	inline LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD * get_address_of_forParameter_entityInQueryIndex_1() { return &___forParameter_entityInQueryIndex_1; }
+	inline void set_forParameter_entityInQueryIndex_1(LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  value)
+	{
+		___forParameter_entityInQueryIndex_1 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_pos_2() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F, ___forParameter_pos_2)); }
+	inline LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  get_forParameter_pos_2() const { return ___forParameter_pos_2; }
+	inline LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF * get_address_of_forParameter_pos_2() { return &___forParameter_pos_2; }
+	inline void set_forParameter_pos_2(LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  value)
+	{
+		___forParameter_pos_2 = value;
+	}
+
+	inline static int32_t get_offset_of_forParameter_id_3() { return static_cast<int32_t>(offsetof(LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F, ___forParameter_id_3)); }
+	inline LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF  get_forParameter_id_3() const { return ___forParameter_id_3; }
+	inline LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF * get_address_of_forParameter_id_3() { return &___forParameter_id_3; }
+	inline void set_forParameter_id_3(LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF  value)
+	{
+		___forParameter_id_3 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
+struct LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F_marshaled_pinvoke
+{
+	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_system_0;
+	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
+	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
+	LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF  ___forParameter_id_3;
+};
+// Native definition for COM marshalling of SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders
+struct LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F_marshaled_com
+{
+	LambdaParameterValueProvider_Entity_t2058F0281B3B1F906E0077AEAB24FF52DFF8DA13  ___forParameter_system_0;
+	LambdaParameterValueProvider_EntityInQueryIndex_tFEF4977FF563039B261036701D5B4076A87BEEAD  ___forParameter_entityInQueryIndex_1;
+	LambdaParameterValueProvider_IComponentData_1_t0F18E725B012B018B3DF5C1435253A503BC588AF  ___forParameter_pos_2;
+	LambdaParameterValueProvider_IComponentData_1_tB8B3492F2A225BBBFA2E353DAC55A02DF02E42DF  ___forParameter_id_3;
 };
 
 // Unity.Collections.NativeArray`1/Enumerator<Unity.Entities.Entity>
@@ -15017,34 +15156,6 @@ public:
 	}
 
 	inline static int32_t get_offset_of_m_Index_1() { return static_cast<int32_t>(offsetof(Enumerator_t9D1B96D00C51E7EFAE740FDA240AE456E2405C10, ___m_Index_1)); }
-	inline int32_t get_m_Index_1() const { return ___m_Index_1; }
-	inline int32_t* get_address_of_m_Index_1() { return &___m_Index_1; }
-	inline void set_m_Index_1(int32_t value)
-	{
-		___m_Index_1 = value;
-	}
-};
-
-
-// Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>
-struct Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 
-{
-public:
-	// Unity.Collections.NativeArray`1<T> Unity.Collections.NativeArray`1/Enumerator::m_Array
-	NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  ___m_Array_0;
-	// System.Int32 Unity.Collections.NativeArray`1/Enumerator::m_Index
-	int32_t ___m_Index_1;
-
-public:
-	inline static int32_t get_offset_of_m_Array_0() { return static_cast<int32_t>(offsetof(Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543, ___m_Array_0)); }
-	inline NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  get_m_Array_0() const { return ___m_Array_0; }
-	inline NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 * get_address_of_m_Array_0() { return &___m_Array_0; }
-	inline void set_m_Array_0(NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  value)
-	{
-		___m_Array_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_Index_1() { return static_cast<int32_t>(offsetof(Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543, ___m_Index_1)); }
 	inline int32_t get_m_Index_1() const { return ___m_Index_1; }
 	inline int32_t* get_address_of_m_Index_1() { return &___m_Index_1; }
 	inline void set_m_Index_1(int32_t value)
@@ -15812,6 +15923,31 @@ public:
 	inline void set_maxShipID_2(int32_t value)
 	{
 		___maxShipID_2 = value;
+	}
+};
+
+
+// Stars
+struct Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66  : public RuntimeObject
+{
+public:
+
+public:
+};
+
+struct Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields
+{
+public:
+	// Unity.Entities.EntityManager Stars::em
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  ___em_0;
+
+public:
+	inline static int32_t get_offset_of_em_0() { return static_cast<int32_t>(offsetof(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields, ___em_0)); }
+	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  get_em_0() const { return ___em_0; }
+	inline EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * get_address_of_em_0() { return &___em_0; }
+	inline void set_em_0(EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  value)
+	{
+		___em_0 = value;
 	}
 };
 
@@ -17165,19 +17301,19 @@ struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t44AF7A71A5D3DB3695F5AE5EFA3E63
 	Runtimes_t64691B10446A26AEA4B9234528C1CC779EE3CB76 * ____runtimes_2;
 };
 
-// ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0
-struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8 
+// ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate
+struct U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C 
 {
 public:
-	// Unity.Entities.EntityCommandBuffer/ParallelWriter ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0::ecb
+	// Unity.Entities.EntityCommandBuffer/ParallelWriter ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate::ecb
 	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  ___ecb_0;
-	// ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0::_lambdaParameterValueProviders
-	LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101  ____lambdaParameterValueProviders_1;
-	// ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes* ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0::_runtimes
-	Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A * ____runtimes_2;
+	// ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate::_lambdaParameterValueProviders
+	LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC  ____lambdaParameterValueProviders_1;
+	// ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate/LambdaParameterValueProviders/Runtimes* ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate::_runtimes
+	Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 * ____runtimes_2;
 
 public:
-	inline static int32_t get_offset_of_ecb_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8, ___ecb_0)); }
+	inline static int32_t get_offset_of_ecb_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C, ___ecb_0)); }
 	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  get_ecb_0() const { return ___ecb_0; }
 	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611 * get_address_of_ecb_0() { return &___ecb_0; }
 	inline void set_ecb_0(ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  value)
@@ -17185,36 +17321,36 @@ public:
 		___ecb_0 = value;
 	}
 
-	inline static int32_t get_offset_of__lambdaParameterValueProviders_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8, ____lambdaParameterValueProviders_1)); }
-	inline LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101  get__lambdaParameterValueProviders_1() const { return ____lambdaParameterValueProviders_1; }
-	inline LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101 * get_address_of__lambdaParameterValueProviders_1() { return &____lambdaParameterValueProviders_1; }
-	inline void set__lambdaParameterValueProviders_1(LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101  value)
+	inline static int32_t get_offset_of__lambdaParameterValueProviders_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C, ____lambdaParameterValueProviders_1)); }
+	inline LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC  get__lambdaParameterValueProviders_1() const { return ____lambdaParameterValueProviders_1; }
+	inline LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC * get_address_of__lambdaParameterValueProviders_1() { return &____lambdaParameterValueProviders_1; }
+	inline void set__lambdaParameterValueProviders_1(LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC  value)
 	{
 		____lambdaParameterValueProviders_1 = value;
 	}
 
-	inline static int32_t get_offset_of__runtimes_2() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8, ____runtimes_2)); }
-	inline Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A * get__runtimes_2() const { return ____runtimes_2; }
-	inline Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A ** get_address_of__runtimes_2() { return &____runtimes_2; }
-	inline void set__runtimes_2(Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A * value)
+	inline static int32_t get_offset_of__runtimes_2() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C, ____runtimes_2)); }
+	inline Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 * get__runtimes_2() const { return ____runtimes_2; }
+	inline Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 ** get_address_of__runtimes_2() { return &____runtimes_2; }
+	inline void set__runtimes_2(Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 * value)
 	{
 		____runtimes_2 = value;
 	}
 };
 
-// Native definition for P/Invoke marshalling of ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0
-struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_marshaled_pinvoke
+// Native definition for P/Invoke marshalling of ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate
+struct U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_marshaled_pinvoke
 {
 	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_pinvoke ___ecb_0;
-	LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101_marshaled_pinvoke ____lambdaParameterValueProviders_1;
-	Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A * ____runtimes_2;
+	LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC_marshaled_pinvoke ____lambdaParameterValueProviders_1;
+	Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 * ____runtimes_2;
 };
-// Native definition for COM marshalling of ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0
-struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_marshaled_com
+// Native definition for COM marshalling of ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate
+struct U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_marshaled_com
 {
 	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_com ___ecb_0;
-	LambdaParameterValueProviders_t1819EBB49036C11346233F95E238007E057A4101_marshaled_com ____lambdaParameterValueProviders_1;
-	Runtimes_t04188A2558A37E128C42CF1394600C1C0979EF6A * ____runtimes_2;
+	LambdaParameterValueProviders_t5B66D85F702ABE71DBAAED9738B165E0F8F6B6BC_marshaled_com ____lambdaParameterValueProviders_1;
+	Runtimes_tB520F2B6C334AA47F682E975488E0AF3C2924465 * ____runtimes_2;
 };
 
 // ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1
@@ -17397,82 +17533,16 @@ struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A357903
 	Runtimes_t7E7DEF12E11A754B39CE603B7131925E95D8E782 * ____runtimes_4;
 };
 
-// ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1
-struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514 
-{
-public:
-	// Unity.Entities.EntityCommandBuffer/ParallelWriter ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1::ecb
-	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  ___ecb_0;
-	// Unity.Entities.Entity ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1::shipClone
-	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___shipClone_1;
-	// ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1::_lambdaParameterValueProviders
-	LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685  ____lambdaParameterValueProviders_2;
-	// ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1/LambdaParameterValueProviders/Runtimes* ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1::_runtimes
-	Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 * ____runtimes_3;
-
-public:
-	inline static int32_t get_offset_of_ecb_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514, ___ecb_0)); }
-	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  get_ecb_0() const { return ___ecb_0; }
-	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611 * get_address_of_ecb_0() { return &___ecb_0; }
-	inline void set_ecb_0(ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  value)
-	{
-		___ecb_0 = value;
-	}
-
-	inline static int32_t get_offset_of_shipClone_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514, ___shipClone_1)); }
-	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  get_shipClone_1() const { return ___shipClone_1; }
-	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 * get_address_of_shipClone_1() { return &___shipClone_1; }
-	inline void set_shipClone_1(Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  value)
-	{
-		___shipClone_1 = value;
-	}
-
-	inline static int32_t get_offset_of__lambdaParameterValueProviders_2() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514, ____lambdaParameterValueProviders_2)); }
-	inline LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685  get__lambdaParameterValueProviders_2() const { return ____lambdaParameterValueProviders_2; }
-	inline LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685 * get_address_of__lambdaParameterValueProviders_2() { return &____lambdaParameterValueProviders_2; }
-	inline void set__lambdaParameterValueProviders_2(LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685  value)
-	{
-		____lambdaParameterValueProviders_2 = value;
-	}
-
-	inline static int32_t get_offset_of__runtimes_3() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514, ____runtimes_3)); }
-	inline Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 * get__runtimes_3() const { return ____runtimes_3; }
-	inline Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 ** get_address_of__runtimes_3() { return &____runtimes_3; }
-	inline void set__runtimes_3(Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 * value)
-	{
-		____runtimes_3 = value;
-	}
-};
-
-// Native definition for P/Invoke marshalling of ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1
-struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_marshaled_pinvoke
-{
-	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_pinvoke ___ecb_0;
-	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___shipClone_1;
-	LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685_marshaled_pinvoke ____lambdaParameterValueProviders_2;
-	Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 * ____runtimes_3;
-};
-// Native definition for COM marshalling of ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1
-struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_marshaled_com
-{
-	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_com ___ecb_0;
-	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___shipClone_1;
-	LambdaParameterValueProviders_t76B6B74BA07C7032D50E97EB8F727354163B9685_marshaled_com ____lambdaParameterValueProviders_2;
-	Runtimes_t0735709E6C060AD088C86A3C48406081B95262C7 * ____runtimes_3;
-};
-
 // ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0
 struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 
 {
 public:
 	// System.Single ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0::time
 	float ___time_0;
-	// Unity.Entities.EntityCommandBuffer/ParallelWriter ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0::ecb
-	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  ___ecb_1;
 	// ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0::_lambdaParameterValueProviders
-	LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50  ____lambdaParameterValueProviders_2;
+	LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50  ____lambdaParameterValueProviders_1;
 	// ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes* ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0::_runtimes
-	Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * ____runtimes_3;
+	Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * ____runtimes_2;
 
 public:
 	inline static int32_t get_offset_of_time_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294, ___time_0)); }
@@ -17483,28 +17553,20 @@ public:
 		___time_0 = value;
 	}
 
-	inline static int32_t get_offset_of_ecb_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294, ___ecb_1)); }
-	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  get_ecb_1() const { return ___ecb_1; }
-	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611 * get_address_of_ecb_1() { return &___ecb_1; }
-	inline void set_ecb_1(ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  value)
+	inline static int32_t get_offset_of__lambdaParameterValueProviders_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294, ____lambdaParameterValueProviders_1)); }
+	inline LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50  get__lambdaParameterValueProviders_1() const { return ____lambdaParameterValueProviders_1; }
+	inline LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50 * get_address_of__lambdaParameterValueProviders_1() { return &____lambdaParameterValueProviders_1; }
+	inline void set__lambdaParameterValueProviders_1(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50  value)
 	{
-		___ecb_1 = value;
+		____lambdaParameterValueProviders_1 = value;
 	}
 
-	inline static int32_t get_offset_of__lambdaParameterValueProviders_2() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294, ____lambdaParameterValueProviders_2)); }
-	inline LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50  get__lambdaParameterValueProviders_2() const { return ____lambdaParameterValueProviders_2; }
-	inline LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50 * get_address_of__lambdaParameterValueProviders_2() { return &____lambdaParameterValueProviders_2; }
-	inline void set__lambdaParameterValueProviders_2(LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50  value)
+	inline static int32_t get_offset_of__runtimes_2() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294, ____runtimes_2)); }
+	inline Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * get__runtimes_2() const { return ____runtimes_2; }
+	inline Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 ** get_address_of__runtimes_2() { return &____runtimes_2; }
+	inline void set__runtimes_2(Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * value)
 	{
-		____lambdaParameterValueProviders_2 = value;
-	}
-
-	inline static int32_t get_offset_of__runtimes_3() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294, ____runtimes_3)); }
-	inline Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * get__runtimes_3() const { return ____runtimes_3; }
-	inline Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 ** get_address_of__runtimes_3() { return &____runtimes_3; }
-	inline void set__runtimes_3(Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * value)
-	{
-		____runtimes_3 = value;
+		____runtimes_2 = value;
 	}
 };
 
@@ -17512,17 +17574,15 @@ public:
 struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_marshaled_pinvoke
 {
 	float ___time_0;
-	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_pinvoke ___ecb_1;
-	LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_marshaled_pinvoke ____lambdaParameterValueProviders_2;
-	Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * ____runtimes_3;
+	LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_marshaled_pinvoke ____lambdaParameterValueProviders_1;
+	Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * ____runtimes_2;
 };
 // Native definition for COM marshalling of ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0
 struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_marshaled_com
 {
 	float ___time_0;
-	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_com ___ecb_1;
-	LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_marshaled_com ____lambdaParameterValueProviders_2;
-	Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * ____runtimes_3;
+	LambdaParameterValueProviders_t8F3BADDB6DE171109D6B918681439A47E1CA6F50_marshaled_com ____lambdaParameterValueProviders_1;
+	Runtimes_t92F6EE29BD0FE71FF1132277550CFCBF45424170 * ____runtimes_2;
 };
 
 // ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1
@@ -17587,6 +17647,70 @@ struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730E
 	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_com ___ecb_1;
 	LambdaParameterValueProviders_t9442DC67603331516912B3E8396FBF5E377F1A2B_marshaled_com ____lambdaParameterValueProviders_2;
 	Runtimes_t38CB48CC7AE1B4CEC5AA6F897FE638A447C35AC4 * ____runtimes_3;
+};
+
+// SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0
+struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2 
+{
+public:
+	// Unity.Entities.EntityCommandBuffer/ParallelWriter SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0::ecb
+	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  ___ecb_0;
+	// Unity.Entities.Entity SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0::systemClone
+	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___systemClone_1;
+	// SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0::_lambdaParameterValueProviders
+	LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F  ____lambdaParameterValueProviders_2;
+	// SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0/LambdaParameterValueProviders/Runtimes* SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0::_runtimes
+	Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A * ____runtimes_3;
+
+public:
+	inline static int32_t get_offset_of_ecb_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2, ___ecb_0)); }
+	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  get_ecb_0() const { return ___ecb_0; }
+	inline ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611 * get_address_of_ecb_0() { return &___ecb_0; }
+	inline void set_ecb_0(ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  value)
+	{
+		___ecb_0 = value;
+	}
+
+	inline static int32_t get_offset_of_systemClone_1() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2, ___systemClone_1)); }
+	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  get_systemClone_1() const { return ___systemClone_1; }
+	inline Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 * get_address_of_systemClone_1() { return &___systemClone_1; }
+	inline void set_systemClone_1(Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  value)
+	{
+		___systemClone_1 = value;
+	}
+
+	inline static int32_t get_offset_of__lambdaParameterValueProviders_2() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2, ____lambdaParameterValueProviders_2)); }
+	inline LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F  get__lambdaParameterValueProviders_2() const { return ____lambdaParameterValueProviders_2; }
+	inline LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F * get_address_of__lambdaParameterValueProviders_2() { return &____lambdaParameterValueProviders_2; }
+	inline void set__lambdaParameterValueProviders_2(LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F  value)
+	{
+		____lambdaParameterValueProviders_2 = value;
+	}
+
+	inline static int32_t get_offset_of__runtimes_3() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2, ____runtimes_3)); }
+	inline Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A * get__runtimes_3() const { return ____runtimes_3; }
+	inline Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A ** get_address_of__runtimes_3() { return &____runtimes_3; }
+	inline void set__runtimes_3(Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A * value)
+	{
+		____runtimes_3 = value;
+	}
+};
+
+// Native definition for P/Invoke marshalling of SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0
+struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_marshaled_pinvoke
+{
+	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_pinvoke ___ecb_0;
+	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___systemClone_1;
+	LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F_marshaled_pinvoke ____lambdaParameterValueProviders_2;
+	Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A * ____runtimes_3;
+};
+// Native definition for COM marshalling of SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0
+struct U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_marshaled_com
+{
+	ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611_marshaled_com ___ecb_0;
+	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___systemClone_1;
+	LambdaParameterValueProviders_t374019E3CBAD6BE455FA3EEFA99EFBECC435578F_marshaled_com ____lambdaParameterValueProviders_2;
+	Runtimes_t99FB3EB367BF9716527664FF530D1873D55ED91A * ____runtimes_3;
 };
 
 // TMPro.TMP_TextProcessingStack`1<TMPro.WordWrapState>
@@ -20717,6 +20841,15 @@ public:
 	{
 		___ShearAmount_7 = value;
 	}
+};
+
+
+// StructMinHeap
+struct StructMinHeap_tE4E8A2AF10E6896FDBADA67C5325AE77AB914A1B  : public MonoBehaviour_t37A501200D970A8257124B0EAE00A0FF3DDC354A
+{
+public:
+
+public:
 };
 
 
@@ -27137,16 +27270,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * World_GetOrCreateSystem_TisRu
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * World_GetExistingSystem_TisRuntimeObject_m35438BA6CEFDC2CBE23FBDE40D33C506FEB3516C_gshared (World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * __this, const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<AIEmulator/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tDEA29077CAB5357FE8C08A9652DAE416111AB482_mA1CDE0668098968A66EBFC582F1E06B22EA3D801_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tDEA29077CAB5357FE8C08A9652DAE416111AB482  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/Idle>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/TargetPos>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70_gshared (const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Tickets/TimeAtWrite>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84_gshared (const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Tickets/TimeAtExecute>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E_gshared (const RuntimeMethod* method);
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Tickets/TimeData>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/MovementData>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_gshared (const RuntimeMethod* method);
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/Idle>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Unity.Transforms.Translation>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Asteroids/Id>()
@@ -27355,8 +27486,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisRotation_t7CCB5FBBA0D2C6357C20B7EE527596EBD30F69E2_mED6F113A7769EB64DE089DE244E6409878494AB4_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<shipMoveData>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisshipMoveData_t49DEA3CDAFA403614CADDBF83A6C68AD657C5264_mF570140F394EEA1F0F9768F7CC70C12296A32FB6_gshared (const RuntimeMethod* method);
-// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
+// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A_gshared (U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24_m43B0DF6E6758D68853D45F6F95697FA2568366AD_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/Id>()
@@ -27365,22 +27496,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/HasClone>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_gshared (const RuntimeMethod* method);
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/Idle>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/CloneData>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m8D9B295A1503612FD8101F141C4B55689F8D25EE_gshared (const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/Idle>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_gshared (const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneDeleter/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tE78A64C4D347500D6D05ED5F074D31E80FFF1E24_mAF320291C221BFB06C67922BB767B51142BA3A97_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tE78A64C4D347500D6D05ED5F074D31E80FFF1E24  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F_m26806B5607F57E5A64989D633DC5C3C1A5C853B2_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
-// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/TargetPos>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_gshared (const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Tickets/TimeAtExecute>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_gshared (const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Tickets/TimeAtWrite>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A_gshared (const RuntimeMethod* method);
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Tickets/TimeData>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_gshared (const RuntimeMethod* method);
 // System.Void System.Collections.Generic.List`1<UnityEngine.Vector3>::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1__ctor_mF8F23D572031748AD428623AE16803455997E297_gshared (List_1_t577D28CFF6DFE3F6A8D4409F7A21CBF513C04181 * __this, const RuntimeMethod* method);
 // System.Void System.Collections.Generic.List`1<UnityEngine.Vector3>::Add(!0)
@@ -27389,16 +27516,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1_Add_mAE131B53917AD7132F6BA2C05D5D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
-// Unity.Collections.NativeArray`1<!!0> Unity.Entities.EntityQuery::ToComponentDataArray<Tickets/TimeAtExecute>(Unity.Collections.Allocator)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7_gshared (EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * __this, int32_t ___allocator0, const RuntimeMethod* method);
-// Unity.Collections.NativeArray`1/Enumerator<!0> Unity.Collections.NativeArray`1<Tickets/TimeAtExecute>::GetEnumerator()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543  NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC_gshared (NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 * __this, const RuntimeMethod* method);
-// !0 Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>::get_Current()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED  Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E_gshared (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 * __this, const RuntimeMethod* method);
-// System.Boolean Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>::MoveNext()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420_gshared (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 * __this, const RuntimeMethod* method);
-// System.Void Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>::Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00_gshared (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 * __this, const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/MoveMission>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742_gshared (const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/HasClone>()
@@ -27407,26 +27524,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EntityManager_SetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_m95B8C0C884289DDD437CE0653EB7B7B23FD69558_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  ___componentData1, const RuntimeMethod* method);
 // System.Void Unity.Entities.EntityManager::SetComponentData<Ships/MovementData>(Unity.Entities.Entity,!!0)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EntityManager_SetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m01A89F6E683E71B1F6639BAC1716461B78C5EE2A_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  ___componentData1, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponent<Tickets/TimeAtWrite>(Unity.Entities.Entity)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponent<Tickets/TimeAtExecute>(Unity.Entities.Entity)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
+// System.Boolean Unity.Entities.EntityManager::AddComponent<Tickets/TimeData>(Unity.Entities.Entity)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
 // System.Boolean Unity.Entities.EntityManager::AddComponent<Ships/TargetPos>(Unity.Entities.Entity)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponent<Ships/Idle>(Unity.Entities.Entity)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
-// !!0 Unity.Entities.EntityManager::GetComponentData<Ships/MovementData>(Unity.Entities.Entity)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
-// !!0 Unity.Entities.EntityManager::GetComponentData<Ships/Id>(Unity.Entities.Entity)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
-// !!0 Unity.Entities.EntityManager::GetComponentData<Ships/TargetPos>(Unity.Entities.Entity)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71  EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/MovementData>(Unity.Entities.Entity,!!0)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  ___componentData1, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/Id>(Unity.Entities.Entity,!!0)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  ___componentData1, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/CloneData>(Unity.Entities.Entity,!!0)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C  ___componentData1, const RuntimeMethod* method);
+// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/Idle>(Unity.Entities.Entity,!!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F  ___componentData1, const RuntimeMethod* method);
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Stars/Id>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48_gshared (const RuntimeMethod* method);
+// System.Boolean Unity.Entities.EntityManager::AddComponent<Stars/Id>(Unity.Entities.Entity)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D_gshared (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method);
+// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B_gshared (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method);
 
 // System.Collections.Generic.List`1<Ship> AI::get_unassignedShips()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR List_1_t8799C6247F5C296ACFFF1D7F8CAA2F49ADBD8835 * AI_get_unassignedShips_mAD3DD1FF40D662956C8DEDCA55BA7B467986B768_inline (AI_t4A4B38FAB6D716C943E2B4CDA9933AF2FC493B8F * __this, const RuntimeMethod* method);
@@ -27844,30 +27953,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemBase_OnCreateForCompiler_m0EBA1900
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  AIEmulator_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_mBBA4C516AE6E54EB85B05E71F51C27CDF6E46938 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
 // System.Void Unity.Entities.EntityQueryDesc::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EntityQueryDesc__ctor_mA868F175C41EAB9B07886AD23D877374E8E6E152 (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * __this, const RuntimeMethod* method);
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/Idle>()
-inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533 (const RuntimeMethod* method)
-{
-	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_gshared)(method);
-}
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/TargetPos>()
 inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70 (const RuntimeMethod* method)
 {
 	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70_gshared)(method);
 }
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Tickets/TimeAtWrite>()
-inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84 (const RuntimeMethod* method)
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Tickets/TimeData>()
+inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4 (const RuntimeMethod* method)
 {
-	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84_gshared)(method);
-}
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Tickets/TimeAtExecute>()
-inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E (const RuntimeMethod* method)
-{
-	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E_gshared)(method);
+	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4_gshared)(method);
 }
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/MovementData>()
 inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C (const RuntimeMethod* method)
 {
 	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_gshared)(method);
+}
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/Idle>()
+inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4 (const RuntimeMethod* method)
+{
+	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_gshared)(method);
 }
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Unity.Transforms.Translation>()
 inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66 (const RuntimeMethod* method)
@@ -29196,12 +29300,12 @@ inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_Re
 {
 	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisshipMoveData_t49DEA3CDAFA403614CADDBF83A6C68AD657C5264_mF570140F394EEA1F0F9768F7CC70C12296A32FB6_gshared)(method);
 }
-// System.Void ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0::ScheduleTimeInitialize(ShipCloneAnimator,ShipCloneAnimator/<>c__DisplayClass2_0&)
-IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m9B5F3F24D1C057B73B43F6CD10EF153225B90D67 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8 * IL2CPP_PARAMETER_RESTRICT __this, ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672 * ___componentSystem0, U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD * ___displayClass1, const RuntimeMethod* method);
-// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
-inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method)
+// System.Void ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate::ScheduleTimeInitialize(ShipCloneAnimator,ShipCloneAnimator/<>c__DisplayClass2_0&)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_AnimatorPreUpdate_ScheduleTimeInitialize_mEFF5C34B20FF365D12BC365B35CEB8C542C161CD (U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C * IL2CPP_PARAMETER_RESTRICT __this, ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672 * ___componentSystem0, U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD * ___displayClass1, const RuntimeMethod* method);
+// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneAnimator/<>c__DisplayClass_AnimatorPreUpdate>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
+inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A (U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method)
 {
-	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8 , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1_gshared)(___jobData0, ___query1, ___dependsOn2, method);
+	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A_gshared)(___jobData0, ___query1, ___dependsOn2, method);
 }
 // System.Void ShipCloneAnimator/<>c__DisplayClass_OnUpdate_LambdaJob1::ScheduleTimeInitialize(ShipCloneAnimator,ShipCloneAnimator/<>c__DisplayClass2_0&)
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_m5D0673205FC8C70CF461F7487D9F8447BD995AF6 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24 * IL2CPP_PARAMETER_RESTRICT __this, ShipCloneAnimator_tD3719DACF3562B6F2F1CE85EAF003E1F8CAAC672 * ___componentSystem0, U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD * ___displayClass1, const RuntimeMethod* method);
@@ -29210,8 +29314,10 @@ inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_S
 {
 	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24 , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24_m43B0DF6E6758D68853D45F6F95697FA2568366AD_gshared)(___jobData0, ___query1, ___dependsOn2, method);
 }
-// Unity.Entities.EntityQuery ShipCloneAnimator::<>GetEntityQuery_ForOnUpdate_LambdaJob0_From(Unity.Entities.ComponentSystemBase)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneAnimator_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_mB4EE62A4D417B4CF9D14168378AA7A659E6E9058 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
+// Unity.Jobs.JobHandle Unity.Jobs.JobHandle::CombineDependencies(Unity.Jobs.JobHandle,Unity.Jobs.JobHandle)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobHandle_CombineDependencies_mEC93CFFB7CF40D3C7B2EA6CF16B093C5321873FF (JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___job00, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___job11, const RuntimeMethod* method);
+// Unity.Entities.EntityQuery ShipCloneAnimator::<>GetEntityQuery_ForAnimatorPreUpdate_From(Unity.Entities.ComponentSystemBase)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneAnimator_U3CU3EGetEntityQuery_ForAnimatorPreUpdate_From_mE4F420D354EBEB74468F667A827583EE5858BEA6 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
 // Unity.Entities.EntityQuery ShipCloneAnimator::<>GetEntityQuery_ForOnUpdate_LambdaJob1_From(Unity.Entities.ComponentSystemBase)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneAnimator_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob1_From_m387CFBE91B20B4E2763331C0D618943FAC37A0B6 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/Id>()
@@ -29229,15 +29335,15 @@ inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_Re
 {
 	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_gshared)(method);
 }
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/Idle>()
+inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533 (const RuntimeMethod* method)
+{
+	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_gshared)(method);
+}
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/CloneData>()
 inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m8D9B295A1503612FD8101F141C4B55689F8D25EE (const RuntimeMethod* method)
 {
 	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m8D9B295A1503612FD8101F141C4B55689F8D25EE_gshared)(method);
-}
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadWrite<Ships/Idle>()
-inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4 (const RuntimeMethod* method)
-{
-	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_gshared)(method);
 }
 // System.Void ShipCloneDeleter/<>c__DisplayClass_OnUpdate_LambdaJob0::ScheduleTimeInitialize(ShipCloneDeleter,ShipCloneDeleter/<>c__DisplayClass2_0&)
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m84D277CDBD3784C37DC15C3EAE2726A3DA710FC0 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tE78A64C4D347500D6D05ED5F074D31E80FFF1E24 * IL2CPP_PARAMETER_RESTRICT __this, ShipCloneDeleter_tD881C2CC2577049313DFC17E0BFB503D521E3CD6 * ___componentSystem0, U3CU3Ec__DisplayClass2_0_t3D064CF0AD7779D08B54E5EBD0BA24B54EF45E46 * ___displayClass1, const RuntimeMethod* method);
@@ -29255,31 +29361,17 @@ inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_S
 {
 	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F_m26806B5607F57E5A64989D633DC5C3C1A5C853B2_gshared)(___jobData0, ___query1, ___dependsOn2, method);
 }
-// System.Void ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1::ScheduleTimeInitialize(ShipCloneSpawner,ShipCloneSpawner/<>c__DisplayClass2_0&)
-IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_mDD17D9D3F4A7E0636AD0F1327EC725FE4672FF03 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514 * IL2CPP_PARAMETER_RESTRICT __this, ShipCloneSpawner_t2E8407C0B671C2F98624D70FDAF608786C2475AB * ___componentSystem0, U3CU3Ec__DisplayClass2_0_t6A4A4A70C0C8DF48DDD38673100B437B9E4EC8EA * ___displayClass1, const RuntimeMethod* method);
-// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob1>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
-inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method)
-{
-	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514 , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F_gshared)(___jobData0, ___query1, ___dependsOn2, method);
-}
 // Unity.Entities.EntityQuery ShipCloneSpawner::<>GetEntityQuery_ForOnUpdate_LambdaJob0_From(Unity.Entities.ComponentSystemBase)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m91EEF99F83807D40813214CB6E02BAAAFA1F4520 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
-// Unity.Entities.EntityQuery ShipCloneSpawner::<>GetEntityQuery_ForOnUpdate_LambdaJob1_From(Unity.Entities.ComponentSystemBase)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob1_From_m45A6D4D65B5F123346D6394C11239F6F145550FB (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
 // Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Ships/TargetPos>()
 inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8 (const RuntimeMethod* method)
 {
 	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_gshared)(method);
 }
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Tickets/TimeAtExecute>()
-inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86 (const RuntimeMethod* method)
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Tickets/TimeData>()
+inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9 (const RuntimeMethod* method)
 {
-	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_gshared)(method);
-}
-// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Tickets/TimeAtWrite>()
-inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A (const RuntimeMethod* method)
-{
-	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A_gshared)(method);
+	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_gshared)(method);
 }
 // System.Void System.Collections.Generic.List`1<UnityEngine.Vector3>::.ctor()
 inline void List_1__ctor_mF8F23D572031748AD428623AE16803455997E297 (List_1_t577D28CFF6DFE3F6A8D4409F7A21CBF513C04181 * __this, const RuntimeMethod* method)
@@ -29291,46 +29383,19 @@ inline void List_1_Add_mAE131B53917AD7132F6BA2C05D5D17C38C5A2E59 (List_1_t577D28
 {
 	((  void (*) (List_1_t577D28CFF6DFE3F6A8D4409F7A21CBF513C04181 *, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E , const RuntimeMethod*))List_1_Add_mAE131B53917AD7132F6BA2C05D5D17C38C5A2E59_gshared)(__this, ___item0, method);
 }
-// System.Void ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0::ScheduleTimeInitialize(ShipTicketExecutor,ShipTicketExecutor/<>c__DisplayClass4_0&)
-IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m8062F934F9DCA392B262715D094098BFA581CF8C (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 * IL2CPP_PARAMETER_RESTRICT __this, ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545 * ___componentSystem0, U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659 * ___displayClass1, const RuntimeMethod* method);
+// System.Void ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0::ScheduleTimeInitialize(ShipTicketExecutor,ShipTicketExecutor/<>c__DisplayClass3_0&)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m630102A80250B2F7818226040DEA984319D653AB (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 * IL2CPP_PARAMETER_RESTRICT __this, ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545 * ___componentSystem0, U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453 * ___displayClass1, const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method)
 {
 	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55_gshared)(___jobData0, ___query1, ___dependsOn2, method);
 }
-// System.Void ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1::ScheduleTimeInitialize(ShipTicketExecutor,ShipTicketExecutor/<>c__DisplayClass4_0&)
-IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_mC131FC6C3CAAE3B59163CC00FBDDA0D6DFC1D919 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 * IL2CPP_PARAMETER_RESTRICT __this, ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545 * ___componentSystem0, U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659 * ___displayClass1, const RuntimeMethod* method);
+// System.Void ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1::ScheduleTimeInitialize(ShipTicketExecutor,ShipTicketExecutor/<>c__DisplayClass3_0&)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_m10A33A5BCA252FB1976D9F5B342F7DFC480855E1 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 * IL2CPP_PARAMETER_RESTRICT __this, ShipTicketExecutor_tE289FC1353E8ADE2E797F9DD7AFF1F7BF3842545 * ___componentSystem0, U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453 * ___displayClass1, const RuntimeMethod* method);
 // Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<ShipTicketExecutor/<>c__DisplayClass_OnUpdate_LambdaJob1>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
 inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method)
 {
 	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B_gshared)(___jobData0, ___query1, ___dependsOn2, method);
-}
-// Unity.Core.TimeData& modreq(System.Runtime.InteropServices.InAttribute) Unity.Entities.ComponentSystemBase::get_Time()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeData_t1892793CB71746290FBEED4D53C605AF3A3FA91F * ComponentSystemBase_get_Time_m6281A288187B20C0138A38BA08CA1D7949515A63 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * __this, const RuntimeMethod* method);
-// Unity.Collections.NativeArray`1<!!0> Unity.Entities.EntityQuery::ToComponentDataArray<Tickets/TimeAtExecute>(Unity.Collections.Allocator)
-inline NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7 (EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * __this, int32_t ___allocator0, const RuntimeMethod* method)
-{
-	return ((  NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  (*) (EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 *, int32_t, const RuntimeMethod*))EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7_gshared)(__this, ___allocator0, method);
-}
-// Unity.Collections.NativeArray`1/Enumerator<!0> Unity.Collections.NativeArray`1<Tickets/TimeAtExecute>::GetEnumerator()
-inline Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543  NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC (NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 * __this, const RuntimeMethod* method)
-{
-	return ((  Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543  (*) (NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 *, const RuntimeMethod*))NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC_gshared)(__this, method);
-}
-// !0 Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>::get_Current()
-inline TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED  Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 * __this, const RuntimeMethod* method)
-{
-	return ((  TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED  (*) (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 *, const RuntimeMethod*))Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E_gshared)(__this, method);
-}
-// System.Boolean Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>::MoveNext()
-inline bool Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420 (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 *, const RuntimeMethod*))Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420_gshared)(__this, method);
-}
-// System.Void Unity.Collections.NativeArray`1/Enumerator<Tickets/TimeAtExecute>::Dispose()
-inline void Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00 (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 * __this, const RuntimeMethod* method)
-{
-	((  void (*) (Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 *, const RuntimeMethod*))Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00_gshared)(__this, method);
 }
 // Unity.Entities.EntityQuery ShipTicketExecutor::<>GetEntityQuery_ForOnUpdate_LambdaJob0_From(Unity.Entities.ComponentSystemBase)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipTicketExecutor_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m51039C6E0FF15BA82D3AC8B197D5EEC024B0EAC4 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
@@ -29362,61 +29427,20 @@ inline void EntityManager_SetComponentData_TisMovementData_tD42E903DF41DA7019C13
 {
 	((  void (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866 , const RuntimeMethod*))EntityManager_SetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m01A89F6E683E71B1F6639BAC1716461B78C5EE2A_gshared)(__this, ___entity0, ___componentData1, method);
 }
-// System.Boolean Unity.Entities.EntityManager::AddComponent<Tickets/TimeAtWrite>(Unity.Entities.Entity)
-inline bool EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
+// System.Boolean Unity.Entities.EntityManager::AddComponent<Tickets/TimeData>(Unity.Entities.Entity)
+inline bool EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
 {
-	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E_gshared)(__this, ___entity0, method);
-}
-// System.Boolean Unity.Entities.EntityManager::AddComponent<Tickets/TimeAtExecute>(Unity.Entities.Entity)
-inline bool EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
-{
-	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944_gshared)(__this, ___entity0, method);
+	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C_gshared)(__this, ___entity0, method);
 }
 // System.Boolean Unity.Entities.EntityManager::AddComponent<Ships/TargetPos>(Unity.Entities.Entity)
 inline bool EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
 {
 	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F_gshared)(__this, ___entity0, method);
 }
-// System.Boolean Unity.Entities.EntityManager::AddComponent<Ships/Idle>(Unity.Entities.Entity)
-inline bool EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
+// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/Idle>(Unity.Entities.Entity,!!0)
+inline bool EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F  ___componentData1, const RuntimeMethod* method)
 {
-	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629_gshared)(__this, ___entity0, method);
-}
-// !!0 Unity.Entities.EntityManager::GetComponentData<Ships/MovementData>(Unity.Entities.Entity)
-inline MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
-{
-	return ((  MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A_gshared)(__this, ___entity0, method);
-}
-// !!0 Unity.Entities.EntityManager::GetComponentData<Ships/Id>(Unity.Entities.Entity)
-inline Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
-{
-	return ((  Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053_gshared)(__this, ___entity0, method);
-}
-// !!0 Unity.Entities.EntityManager::GetComponentData<Ships/TargetPos>(Unity.Entities.Entity)
-inline TargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71  EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4 (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
-{
-	return ((  TargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71  (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4_gshared)(__this, ___entity0, method);
-}
-// System.Void Tickets::GetTicket(Unity.Entities.Entity,Tickets/TimeAtExecute&,Tickets/TimeAtWrite&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Tickets_GetTicket_mD72EF0FCC20E38D2A4E9D50FB35003037E055D7A (Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___obj0, TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED * ___exe1, TimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA * ___write2, const RuntimeMethod* method);
-// System.Single UnityEngine.Mathf::InverseLerp(System.Single,System.Single,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Mathf_InverseLerp_mCD2E6F9ADCFFB40EB7D3086E444DF2C702F9C29B (float ___a0, float ___b1, float ___value2, const RuntimeMethod* method);
-// UnityEngine.Vector3 UnityEngine.Vector3::Lerp(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  Vector3_Lerp_m8E095584FFA10CF1D3EABCD04F4C83FB82EC5524_inline (Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___a0, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___b1, float ___t2, const RuntimeMethod* method);
-// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/MovementData>(Unity.Entities.Entity,!!0)
-inline bool EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  ___componentData1, const RuntimeMethod* method)
-{
-	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866 , const RuntimeMethod*))EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C_gshared)(__this, ___entity0, ___componentData1, method);
-}
-// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/Id>(Unity.Entities.Entity,!!0)
-inline bool EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  ___componentData1, const RuntimeMethod* method)
-{
-	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA , const RuntimeMethod*))EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD_gshared)(__this, ___entity0, ___componentData1, method);
-}
-// System.Boolean Unity.Entities.EntityManager::AddComponentData<Ships/CloneData>(Unity.Entities.Entity,!!0)
-inline bool EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C  ___componentData1, const RuntimeMethod* method)
-{
-	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C , const RuntimeMethod*))EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E_gshared)(__this, ___entity0, ___componentData1, method);
+	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F , const RuntimeMethod*))EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9_gshared)(__this, ___entity0, ___componentData1, method);
 }
 // System.Void TMPro.TMP_Text::SetText(System.String,System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_SetText_m10791DC97DC48E4E7EED514D5656D57D4D75513C (TMP_Text_t86179C97C713E1A6B3751B48DC7A16C874A7B262 * __this, String_t* ___sourceText0, float ___arg01, const RuntimeMethod* method);
@@ -29439,6 +29463,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWarpTextU3Ed__7__ctor_mEAD3C39209B755
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Keyframe__ctor_mE08ED8666CB420F48B8D95B7D6B305A5ED0CFD9C (Keyframe_tBEEE79DF5E970E48A8972FFFCE8B25A6068ACE9F * __this, float ___time0, float ___value1, const RuntimeMethod* method);
 // System.Void UnityEngine.AnimationCurve::.ctor(UnityEngine.Keyframe[])
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnimationCurve__ctor_mDF6C1314A61F0E6F286865DD8BEA991795C07AC0 (AnimationCurve_t2D452A14820CEDB83BFF2C911682A4E59001AD03 * __this, KeyframeU5BU5D_tF817D582FE6B521008A03DDBB5D1326DD78DB0BC* ___keys0, const RuntimeMethod* method);
+// Unity.Entities.ComponentType Unity.Entities.ComponentType::ReadOnly<Stars/Id>()
+inline ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48 (const RuntimeMethod* method)
+{
+	return ((  ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  (*) (const RuntimeMethod*))ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48_gshared)(method);
+}
+// System.Boolean Unity.Entities.EntityManager::AddComponent<Stars/Id>(Unity.Entities.Entity)
+inline bool EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 * __this, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  ___entity0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *, Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4 , const RuntimeMethod*))EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D_gshared)(__this, ___entity0, method);
+}
+// System.Void SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0::ScheduleTimeInitialize(SystemCloneSpawner,SystemCloneSpawner/<>c__DisplayClass2_0&)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m1ADE58B6CFFDA63600FD110254ACB05F09DB4671 (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2 * IL2CPP_PARAMETER_RESTRICT __this, SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7 * ___componentSystem0, U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635 * ___displayClass1, const RuntimeMethod* method);
+// Unity.Jobs.JobHandle Unity.Entities.JobChunkExtensions::ScheduleParallel<SystemCloneSpawner/<>c__DisplayClass_OnUpdate_LambdaJob0>(!!0,Unity.Entities.EntityQuery,Unity.Jobs.JobHandle)
+inline JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2  ___jobData0, EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ___query1, JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  ___dependsOn2, const RuntimeMethod* method)
+{
+	return ((  JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  (*) (U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2 , EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 , JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847 , const RuntimeMethod*))JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B_gshared)(___jobData0, ___query1, ___dependsOn2, method);
+}
+// Unity.Entities.EntityQuery SystemCloneSpawner::<>GetEntityQuery_ForOnUpdate_LambdaJob0_From(Unity.Entities.ComponentSystemBase)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  SystemCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m14285846115F3AB52C268BF33618304995C7C446 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method);
 // System.Void Unity.Mathematics.float3::.ctor(System.Int32)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void float3__ctor_mA11A3E946DF9C63E1F5B5AC4F0CC9AC3FC33785D_inline (float3_t9500D105F273B3D86BD354142E891C48FFF9F71D * __this, int32_t ___v0, const RuntimeMethod* method);
 // System.Void Unity.Mathematics.float3::.ctor(System.Single)
@@ -29491,8 +29534,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float math_max_mD8541933650D81292
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void math_sincos_m62FF0B31557448DAF3C3ED1EBCA171BD524BD96B_inline (float ___x0, float* ___s1, float* ___c2, const RuntimeMethod* method);
 // System.Single Unity.Mathematics.Random::NextFloat()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Random_NextFloat_m5D92BFE902BFEDBD0E6DA1E1EC2244B828ACEC39_inline (Random_tAA667D9E4475C884ADEB5B16274B7D4C4E90CC12 * __this, const RuntimeMethod* method);
-// System.Single UnityEngine.Mathf::Clamp01(System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Mathf_Clamp01_m2296D75F0F1292D5C8181C57007A1CA45F440C4C (float ___value0, const RuntimeMethod* method);
 // System.Void System.ThrowHelper::ThrowArgumentOutOfRangeException()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowArgumentOutOfRangeException_m4841366ABC2B2AFA37C10900551D7E07522C0929 (const RuntimeMethod* method);
 // Unity.Mathematics.uint3 Unity.Mathematics.math::uint3(System.UInt32,System.UInt32,System.UInt32)
@@ -31481,19 +31522,22 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AIEmulator_OnUpdate_m29D2914BC3A4FC679FD
 		NativeArray_1_t9B20A0E81802286671DE1586829BD0A95B06B241  L_6;
 		L_6 = RandomSystem_get_RandomArray_m9EEB8DBFCDD167548FD48FD5372E6B10E5D79C1D_inline(L_5, /*hidden argument*/NULL);
 		(&V_0)->set_randomArray_0(L_6);
-		// Entities.WithNativeDisableParallelForRestriction(randomArray).WithAll<Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref Ships.TargetPos target, ref Tickets.TimeAtWrite write, ref Tickets.TimeAtExecute exe, ref Ships.MovementData moveData, in Translation pos) =>
+		// Entities.WithNativeDisableParallelForRestriction(randomArray).ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref Ships.TargetPos target, ref Tickets.TimeData timeData, ref Ships.MovementData moveData, ref Ships.Idle idle, in Translation pos) =>
 		// {
-		//     var rand = randomArray[nativeThreadIndex];
-		//     target.position = rand.NextFloat3(0, 50);
-		//     float3 vect = target.position - pos.Value;
-		//     moveData.vector = math.normalize(vect);
-		//     write.time = time;
-		//     exe.time = time + (math.distance(target.position, pos.Value) / moveData.velocity);
+		//     if (idle.isIdle)
+		//     {
+		//         var rand = randomArray[nativeThreadIndex];
+		//         target.position = rand.NextFloat3(0, 50);
+		//         float3 vect = target.position - pos.Value;
+		//         moveData.vector = math.normalize(vect);
+		//         timeData.timeAtWrite = time;
+		//         timeData.timeAtExecute = time + (math.distance(target.position, pos.Value) / moveData.velocity);
 		// 
-		//     ecb.RemoveComponent<Ships.Idle>(entityInQueryIndex, ship);
-		//     ecb.AddComponent<Ships.MoveMission>(entityInQueryIndex, ship);
+		//         idle.isIdle = false;
+		//         ecb.AddComponent<Ships.MoveMission>(entityInQueryIndex, ship);
 		// 
-		//     randomArray[nativeThreadIndex] = rand;
+		//         randomArray[nativeThreadIndex] = rand;
+		//     }
 		// }).ScheduleParallel();
 		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_7;
 		L_7 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
@@ -31546,12 +31590,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
@@ -31571,47 +31614,42 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		NullCheck(L_2);
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
 		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)6));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)5));
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
-		L_7 = ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533(/*hidden argument*/ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
+		L_7 = ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70(/*hidden argument*/ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70_RuntimeMethod_var);
 		NullCheck(L_6);
 		(L_6)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_7);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_8 = L_6;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_9;
-		L_9 = ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70(/*hidden argument*/ComponentType_ReadWrite_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m1132EC3E015ECA42CEB64E9CC4F6C4671B746B70_RuntimeMethod_var);
+		L_9 = ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4(/*hidden argument*/ComponentType_ReadWrite_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mFFD38E0E4266595778E013C28A0FEBB6535CDAA4_RuntimeMethod_var);
 		NullCheck(L_8);
 		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)1)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_9);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_10 = L_8;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_11;
-		L_11 = ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84(/*hidden argument*/ComponentType_ReadWrite_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_m3D242A80EE43B7F4ACE9F3E6DF7E66E7D08ABC84_RuntimeMethod_var);
+		L_11 = ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C(/*hidden argument*/ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
 		NullCheck(L_10);
 		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)2)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_11);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_12 = L_10;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_13;
-		L_13 = ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E(/*hidden argument*/ComponentType_ReadWrite_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mE75CED79518F17C206272589CCE3251BD19A383E_RuntimeMethod_var);
+		L_13 = ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4(/*hidden argument*/ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
 		NullCheck(L_12);
 		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)3)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_13);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_14 = L_12;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_15;
-		L_15 = ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C(/*hidden argument*/ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
+		L_15 = ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66(/*hidden argument*/ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
 		NullCheck(L_14);
 		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)4)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_15);
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_16 = L_14;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_17;
-		L_17 = ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66(/*hidden argument*/ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
-		NullCheck(L_16);
-		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)5)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_17);
 		NullCheck(L_4);
-		L_4->set_All_2(L_16);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_18 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_19 = V_0;
-		NullCheck(L_18);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_20;
-		L_20 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_18, L_19, /*hidden argument*/NULL);
-		V_2 = L_20;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_21 = V_2;
-		return L_21;
+		L_4->set_All_2(L_14);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_16 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_17 = V_0;
+		NullCheck(L_16);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_18;
+		L_18 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_16, L_17, /*hidden argument*/NULL);
+		V_2 = L_18;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_19 = V_2;
+		return L_19;
 	}
 }
 #ifdef __clang__
@@ -33704,8 +33742,8 @@ IL_0113:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CameraController__ctor_m07EC5A8C82742876097619BE7DD9043F47327DAE (CameraController_tCFCE51ADE50A46097682FD3E2CEA53100D84E7E0 * __this, const RuntimeMethod* method)
 {
 	{
-		// public float angularVelocity = 1;
-		__this->set_angularVelocity_6((1.0f));
+		// public float angularVelocity = .3f;
+		__this->set_angularVelocity_6((0.300000012f));
 		MonoBehaviour__ctor_mC0995D847F6A95B1A553652636C38A2AA8B13BED(__this, /*hidden argument*/NULL);
 		return;
 	}
@@ -44415,23 +44453,27 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneAnimator_OnUpdate_m9C644E4E7433
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24_m43B0DF6E6758D68853D45F6F95697FA2568366AD_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD  V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764  V_1;
+	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8  V_2;
+	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_2;
 	memset((&V_2), 0, sizeof(V_2));
-	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_3;
+	EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764  V_3;
 	memset((&V_3), 0, sizeof(V_3));
-	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24  V_4;
+	U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C  V_4;
 	memset((&V_4), 0, sizeof(V_4));
 	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_5;
 	memset((&V_5), 0, sizeof(V_5));
+	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24  V_6;
+	memset((&V_6), 0, sizeof(V_6));
+	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_7;
+	memset((&V_7), 0, sizeof(V_7));
 	{
 		il2cpp_codegen_initobj((&V_0), sizeof(U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD ));
 		// var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
@@ -44439,59 +44481,69 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneAnimator_OnUpdate_m9C644E4E7433
 		NullCheck(L_0);
 		EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764  L_1;
 		L_1 = EntityCommandBufferSystem_CreateCommandBuffer_mB8B9113865A46279AE6BA046EE34A0DA3E9353E2(L_0, /*hidden argument*/NULL);
-		V_1 = L_1;
+		V_3 = L_1;
 		ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  L_2;
-		L_2 = EntityCommandBuffer_AsParallelWriter_m806F835375EDC53368BB295D0FFB3932A3DC7B84((EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764 *)(&V_1), /*hidden argument*/NULL);
+		L_2 = EntityCommandBuffer_AsParallelWriter_m806F835375EDC53368BB295D0FFB3932A3DC7B84((EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764 *)(&V_3), /*hidden argument*/NULL);
 		(&V_0)->set_ecb_0(L_2);
 		// var step = SB.masterDeltaTime;
 		IL2CPP_RUNTIME_CLASS_INIT(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
 		float L_3 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_masterDeltaTime_4();
 		(&V_0)->set_step_1(L_3);
-		// Entities.WithAll<Ships.Id>().ForEach((int entityInQueryIndex, in Ships.MovementData moveData, in Ships.HasClone clone) =>
+		// JobHandle updateHandle = Entities.WithName("AnimatorPreUpdate").WithAll<Ships.Id>().ForEach((int entityInQueryIndex, in Ships.MovementData moveData, in Ships.HasClone clone, in Ships.Idle idle) =>
 		// {
 		//     ecb.SetComponent<Ships.MovementData>(entityInQueryIndex, clone.clone, moveData);
-		// }).ScheduleParallel();
+		//     ecb.SetComponent<Ships.Idle>(entityInQueryIndex, clone.clone, new Ships.Idle() { isIdle = idle.isIdle });
+		// }).ScheduleParallel(this.Dependency);
 		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_4;
 		L_4 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_5;
 		L_5 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		V_3 = L_5;
-		il2cpp_codegen_initobj((&V_2), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8 ));
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m9B5F3F24D1C057B73B43F6CD10EF153225B90D67((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8 *)(&V_2), __this, (U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD *)(&V_0), /*hidden argument*/NULL);
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8  L_6 = V_2;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_7 = __this->get_U3CU3EOnUpdate_LambdaJob0_entityQuery_2();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_8 = V_3;
+		V_5 = L_5;
+		il2cpp_codegen_initobj((&V_4), sizeof(U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C ));
+		U3CU3Ec__DisplayClass_AnimatorPreUpdate_ScheduleTimeInitialize_mEFF5C34B20FF365D12BC365B35CEB8C542C161CD((U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C *)(&V_4), __this, (U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD *)(&V_0), /*hidden argument*/NULL);
+		U3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C  L_6 = V_4;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_7 = __this->get_U3CU3EAnimatorPreUpdate_entityQuery_2();
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_8 = V_5;
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_9;
-		L_9 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1(L_6, L_7, L_8, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t8D490A23C305C8CA8BAE445221E389DEB9391BD8_m391242A66049D8FC9D18325A55C9F87924BB02B1_RuntimeMethod_var);
-		V_3 = L_9;
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_10 = V_3;
-		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_10, /*hidden argument*/NULL);
-		// Entities.WithAll<Ships.Id, CloneTag>().WithNone<Ships.Idle>().ForEach((ref Translation trans, ref Rotation rot, in Ships.MovementData moveData, in Ships.CloneData cloneData) =>
+		L_9 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A(L_6, L_7, L_8, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_AnimatorPreUpdate_t6629AC80B02C6778B3CA9863B477B11C9A7D701C_m9F8DA8EA9672697A05DABE25FAF8EFF8A37D6C0A_RuntimeMethod_var);
+		V_5 = L_9;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_10 = V_5;
+		V_1 = L_10;
+		// JobHandle animateHandle = Entities.WithAll<Ships.Id, CloneTag>().ForEach((ref Translation trans, ref Rotation rot, in Ships.MovementData moveData, in Ships.CloneData cloneData, in Ships.Idle idle) =>
 		// {
-		//     trans.Value += moveData.vector * moveData.velocity * step;
-		//     rot = new Rotation() { Value = quaternion.LookRotation(moveData.vector, math.up()) };
-		// }).ScheduleParallel();
+		//     if (idle.isIdle == false)
+		//     {
+		//         trans.Value += moveData.vector * moveData.velocity * step;
+		//         rot = new Rotation() { Value = quaternion.LookRotation(moveData.vector, math.up()) };
+		//     }
+		// }).ScheduleParallel(this.Dependency);
 		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_11;
 		L_11 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_12;
 		L_12 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		V_5 = L_12;
-		il2cpp_codegen_initobj((&V_4), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24 ));
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_m5D0673205FC8C70CF461F7487D9F8447BD995AF6((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24 *)(&V_4), __this, (U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD *)(&V_0), /*hidden argument*/NULL);
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24  L_13 = V_4;
+		V_7 = L_12;
+		il2cpp_codegen_initobj((&V_6), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24 ));
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_m5D0673205FC8C70CF461F7487D9F8447BD995AF6((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24 *)(&V_6), __this, (U3CU3Ec__DisplayClass2_0_tD9115D566CE9EAA2A88A08652706BE7EF1ED83FD *)(&V_0), /*hidden argument*/NULL);
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24  L_13 = V_6;
 		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_14 = __this->get_U3CU3EOnUpdate_LambdaJob1_entityQuery_3();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_15 = V_5;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_15 = V_7;
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_16;
 		L_16 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24_m43B0DF6E6758D68853D45F6F95697FA2568366AD(L_13, L_14, L_15, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t6843E5A53CBC68D6740207DAC2DE91945D73BA24_m43B0DF6E6758D68853D45F6F95697FA2568366AD_RuntimeMethod_var);
-		V_5 = L_16;
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_17 = V_5;
-		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_17, /*hidden argument*/NULL);
+		V_7 = L_16;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_17 = V_7;
+		V_2 = L_17;
+		// this.Dependency = JobHandle.CombineDependencies(updateHandle, animateHandle);
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_18 = V_1;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_19 = V_2;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_20;
+		L_20 = JobHandle_CombineDependencies_mEC93CFFB7CF40D3C7B2EA6CF16B093C5321873FF(L_18, L_19, /*hidden argument*/NULL);
+		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_20, /*hidden argument*/NULL);
 		// ecbs.AddJobHandleForProducer(Dependency);
-		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_18 = __this->get_ecbs_1();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_19;
-		L_19 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		NullCheck(L_18);
-		EntityCommandBufferSystem_AddJobHandleForProducer_mDBDF8D98FC77267D0A87EF1277B078A8CCCE12AF(L_18, L_19, /*hidden argument*/NULL);
+		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_21 = __this->get_ecbs_1();
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_22;
+		L_22 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
+		NullCheck(L_21);
+		EntityCommandBufferSystem_AddJobHandleForProducer_mDBDF8D98FC77267D0A87EF1277B078A8CCCE12AF(L_21, L_22, /*hidden argument*/NULL);
 		// }
 		return;
 	}
@@ -44510,16 +44562,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneAnimator_OnCreateForCompiler_m8
 	{
 		SystemBase_OnCreateForCompiler_m0EBA19005313E80E2C977432945363AC0AB29864(__this, /*hidden argument*/NULL);
 		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_0;
-		L_0 = ShipCloneAnimator_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_mB4EE62A4D417B4CF9D14168378AA7A659E6E9058(__this, /*hidden argument*/NULL);
-		__this->set_U3CU3EOnUpdate_LambdaJob0_entityQuery_2(L_0);
+		L_0 = ShipCloneAnimator_U3CU3EGetEntityQuery_ForAnimatorPreUpdate_From_mE4F420D354EBEB74468F667A827583EE5858BEA6(__this, /*hidden argument*/NULL);
+		__this->set_U3CU3EAnimatorPreUpdate_entityQuery_2(L_0);
 		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_1;
 		L_1 = ShipCloneAnimator_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob1_From_m387CFBE91B20B4E2763331C0D618943FAC37A0B6(__this, /*hidden argument*/NULL);
 		__this->set_U3CU3EOnUpdate_LambdaJob1_entityQuery_3(L_1);
 		return;
 	}
 }
-// Unity.Entities.EntityQuery ShipCloneAnimator::<>GetEntityQuery_ForOnUpdate_LambdaJob0_From(Unity.Entities.ComponentSystemBase)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneAnimator_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_mB4EE62A4D417B4CF9D14168378AA7A659E6E9058 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method)
+// Unity.Entities.EntityQuery ShipCloneAnimator::<>GetEntityQuery_ForAnimatorPreUpdate_From(Unity.Entities.ComponentSystemBase)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneAnimator_U3CU3EGetEntityQuery_ForAnimatorPreUpdate_From_mE4F420D354EBEB74468F667A827583EE5858BEA6 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -44527,6 +44579,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
@@ -44547,7 +44600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		NullCheck(L_2);
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
 		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)3));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)4));
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
 		L_7 = ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208(/*hidden argument*/ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
@@ -44563,16 +44616,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		L_11 = ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09(/*hidden argument*/ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_RuntimeMethod_var);
 		NullCheck(L_10);
 		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)2)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_11);
-		NullCheck(L_4);
-		L_4->set_All_2(L_10);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_12 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_13 = V_0;
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_12 = L_10;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_13;
+		L_13 = ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533(/*hidden argument*/ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		NullCheck(L_12);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_14;
-		L_14 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_12, L_13, /*hidden argument*/NULL);
-		V_2 = L_14;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_15 = V_2;
-		return L_15;
+		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)3)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_13);
+		NullCheck(L_4);
+		L_4->set_All_2(L_12);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_14 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_15 = V_0;
+		NullCheck(L_14);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_16;
+		L_16 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_14, L_15, /*hidden argument*/NULL);
+		V_2 = L_16;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_17 = V_2;
+		return L_17;
 	}
 }
 // Unity.Entities.EntityQuery ShipCloneAnimator::<>GetEntityQuery_ForOnUpdate_LambdaJob1_From(Unity.Entities.ComponentSystemBase)
@@ -44585,8 +44643,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m8D9B295A1503612FD8101F141C4B55689F8D25EE_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisRotation_t7CCB5FBBA0D2C6357C20B7EE527596EBD30F69E2_mED6F113A7769EB64DE089DE244E6409878494AB4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mB9A407CB58D8E35C1742ABDE4A90C70B98CCC620_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
@@ -44608,7 +44666,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		NullCheck(L_2);
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
 		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)6));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)7));
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
 		L_7 = ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208(/*hidden argument*/ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
@@ -44639,25 +44697,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		L_17 = ComponentType_ReadOnly_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m8D9B295A1503612FD8101F141C4B55689F8D25EE(/*hidden argument*/ComponentType_ReadOnly_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m8D9B295A1503612FD8101F141C4B55689F8D25EE_RuntimeMethod_var);
 		NullCheck(L_16);
 		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)5)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_17);
-		NullCheck(L_4);
-		L_4->set_All_2(L_16);
-		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_18 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_19 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)1));
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_20 = L_19;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_21;
-		L_21 = ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4(/*hidden argument*/ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
-		NullCheck(L_20);
-		(L_20)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_21);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_18 = L_16;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_19;
+		L_19 = ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533(/*hidden argument*/ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		NullCheck(L_18);
-		L_18->set_None_1(L_20);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_22 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_23 = V_0;
-		NullCheck(L_22);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_24;
-		L_24 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_22, L_23, /*hidden argument*/NULL);
-		V_2 = L_24;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_25 = V_2;
-		return L_25;
+		(L_18)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)6)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_19);
+		NullCheck(L_4);
+		L_4->set_All_2(L_18);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_20 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_21 = V_0;
+		NullCheck(L_20);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_22;
+		L_22 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_20, L_21, /*hidden argument*/NULL);
+		V_2 = L_22;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_23 = V_2;
+		return L_23;
 	}
 }
 #ifdef __clang__
@@ -44861,7 +44915,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneSpawner_OnUpdate_mF2005211F3113
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD80D60636E8DA841A947D43A35790338E03CC15F_m26806B5607F57E5A64989D633DC5C3C1A5C853B2_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -44873,10 +44926,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneSpawner_OnUpdate_mF2005211F3113
 	memset((&V_2), 0, sizeof(V_2));
 	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_3;
 	memset((&V_3), 0, sizeof(V_3));
-	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514  V_4;
-	memset((&V_4), 0, sizeof(V_4));
-	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_5;
-	memset((&V_5), 0, sizeof(V_5));
 	{
 		il2cpp_codegen_initobj((&V_0), sizeof(U3CU3Ec__DisplayClass2_0_t6A4A4A70C0C8DF48DDD38673100B437B9E4EC8EA ));
 		// var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
@@ -44895,20 +44944,38 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneSpawner_OnUpdate_mF2005211F3113
 		// var time = SB.masterTime;
 		float L_4 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_masterTime_3();
 		(&V_0)->set_time_2(L_4);
-		// Entities.WithAll<BaseEntity.SpawnCloneTag>().WithNone<Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, in Ships.Id Id, in Translation pos, in Ships.MovementData moveData, in Ships.TargetPos targetPosData, in Tickets.TimeAtExecute exe, in Tickets.TimeAtWrite write) =>
+		// Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Ships.Id Id, in Translation pos, in Ships.MovementData moveData, in Ships.TargetPos targetPosData, in Tickets.TimeData timeData, in Ships.Idle idle) =>
 		// {
-		//     Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
-		//     var targetPos = targetPosData.position;
+		//     if (idle.isIdle)
+		//     {
+		//         Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
 		// 
-		//     var spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(write.time, exe.time, time));
+		//         ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+		//         ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+		//         ecb.AddComponent<Ships.MovementData>(entityInQueryIndex, clone, moveData);
+		//         ecb.AddComponent<Ships.Id>(entityInQueryIndex, clone, Id);
+		//         ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
+		//         ecb.AddComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
+		//         ecb.AddComponent<Ships.Idle>(entityInQueryIndex, clone, new Ships.Idle() { isIdle = idle.isIdle});
+		//         ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
+		//     }
+		//     else
+		//     {
+		//         Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+		//         var targetPos = targetPosData.position;
 		// 
-		//     ecb.SetComponent<Translation>(entityInQueryIndex, clone, new Translation() { Value = spawnPos });
-		//     ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-		//     ecb.AddComponent<Ships.MovementData>(entityInQueryIndex, clone, moveData);
-		//     ecb.AddComponent<Ships.Id>(entityInQueryIndex, clone, Id);
-		//     ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
-		//     ecb.AddComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
-		//     ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
+		//         var spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(timeData.timeAtWrite, timeData.timeAtExecute, time));
+		// 
+		//         ecb.SetComponent<Translation>(entityInQueryIndex, clone, new Translation() { Value = spawnPos });
+		//         ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+		//         ecb.AddComponent<Ships.MovementData>(entityInQueryIndex, clone, moveData);
+		//         ecb.AddComponent<Ships.Id>(entityInQueryIndex, clone, Id);
+		//         ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
+		//         ecb.AddComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
+		//         ecb.AddComponent<Ships.Idle>(entityInQueryIndex, clone, new Ships.Idle() { isIdle = idle.isIdle });
+		//         ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
+		//     }
+		// 
 		// 
 		// }).ScheduleParallel();
 		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_5;
@@ -44926,40 +44993,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneSpawner_OnUpdate_mF2005211F3113
 		V_3 = L_10;
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_11 = V_3;
 		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_11, /*hidden argument*/NULL);
-		// Entities.WithAll<BaseEntity.SpawnCloneTag, Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, in Ships.Id id, in Translation pos, in Ships.MovementData moveData) =>
-		// {
-		//     Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
-		// 
-		//     ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
-		//     ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-		//     ecb.AddComponent<Ships.MovementData>(entityInQueryIndex, clone, moveData);
-		//     ecb.AddComponent<Ships.Id>(entityInQueryIndex, clone, id);
-		//     ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
-		//     ecb.AddComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
-		//     ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
-		// 
-		// }).ScheduleParallel();
-		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_12;
-		L_12 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
+		// ecbs.AddJobHandleForProducer(Dependency);
+		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_12 = __this->get_ecbs_1();
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_13;
 		L_13 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		V_5 = L_13;
-		il2cpp_codegen_initobj((&V_4), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514 ));
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_mDD17D9D3F4A7E0636AD0F1327EC725FE4672FF03((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514 *)(&V_4), __this, (U3CU3Ec__DisplayClass2_0_t6A4A4A70C0C8DF48DDD38673100B437B9E4EC8EA *)(&V_0), /*hidden argument*/NULL);
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514  L_14 = V_4;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_15 = __this->get_U3CU3EOnUpdate_LambdaJob1_entityQuery_3();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_16 = V_5;
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_17;
-		L_17 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F(L_14, L_15, L_16, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t5F978F79CA7002C3B8D4B68693A4E3FDEBD6D514_m5020E4150775EDDB3DB2799F5BA309081049CA8F_RuntimeMethod_var);
-		V_5 = L_17;
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_18 = V_5;
-		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_18, /*hidden argument*/NULL);
-		// ecbs.AddJobHandleForProducer(Dependency);
-		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_19 = __this->get_ecbs_1();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_20;
-		L_20 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		NullCheck(L_19);
-		EntityCommandBufferSystem_AddJobHandleForProducer_mDBDF8D98FC77267D0A87EF1277B078A8CCCE12AF(L_19, L_20, /*hidden argument*/NULL);
+		NullCheck(L_12);
+		EntityCommandBufferSystem_AddJobHandleForProducer_mDBDF8D98FC77267D0A87EF1277B078A8CCCE12AF(L_12, L_13, /*hidden argument*/NULL);
 		// }
 		return;
 	}
@@ -44980,9 +45019,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipCloneSpawner_OnCreateForCompiler_mC5
 		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_0;
 		L_0 = ShipCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m91EEF99F83807D40813214CB6E02BAAAFA1F4520(__this, /*hidden argument*/NULL);
 		__this->set_U3CU3EOnUpdate_LambdaJob0_entityQuery_2(L_0);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_1;
-		L_1 = ShipCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob1_From_m45A6D4D65B5F123346D6394C11239F6F145550FB(__this, /*hidden argument*/NULL);
-		__this->set_U3CU3EOnUpdate_LambdaJob1_entityQuery_3(L_1);
 		return;
 	}
 }
@@ -44994,13 +45030,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
@@ -45048,102 +45083,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)4)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_15);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_16 = L_14;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_17;
-		L_17 = ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86(/*hidden argument*/ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
+		L_17 = ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9(/*hidden argument*/ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var);
 		NullCheck(L_16);
 		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)5)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_17);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_18 = L_16;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_19;
-		L_19 = ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A(/*hidden argument*/ComponentType_ReadOnly_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mE90AA3F915DC6275B8EFF59ABD20AC567D411C2A_RuntimeMethod_var);
+		L_19 = ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533(/*hidden argument*/ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
 		NullCheck(L_18);
 		(L_18)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)6)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_19);
 		NullCheck(L_4);
 		L_4->set_All_2(L_18);
-		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_20 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_21 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)1));
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_22 = L_21;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_23;
-		L_23 = ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4(/*hidden argument*/ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
-		NullCheck(L_22);
-		(L_22)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_23);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_20 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_21 = V_0;
 		NullCheck(L_20);
-		L_20->set_None_1(L_22);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_24 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_25 = V_0;
-		NullCheck(L_24);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_26;
-		L_26 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_24, L_25, /*hidden argument*/NULL);
-		V_2 = L_26;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_27 = V_2;
-		return L_27;
-	}
-}
-// Unity.Entities.EntityQuery ShipCloneSpawner::<>GetEntityQuery_ForOnUpdate_LambdaJob1_From(Unity.Entities.ComponentSystemBase)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  ShipCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob1_From_m45A6D4D65B5F123346D6394C11239F6F145550FB (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* V_0 = NULL;
-	EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * V_1 = NULL;
-	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_0 = (EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3*)(EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3*)SZArrayNew(EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var, (uint32_t)1);
-		V_0 = L_0;
-		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_1 = (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)il2cpp_codegen_object_new(EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
-		EntityQueryDesc__ctor_mA868F175C41EAB9B07886AD23D877374E8E6E152(L_1, /*hidden argument*/NULL);
-		V_1 = L_1;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_2 = V_0;
-		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_3 = V_1;
-		NullCheck(L_2);
-		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
-		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)5));
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
-		L_7 = ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C(/*hidden argument*/ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C_RuntimeMethod_var);
-		NullCheck(L_6);
-		(L_6)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_7);
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_8 = L_6;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_9;
-		L_9 = ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533(/*hidden argument*/ComponentType_ReadOnly_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m41BE323D2BC37BBB3208D50407449343BF14C533_RuntimeMethod_var);
-		NullCheck(L_8);
-		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)1)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_9);
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_10 = L_8;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_11;
-		L_11 = ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208(/*hidden argument*/ComponentType_ReadOnly_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC167FB11B4C65E0C83400EC5DBABF5061D4B6208_RuntimeMethod_var);
-		NullCheck(L_10);
-		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)2)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_11);
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_12 = L_10;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_13;
-		L_13 = ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66(/*hidden argument*/ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
-		NullCheck(L_12);
-		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)3)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_13);
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_14 = L_12;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_15;
-		L_15 = ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87(/*hidden argument*/ComponentType_ReadOnly_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE0C17BDC8F8DEE8A0B5D9ED1B3EDB91B4375BC87_RuntimeMethod_var);
-		NullCheck(L_14);
-		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)4)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_15);
-		NullCheck(L_4);
-		L_4->set_All_2(L_14);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_16 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_17 = V_0;
-		NullCheck(L_16);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_18;
-		L_18 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_16, L_17, /*hidden argument*/NULL);
-		V_2 = L_18;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_19 = V_2;
-		return L_19;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_22;
+		L_22 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_20, L_21, /*hidden argument*/NULL);
+		V_2 = L_22;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_23 = V_2;
+		return L_23;
 	}
 }
 #ifdef __clang__
@@ -45267,14 +45224,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnCreate_mE7233CDA4BD
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_0;
-	memset((&V_0), 0, sizeof(V_0));
 	{
 		// base.OnCreate();
 		ComponentSystemBase_OnCreate_mC0728FDC7570A21B4FD7C07DA2017D3D6AAC0440(__this, /*hidden argument*/NULL);
@@ -45285,23 +45237,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnCreate_mE7233CDA4BD
 		EndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117 * L_1;
 		L_1 = World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59(L_0, /*hidden argument*/World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
 		__this->set_ecbs_1(L_1);
-		// query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<Tickets.TimeAtExecute>());
-		IL2CPP_RUNTIME_CLASS_INIT(World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
-		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_2;
-		L_2 = World_get_DefaultGameObjectInjectionWorld_mD5028BED746657C134829D2BA8D56C36F618D306_inline(/*hidden argument*/NULL);
-		NullCheck(L_2);
-		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
-		L_3 = World_get_EntityManager_mD2E22B47AD56866F4955B8B4D00AFAC3C7454838(L_2, /*hidden argument*/NULL);
-		V_0 = L_3;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_4 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)1);
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = L_4;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_6;
-		L_6 = ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86(/*hidden argument*/ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
-		NullCheck(L_5);
-		(L_5)->SetAt(static_cast<il2cpp_array_size_t>(0), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_6);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_7;
-		L_7 = EntityManager_CreateEntityQuery_mFC615839B5A91EAA153451CC80DF642EDE6F43DB((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), L_5, /*hidden argument*/NULL);
-		__this->set_query_2(L_7);
 		// }
 		return;
 	}
@@ -45312,37 +45247,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnUpdate_mA095CEAF770
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659  V_0;
+	U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453  V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764  V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	int32_t V_2 = 0;
-	NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  V_3;
+	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294  V_2;
+	memset((&V_2), 0, sizeof(V_2));
+	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_3;
 	memset((&V_3), 0, sizeof(V_3));
-	Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543  V_4;
+	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902  V_4;
 	memset((&V_4), 0, sizeof(V_4));
-	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294  V_5;
+	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_5;
 	memset((&V_5), 0, sizeof(V_5));
-	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_6;
-	memset((&V_6), 0, sizeof(V_6));
-	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902  V_7;
-	memset((&V_7), 0, sizeof(V_7));
-	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_8;
-	memset((&V_8), 0, sizeof(V_8));
-	Exception_t * __last_unhandled_exception = 0;
-	il2cpp::utils::ExceptionSupportStack<int32_t, 1> __leave_targets;
 	{
-		il2cpp_codegen_initobj((&V_0), sizeof(U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659 ));
+		il2cpp_codegen_initobj((&V_0), sizeof(U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453 ));
 		// var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_0 = __this->get_ecbs_1();
 		NullCheck(L_0);
@@ -45356,35 +45279,37 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnUpdate_mA095CEAF770
 		IL2CPP_RUNTIME_CLASS_INIT(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
 		float L_3 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_masterTime_3();
 		(&V_0)->set_time_0(L_3);
-		// Entities.WithAll<Ships.MoveMission>().WithNone<Ships.HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, in Tickets.TimeAtExecute exe, in Ships.TargetPos targetPos) =>
+		// Entities.WithAll<Ships.MoveMission>().WithNone<Ships.HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Ships.Idle idle, ref Ships.MovementData moveData, in Tickets.TimeData exe, in Ships.TargetPos targetPos) =>
 		// {
-		//     if (exe.time < time)
+		//     if (exe.timeAtExecute < time)
 		//     {
 		//         pos.Value = targetPos.position;
-		//         ecb.AddComponent<Ships.Idle>(entityInQueryIndex, ship);
+		//         moveData.vector = new float3();
+		//         idle.isIdle = true;
 		//     }
 		// }).ScheduleParallel();
 		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_4;
 		L_4 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_5;
 		L_5 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		V_6 = L_5;
-		il2cpp_codegen_initobj((&V_5), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 ));
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m8062F934F9DCA392B262715D094098BFA581CF8C((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 *)(&V_5), __this, (U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659 *)(&V_0), /*hidden argument*/NULL);
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294  L_6 = V_5;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_7 = __this->get_U3CU3EOnUpdate_LambdaJob0_entityQuery_4();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_8 = V_6;
+		V_3 = L_5;
+		il2cpp_codegen_initobj((&V_2), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 ));
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m630102A80250B2F7818226040DEA984319D653AB((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294 *)(&V_2), __this, (U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453 *)(&V_0), /*hidden argument*/NULL);
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294  L_6 = V_2;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_7 = __this->get_U3CU3EOnUpdate_LambdaJob0_entityQuery_3();
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_8 = V_3;
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_9;
 		L_9 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55(L_6, L_7, L_8, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_tD0FCC46F5F327F0FACB8B072E5390C8BFFA12294_m5F067AE6231A99370275076127E4FFA583A5DB55_RuntimeMethod_var);
-		V_6 = L_9;
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_10 = V_6;
+		V_3 = L_9;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_10 = V_3;
 		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_10, /*hidden argument*/NULL);
-		// Entities.WithAll<Ships.MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, in Tickets.TimeAtExecute exe, in Ships.TargetPos targetPos, in Ships.HasClone clone) =>
+		// Entities.WithAll<Ships.MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Ships.Idle idle, ref Ships.MovementData moveData, in Tickets.TimeData exe, in Ships.TargetPos targetPos, in Ships.HasClone clone) =>
 		// {
-		//     if (exe.time < time)
+		//     if (exe.timeAtExecute < time)
 		//     {
 		//         pos.Value = targetPos.position;
-		//         ecb.AddComponent<Ships.Idle>(entityInQueryIndex, ship);
+		//         idle.isIdle = true;
+		//         moveData.vector = new float3();
 		//         ecb.SetComponent<Translation>(entityInQueryIndex, clone.clone, pos);
 		//     }
 		// }).ScheduleParallel();
@@ -45392,16 +45317,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnUpdate_mA095CEAF770
 		L_11 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_12;
 		L_12 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
-		V_8 = L_12;
-		il2cpp_codegen_initobj((&V_7), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 ));
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_mC131FC6C3CAAE3B59163CC00FBDDA0D6DFC1D919((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 *)(&V_7), __this, (U3CU3Ec__DisplayClass4_0_t683040A4BAA04FCC48056F4555D6F8AE69BB3659 *)(&V_0), /*hidden argument*/NULL);
-		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902  L_13 = V_7;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_14 = __this->get_U3CU3EOnUpdate_LambdaJob1_entityQuery_5();
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_15 = V_8;
+		V_5 = L_12;
+		il2cpp_codegen_initobj((&V_4), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 ));
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_ScheduleTimeInitialize_m10A33A5BCA252FB1976D9F5B342F7DFC480855E1((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902 *)(&V_4), __this, (U3CU3Ec__DisplayClass3_0_tF646CA09A98584C48F1C3C2557246CCB368DF453 *)(&V_0), /*hidden argument*/NULL);
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902  L_13 = V_4;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_14 = __this->get_U3CU3EOnUpdate_LambdaJob1_entityQuery_4();
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_15 = V_5;
 		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_16;
 		L_16 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B(L_13, L_14, L_15, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob1_t746D67401996FA0A6C4E7A4E9D730EFEFB506902_m3672C6F797D742AC6995624D16FA36F137C5022B_RuntimeMethod_var);
-		V_8 = L_16;
-		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_17 = V_8;
+		V_5 = L_16;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_17 = V_5;
 		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_17, /*hidden argument*/NULL);
 		// ecbs.AddJobHandleForProducer(Dependency);
 		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_18 = __this->get_ecbs_1();
@@ -45409,100 +45334,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnUpdate_mA095CEAF770
 		L_19 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
 		NullCheck(L_18);
 		EntityCommandBufferSystem_AddJobHandleForProducer_mDBDF8D98FC77267D0A87EF1277B078A8CCCE12AF(L_18, L_19, /*hidden argument*/NULL);
-		// if ((int)Time.ElapsedTime % 5 == 0)
-		TimeData_t1892793CB71746290FBEED4D53C605AF3A3FA91F * L_20;
-		L_20 = ComponentSystemBase_get_Time_m6281A288187B20C0138A38BA08CA1D7949515A63(__this, /*hidden argument*/NULL);
-		NullCheck(L_20);
-		double L_21 = L_20->get_ElapsedTime_0();
-		if (((int32_t)((int32_t)((int32_t)((int32_t)L_21))%(int32_t)((int32_t)5))))
-		{
-			goto IL_01ad;
-		}
-	}
-	{
-		// int count = 0;
-		V_2 = ((int32_t)0);
-		// var list = query.ToComponentDataArray<Tickets.TimeAtExecute>(Allocator.Temp);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * L_22 = __this->get_address_of_query_2();
-		NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4  L_23;
-		L_23 = EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7((EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 *)L_22, ((int32_t)2), /*hidden argument*/EntityQuery_ToComponentDataArray_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mFACC04F57AC3CDA98449CE00D4A28AEFDD054DD7_RuntimeMethod_var);
-		V_3 = L_23;
-		// foreach (var item in list)
-		Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543  L_24;
-		L_24 = NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC((NativeArray_1_t20E37B07CF4F07EBC87559DADF2C75B1C467B5A4 *)(&V_3), /*hidden argument*/NativeArray_1_GetEnumerator_m58BC7D89BFB68E1E7B6EEE57BDDF8E2C2DE562AC_RuntimeMethod_var);
-		V_4 = L_24;
-	}
-
-IL_014e:
-	try
-	{ // begin try (depth: 1)
-		{
-			goto IL_017d;
-		}
-
-IL_0153:
-		{
-			// foreach (var item in list)
-			TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED  L_25;
-			L_25 = Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E((Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 *)(&V_4), /*hidden argument*/Enumerator_get_Current_mFBC4BE2D1092655B0C0C4891D2D509C061F2CC5E_RuntimeMethod_var);
-			// if (item.time < time)
-			float L_26 = L_25.get_time_0();
-			float L_27 = (&V_0)->get_time_0();
-			if ((!(((float)L_26) < ((float)L_27))))
-			{
-				goto IL_017d;
-			}
-		}
-
-IL_016f:
-		{
-			// count++;
-			int32_t L_28 = V_2;
-			V_2 = ((int32_t)il2cpp_codegen_add((int32_t)L_28, (int32_t)((int32_t)1)));
-		}
-
-IL_017d:
-		{
-			// foreach (var item in list)
-			bool L_29;
-			L_29 = Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420((Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 *)(&V_4), /*hidden argument*/Enumerator_MoveNext_mA181A322305A6B7E86391C1492FB4C913C5CF420_RuntimeMethod_var);
-			if (L_29)
-			{
-				goto IL_0153;
-			}
-		}
-
-IL_018b:
-		{
-			IL2CPP_LEAVE(0x1A0, FINALLY_0190);
-		}
-	} // end try (depth: 1)
-	catch(Il2CppExceptionWrapper& e)
-	{
-		__last_unhandled_exception = (Exception_t *)e.ex;
-		goto FINALLY_0190;
-	}
-
-FINALLY_0190:
-	{ // begin finally (depth: 1)
-		Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00((Enumerator_tE0F2E4311BEA43B7F7D000B25B51577DF8A12543 *)(&V_4), /*hidden argument*/Enumerator_Dispose_m691EADA145FA010C7AEEEEDAC3A32300D74E8A00_RuntimeMethod_var);
-		IL2CPP_END_FINALLY(400)
-	} // end finally (depth: 1)
-	IL2CPP_CLEANUP(400)
-	{
-		IL2CPP_RETHROW_IF_UNHANDLED(Exception_t *)
-		IL2CPP_JUMP_TBL(0x1A0, IL_01a0)
-	}
-
-IL_01a0:
-	{
-		// ticketsExecutedPerFrame = count;
-		int32_t L_30 = V_2;
-		__this->set_ticketsExecutedPerFrame_3(L_30);
-	}
-
-IL_01ad:
-	{
 		// }
 		return;
 	}
@@ -45522,10 +45353,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShipTicketExecutor_OnCreateForCompiler_m
 		SystemBase_OnCreateForCompiler_m0EBA19005313E80E2C977432945363AC0AB29864(__this, /*hidden argument*/NULL);
 		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_0;
 		L_0 = ShipTicketExecutor_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m51039C6E0FF15BA82D3AC8B197D5EEC024B0EAC4(__this, /*hidden argument*/NULL);
-		__this->set_U3CU3EOnUpdate_LambdaJob0_entityQuery_4(L_0);
+		__this->set_U3CU3EOnUpdate_LambdaJob0_entityQuery_3(L_0);
 		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_1;
 		L_1 = ShipTicketExecutor_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob1_From_m24EED656CD2BB8E8DA187D47838A2E3035E10EC2(__this, /*hidden argument*/NULL);
-		__this->set_U3CU3EOnUpdate_LambdaJob1_entityQuery_5(L_1);
+		__this->set_U3CU3EOnUpdate_LambdaJob1_entityQuery_4(L_1);
 		return;
 	}
 }
@@ -45538,8 +45369,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_m24D5D2DA7E65DAF83A0D0F954758B70093B8C931_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mB9A407CB58D8E35C1742ABDE4A90C70B98CCC620_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
@@ -45560,7 +45393,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		NullCheck(L_2);
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
 		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)4));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)6));
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
 		L_7 = ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742(/*hidden argument*/ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742_RuntimeMethod_var);
@@ -45573,33 +45406,43 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)1)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_9);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_10 = L_8;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_11;
-		L_11 = ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86(/*hidden argument*/ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
+		L_11 = ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4(/*hidden argument*/ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
 		NullCheck(L_10);
 		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)2)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_11);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_12 = L_10;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_13;
-		L_13 = ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8(/*hidden argument*/ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
+		L_13 = ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C(/*hidden argument*/ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
 		NullCheck(L_12);
 		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)3)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_13);
-		NullCheck(L_4);
-		L_4->set_All_2(L_12);
-		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_14 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_15 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)1));
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_16 = L_15;
-		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_17;
-		L_17 = ComponentType_ReadWrite_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_m24D5D2DA7E65DAF83A0D0F954758B70093B8C931(/*hidden argument*/ComponentType_ReadWrite_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_m24D5D2DA7E65DAF83A0D0F954758B70093B8C931_RuntimeMethod_var);
-		NullCheck(L_16);
-		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_17);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_14 = L_12;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_15;
+		L_15 = ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9(/*hidden argument*/ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var);
 		NullCheck(L_14);
-		L_14->set_None_1(L_16);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_18 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_19 = V_0;
+		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)4)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_15);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_16 = L_14;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_17;
+		L_17 = ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8(/*hidden argument*/ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
+		NullCheck(L_16);
+		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)5)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_17);
+		NullCheck(L_4);
+		L_4->set_All_2(L_16);
+		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_18 = V_1;
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_19 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)1));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_20 = L_19;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_21;
+		L_21 = ComponentType_ReadWrite_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_m24D5D2DA7E65DAF83A0D0F954758B70093B8C931(/*hidden argument*/ComponentType_ReadWrite_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_m24D5D2DA7E65DAF83A0D0F954758B70093B8C931_RuntimeMethod_var);
+		NullCheck(L_20);
+		(L_20)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_21);
 		NullCheck(L_18);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_20;
-		L_20 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_18, L_19, /*hidden argument*/NULL);
-		V_2 = L_20;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_21 = V_2;
-		return L_21;
+		L_18->set_None_1(L_20);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_22 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_23 = V_0;
+		NullCheck(L_22);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_24;
+		L_24 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_22, L_23, /*hidden argument*/NULL);
+		V_2 = L_24;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_25 = V_2;
+		return L_25;
 	}
 }
 // Unity.Entities.EntityQuery ShipTicketExecutor::<>GetEntityQuery_ForOnUpdate_LambdaJob1_From(Unity.Entities.ComponentSystemBase)
@@ -45612,7 +45455,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadWrite_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mB9A407CB58D8E35C1742ABDE4A90C70B98CCC620_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
@@ -45633,7 +45478,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		NullCheck(L_2);
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
 		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
-		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)5));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)7));
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
 		L_7 = ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742(/*hidden argument*/ComponentType_ReadOnly_TisMoveMission_t0E379968405FF068A944B01014643C39004E1E24_m65502B1D0C7060E1DDDFA16E91F65A7A8735C742_RuntimeMethod_var);
@@ -45646,29 +45491,39 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FAD
 		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)1)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_9);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_10 = L_8;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_11;
-		L_11 = ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86(/*hidden argument*/ComponentType_ReadOnly_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_m2D48593D1A2E4E24F266C1EA800AD84CCF7D3D86_RuntimeMethod_var);
+		L_11 = ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4(/*hidden argument*/ComponentType_ReadWrite_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m29CF71EA60515F321E664CA11FB7054B596008B4_RuntimeMethod_var);
 		NullCheck(L_10);
 		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)2)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_11);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_12 = L_10;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_13;
-		L_13 = ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8(/*hidden argument*/ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
+		L_13 = ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C(/*hidden argument*/ComponentType_ReadWrite_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m3F12836AB3EEE146085E12881235A89085E3297C_RuntimeMethod_var);
 		NullCheck(L_12);
 		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)3)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_13);
 		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_14 = L_12;
 		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_15;
-		L_15 = ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09(/*hidden argument*/ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_RuntimeMethod_var);
+		L_15 = ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9(/*hidden argument*/ComponentType_ReadOnly_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_m6D99655C96A3EDBE20D4B0EFFCC31BF4F20683C9_RuntimeMethod_var);
 		NullCheck(L_14);
 		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)4)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_15);
-		NullCheck(L_4);
-		L_4->set_All_2(L_14);
-		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_16 = ___componentSystem0;
-		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_17 = V_0;
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_16 = L_14;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_17;
+		L_17 = ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8(/*hidden argument*/ComponentType_ReadOnly_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_mC7AC2D2E3F812799F9D5C9846F31F9BB2B0788E8_RuntimeMethod_var);
 		NullCheck(L_16);
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_18;
-		L_18 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_16, L_17, /*hidden argument*/NULL);
-		V_2 = L_18;
-		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_19 = V_2;
-		return L_19;
+		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)5)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_17);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_18 = L_16;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_19;
+		L_19 = ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09(/*hidden argument*/ComponentType_ReadOnly_TisHasClone_tCB1118E76DCF16C509F84E9EF40EA2CAF23E8578_mD78CAD50C0A0D59AB1272E6AF9E2ECB841712B09_RuntimeMethod_var);
+		NullCheck(L_18);
+		(L_18)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)6)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_19);
+		NullCheck(L_4);
+		L_4->set_All_2(L_18);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_20 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_21 = V_0;
+		NullCheck(L_20);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_22;
+		L_22 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_20, L_21, /*hidden argument*/NULL);
+		V_2 = L_22;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_23 = V_2;
+		return L_23;
 	}
 }
 #ifdef __clang__
@@ -45748,10 +45603,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Ships_GenerateShipsForAll_mE5D88D5F0710F
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_GetComponentData_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mD9D4A7A626434B48C91D6C9CE1ED87BBE002B634_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_GetComponentData_TisSystemData_tBA72B1970DD1479D080BFEC2D424571C2A46B701_m8F46B168D30CF26CEC219BEF93BB98F7B1910050_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_SetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_m95B8C0C884289DDD437CE0653EB7B7B23FD69558_RuntimeMethod_var);
@@ -45796,6 +45650,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Ships_GenerateShipsForAll_mE5D88D5F0710F
 	memset((&V_14), 0, sizeof(V_14));
 	MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  V_15;
 	memset((&V_15), 0, sizeof(V_15));
+	Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F  V_16;
+	memset((&V_16), 0, sizeof(V_16));
 	Exception_t * __last_unhandled_exception = 0;
 	il2cpp::utils::ExceptionSupportStack<int32_t, 1> __leave_targets;
 	{
@@ -45828,7 +45684,7 @@ IL_0038:
 	try
 	{ // begin try (depth: 1)
 		{
-			goto IL_0197;
+			goto IL_019c;
 		}
 
 IL_003d:
@@ -45854,7 +45710,7 @@ IL_003d:
 			V_5 = L_14;
 			// for (int i = 0; i < shipsPerSystem; i++)
 			V_7 = 0;
-			goto IL_018f;
+			goto IL_0194;
 		}
 
 IL_0075:
@@ -45916,230 +45772,71 @@ IL_0075:
 			(&V_15)->set_vector_1(L_35);
 			MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  L_36 = V_15;
 			EntityManager_SetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m01A89F6E683E71B1F6639BAC1716461B78C5EE2A((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_33, L_36, /*hidden argument*/EntityManager_SetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m01A89F6E683E71B1F6639BAC1716461B78C5EE2A_RuntimeMethod_var);
-			// em.AddComponent<Tickets.TimeAtWrite>(ship);
+			// em.AddComponent<Tickets.TimeData>(ship);
 			Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_37 = V_8;
 			bool L_38;
-			L_38 = EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_37, /*hidden argument*/EntityManager_AddComponent_TisTimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA_mBEA4F61A95849B3CBF73FA996FD79CA323FB9E3E_RuntimeMethod_var);
-			// em.AddComponent<Tickets.TimeAtExecute>(ship);
+			L_38 = EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_37, /*hidden argument*/EntityManager_AddComponent_TisTimeData_tFC22F5A2395DA2CF273EA8BB64695179F7CCE28A_mD7DCDAA5C86ED6FD793380CD1AF7F037F7F9BA7C_RuntimeMethod_var);
+			// em.AddComponent<TargetPos>(ship);
 			Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_39 = V_8;
 			bool L_40;
-			L_40 = EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_39, /*hidden argument*/EntityManager_AddComponent_TisTimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED_mBE032C65D648AB825467F6A3085002CF0E8EE944_RuntimeMethod_var);
-			// em.AddComponent<TargetPos>(ship);
+			L_40 = EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_39, /*hidden argument*/EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F_RuntimeMethod_var);
+			// em.AddComponentData<Idle>(ship, new Idle() { isIdle = true});
 			Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_41 = V_8;
-			bool L_42;
-			L_42 = EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_41, /*hidden argument*/EntityManager_AddComponent_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m3704B8CB0BC73B4BA814C23B2BFB0D861536342F_RuntimeMethod_var);
-			// em.AddComponent<Idle>(ship);
-			Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_43 = V_8;
-			bool L_44;
-			L_44 = EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_43, /*hidden argument*/EntityManager_AddComponent_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m9EA97A3C3AA47FC32C63093B7DD294BEE6271629_RuntimeMethod_var);
+			il2cpp_codegen_initobj((&V_16), sizeof(Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F ));
+			(&V_16)->set_isIdle_0((bool)1);
+			Idle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F  L_42 = V_16;
+			bool L_43;
+			L_43 = EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_41, L_42, /*hidden argument*/EntityManager_AddComponentData_TisIdle_t9B2010C9BBE360A6F4AA746ABFCAEAEE09C5BC8F_m0B03E083ED5E38CB1EC1C8160066C2CEAC6BFDC9_RuntimeMethod_var);
 			// for (int i = 0; i < shipsPerSystem; i++)
-			int32_t L_45 = V_7;
-			V_7 = ((int32_t)il2cpp_codegen_add((int32_t)L_45, (int32_t)1));
+			int32_t L_44 = V_7;
+			V_7 = ((int32_t)il2cpp_codegen_add((int32_t)L_44, (int32_t)1));
 		}
 
-IL_018f:
+IL_0194:
 		{
 			// for (int i = 0; i < shipsPerSystem; i++)
-			int32_t L_46 = V_7;
-			int32_t L_47 = ___shipsPerSystem0;
-			if ((((int32_t)L_46) < ((int32_t)L_47)))
+			int32_t L_45 = V_7;
+			int32_t L_46 = ___shipsPerSystem0;
+			if ((((int32_t)L_45) < ((int32_t)L_46)))
 			{
 				goto IL_0075;
 			}
 		}
 
-IL_0197:
+IL_019c:
 		{
 			// foreach (var system in systems)
-			bool L_48;
-			L_48 = Enumerator_MoveNext_m51D70A08D61C8D0E4C1A894EB50366C5572DDE3F((Enumerator_t9D1B96D00C51E7EFAE740FDA240AE456E2405C10 *)(&V_2), /*hidden argument*/Enumerator_MoveNext_m51D70A08D61C8D0E4C1A894EB50366C5572DDE3F_RuntimeMethod_var);
-			if (L_48)
+			bool L_47;
+			L_47 = Enumerator_MoveNext_m51D70A08D61C8D0E4C1A894EB50366C5572DDE3F((Enumerator_t9D1B96D00C51E7EFAE740FDA240AE456E2405C10 *)(&V_2), /*hidden argument*/Enumerator_MoveNext_m51D70A08D61C8D0E4C1A894EB50366C5572DDE3F_RuntimeMethod_var);
+			if (L_47)
 			{
 				goto IL_003d;
 			}
 		}
 
-IL_01a3:
+IL_01a8:
 		{
-			IL2CPP_LEAVE(0x1B3, FINALLY_01a5);
+			IL2CPP_LEAVE(0x1B8, FINALLY_01aa);
 		}
 	} // end try (depth: 1)
 	catch(Il2CppExceptionWrapper& e)
 	{
 		__last_unhandled_exception = (Exception_t *)e.ex;
-		goto FINALLY_01a5;
+		goto FINALLY_01aa;
 	}
 
-FINALLY_01a5:
+FINALLY_01aa:
 	{ // begin finally (depth: 1)
 		Enumerator_Dispose_m343E83C8FBF20117ED08DB9E04C48D2F0B637504((Enumerator_t9D1B96D00C51E7EFAE740FDA240AE456E2405C10 *)(&V_2), /*hidden argument*/Enumerator_Dispose_m343E83C8FBF20117ED08DB9E04C48D2F0B637504_RuntimeMethod_var);
-		IL2CPP_END_FINALLY(421)
+		IL2CPP_END_FINALLY(426)
 	} // end finally (depth: 1)
-	IL2CPP_CLEANUP(421)
+	IL2CPP_CLEANUP(426)
 	{
 		IL2CPP_RETHROW_IF_UNHANDLED(Exception_t *)
-		IL2CPP_JUMP_TBL(0x1B3, IL_01b3)
+		IL2CPP_JUMP_TBL(0x1B8, IL_01b8)
 	}
 
-IL_01b3:
-	{
-		// }
-		return;
-	}
-}
-// System.Void Ships::SpawnShips(Unity.Entities.Entity[])
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Ships_SpawnShips_mF12867AC9401522FF8DA2DEF3C769F6F1FA96090 (EntityU5BU5D_t76151D0F32E2BC0C7F603B63B2D6C9DACADC34B5* ___shipsToSpawn0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_GetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m146854CBF3F925693BB3D2A6DFFE6B4CB797815F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_SetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m5A65F28EB5B5CEF077E215F1A4B6914F735EF935_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Tickets_tFAA9D3FFDE8BEEB8967F7DABB2BF8E43879AFE27_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	EntityU5BU5D_t76151D0F32E2BC0C7F603B63B2D6C9DACADC34B5* V_0 = NULL;
-	int32_t V_1 = 0;
-	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  V_3;
-	memset((&V_3), 0, sizeof(V_3));
-	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  V_4;
-	memset((&V_4), 0, sizeof(V_4));
-	Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  V_5;
-	memset((&V_5), 0, sizeof(V_5));
-	float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  V_6;
-	memset((&V_6), 0, sizeof(V_6));
-	TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED  V_7;
-	memset((&V_7), 0, sizeof(V_7));
-	TimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA  V_8;
-	memset((&V_8), 0, sizeof(V_8));
-	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  V_9;
-	memset((&V_9), 0, sizeof(V_9));
-	Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B  V_10;
-	memset((&V_10), 0, sizeof(V_10));
-	CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C  V_11;
-	memset((&V_11), 0, sizeof(V_11));
-	{
-		// foreach (var ship in shipsToSpawn)
-		EntityU5BU5D_t76151D0F32E2BC0C7F603B63B2D6C9DACADC34B5* L_0 = ___shipsToSpawn0;
-		V_0 = L_0;
-		V_1 = 0;
-		goto IL_0104;
-	}
-
-IL_0009:
-	{
-		// foreach (var ship in shipsToSpawn)
-		EntityU5BU5D_t76151D0F32E2BC0C7F603B63B2D6C9DACADC34B5* L_1 = V_0;
-		int32_t L_2 = V_1;
-		NullCheck(L_1);
-		int32_t L_3 = L_2;
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_4 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
-		V_2 = L_4;
-		// var pos = em.GetComponentData<Translation>(ship);
-		IL2CPP_RUNTIME_CLASS_INIT(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_5 = V_2;
-		Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B  L_6;
-		L_6 = EntityManager_GetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m146854CBF3F925693BB3D2A6DFFE6B4CB797815F((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_5, /*hidden argument*/EntityManager_GetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m146854CBF3F925693BB3D2A6DFFE6B4CB797815F_RuntimeMethod_var);
-		// var moveData = em.GetComponentData<MovementData>(ship);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_7 = V_2;
-		MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  L_8;
-		L_8 = EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_7, /*hidden argument*/EntityManager_GetComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_mE6190FBA23B9272152CA217B1ED19B4828BD2C5A_RuntimeMethod_var);
-		V_3 = L_8;
-		// var Ship = em.Instantiate(SB.shipClone);
-		IL2CPP_RUNTIME_CLASS_INIT(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_9 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_shipClone_10();
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_10;
-		L_10 = EntityManager_Instantiate_mF55A4B8661E6A60D154D35C5F82A9D6BA2D213A6((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_9, /*hidden argument*/NULL);
-		V_4 = L_10;
-		// var Id = em.GetComponentData<Id>(ship);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_11 = V_2;
-		Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  L_12;
-		L_12 = EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_11, /*hidden argument*/EntityManager_GetComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC42BD26664493B7F8F7104A0E30908BCF1A3E053_RuntimeMethod_var);
-		V_5 = L_12;
-		// var targetPos = em.GetComponentData<TargetPos>(Ship).position;
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_13 = V_4;
-		TargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71  L_14;
-		L_14 = EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_13, /*hidden argument*/EntityManager_GetComponentData_TisTargetPos_t505742E79F81267C384EFA6103E83CC0721A7B71_m2671F65FF2EADE7A40A06F49131F917EDE689FC4_RuntimeMethod_var);
-		float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  L_15 = L_14.get_position_0();
-		V_6 = L_15;
-		// Tickets.GetTicket(ship, out Tickets.TimeAtExecute exe, out Tickets.TimeAtWrite write);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_16 = V_2;
-		IL2CPP_RUNTIME_CLASS_INIT(Tickets_tFAA9D3FFDE8BEEB8967F7DABB2BF8E43879AFE27_il2cpp_TypeInfo_var);
-		Tickets_GetTicket_mD72EF0FCC20E38D2A4E9D50FB35003037E055D7A(L_16, (TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED *)(&V_7), (TimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA *)(&V_8), /*hidden argument*/NULL);
-		// var spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(write.time, exe.time, SB.masterTime));
-		float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  L_17 = L_6.get_Value_0();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_18;
-		L_18 = float3_op_Implicit_m10DFE908DCDD18D73FA11E4C9CDB23E16FA3ABE8(L_17, /*hidden argument*/NULL);
-		float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  L_19 = V_6;
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_20;
-		L_20 = float3_op_Implicit_m10DFE908DCDD18D73FA11E4C9CDB23E16FA3ABE8(L_19, /*hidden argument*/NULL);
-		TimeAtWrite_t7A13AF1C64ACF1C51BA1123D86CAB3C95D8E4DDA  L_21 = V_8;
-		float L_22 = L_21.get_time_0();
-		TimeAtExecute_t4049F59C96FBB88708BF6A91ECF223C6D03FDEED  L_23 = V_7;
-		float L_24 = L_23.get_time_0();
-		float L_25 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_masterTime_3();
-		float L_26;
-		L_26 = Mathf_InverseLerp_mCD2E6F9ADCFFB40EB7D3086E444DF2C702F9C29B(L_22, L_24, L_25, /*hidden argument*/NULL);
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_27;
-		L_27 = Vector3_Lerp_m8E095584FFA10CF1D3EABCD04F4C83FB82EC5524_inline(L_18, L_20, L_26, /*hidden argument*/NULL);
-		V_9 = L_27;
-		// em.SetComponentData<Translation>(Ship, new Translation() { Value = spawnPos});
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_28 = V_4;
-		il2cpp_codegen_initobj((&V_10), sizeof(Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B ));
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_29 = V_9;
-		float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  L_30;
-		L_30 = float3_op_Implicit_mC2BC870EF4246C5C3A2FC27EE9ABEDAFF49DC1EF(L_29, /*hidden argument*/NULL);
-		(&V_10)->set_Value_0(L_30);
-		Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B  L_31 = V_10;
-		EntityManager_SetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m5A65F28EB5B5CEF077E215F1A4B6914F735EF935((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_28, L_31, /*hidden argument*/EntityManager_SetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m5A65F28EB5B5CEF077E215F1A4B6914F735EF935_RuntimeMethod_var);
-		// em.AddComponent<CloneTag>(Ship);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_32 = V_4;
-		bool L_33;
-		L_33 = EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_32, /*hidden argument*/EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36_RuntimeMethod_var);
-		// em.AddComponentData<MovementData>(Ship, moveData);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_34 = V_4;
-		MovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866  L_35 = V_3;
-		bool L_36;
-		L_36 = EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_34, L_35, /*hidden argument*/EntityManager_AddComponentData_TisMovementData_tD42E903DF41DA7019C13E6B720D47F8AD959C866_m1A7EF39C16CEC1F7CF30714328F6FF8ADFDC775C_RuntimeMethod_var);
-		// em.AddComponentData<Id>(Ship, Id);
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_37 = V_4;
-		Id_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA  L_38 = V_5;
-		bool L_39;
-		L_39 = EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_37, L_38, /*hidden argument*/EntityManager_AddComponentData_TisId_t7A4453F7C7392F7AC2EDFD0B31ED1A8785A038BA_mC84C23C018C14AC7204148BB7F17E8817C09B2AD_RuntimeMethod_var);
-		// em.AddComponentData<CloneData>(Ship, new CloneData() { masterShip = ship });
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_40 = V_4;
-		il2cpp_codegen_initobj((&V_11), sizeof(CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C ));
-		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_41 = V_2;
-		(&V_11)->set_masterShip_0(L_41);
-		CloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C  L_42 = V_11;
-		bool L_43;
-		L_43 = EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_StaticFields*)il2cpp_codegen_static_fields_for(Ships_t7CF7CB40B28EB05BAAC56931FBE2307678858E1A_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_40, L_42, /*hidden argument*/EntityManager_AddComponentData_TisCloneData_t041435D27732FA2C7545E8FF9D64C6575BBF180C_m6BC083EC7830DCA58F70CCEEBDB1702A245AE21E_RuntimeMethod_var);
-		int32_t L_44 = V_1;
-		V_1 = ((int32_t)il2cpp_codegen_add((int32_t)L_44, (int32_t)1));
-	}
-
-IL_0104:
-	{
-		// foreach (var ship in shipsToSpawn)
-		int32_t L_45 = V_1;
-		EntityU5BU5D_t76151D0F32E2BC0C7F603B63B2D6C9DACADC34B5* L_46 = V_0;
-		NullCheck(L_46);
-		if ((((int32_t)L_45) < ((int32_t)((int32_t)((int32_t)(((RuntimeArray*)L_46)->max_length))))))
-		{
-			goto IL_0009;
-		}
-	}
+IL_01b8:
 	{
 		// }
 		return;
@@ -46379,6 +46076,556 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SkewTextExample__ctor_m945059906734DD38C
 		__this->set_ShearAmount_7((1.0f));
 		MonoBehaviour__ctor_mC0995D847F6A95B1A553652636C38A2AA8B13BED(__this, /*hidden argument*/NULL);
 		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void StarCloneDeleter::OnCreate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StarCloneDeleter_OnCreate_m8B112F5A53AAF152B92EB51B70D0FEEC149D04DA (StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mE5160DC3BCD352B56F566A0992EF32D58EFDBEEF_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		// base.OnCreate();
+		ComponentSystemBase_OnCreate_mC0728FDC7570A21B4FD7C07DA2017D3D6AAC0440(__this, /*hidden argument*/NULL);
+		// ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_0;
+		L_0 = ComponentSystemBase_get_World_m96FBEED87C2AB0EFECE4CF5D0D9AAC004AA11118(__this, /*hidden argument*/NULL);
+		NullCheck(L_0);
+		EndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117 * L_1;
+		L_1 = World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59(L_0, /*hidden argument*/World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
+		__this->set_ecbs_1(L_1);
+		// deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Stars.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+		IL2CPP_RUNTIME_CLASS_INIT(World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_2;
+		L_2 = World_get_DefaultGameObjectInjectionWorld_mD5028BED746657C134829D2BA8D56C36F618D306_inline(/*hidden argument*/NULL);
+		NullCheck(L_2);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
+		L_3 = World_get_EntityManager_mD2E22B47AD56866F4955B8B4D00AFAC3C7454838(L_2, /*hidden argument*/NULL);
+		V_0 = L_3;
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_4 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)3);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = L_4;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_6;
+		L_6 = ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48(/*hidden argument*/ComponentType_ReadOnly_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m3AD5D8AD712DC37255D307065F0F18E588D24C48_RuntimeMethod_var);
+		NullCheck(L_5);
+		(L_5)->SetAt(static_cast<il2cpp_array_size_t>(0), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_6);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_7 = L_5;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_8;
+		L_8 = ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C(/*hidden argument*/ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C_RuntimeMethod_var);
+		NullCheck(L_7);
+		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(1), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_8);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_9 = L_7;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_10;
+		L_10 = ComponentType_ReadOnly_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mE5160DC3BCD352B56F566A0992EF32D58EFDBEEF(/*hidden argument*/ComponentType_ReadOnly_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mE5160DC3BCD352B56F566A0992EF32D58EFDBEEF_RuntimeMethod_var);
+		NullCheck(L_9);
+		(L_9)->SetAt(static_cast<il2cpp_array_size_t>(2), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_10);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_11;
+		L_11 = EntityManager_CreateEntityQuery_mFC615839B5A91EAA153451CC80DF642EDE6F43DB((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), L_9, /*hidden argument*/NULL);
+		__this->set_deletionQuery_2(L_11);
+		// }
+		return;
+	}
+}
+// System.Void StarCloneDeleter::OnUpdate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StarCloneDeleter_OnUpdate_mB2373456BF2379F91055175F7C980B59666AF89E (StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	{
+		// var stars = deletionQuery.ToEntityArray(Allocator.Temp);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * L_0 = __this->get_address_of_deletionQuery_2();
+		NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E  L_1;
+		L_1 = EntityQuery_ToEntityArray_m5332D929E97C11E8E8A6156CEA0FC536FA7D1708((EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 *)L_0, 2, /*hidden argument*/NULL);
+		V_0 = L_1;
+		// World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(stars);
+		IL2CPP_RUNTIME_CLASS_INIT(World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_2;
+		L_2 = World_get_DefaultGameObjectInjectionWorld_mD5028BED746657C134829D2BA8D56C36F618D306_inline(/*hidden argument*/NULL);
+		NullCheck(L_2);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
+		L_3 = World_get_EntityManager_mD2E22B47AD56866F4955B8B4D00AFAC3C7454838(L_2, /*hidden argument*/NULL);
+		V_1 = L_3;
+		NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E  L_4 = V_0;
+		EntityManager_DestroyEntity_m6FDC0A1003D179C14DF05D7865875212AEA623FD((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_1), L_4, /*hidden argument*/NULL);
+		// stars.Dispose();
+		NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882((NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E *)(&V_0), /*hidden argument*/NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882_RuntimeMethod_var);
+		// }
+		return;
+	}
+}
+// System.Void StarCloneDeleter::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StarCloneDeleter__ctor_m254EEC12514C7B1997AE8DD9F857F021E33843A8 (StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9 * __this, const RuntimeMethod* method)
+{
+	{
+		SystemBase__ctor_m72216162580C72C731BF1BD6D491A990E6984CFA(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void StarCloneDeleter::OnCreateForCompiler()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StarCloneDeleter_OnCreateForCompiler_m6659605F3DAD4460B1C5EBA285E1C204E5DA98B9 (StarCloneDeleter_tDEB6F6C635E67BC149E809BE76EEFE8249B8C0D9 * __this, const RuntimeMethod* method)
+{
+	{
+		SystemBase_OnCreateForCompiler_m0EBA19005313E80E2C977432945363AC0AB29864(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void Stars::SpawnStar(Unity.Mathematics.float3)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Stars_SpawnStar_m291FD4403F6A43F92076562DA2977F3487863C9B (float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  ___pos0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityManager_SetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m5A65F28EB5B5CEF077E215F1A4B6914F735EF935_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B  V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	{
+		// var star = em.Instantiate(SB.starClone);
+		IL2CPP_RUNTIME_CLASS_INIT(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var);
+		IL2CPP_RUNTIME_CLASS_INIT(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_0 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_starClone_6();
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_1;
+		L_1 = EntityManager_Instantiate_mF55A4B8661E6A60D154D35C5F82A9D6BA2D213A6((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields*)il2cpp_codegen_static_fields_for(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_0, /*hidden argument*/NULL);
+		V_0 = L_1;
+		// em.AddComponent<CloneTag>(star);
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_2 = V_0;
+		bool L_3;
+		L_3 = EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields*)il2cpp_codegen_static_fields_for(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_2, /*hidden argument*/EntityManager_AddComponent_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_m66C3EA44A09E8088722CA4DA6CA9A6207C369B36_RuntimeMethod_var);
+		// em.SetComponentData<Translation>(star, new Translation() { Value = pos });
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_4 = V_0;
+		il2cpp_codegen_initobj((&V_1), sizeof(Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B ));
+		float3_t9500D105F273B3D86BD354142E891C48FFF9F71D  L_5 = ___pos0;
+		(&V_1)->set_Value_0(L_5);
+		Translation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B  L_6 = V_1;
+		EntityManager_SetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m5A65F28EB5B5CEF077E215F1A4B6914F735EF935((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields*)il2cpp_codegen_static_fields_for(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_4, L_6, /*hidden argument*/EntityManager_SetComponentData_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_m5A65F28EB5B5CEF077E215F1A4B6914F735EF935_RuntimeMethod_var);
+		// em.AddComponent<Id>(star);
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_7 = V_0;
+		bool L_8;
+		L_8 = EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(((Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields*)il2cpp_codegen_static_fields_for(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var))->get_address_of_em_0()), L_7, /*hidden argument*/EntityManager_AddComponent_TisId_t96BB98058637F6A4392DBEA29CB196423C4700FB_m4104323C4893164A0145162A7A6131FA03D91C6D_RuntimeMethod_var);
+		// }
+		return;
+	}
+}
+// System.Void Stars::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Stars__cctor_m29C9B3ADDAE6E16B2EA42529B3B0D8F92CEF434E (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// static EntityManager em = SB.em;
+		IL2CPP_RUNTIME_CLASS_INIT(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_0 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_em_2();
+		((Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_StaticFields*)il2cpp_codegen_static_fields_for(Stars_tD38D0D8172AFD3A21B85B670217FED6055C1AD66_il2cpp_TypeInfo_var))->set_em_0(L_0);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void StaticShipData::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StaticShipData__cctor_mE68A02424B6793F0F80C299B910A9F980E4BDAF4 (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&PrefabAccessor_t438D2D92112FD0D23B3DC8CD651C56A053AAD0FE_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// public static int count = 0;
+		((StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_StaticFields*)il2cpp_codegen_static_fields_for(StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_il2cpp_TypeInfo_var))->set_count_0(0);
+		// public static GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
+		IL2CPP_RUNTIME_CLASS_INIT(World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_0;
+		L_0 = World_get_DefaultGameObjectInjectionWorld_mD5028BED746657C134829D2BA8D56C36F618D306_inline(/*hidden argument*/NULL);
+		GameObjectConversionSettings_t67DD3850032853AEAD3BB89021BCCFEA5318BE3C * L_1;
+		L_1 = GameObjectConversionSettings_FromWorld_m7426BAA6D7DB10D5E339EE0DBFA11B3A70A055E9(L_0, (BlobAssetStore_t715E0889D2B868DAE68728BE73D39A5C4A4AB584 *)NULL, /*hidden argument*/NULL);
+		((StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_StaticFields*)il2cpp_codegen_static_fields_for(StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_il2cpp_TypeInfo_var))->set_settings_1(L_1);
+		// public static Entity shipEntityTemplate = PrefabAccessor.entityTemplateArray[5];
+		IL2CPP_RUNTIME_CLASS_INIT(PrefabAccessor_t438D2D92112FD0D23B3DC8CD651C56A053AAD0FE_il2cpp_TypeInfo_var);
+		EntityU5BU5D_t76151D0F32E2BC0C7F603B63B2D6C9DACADC34B5* L_2 = ((PrefabAccessor_t438D2D92112FD0D23B3DC8CD651C56A053AAD0FE_StaticFields*)il2cpp_codegen_static_fields_for(PrefabAccessor_t438D2D92112FD0D23B3DC8CD651C56A053AAD0FE_il2cpp_TypeInfo_var))->get_entityTemplateArray_14();
+		NullCheck(L_2);
+		int32_t L_3 = 5;
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_4 = (L_2)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
+		((StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_StaticFields*)il2cpp_codegen_static_fields_for(StaticShipData_tBAF745890E71078BF83BE31822269B151C744E34_il2cpp_TypeInfo_var))->set_shipEntityTemplate_2(L_4);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void StructMinHeap::Start()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StructMinHeap_Start_mE2DA2DB81A6717F90C7E0FA53B5329F35BF4C05D (StructMinHeap_tE4E8A2AF10E6896FDBADA67C5325AE77AB914A1B * __this, const RuntimeMethod* method)
+{
+	{
+		// }
+		return;
+	}
+}
+// System.Void StructMinHeap::Update()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StructMinHeap_Update_m52F737C150537AA4B72E43360E6AC578946CC580 (StructMinHeap_tE4E8A2AF10E6896FDBADA67C5325AE77AB914A1B * __this, const RuntimeMethod* method)
+{
+	{
+		// }
+		return;
+	}
+}
+// System.Void StructMinHeap::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StructMinHeap__ctor_m6E75F50B9F52B804311D7681BFE8947B0160120D (StructMinHeap_tE4E8A2AF10E6896FDBADA67C5325AE77AB914A1B * __this, const RuntimeMethod* method)
+{
+	{
+		MonoBehaviour__ctor_mC0995D847F6A95B1A553652636C38A2AA8B13BED(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void SystemCloneDeleter::OnCreate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneDeleter_OnCreate_mC3217BEE4D943AD74902B8EC16D19A02144DBD7E (SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mE5160DC3BCD352B56F566A0992EF32D58EFDBEEF_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		// base.OnCreate();
+		ComponentSystemBase_OnCreate_mC0728FDC7570A21B4FD7C07DA2017D3D6AAC0440(__this, /*hidden argument*/NULL);
+		// ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_0;
+		L_0 = ComponentSystemBase_get_World_m96FBEED87C2AB0EFECE4CF5D0D9AAC004AA11118(__this, /*hidden argument*/NULL);
+		NullCheck(L_0);
+		EndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117 * L_1;
+		L_1 = World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59(L_0, /*hidden argument*/World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
+		__this->set_ecbs_1(L_1);
+		// deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+		IL2CPP_RUNTIME_CLASS_INIT(World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_2;
+		L_2 = World_get_DefaultGameObjectInjectionWorld_mD5028BED746657C134829D2BA8D56C36F618D306_inline(/*hidden argument*/NULL);
+		NullCheck(L_2);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
+		L_3 = World_get_EntityManager_mD2E22B47AD56866F4955B8B4D00AFAC3C7454838(L_2, /*hidden argument*/NULL);
+		V_0 = L_3;
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_4 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)3);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = L_4;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_6;
+		L_6 = ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E(/*hidden argument*/ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E_RuntimeMethod_var);
+		NullCheck(L_5);
+		(L_5)->SetAt(static_cast<il2cpp_array_size_t>(0), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_6);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_7 = L_5;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_8;
+		L_8 = ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C(/*hidden argument*/ComponentType_ReadOnly_TisCloneTag_t16B46BC57C7BEDCE25F1CAF892417AE04E937CA3_mAB3605661CCFFA81F2C0D9469BDB3D35AB89EA7C_RuntimeMethod_var);
+		NullCheck(L_7);
+		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(1), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_8);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_9 = L_7;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_10;
+		L_10 = ComponentType_ReadOnly_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mE5160DC3BCD352B56F566A0992EF32D58EFDBEEF(/*hidden argument*/ComponentType_ReadOnly_TisDeleteCloneTag_t2B4711FB7A71DDB2DB9FC90E296F7887916D67D2_mE5160DC3BCD352B56F566A0992EF32D58EFDBEEF_RuntimeMethod_var);
+		NullCheck(L_9);
+		(L_9)->SetAt(static_cast<il2cpp_array_size_t>(2), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_10);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_11;
+		L_11 = EntityManager_CreateEntityQuery_mFC615839B5A91EAA153451CC80DF642EDE6F43DB((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_0), L_9, /*hidden argument*/NULL);
+		__this->set_deletionQuery_2(L_11);
+		// }
+		return;
+	}
+}
+// System.Void SystemCloneDeleter::OnUpdate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneDeleter_OnUpdate_mE6AD3E58359AFF9A1507DC276D06252BB5677CB9 (SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	{
+		// var systems = deletionQuery.ToEntityArray(Allocator.Temp);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 * L_0 = __this->get_address_of_deletionQuery_2();
+		NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E  L_1;
+		L_1 = EntityQuery_ToEntityArray_m5332D929E97C11E8E8A6156CEA0FC536FA7D1708((EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109 *)L_0, 2, /*hidden argument*/NULL);
+		V_0 = L_1;
+		// World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(systems);
+		IL2CPP_RUNTIME_CLASS_INIT(World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07_il2cpp_TypeInfo_var);
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_2;
+		L_2 = World_get_DefaultGameObjectInjectionWorld_mD5028BED746657C134829D2BA8D56C36F618D306_inline(/*hidden argument*/NULL);
+		NullCheck(L_2);
+		EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0  L_3;
+		L_3 = World_get_EntityManager_mD2E22B47AD56866F4955B8B4D00AFAC3C7454838(L_2, /*hidden argument*/NULL);
+		V_1 = L_3;
+		NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E  L_4 = V_0;
+		EntityManager_DestroyEntity_m6FDC0A1003D179C14DF05D7865875212AEA623FD((EntityManager_t375E301E0D409D57A32EB6EEFEE4DCFA936B3FD0 *)(&V_1), L_4, /*hidden argument*/NULL);
+		// systems.Dispose();
+		NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882((NativeArray_1_t587B0E555A435D1A1EACD16A8F3C3EBCF3497F5E *)(&V_0), /*hidden argument*/NativeArray_1_Dispose_m5DCFD941D8F40151CD956666F3FC347A2396F882_RuntimeMethod_var);
+		// }
+		return;
+	}
+}
+// System.Void SystemCloneDeleter::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneDeleter__ctor_m3C11B1AC2579E2E506C83CD0A8B18551BEAA12E2 (SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6 * __this, const RuntimeMethod* method)
+{
+	{
+		SystemBase__ctor_m72216162580C72C731BF1BD6D491A990E6984CFA(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void SystemCloneDeleter::OnCreateForCompiler()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneDeleter_OnCreateForCompiler_m212C71CB78746E711229EF576941FE436D3C7FCA (SystemCloneDeleter_tA9FDCD73D6D831D4E48F020132C3822EB3DCA7B6 * __this, const RuntimeMethod* method)
+{
+	{
+		SystemBase_OnCreateForCompiler_m0EBA19005313E80E2C977432945363AC0AB29864(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void SystemCloneSpawner::OnCreate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneSpawner_OnCreate_m7C79A2862E8B10FC8F7937176F6FD7CD9FC1A922 (SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// base.OnCreate();
+		ComponentSystemBase_OnCreate_mC0728FDC7570A21B4FD7C07DA2017D3D6AAC0440(__this, /*hidden argument*/NULL);
+		// ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+		World_tC5274CBB5238670C9A07FA5705DD82B5196C9A07 * L_0;
+		L_0 = ComponentSystemBase_get_World_m96FBEED87C2AB0EFECE4CF5D0D9AAC004AA11118(__this, /*hidden argument*/NULL);
+		NullCheck(L_0);
+		EndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117 * L_1;
+		L_1 = World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59(L_0, /*hidden argument*/World_GetOrCreateSystem_TisEndSimulationEntityCommandBufferSystem_tCBF1E1F29595EDD3E47D1B57DE1475F280EDE117_mD4F680A95A377C8F9E591077EE9EC20830755A59_RuntimeMethod_var);
+		__this->set_ecbs_1(L_1);
+		// }
+		return;
+	}
+}
+// System.Void SystemCloneSpawner::OnUpdate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneSpawner_OnUpdate_m0E17AA686B9FD9C24C2EB83ACC2F34314A04A2F4 (SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635  V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764  V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2  V_2;
+	memset((&V_2), 0, sizeof(V_2));
+	JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  V_3;
+	memset((&V_3), 0, sizeof(V_3));
+	{
+		il2cpp_codegen_initobj((&V_0), sizeof(U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635 ));
+		// var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_0 = __this->get_ecbs_1();
+		NullCheck(L_0);
+		EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764  L_1;
+		L_1 = EntityCommandBufferSystem_CreateCommandBuffer_mB8B9113865A46279AE6BA046EE34A0DA3E9353E2(L_0, /*hidden argument*/NULL);
+		V_1 = L_1;
+		ParallelWriter_t10553E909844EA7C2C5A22CEC3A456C7C8B01611  L_2;
+		L_2 = EntityCommandBuffer_AsParallelWriter_m806F835375EDC53368BB295D0FFB3932A3DC7B84((EntityCommandBuffer_t1392F60C43F18D06C981E0F5BCDC2255DE40A764 *)(&V_1), /*hidden argument*/NULL);
+		(&V_0)->set_ecb_0(L_2);
+		// Entity systemClone = SB.systemClone;
+		IL2CPP_RUNTIME_CLASS_INIT(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var);
+		Entity_tA8DE691EC83EB40E80A611C2E6D8C90C3C97AAF4  L_3 = ((SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_StaticFields*)il2cpp_codegen_static_fields_for(SB_tF6C72236C8F94B25B0C16C07BE696C5EC98E928E_il2cpp_TypeInfo_var))->get_systemClone_5();
+		(&V_0)->set_systemClone_1(L_3);
+		// Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity system, int entityInQueryIndex, in Translation pos, in SystemEntity.Id id) =>
+		// {
+		// 
+		//     var clone = ecb.Instantiate(entityInQueryIndex, systemClone);
+		//     ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+		//     ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+		//     ecb.AddComponent<SystemEntity.Id>(entityInQueryIndex, clone, id);
+		//     ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, system);
+		// 
+		// }).ScheduleParallel();
+		ForEachLambdaJobDescription_tEF496DD9C3398048E7966243B896260E45289FF8  L_4;
+		L_4 = SystemBase_get_Entities_m960D7CA0DC2A3608A3AE5F12F5E9DB7C10691961(__this, /*hidden argument*/NULL);
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_5;
+		L_5 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
+		V_3 = L_5;
+		il2cpp_codegen_initobj((&V_2), sizeof(U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2 ));
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_ScheduleTimeInitialize_m1ADE58B6CFFDA63600FD110254ACB05F09DB4671((U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2 *)(&V_2), __this, (U3CU3Ec__DisplayClass2_0_t1D54FF9AB82C9B11472E0DFEBFDB2E24569B1635 *)(&V_0), /*hidden argument*/NULL);
+		U3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2  L_6 = V_2;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_7 = __this->get_U3CU3EOnUpdate_LambdaJob0_entityQuery_2();
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_8 = V_3;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_9;
+		L_9 = JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B(L_6, L_7, L_8, /*hidden argument*/JobChunkExtensions_ScheduleParallel_TisU3CU3Ec__DisplayClass_OnUpdate_LambdaJob0_t6E5F9FD6F58C292EA98AAAFEA89F531E662981E2_mD78AE82F6A030DD6578B6A4D7F9145AB157D226B_RuntimeMethod_var);
+		V_3 = L_9;
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_10 = V_3;
+		SystemBase_set_Dependency_m46343983A977DE641677E0C7032FE7ACCE4169D6(__this, L_10, /*hidden argument*/NULL);
+		// ecbs.AddJobHandleForProducer(Dependency);
+		EntityCommandBufferSystem_t9F2E6E246C55790D73AB247465724921E5E3A90A * L_11 = __this->get_ecbs_1();
+		JobHandle_t8AEB8D31C25D7774C71D62B0C662525E6E36D847  L_12;
+		L_12 = SystemBase_get_Dependency_m5F571303CFE0102AB40DF9277BBECA28CE052FAC(__this, /*hidden argument*/NULL);
+		NullCheck(L_11);
+		EntityCommandBufferSystem_AddJobHandleForProducer_mDBDF8D98FC77267D0A87EF1277B078A8CCCE12AF(L_11, L_12, /*hidden argument*/NULL);
+		// }
+		return;
+	}
+}
+// System.Void SystemCloneSpawner::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneSpawner__ctor_m92D29B7A07EF78128D7DE9C8FC858AEED417637D (SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7 * __this, const RuntimeMethod* method)
+{
+	{
+		SystemBase__ctor_m72216162580C72C731BF1BD6D491A990E6984CFA(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void SystemCloneSpawner::OnCreateForCompiler()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SystemCloneSpawner_OnCreateForCompiler_m29C2FE7E520BBE537CA7CFEF253CC9D7108C4DD6 (SystemCloneSpawner_tC4E3B3EAA1CDDC5092D423FA13E4882D834EF4D7 * __this, const RuntimeMethod* method)
+{
+	{
+		SystemBase_OnCreateForCompiler_m0EBA19005313E80E2C977432945363AC0AB29864(__this, /*hidden argument*/NULL);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_0;
+		L_0 = SystemCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m14285846115F3AB52C268BF33618304995C7C446(__this, /*hidden argument*/NULL);
+		__this->set_U3CU3EOnUpdate_LambdaJob0_entityQuery_2(L_0);
+		return;
+	}
+}
+// Unity.Entities.EntityQuery SystemCloneSpawner::<>GetEntityQuery_ForOnUpdate_LambdaJob0_From(Unity.Entities.ComponentSystemBase)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  SystemCloneSpawner_U3CU3EGetEntityQuery_ForOnUpdate_LambdaJob0_From_m14285846115F3AB52C268BF33618304995C7C446 (ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * ___componentSystem0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* V_0 = NULL;
+	EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * V_1 = NULL;
+	EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  V_2;
+	memset((&V_2), 0, sizeof(V_2));
+	{
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_0 = (EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3*)(EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3*)SZArrayNew(EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3_il2cpp_TypeInfo_var, (uint32_t)1);
+		V_0 = L_0;
+		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_1 = (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)il2cpp_codegen_object_new(EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31_il2cpp_TypeInfo_var);
+		EntityQueryDesc__ctor_mA868F175C41EAB9B07886AD23D877374E8E6E152(L_1, /*hidden argument*/NULL);
+		V_1 = L_1;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_2 = V_0;
+		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_3 = V_1;
+		NullCheck(L_2);
+		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 *)L_3);
+		EntityQueryDesc_tCAC2E1F1B847E23C70EE594B798A38616B431F31 * L_4 = V_1;
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_5 = (ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD*)SZArrayNew(ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD_il2cpp_TypeInfo_var, (uint32_t)((int32_t)3));
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_6 = L_5;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_7;
+		L_7 = ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C(/*hidden argument*/ComponentType_ReadOnly_TisSpawnCloneTag_tFB01DB67929A3486CEE2B82ADB14BEF3426651C4_m8769F0083AAFA716404C2DCC1E244F60170FEC4C_RuntimeMethod_var);
+		NullCheck(L_6);
+		(L_6)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)0)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_7);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_8 = L_6;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_9;
+		L_9 = ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66(/*hidden argument*/ComponentType_ReadOnly_TisTranslation_t5DA5CFB4AFA2B467A6244ED5D905B09055F2458B_mF8F16D8E10C7BA4444580AD347DD3D5501AB2A66_RuntimeMethod_var);
+		NullCheck(L_8);
+		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)1)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_9);
+		ComponentTypeU5BU5D_t50CC1C2669FDEDD437186CC422BA038332F4D7FD* L_10 = L_8;
+		ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370  L_11;
+		L_11 = ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E(/*hidden argument*/ComponentType_ReadOnly_TisId_tE2189A0BC90F034C8B7ED8510207F31A99C20073_mC907ADB8C6DA0A5C17343E17ED5C67CA6EFE4D6E_RuntimeMethod_var);
+		NullCheck(L_10);
+		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)2)), (ComponentType_tEA24A4AB5BA78DEF7C2CEF25A05426D1F51D8370 )L_11);
+		NullCheck(L_4);
+		L_4->set_All_2(L_10);
+		ComponentSystemBase_t8008ABC5BDE453061672EA262B5698047849A3BC * L_12 = ___componentSystem0;
+		EntityQueryDescU5BU5D_tD4C43654D79BA25B2BCD91E794B08BF65B97ECA3* L_13 = V_0;
+		NullCheck(L_12);
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_14;
+		L_14 = ComponentSystemBase_GetEntityQuery_m4FFEB44B696B92DFD5770C8ECAE815B6CE962753(L_12, L_13, /*hidden argument*/NULL);
+		V_2 = L_14;
+		EntityQuery_tDCA25A292AF939DB4C25632A20819FADAF418109  L_15 = V_2;
+		return L_15;
 	}
 }
 #ifdef __clang__
@@ -47720,49 +47967,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Id_set_id_m63CA08469554E3FF4
 		int32_t L_0 = ___value0;
 		__this->set_U3CidU3Ek__BackingField_0(L_0);
 		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  Vector3_Lerp_m8E095584FFA10CF1D3EABCD04F4C83FB82EC5524_inline (Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___a0, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___b1, float ___t2, const RuntimeMethod* method)
-{
-	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		float L_0 = ___t2;
-		float L_1;
-		L_1 = Mathf_Clamp01_m2296D75F0F1292D5C8181C57007A1CA45F440C4C(L_0, /*hidden argument*/NULL);
-		___t2 = L_1;
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_2 = ___a0;
-		float L_3 = L_2.get_x_2();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_4 = ___b1;
-		float L_5 = L_4.get_x_2();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_6 = ___a0;
-		float L_7 = L_6.get_x_2();
-		float L_8 = ___t2;
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_9 = ___a0;
-		float L_10 = L_9.get_y_3();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_11 = ___b1;
-		float L_12 = L_11.get_y_3();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_13 = ___a0;
-		float L_14 = L_13.get_y_3();
-		float L_15 = ___t2;
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_16 = ___a0;
-		float L_17 = L_16.get_z_4();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_18 = ___b1;
-		float L_19 = L_18.get_z_4();
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_20 = ___a0;
-		float L_21 = L_20.get_z_4();
-		float L_22 = ___t2;
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_23;
-		memset((&L_23), 0, sizeof(L_23));
-		Vector3__ctor_m57495F692C6CE1CEF278CAD9A98221165D37E636_inline((&L_23), ((float)il2cpp_codegen_add((float)L_3, (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)L_5, (float)L_7)), (float)L_8)))), ((float)il2cpp_codegen_add((float)L_10, (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)L_12, (float)L_14)), (float)L_15)))), ((float)il2cpp_codegen_add((float)L_17, (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)L_19, (float)L_21)), (float)L_22)))), /*hidden argument*/NULL);
-		V_0 = L_23;
-		goto IL_0053;
-	}
-
-IL_0053:
-	{
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_24 = V_0;
-		return L_24;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject * List_1_get_Item_mF00B574E58FB078BB753B05A3B86DD0A7A266B63_gshared_inline (List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5 * __this, int32_t ___index0, const RuntimeMethod* method)
