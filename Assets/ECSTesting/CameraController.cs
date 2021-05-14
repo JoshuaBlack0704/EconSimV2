@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
     public GenerationSettings genSettings;
     public float radius;
-    public float angularVelocity = 1;
+    public float angularVelocity = .3f;
     public static Entity[] systems;
     EntityManager em;
 

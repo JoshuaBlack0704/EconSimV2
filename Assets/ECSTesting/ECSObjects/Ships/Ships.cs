@@ -278,7 +278,7 @@ public class AIEmulator : SystemBase
         Entities.WithNativeDisableParallelForRestriction(randomArray).WithAll<Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref Ships.TargetPos target, ref Tickets.TimeAtWrite write, ref Tickets.TimeAtExecute exe, ref Ships.MovementData moveData, in Translation pos) =>
         {
             var rand = randomArray[nativeThreadIndex];
-            target.position = rand.NextFloat3(0, 50);
+            target.position = rand.NextFloat3(0, 300);
             float3 vect = target.position - pos.Value;
             moveData.vector = math.normalize(vect);
             write.time = time;
