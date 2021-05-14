@@ -1,6 +1,5 @@
-using UnityEngine;
-using System.Collections;
 using System;
+using UnityEngine;
 
 public class Heap<T> where T : IHeapItem<T>
 {
@@ -9,32 +8,32 @@ public class Heap<T> where T : IHeapItem<T>
     public int currentItemCount;
     int _maxHeapSize;
 
-    public Heap( int maxHeapSize )
+    public Heap(int maxHeapSize)
     {
         items = new T[maxHeapSize];
         _maxHeapSize = maxHeapSize;
     }
 
-    public T peakRoot()
+    public T peakRoot( )
     {
         return items[0];
     }
 
-    public void Add( T item )
+    public void Add(T item)
     {
-        if (currentItemCount == _maxHeapSize)
+        if ( currentItemCount == _maxHeapSize )
         {
-            DoubleHeapSize();
+            DoubleHeapSize( );
         }
         item.HeapIndex = currentItemCount;
         items[currentItemCount] = item;
         SortUp(item);
         currentItemCount++;
     }
-    public void DoubleHeapSize()
+    public void DoubleHeapSize( )
     {
         T[] SecondArray = new T[items.Length * 2];
-        foreach (T item in items)
+        foreach ( T item in items )
         {
             SecondArray[item.HeapIndex] = item;
         }
@@ -43,11 +42,11 @@ public class Heap<T> where T : IHeapItem<T>
         Debug.LogWarning("Main schedual head resized");
     }
 
-    public T RemoveFirst()
+    public T RemoveFirst( )
     {
         T firstItem = items[0];
         currentItemCount--;
-        if (currentItemCount < 0)
+        if ( currentItemCount < 0 )
         {
             Debug.LogError("here");
         }
@@ -57,7 +56,7 @@ public class Heap<T> where T : IHeapItem<T>
         return firstItem;
     }
 
-    public void UpdateItem( T item )
+    public void UpdateItem(T item)
     {
         SortUp(item);
     }
@@ -70,32 +69,32 @@ public class Heap<T> where T : IHeapItem<T>
         }
     }
 
-    public bool Contains( T item )
+    public bool Contains(T item)
     {
         return Equals(items[item.HeapIndex], item);
     }
 
-    void SortDown( T item )
+    void SortDown(T item)
     {
-        while (true)
+        while ( true )
         {
             int childIndexLeft = item.HeapIndex * 2 + 1;
             int childIndexRight = item.HeapIndex * 2 + 2;
             int swapIndex = 0;
 
-            if (childIndexLeft < currentItemCount)
+            if ( childIndexLeft < currentItemCount )
             {
                 swapIndex = childIndexLeft;
 
-                if (childIndexRight < currentItemCount)
+                if ( childIndexRight < currentItemCount )
                 {
-                    if (items[childIndexLeft].CompareTo(items[childIndexRight]) < 0)
+                    if ( items[childIndexLeft].CompareTo(items[childIndexRight]) < 0 )
                     {
                         swapIndex = childIndexRight;
                     }
                 }
 
-                if (item.CompareTo(items[swapIndex]) < 0)
+                if ( item.CompareTo(items[swapIndex]) < 0 )
                 {
                     Swap(item, items[swapIndex]);
                 }
@@ -113,14 +112,14 @@ public class Heap<T> where T : IHeapItem<T>
         }
     }
 
-    void SortUp( T item )
+    void SortUp(T item)
     {
         int parentIndex = (item.HeapIndex - 1) / 2;
 
-        while (true)
+        while ( true )
         {
             T parentItem = items[parentIndex];
-            if (item.CompareTo(parentItem) > 0)
+            if ( item.CompareTo(parentItem) > 0 )
             {
                 Swap(item, parentItem);
             }
@@ -133,7 +132,7 @@ public class Heap<T> where T : IHeapItem<T>
         }
     }
 
-    void Swap( T itemA, T itemB )
+    void Swap(T itemA, T itemB)
     {
         items[itemA.HeapIndex] = itemB;
         items[itemB.HeapIndex] = itemA;

@@ -25,7 +25,7 @@ public class GenerationSettings : MonoBehaviour
     public GameObject wormholeModel;
     public GameObject starModel;
     public GameObject shipModel;
-    private void Awake()
+    private void Awake( )
     {
         SB.rand = new Unity.Mathematics.Random(1);
         SB.em = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -37,46 +37,46 @@ public class GenerationSettings : MonoBehaviour
         SB.systemCount = systemCount;
         Planets.Initialize(planetModel);
         Asteroids.Initialize(asteroidModel);
-        Ships.Initialize();
-        
+        Ships.Initialize( );
+
     }
 
-    void GenerateUniverse()
+    void GenerateUniverse( )
     {
         SystemEntity.GenerateRandomPoints(systemCount, maxSystemSize, planetsPerSystem, asteroidsPerSystem, randomPopulate);
         //SystemEntity.BruteForceConnect(connectionsPerSystem);
-        Planets.GeneratePlanets();
-        Asteroids.GenerateAsteroids();
+        Planets.GeneratePlanets( );
+        Asteroids.GenerateAsteroids( );
         Ships.GenerateShipsForAll(shipsPerSystem);
         //EntityPathFinder.Initialize();
-        SystemEntity.RenderPoints();
-        CameraController.Initialize();
+        SystemEntity.RenderPoints( );
+        CameraController.Initialize( );
     }
-    private void Start()
+    private void Start( )
     {
 
-        GenerateUniverse();
-        
+        GenerateUniverse( );
+
     }
 
     public static bool isRendered = false;
     // Update is called once per frame
 
-    void Update()
+    void Update( )
     {
         SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
         SB.masterTime += SB.masterDeltaTime;
 
-        if (render && !isRendered)
+        if ( render && !isRendered )
         {
-            BaseEntity.DestroyAllClones();
+            BaseEntity.DestroyAllClones( );
             SystemEntity.EnterSystem(selectedSystem);
             isRendered = true;
         }
-        else if (render && isRendered)
+        else if ( render && isRendered )
         {
-            BaseEntity.DestroyAllClones();
-            SystemEntity.RenderPoints();
+            BaseEntity.DestroyAllClones( );
+            SystemEntity.RenderPoints( );
             isRendered = false;
         }
 
@@ -86,7 +86,7 @@ public class GenerationSettings : MonoBehaviour
 
 public static class SB
 {
-    static GenerationSettings genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
+    static GenerationSettings genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>( );
     public static Unity.Mathematics.Random rand;
     public static EntityManager em;
     public static float masterTime;

@@ -1,7 +1,6 @@
 ﻿using System;
-using UnityEngine;
-using System.Collections;
 using UnityEditor;
+using UnityEngine;
 
 
 namespace TMPro.Examples
@@ -32,13 +31,13 @@ namespace TMPro.Examples
         private float m_HandleSize;
 
 
-        void OnDrawGizmos()
+        void OnDrawGizmos( )
         {
-            if (m_TextComponent == null)
+            if ( m_TextComponent == null )
             {
-                m_TextComponent = GetComponent<TMP_Text>();
+                m_TextComponent = GetComponent<TMP_Text>( );
 
-                if (m_TextComponent == null)
+                if ( m_TextComponent == null )
                     return;
             }
 
@@ -52,43 +51,43 @@ namespace TMPro.Examples
                           + "\nLines: " + m_TextInfo.lineCount + "   Pages: " + m_TextInfo.pageCount;
 
             // Get the handle size for drawing the various
-            m_ScaleMultiplier = m_TextComponent.GetType() == typeof(TextMeshPro) ? 1 : 0.1f;
+            m_ScaleMultiplier = m_TextComponent.GetType( ) == typeof(TextMeshPro) ? 1 : 0.1f;
             m_HandleSize = HandleUtility.GetHandleSize(m_Transform.position) * m_ScaleMultiplier;
 
             // Draw line metrics
             #region Draw Lines
-            if (ShowLines)
-                DrawLineBounds();
+            if ( ShowLines )
+                DrawLineBounds( );
             #endregion
 
             // Draw word metrics
             #region Draw Words
-            if (ShowWords)
-                DrawWordBounds();
+            if ( ShowWords )
+                DrawWordBounds( );
             #endregion
 
             // Draw character metrics
             #region Draw Characters
-            if (ShowCharacters)
-                DrawCharactersBounds();
+            if ( ShowCharacters )
+                DrawCharactersBounds( );
             #endregion
 
             // Draw Quads around each of the words
             #region Draw Links
-            if (ShowLinks)
-                DrawLinkBounds();
+            if ( ShowLinks )
+                DrawLinkBounds( );
             #endregion
 
             // Draw Quad around the bounds of the text
             #region Draw Bounds
-            if (ShowMeshBounds)
-                DrawBounds();
+            if ( ShowMeshBounds )
+                DrawBounds( );
             #endregion
 
             // Draw Quad around the rendered region of the text.
             #region Draw Text Bounds
-            if (ShowTextBounds)
-                DrawTextBounds();
+            if ( ShowTextBounds )
+                DrawTextBounds( );
             #endregion
         }
 
@@ -97,11 +96,11 @@ namespace TMPro.Examples
         /// Method to draw a rectangle around each character.
         /// </summary>
         /// <param name="text"></param>
-        void DrawCharactersBounds()
+        void DrawCharactersBounds( )
         {
             int characterCount = m_TextInfo.characterCount;
 
-            for (int i = 0; i < characterCount; i++)
+            for ( int i = 0; i < characterCount; i++ )
             {
                 // Draw visible as well as invisible characters
                 TMP_CharacterInfo characterInfo = m_TextInfo.characterInfo[i];
@@ -110,10 +109,10 @@ namespace TMPro.Examples
                                           characterInfo.lineNumber < m_TextComponent.maxVisibleLines &&
                                           i >= m_TextComponent.firstVisibleCharacter;
 
-                if (m_TextComponent.overflowMode == TextOverflowModes.Page)
+                if ( m_TextComponent.overflowMode == TextOverflowModes.Page )
                     isCharacterVisible = isCharacterVisible && characterInfo.pageNumber + 1 == m_TextComponent.pageToDisplay;
 
-                if (!isCharacterVisible)
+                if ( !isCharacterVisible )
                     continue;
 
                 float dottedLineSize = 6;
@@ -125,7 +124,7 @@ namespace TMPro.Examples
                 Vector3 bottomRight = m_Transform.TransformPoint(new Vector3(characterInfo.bottomRight.x, characterInfo.bottomRight.y, 0));
 
                 // Draw character bounds
-                if (characterInfo.isVisible)
+                if ( characterInfo.isVisible )
                 {
                     Color color = Color.green;
                     DrawDottedRectangle(bottomLeft, topRight, color);
@@ -160,7 +159,7 @@ namespace TMPro.Examples
                 Vector3 meanlineStart = new Vector3(topLeft.x, m_Transform.TransformPoint(new Vector3(0, meanline, 0)).y, 0);
                 Vector3 meanlineEnd = new Vector3(topRight.x, m_Transform.TransformPoint(new Vector3(0, meanline, 0)).y, 0);
 
-                if (characterInfo.isVisible)
+                if ( characterInfo.isVisible )
                 {
                     // Cap line
                     Handles.color = Color.cyan;
@@ -195,7 +194,7 @@ namespace TMPro.Examples
                 DrawCrosshair(advancePosition, 0.0125f / m_ScaleMultiplier, Color.yellow);
 
                 // Draw text labels for metrics
-                if (m_HandleSize < 0.5f)
+                if ( m_HandleSize < 0.5f )
                 {
                     GUIStyle style = new GUIStyle(GUI.skin.GetStyle("Label"));
                     style.normal.textColor = new Color(0.6f, 0.6f, 0.6f, 1.0f);
@@ -228,7 +227,7 @@ namespace TMPro.Examples
                     Handles.Label(labelPosition, "Descent Line", style);
                     //Handles.Label(labelPosition, "Descent Line (" + descentlineMetrics.ToString("f3") + ")" , style);
 
-                    if (characterInfo.isVisible)
+                    if ( characterInfo.isVisible )
                     {
                         // Cap Line
                         labelPosition = m_Transform.TransformPoint(new Vector3(center, capline, 0));
@@ -261,9 +260,9 @@ namespace TMPro.Examples
         /// Method to draw rectangles around each word of the text.
         /// </summary>
         /// <param name="text"></param>
-        void DrawWordBounds()
+        void DrawWordBounds( )
         {
-            for (int i = 0; i < m_TextInfo.wordCount; i++)
+            for ( int i = 0; i < m_TextInfo.wordCount; i++ )
             {
                 TMP_WordInfo wInfo = m_TextInfo.wordInfo[i];
 
@@ -280,7 +279,7 @@ namespace TMPro.Examples
                 Color wordColor = Color.green;
 
                 // Iterate through each character of the word
-                for (int j = 0; j < wInfo.characterCount; j++)
+                for ( int j = 0; j < wInfo.characterCount; j++ )
                 {
                     int characterIndex = wInfo.firstCharacterIndex + j;
                     TMP_CharacterInfo currentCharInfo = m_TextInfo.characterInfo[characterIndex];
@@ -294,7 +293,7 @@ namespace TMPro.Examples
                     maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
                     minDescender = Mathf.Min(minDescender, currentCharInfo.descender);
 
-                    if (isBeginRegion == false && isCharacterVisible)
+                    if ( isBeginRegion == false && isCharacterVisible )
                     {
                         isBeginRegion = true;
 
@@ -304,7 +303,7 @@ namespace TMPro.Examples
                         //Debug.Log("Start Word Region at [" + currentCharInfo.character + "]");
 
                         // If Word is one character
-                        if (wInfo.characterCount == 1)
+                        if ( wInfo.characterCount == 1 )
                         {
                             isBeginRegion = false;
 
@@ -321,7 +320,7 @@ namespace TMPro.Examples
                     }
 
                     // Last Character of Word
-                    if (isBeginRegion && j == wInfo.characterCount - 1)
+                    if ( isBeginRegion && j == wInfo.characterCount - 1 )
                     {
                         isBeginRegion = false;
 
@@ -336,7 +335,7 @@ namespace TMPro.Examples
                         //Debug.Log("End Word Region at [" + currentCharInfo.character + "]");
                     }
                     // If Word is split on more than one line.
-                    else if (isBeginRegion && currentLine != m_TextInfo.characterInfo[characterIndex + 1].lineNumber)
+                    else if ( isBeginRegion && currentLine != m_TextInfo.characterInfo[characterIndex + 1].lineNumber )
                     {
                         isBeginRegion = false;
 
@@ -365,11 +364,11 @@ namespace TMPro.Examples
         /// Draw rectangle around each of the links contained in the text.
         /// </summary>
         /// <param name="text"></param>
-        void DrawLinkBounds()
+        void DrawLinkBounds( )
         {
             TMP_TextInfo textInfo = m_TextComponent.textInfo;
 
-            for (int i = 0; i < textInfo.linkCount; i++)
+            for ( int i = 0; i < textInfo.linkCount; i++ )
             {
                 TMP_LinkInfo linkInfo = textInfo.linkInfo[i];
 
@@ -386,7 +385,7 @@ namespace TMPro.Examples
                 Color32 linkColor = Color.cyan;
 
                 // Iterate through each character of the link text
-                for (int j = 0; j < linkInfo.linkTextLength; j++)
+                for ( int j = 0; j < linkInfo.linkTextLength; j++ )
                 {
                     int characterIndex = linkInfo.linkTextfirstCharacterIndex + j;
                     TMP_CharacterInfo currentCharInfo = textInfo.characterInfo[characterIndex];
@@ -400,7 +399,7 @@ namespace TMPro.Examples
                     maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
                     minDescender = Mathf.Min(minDescender, currentCharInfo.descender);
 
-                    if (isBeginRegion == false && isCharacterVisible)
+                    if ( isBeginRegion == false && isCharacterVisible )
                     {
                         isBeginRegion = true;
 
@@ -410,7 +409,7 @@ namespace TMPro.Examples
                         //Debug.Log("Start Word Region at [" + currentCharInfo.character + "]");
 
                         // If Link is one character
-                        if (linkInfo.linkTextLength == 1)
+                        if ( linkInfo.linkTextLength == 1 )
                         {
                             isBeginRegion = false;
 
@@ -427,7 +426,7 @@ namespace TMPro.Examples
                     }
 
                     // Last Character of Link
-                    if (isBeginRegion && j == linkInfo.linkTextLength - 1)
+                    if ( isBeginRegion && j == linkInfo.linkTextLength - 1 )
                     {
                         isBeginRegion = false;
 
@@ -442,7 +441,7 @@ namespace TMPro.Examples
                         //Debug.Log("End Word Region at [" + currentCharInfo.character + "]");
                     }
                     // If Link is split on more than one line.
-                    else if (isBeginRegion && currentLine != textInfo.characterInfo[characterIndex + 1].lineNumber)
+                    else if ( isBeginRegion && currentLine != textInfo.characterInfo[characterIndex + 1].lineNumber )
                     {
                         isBeginRegion = false;
 
@@ -469,11 +468,11 @@ namespace TMPro.Examples
         /// Draw Rectangles around each lines of the text.
         /// </summary>
         /// <param name="text"></param>
-        void DrawLineBounds()
+        void DrawLineBounds( )
         {
             int lineCount = m_TextInfo.lineCount;
 
-            for (int i = 0; i < lineCount; i++)
+            for ( int i = 0; i < lineCount; i++ )
             {
                 TMP_LineInfo lineInfo = m_TextInfo.lineInfo[i];
                 TMP_CharacterInfo firstCharacterInfo = m_TextInfo.characterInfo[lineInfo.firstCharacterIndex];
@@ -483,7 +482,7 @@ namespace TMPro.Examples
                                       i > m_TextComponent.maxVisibleLines ||
                                      (m_TextComponent.overflowMode == TextOverflowModes.Page && firstCharacterInfo.pageNumber + 1 != m_TextComponent.pageToDisplay) ? false : true;
 
-                if (!isLineVisible) continue;
+                if ( !isLineVisible ) continue;
 
                 float lineBottomLeft = firstCharacterInfo.bottomLeft.x;
                 float lineTopRight = lastCharacterInfo.topRight.x;
@@ -519,9 +518,9 @@ namespace TMPro.Examples
                 Handles.DrawDottedLine(descentLineStart, descentLineEnd, dottedLineSize);
 
                 // Draw text labels for metrics
-                if (m_HandleSize < 1.0f)
+                if ( m_HandleSize < 1.0f )
                 {
-                    GUIStyle style = new GUIStyle();
+                    GUIStyle style = new GUIStyle( );
                     style.normal.textColor = new Color(0.8f, 0.8f, 0.8f, 1.0f);
                     style.fontSize = 12;
                     style.fixedWidth = 200;
@@ -549,7 +548,7 @@ namespace TMPro.Examples
         /// <summary>
         /// Draw Rectangle around the bounds of the text object.
         /// </summary>
-        void DrawBounds()
+        void DrawBounds( )
         {
             Bounds meshBounds = m_TextComponent.bounds;
 
@@ -561,7 +560,7 @@ namespace TMPro.Examples
         }
 
 
-        void DrawTextBounds()
+        void DrawTextBounds( )
         {
             Bounds textBounds = m_TextComponent.textBounds;
 
@@ -573,7 +572,7 @@ namespace TMPro.Examples
 
 
         // Draw Rectangles
-        void DrawRectangle( Vector3 BL, Vector3 TR, Color color )
+        void DrawRectangle(Vector3 BL, Vector3 TR, Color color)
         {
             Gizmos.color = color;
 
@@ -583,7 +582,7 @@ namespace TMPro.Examples
             Gizmos.DrawLine(new Vector3(TR.x, BL.y, 0), new Vector3(BL.x, BL.y, 0));
         }
 
-        void DrawDottedRectangle( Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f )
+        void DrawDottedRectangle(Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f)
         {
             Handles.color = color;
             Handles.DrawDottedLine(bottomLeft, new Vector3(bottomLeft.x, topRight.y, bottomLeft.z), size);
@@ -592,14 +591,14 @@ namespace TMPro.Examples
             Handles.DrawDottedLine(new Vector3(topRight.x, bottomLeft.y, bottomLeft.z), bottomLeft, size);
         }
 
-        void DrawSolidRectangle( Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f )
+        void DrawSolidRectangle(Vector3 bottomLeft, Vector3 topRight, Color color, float size = 5.0f)
         {
             Handles.color = color;
             Rect rect = new Rect(bottomLeft, topRight - bottomLeft);
             Handles.DrawSolidRectangleWithOutline(rect, color, Color.black);
         }
 
-        void DrawSquare( Vector3 position, float size, Color color )
+        void DrawSquare(Vector3 position, float size, Color color)
         {
             Handles.color = color;
             Vector3 bottomLeft = new Vector3(position.x - size, position.y - size, position.z);
@@ -613,7 +612,7 @@ namespace TMPro.Examples
             Handles.DrawLine(bottomRight, bottomLeft);
         }
 
-        void DrawCrosshair( Vector3 position, float size, Color color )
+        void DrawCrosshair(Vector3 position, float size, Color color)
         {
             Handles.color = color;
 
@@ -623,7 +622,7 @@ namespace TMPro.Examples
 
 
         // Draw Rectangles
-        void DrawRectangle( Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color )
+        void DrawRectangle(Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color)
         {
             Gizmos.color = color;
 
@@ -635,7 +634,7 @@ namespace TMPro.Examples
 
 
         // Draw Rectangles
-        void DrawDottedRectangle( Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color )
+        void DrawDottedRectangle(Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color)
         {
             Camera cam = Camera.current;
             float dotSpacing = (cam.WorldToScreenPoint(br).x - cam.WorldToScreenPoint(bl).x) / 75f;

@@ -6,11 +6,11 @@ using Unity.Transforms;
 public static class BaseEntity
 {
     static EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
-    public static void DestroyAllClones()
+    public static void DestroyAllClones( )
     {
         NativeArray<Entity> clones = em.CreateEntityQuery(new ComponentType[] { typeof(CloneTag) }).ToEntityArray(Allocator.Temp);
         em.AddComponent<DeleteCloneTag>(clones);
-        clones.Dispose();
+        clones.Dispose( );
     }
 
     public static Translation GetTrans(Entity entity)
@@ -19,7 +19,7 @@ public static class BaseEntity
     }
     public static void MirrorTrans(Entity sender, Entity recipient)
     {
-        em.SetComponentData<Translation>(recipient, new Translation() { Value = em.GetComponentData<Translation>(sender).Value});
+        em.SetComponentData<Translation>(recipient, new Translation( ) { Value = em.GetComponentData<Translation>(sender).Value });
     }
 
     public struct DeleteCloneTag : IComponentData { }
@@ -34,19 +34,19 @@ public class RandomSystem : ComponentSystem
 {
     public NativeArray<Unity.Mathematics.Random> RandomArray { get; private set; }
 
-    protected override void OnCreate()
+    protected override void OnCreate( )
     {
-        var randomArray = new Unity.Mathematics.Random[JobsUtility.MaxJobThreadCount];
-        var seed = new System.Random();
+        Unity.Mathematics.Random[] randomArray = new Unity.Mathematics.Random[JobsUtility.MaxJobThreadCount];
+        System.Random seed = new System.Random( );
 
-        for (int i = 0; i < JobsUtility.MaxJobThreadCount; ++i)
-            randomArray[i] = new Unity.Mathematics.Random((uint)seed.Next());
+        for ( int i = 0; i < JobsUtility.MaxJobThreadCount; ++i )
+            randomArray[i] = new Unity.Mathematics.Random((uint)seed.Next( ));
 
         RandomArray = new NativeArray<Unity.Mathematics.Random>(randomArray, Allocator.Persistent);
     }
 
-    protected override void OnDestroy()
-        => RandomArray.Dispose();
+    protected override void OnDestroy( )
+        => RandomArray.Dispose( );
 
-    protected override void OnUpdate() { }
+    protected override void OnUpdate( ) { }
 }

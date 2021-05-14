@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +5,12 @@ public class PathfinderTesting : MonoBehaviour
 {
 
 
-    public void GenRandomPath()
+    public void GenRandomPath( )
     {
         Universe uni = UniverseGenerator.universe;
         int To = Random.Range(0, uni.masterPointsDatabase.Count - 1);
         int From = Random.Range(0, uni.masterPointsDatabase.Count - 1);
-        while (To == From)
+        while ( To == From )
         {
             To = Random.Range(0, uni.masterPointsDatabase.Count - 1);
             From = Random.Range(0, uni.masterPointsDatabase.Count - 1);
@@ -23,7 +22,7 @@ public class PathfinderTesting : MonoBehaviour
         collarr[2] = Color.blue;
 
         Color selectedColor = collarr[Random.Range(0, 3)];
-        for (int step = 0; step < path.Count - 1; step++)
+        for ( int step = 0; step < path.Count - 1; step++ )
         {
             int code = path[step];
             int code2 = path[step + 1];
@@ -36,19 +35,19 @@ public class PathfinderTesting : MonoBehaviour
         }
     }
     private int pathCount = 0;
-    private void Update()
+    private void Update( )
     {
 
-        if (Time.frameCount % 1 == 0)
+        if ( Time.frameCount % 1 == 0 )
         {
-            for (int i = 0; i < 1000; i++)
+            for ( int i = 0; i < 1000; i++ )
             {
-                GenRandomPath();
+                GenRandomPath( );
                 pathCount++;
             }
         }
 
-        if (Time.frameCount % 1000 == 0)
+        if ( Time.frameCount % 1000 == 0 )
         {
             float percentcomplete = (pathCount / Mathf.Pow(UniverseGenerator.universe.masterPointsDatabase.Count, 2));
 

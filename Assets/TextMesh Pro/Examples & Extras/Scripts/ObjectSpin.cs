@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 
 namespace TMPro.Examples
@@ -24,25 +23,25 @@ namespace TMPro.Examples
         public enum MotionType { Rotation, BackAndForth, Translation };
         public MotionType Motion;
 
-        void Awake()
+        void Awake( )
         {
             m_transform = transform;
             m_initial_Rotation = m_transform.rotation.eulerAngles;
             m_initial_Position = m_transform.position;
 
-            Light light = GetComponent<Light>();
+            Light light = GetComponent<Light>( );
             m_lightColor = light != null ? light.color : Color.black;
         }
 
 
         // Update is called once per frame
-        void Update()
+        void Update( )
         {
-            if (Motion == MotionType.Rotation)
+            if ( Motion == MotionType.Rotation )
             {
                 m_transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
             }
-            else if (Motion == MotionType.BackAndForth)
+            else if ( Motion == MotionType.BackAndForth )
             {
                 m_time += SpinSpeed * Time.deltaTime;
                 m_transform.rotation = Quaternion.Euler(m_initial_Rotation.x, Mathf.Sin(m_time) * RotationRange + m_initial_Rotation.y, m_initial_Rotation.z);

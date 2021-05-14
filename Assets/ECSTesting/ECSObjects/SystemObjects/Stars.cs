@@ -2,7 +2,6 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 public static class Stars
 
@@ -11,9 +10,9 @@ public static class Stars
 
     public static void SpawnStar(float3 pos)
     {
-        var star = em.Instantiate(SB.starClone);
+        Entity star = em.Instantiate(SB.starClone);
         em.AddComponent<CloneTag>(star);
-        em.SetComponentData<Translation>(star, new Translation() { Value = pos });
+        em.SetComponentData<Translation>(star, new Translation( ) { Value = pos });
         em.AddComponent<Id>(star);
     }
 
@@ -24,21 +23,21 @@ public class StarCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
     EntityQuery deletionQuery;
-    protected override void OnCreate()
+    protected override void OnCreate( )
     {
-        base.OnCreate();
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Stars.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+        base.OnCreate( );
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Stars.Id>( ), ComponentType.ReadOnly<CloneTag>( ), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>( ) });
     }
 
-    protected override void OnUpdate()
+    protected override void OnUpdate( )
     {
         //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
 
-        var stars = deletionQuery.ToEntityArray(Allocator.Temp);
+        NativeArray<Entity> stars = deletionQuery.ToEntityArray(Allocator.Temp);
         World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(stars);
-        stars.Dispose();
+        stars.Dispose( );
 
     }
 }

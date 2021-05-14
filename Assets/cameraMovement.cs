@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
@@ -16,50 +14,50 @@ public class cameraMovement : MonoBehaviour
     EntityManager manager;
     Vector3 Vector;
     // Start is called before the first frame update
-    void Start()
+    void Start( )
     {
         manager = PrefabAccessor.entityManager;
         AiCodeForShip = 0;
         FollowShipCode = 0;
-        shipFollower = new FollowShip();
-        gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x / 2, y = UniverseGenerator.universe.universeMaximums.y / 2, z = -10 };
-        if (startEntered)
+        shipFollower = new FollowShip( );
+        gameObject.transform.position = new Vector3( ) { x = UniverseGenerator.universe.universeMaximums.x / 2, y = UniverseGenerator.universe.universeMaximums.y / 2, z = -10 };
+        if ( startEntered )
         {
             int bestSystem = 0;
             int bestCount = 0;
-            for (int i = 0; i < UniverseGenerator.universe.maxPointId; i++)
+            for ( int i = 0; i < UniverseGenerator.universe.maxPointId; i++ )
             {
-                if (UniverseGenerator.universe.systemWorks.GetSystem(i).asteroids.Count > bestCount)
+                if ( UniverseGenerator.universe.systemWorks.GetSystem(i).asteroids.Count > bestCount )
                 {
                     bestSystem = i;
                     bestCount = UniverseGenerator.universe.systemWorks.GetSystem(i).asteroids.Count;
                 }
 
             }
-            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().selectedSystem = bestSystem;
-            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().switchSystemView = true;
+            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>( ).selectedSystem = bestSystem;
+            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>( ).switchSystemView = true;
         }
 
     }
     public static Unity.Mathematics.float3 pos;
     // Update is called once per frame
-    void Update()
+    void Update( )
     {
 
         GameObject target = GameObject.Find("PointerModel");
 
         Universe uni = UniverseGenerator.universe;
 
-        if (uni.inSystem)
+        if ( uni.inSystem )
         {
-            target.GetComponent<MeshRenderer>().enabled = false;
+            target.GetComponent<MeshRenderer>( ).enabled = false;
         }
         else
         {
-            target.GetComponent<MeshRenderer>().enabled = true;
+            target.GetComponent<MeshRenderer>( ).enabled = true;
         }
 
-        if (followAShipWithCode && uni.inSystem == true)
+        if ( followAShipWithCode && uni.inSystem == true )
         {
             shipFollower.FollowAShip(gameObject, FollowShipCode, AiCodeForShip);
         }
@@ -67,12 +65,12 @@ public class cameraMovement : MonoBehaviour
         {
             pos = gameObject.transform.position;
             selectedPoint = uni.selectedSystem;
-            if (uni.inSystem)
+            if ( uni.inSystem )
             {
                 zoomToPoint = false;
             }
 
-            if (zoomToPoint != true)
+            if ( zoomToPoint != true )
             {
                 float progress = Mathf.InverseLerp(-1, 1, Mathf.Sin(Time.time / 5));
 
@@ -82,14 +80,14 @@ public class cameraMovement : MonoBehaviour
 
                 float radius = uni.universeMaximums.x;
                 Vector3 center = uni.universeMaximums / 2;
-                if (uni.inSystem)
+                if ( uni.inSystem )
                 {
 
                     center = manager.GetComponentData<Translation>(uni.systemWorks.GetSystem(uni.selectedSystem).star).Value;
                     radius = uni.systemWorks.GetSystem(uni.selectedSystem).size + 10;
                 }
 
-                Vector3 positiion = new Vector3()
+                Vector3 positiion = new Vector3( )
                 {
                     x = Mathf.Cos(angle) * radius + center.x,
                     z = Mathf.Sin(angle) * radius + center.z,

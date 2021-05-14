@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,7 +23,7 @@ public class Pathfinder
         public int[] connections { get; set; }
 
         public Vector3 position { get; set; }
-        public void Reset()
+        public void Reset( )
         {
             parent = 0;
             isClosed = false;
@@ -32,41 +31,41 @@ public class Pathfinder
             distToEnd = 0;
             HeapIndex = 0;
         }
-        public int CompareTo( PathNode comparingTo )
+        public int CompareTo(PathNode comparingTo)
         {
             int compare = totalCost.CompareTo(comparingTo.totalCost);
-            if (compare == 0)
+            if ( compare == 0 )
             {
                 compare = distToEnd.CompareTo(comparingTo.distToEnd);
             }
             return -compare;
         }
 
-        public PathNode( Vector3 _pos, int[] _connections, int _id ) { position = _pos; connections = _connections; Id = _id; }
+        public PathNode(Vector3 _pos, int[] _connections, int _id) { position = _pos; connections = _connections; Id = _id; }
 
     }
     public SystemWorks systemWorks;
     public PathNode[] PathNodes;
     Heap<PathNode> heap;
 
-    public void TestHeap()
+    public void TestHeap( )
     {
         Heap<PathNode> heap = new Heap<PathNode>(PathNodes.Length);
-        Vector3 point = new Vector3()
+        Vector3 point = new Vector3( )
         {
             x = 10,
             y = 10,
             z = 10
         };
-        foreach (PathNode item in PathNodes)
+        foreach ( PathNode item in PathNodes )
         {
             float dist = Vector3.Distance(point, item.position);
             item.distToEnd = dist;
             heap.Add(item);
         }
-        for (int i = 0; i < PathNodes.Length; i++)
+        for ( int i = 0; i < PathNodes.Length; i++ )
         {
-            PathNode item = heap.RemoveFirst();
+            PathNode item = heap.RemoveFirst( );
             MonoBehaviour.print(item.distToEnd);
         }
     }
@@ -84,14 +83,14 @@ public class Pathfinder
 
     List<int> internalPath;
 
-    public List<int> GetPath( int start, int end, PathNode[] inputArray = null )
+    public List<int> GetPath(int start, int end, PathNode[] inputArray = null)
     {
         currentRunId++;
-        internalPath.Clear();
+        internalPath.Clear( );
         heap.currentItemCount = 0;
         PathNode[] NodeArray;
         //Reset node array
-        if (inputArray != null)
+        if ( inputArray != null )
         {
             //Removed pathnode reset iterator
             NodeArray = PathNodes;
@@ -104,7 +103,7 @@ public class Pathfinder
 
         //Set up first node
         PathNode currentNode = NodeArray[start];
-        currentNode.Reset();
+        currentNode.Reset( );
         currentNode.parent = start;
         currentNode.distFromStart = 0;
         currentNode.distToEnd = Vector3.SqrMagnitude(currentNode.position - NodeArray[end].position);
@@ -113,36 +112,36 @@ public class Pathfinder
         //Set up path list
         List<int> path = internalPath;
         //Initilize main loop
-        while (true)
+        while ( true )
         {
             //Pull Current best node and set it to closed
-            currentNode = heap.RemoveFirst();
+            currentNode = heap.RemoveFirst( );
             //MonoBehaviour.print("root Node heapIndex: " + currentNode.HeapIndex);
             currentNode.isClosed = true;
             //Add it to path
             //If we have reached our target we exit the loop
-            if (currentNode.Id == end)
+            if ( currentNode.Id == end )
             {
                 break;
             }
 
             //We iterate through each connection
-            foreach (int connection in currentNode.connections)
+            foreach ( int connection in currentNode.connections )
             {
 
                 //We access the related path from the array
                 PathNode candidate = NodeArray[connection];
-                if (candidate.runId != currentRunId)
+                if ( candidate.runId != currentRunId )
                 {
-                    candidate.Reset();
+                    candidate.Reset( );
                     candidate.runId = currentRunId;
                 }
-                if (systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                if ( systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
                 {
                     Debug.LogError("here");
                 }
                 //We skip if connection is related to a skipped node
-                if (candidate.isClosed)
+                if ( candidate.isClosed )
                 {
                     continue;
                 }
@@ -155,10 +154,10 @@ public class Pathfinder
 
                 //If the heap contains our related path node but its new parent can offer a higher score
                 //we update the data for our related pathnode in the heap
-                if (heap.Contains(candidate) && totalCost <= candidate.totalCost)
+                if ( heap.Contains(candidate) && totalCost <= candidate.totalCost )
                 {
                     candidate.parent = currentNode.Id;
-                    if (systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                    if ( systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
                     {
                         Debug.LogError("here");
                     }
@@ -168,10 +167,10 @@ public class Pathfinder
                     heap.UpdateItem(candidate);
                 }
                 //If the candidate is novel we add it to the heap list
-                else if (heap.Contains(candidate) != true)
+                else if ( heap.Contains(candidate) != true )
                 {
                     candidate.parent = currentNode.Id;
-                    if (systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                    if ( systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
                     {
                         Debug.LogError("here");
                     }
@@ -189,25 +188,25 @@ public class Pathfinder
 
         //We recurse through our path of parents
         //MonoBehaviour.print("------------");
-        while (true)
+        while ( true )
         {
             //onoBehaviour.print(currentNode.parent);
 
-            if (currentNode.Id == start)
+            if ( currentNode.Id == start )
             {
                 break;
             }
-            if (systemWorks.masterUniverse.masterPointsDatabase[currentNode.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id]) != true)
+            if ( systemWorks.masterUniverse.masterPointsDatabase[currentNode.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id]) != true )
             {
                 Debug.LogError("here");
             }
-            if (path.Count > systemWorks.masterUniverse.masterPointsDatabase.Count)
+            if ( path.Count > systemWorks.masterUniverse.masterPointsDatabase.Count )
             {
                 Debug.LogError("here");
                 MonoBehaviour.print(string.Format("Start : {0} End: {1} CurrentNode Id: {2} CurrentNode Parent {3} PathLength: {4}", start, end, currentNode.Id, currentNode.parent, path.Count));
                 Debug.Log("");
 
-                foreach (int item in path)
+                foreach ( int item in path )
                 {
                     Debug.LogError(item);
                 }
@@ -215,7 +214,7 @@ public class Pathfinder
             }
             path.Add(currentNode.Id);
             currentNode = PathNodes[currentNode.parent];
-            if (currentNode.parent == start && currentNode.Id != start)
+            if ( currentNode.parent == start && currentNode.Id != start )
             {
                 //MonoBehaviour.print(currentNode.parent);
                 path.Add(currentNode.Id);
@@ -233,10 +232,10 @@ public class Pathfinder
 
     }
 
-    public List<int> GetPathForInput( int start, int end, Dictionary<int, AI.AiSystem> knownSystems, Dictionary<int, AI.AiSystem> unknownSystems, int missionType )
+    public List<int> GetPathForInput(int start, int end, Dictionary<int, AI.AiSystem> knownSystems, Dictionary<int, AI.AiSystem> unknownSystems, int missionType)
     {
         currentRunId++;
-        internalPath.Clear();
+        internalPath.Clear( );
         heap.currentItemCount = 0;
         PathNode[] NodeArray;
         //Reset node array
@@ -245,7 +244,7 @@ public class Pathfinder
 
         //Set up first node
         PathNode currentNode = NodeArray[start];
-        currentNode.Reset();
+        currentNode.Reset( );
         currentNode.parent = start;
         currentNode.distFromStart = 0;
         currentNode.distToEnd = Vector3.SqrMagnitude(currentNode.position - NodeArray[end].position);
@@ -254,42 +253,42 @@ public class Pathfinder
         //Set up path list
         List<int> path = internalPath;
         //Initilize main loop
-        while (true)
+        while ( true )
         {
             //Pull Current best node and set it to closed
-            currentNode = heap.RemoveFirst();
+            currentNode = heap.RemoveFirst( );
             //MonoBehaviour.print("root Node heapIndex: " + currentNode.HeapIndex);
             currentNode.isClosed = true;
             //Add it to path
             //If we have reached our target we exit the loop
-            if (currentNode.Id == end)
+            if ( currentNode.Id == end )
             {
                 break;
             }
 
             //We iterate through each connection
-            foreach (int connection in currentNode.connections)
+            foreach ( int connection in currentNode.connections )
             {
                 bool inKnownSystems = knownSystems.ContainsKey(connection);
                 bool inUnknownSystems = unknownSystems.ContainsKey(connection);
                 bool isExplorationMission = missionType == 2;
-                if ((inKnownSystems == false && inUnknownSystems == false) || (inKnownSystems == false && inUnknownSystems && isExplorationMission == false))
+                if ( (inKnownSystems == false && inUnknownSystems == false) || (inKnownSystems == false && inUnknownSystems && isExplorationMission == false) )
                 {
                     continue;
                 }
                 //We access the related path from the array
                 PathNode candidate = NodeArray[connection];
-                if (candidate.runId != currentRunId)
+                if ( candidate.runId != currentRunId )
                 {
-                    candidate.Reset();
+                    candidate.Reset( );
                     candidate.runId = currentRunId;
                 }
-                if (systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                if ( systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
                 {
                     Debug.LogError("here");
                 }
                 //We skip if connection is related to a skipped node
-                if (candidate.isClosed)
+                if ( candidate.isClosed )
                 {
                     continue;
                 }
@@ -302,10 +301,10 @@ public class Pathfinder
 
                 //If the heap contains our related path node but its new parent can offer a higher score
                 //we update the data for our related pathnode in the heap
-                if (heap.Contains(candidate) && totalCost <= candidate.totalCost)
+                if ( heap.Contains(candidate) && totalCost <= candidate.totalCost )
                 {
                     candidate.parent = currentNode.Id;
-                    if (systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                    if ( systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
                     {
                         Debug.LogError("here");
                     }
@@ -315,10 +314,10 @@ public class Pathfinder
                     heap.UpdateItem(candidate);
                 }
                 //If the candidate is novel we add it to the heap list
-                else if (heap.Contains(candidate) != true)
+                else if ( heap.Contains(candidate) != true )
                 {
                     candidate.parent = currentNode.Id;
-                    if (systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true)
+                    if ( systemWorks.masterUniverse.masterPointsDatabase[candidate.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
                     {
                         Debug.LogError("here");
                     }
@@ -336,25 +335,25 @@ public class Pathfinder
 
         //We recurse through our path of parents
         //MonoBehaviour.print("------------");
-        while (true)
+        while ( true )
         {
             //onoBehaviour.print(currentNode.parent);
 
-            if (currentNode.Id == start)
+            if ( currentNode.Id == start )
             {
                 break;
             }
-            if (systemWorks.masterUniverse.masterPointsDatabase[currentNode.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id]) != true)
+            if ( systemWorks.masterUniverse.masterPointsDatabase[currentNode.parent].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id]) != true )
             {
                 Debug.LogError("here");
             }
-            if (path.Count > systemWorks.masterUniverse.masterPointsDatabase.Count)
+            if ( path.Count > systemWorks.masterUniverse.masterPointsDatabase.Count )
             {
                 Debug.LogError("here");
                 MonoBehaviour.print(string.Format("Start : {0} End: {1} CurrentNode Id: {2} CurrentNode Parent {3} PathLength: {4}", start, end, currentNode.Id, currentNode.parent, path.Count));
                 Debug.Log("");
 
-                foreach (int item in path)
+                foreach ( int item in path )
                 {
                     Debug.LogError(item);
                 }
@@ -362,7 +361,7 @@ public class Pathfinder
             }
             path.Add(currentNode.Id);
             currentNode = PathNodes[currentNode.parent];
-            if (currentNode.parent == start && currentNode.Id != start)
+            if ( currentNode.parent == start && currentNode.Id != start )
             {
                 //MonoBehaviour.print(currentNode.parent);
                 path.Add(currentNode.Id);
@@ -381,11 +380,11 @@ public class Pathfinder
     }
 
 
-    public List<int> FindBestPath( int start, int end, Dictionary<int, UniquePoint> inputPoints )
+    public List<int> FindBestPath(int start, int end, Dictionary<int, UniquePoint> inputPoints)
     {
         List<int> masterPath;
         //Find masterPath it exists, generate one if not
-        if (masterPathDatabase[start, end] != null)
+        if ( masterPathDatabase[start, end] != null )
         {
             masterPath = masterPathDatabase[start, end];
         }
@@ -396,16 +395,16 @@ public class Pathfinder
         }
         //Check if input points knowns of every point in masterpath
         bool inputKnowsAll = true;
-        foreach (int step in masterPath)
+        foreach ( int step in masterPath )
         {
-            if (inputPoints.ContainsKey(step) != true)
+            if ( inputPoints.ContainsKey(step) != true )
             {
                 inputKnowsAll = false;
                 break;
             }
         }
         //If input array does not know all we produce a new path from the input data
-        if (inputKnowsAll)
+        if ( inputKnowsAll )
         {
             return masterPath;
         }
@@ -415,9 +414,9 @@ public class Pathfinder
 
             PathNode[] inputArray = new PathNode[inputPoints.Count];
 
-            foreach (UniquePoint point in inputPoints.Values)
+            foreach ( UniquePoint point in inputPoints.Values )
             {
-                PathNode newPathNode = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
+                PathNode newPathNode = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray( ), point.Id);
 
                 inputArray[newPathNode.Id] = newPathNode;
             }
@@ -429,15 +428,15 @@ public class Pathfinder
     }
     List<int>[,] masterPathDatabase;
 
-    public Pathfinder( SystemWorks _systemWorks )
+    public Pathfinder(SystemWorks _systemWorks)
     {
         systemWorks = _systemWorks;
         heap = new Heap<PathNode>(systemWorks.masterUniverse.masterPointsDatabase.Count);
-        internalPath = new List<int>();
+        internalPath = new List<int>( );
         PathNodes = new PathNode[systemWorks.masterUniverse.masterPointsDatabase.Count];
-        foreach (UniquePoint point in systemWorks.masterUniverse.masterPointsDatabase.Values)
+        foreach ( UniquePoint point in systemWorks.masterUniverse.masterPointsDatabase.Values )
         {
-            PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
+            PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray( ), point.Id);
         }
         currentRunId = 0;
         //masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId];

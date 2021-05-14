@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UniverseGenerator : MonoBehaviour
@@ -11,40 +9,40 @@ public class UniverseGenerator : MonoBehaviour
 
     public static Universe universe;
     // Start is called before the first frame update
-    void Awake()
+    void Awake( )
     {
         MonoBehaviour.print("Starting Generation");
         universe = new Universe(numberOfSystems, universeSize, true, 4);
         MonoBehaviour.print("Generation Complete");
     }
 
-    public void ExternalSystemSelector( int id )
+    public void ExternalSystemSelector(int id)
     {
         selectedSystem = id;
         universe.selectedSystem = id;
     }
 
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos( )
     {
 
     }
 
     // Update is called once per frame
-    private void Update()
+    private void Update( )
     {
         universe.selectedSystem = selectedSystem;
 
-        if (switchSystemView)
+        if ( switchSystemView )
         {
-            if (universe.inSystem == false)
+            if ( universe.inSystem == false )
             {
                 universe.systemWorks.EnterSystem(universe.selectedSystem);
                 universe.inSystem = true;
             }
             else
             {
-                universe.systemWorks.EnterUniverse();
+                universe.systemWorks.EnterUniverse( );
                 universe.inSystem = false;
             }
         }
@@ -52,10 +50,10 @@ public class UniverseGenerator : MonoBehaviour
         switchSystemView = false;
     }
 
-    private void OnApplicationQuit()
+    private void OnApplicationQuit( )
     {
         universe = null;
-        System.GC.Collect();
+        System.GC.Collect( );
     }
 
 }

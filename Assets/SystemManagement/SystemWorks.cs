@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
-using Unity.Collections;
 using UnityEngine;
 
 public class SystemWorks : MonoBehaviour
@@ -12,7 +9,7 @@ public class SystemWorks : MonoBehaviour
     public Universe masterUniverse { get; set; }
     public Pathfinder pathFinder;
     private Dictionary<int, UniverseSystem> systemDatabase { get; set; }
-    public UniverseSystem GenerateSystemById( int Id, int numPlanets, int numAsteroids )
+    public UniverseSystem GenerateSystemById(int Id, int numPlanets, int numAsteroids)
     {
         UniverseSystem newSystem = new UniverseSystem(this, Id, masterUniverse.masterPointsDatabase[Id], numPlanets, numAsteroids);
 
@@ -24,13 +21,13 @@ public class SystemWorks : MonoBehaviour
     /// </summary>
     /// <param name="Id">Needed system Id</param>
     /// <returns>Needed System</returns>
-    public UniverseSystem GetSystem( int Id )
+    public UniverseSystem GetSystem(int Id)
     {
         UniverseSystem system;
-        if (systemDatabase.TryGetValue(Id, out system))
+        if ( systemDatabase.TryGetValue(Id, out system) )
         {
             //system = systemDatabase[Id];
-            if (system.Id != Id)
+            if ( system.Id != Id )
             {
                 Debug.LogError("here");
             }
@@ -40,13 +37,13 @@ public class SystemWorks : MonoBehaviour
         int numAsteroids = UnityEngine.Random.Range(1, 30);
         return GenerateSystemById(Id, numPlanets, numAsteroids);
     }
-    public void SetSystem( int Id, UniverseSystem system )
+    public void SetSystem(int Id, UniverseSystem system)
     {
         systemDatabase[Id] = system;
     }
-    public List<int> GetPath( int start, int end, Ship ship = null )
+    public List<int> GetPath(int start, int end, Ship ship = null)
     {
-        if (ship == null)
+        if ( ship == null )
         {
             return pathFinder.GetPath(start, end);
 
@@ -62,23 +59,23 @@ public class SystemWorks : MonoBehaviour
 
     World defaultWorld;
     public EntityManager entityManager;
-    public void EnterUniverse()
+    public void EnterUniverse( )
     {
-        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
+        EntityQueryDesc query = new EntityQueryDesc( ) { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
 
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
-        foreach (Entity entity in entitesToDestroy)
+        foreach ( Entity entity in entitesToDestroy )
         {
             entityManager.DestroyEntity(entity);
         }
-        entitesToDestroy.Dispose();
-        foreach (Ship ship in GetSystem(masterUniverse.selectedSystem).containedShips.Values)
+        entitesToDestroy.Dispose( );
+        foreach ( Ship ship in GetSystem(masterUniverse.selectedSystem).containedShips.Values )
         {
-            ship.DestoryEntityFor();
+            ship.DestoryEntityFor( );
         }
 
 
-        foreach (UniquePoint system in masterUniverse.masterPointsDatabase.Values)
+        foreach ( UniquePoint system in masterUniverse.masterPointsDatabase.Values )
         {
             Entity newSystem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[0]);
             entityManager.AddComponent(newSystem, typeof(systemCloneTag));
@@ -86,34 +83,34 @@ public class SystemWorks : MonoBehaviour
         }
         masterUniverse.inSystem = false;
     }
-    public void EnterSystem( int Id )
+    public void EnterSystem(int Id)
     {
-        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
+        EntityQueryDesc query = new EntityQueryDesc( ) { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
-        foreach (Entity entity in entitesToDestroy)
+        foreach ( Entity entity in entitesToDestroy )
         {
             entityManager.DestroyEntity(entity);
         }
-        entitesToDestroy.Dispose();
+        entitesToDestroy.Dispose( );
 
         UniverseSystem system = GetSystem(Id);
 
-        foreach (Entity item in system.planets)
+        foreach ( Entity item in system.planets )
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[1]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.AddComponentData<planetId>(newItem, new planetId() { id = entityManager.GetComponentData<planetId>(item).id });
+            entityManager.AddComponentData<planetId>(newItem, new planetId( ) { id = entityManager.GetComponentData<planetId>(item).id });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
-        foreach (Entity item in system.asteroids)
+        foreach ( Entity item in system.asteroids )
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId() { id = entityManager.GetComponentData<asteroidId>(item).id });
-            entityManager.SetComponentData<Rotation>(newItem, new Rotation() { Value = EconomicMethods.rand.NextQuaternionRotation() });
+            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId( ) { id = entityManager.GetComponentData<asteroidId>(item).id });
+            entityManager.SetComponentData<Rotation>(newItem, new Rotation( ) { Value = EconomicMethods.rand.NextQuaternionRotation( ) });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
-        foreach (UniverseSystem.ConnectionData item in system.connections.Values)
+        foreach ( UniverseSystem.ConnectionData item in system.connections.Values )
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[4]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
@@ -122,23 +119,23 @@ public class SystemWorks : MonoBehaviour
         Entity star = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[3]);
         entityManager.AddComponent(star, typeof(systemSubObjectTag));
         entityManager.SetComponentData(star, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(system.star).Value });
-        foreach (Ship ship in system.containedShips.Values)
+        foreach ( Ship ship in system.containedShips.Values )
         {
-            ship.CreateEntityFor();
+            ship.CreateEntityFor( );
         }
         masterUniverse.inSystem = true;
     }
     //End Entity Functions
 
-    public SystemWorks( Universe _masterUniverse, bool generateAllSystems )
+    public SystemWorks(Universe _masterUniverse, bool generateAllSystems)
     {
         masterUniverse = _masterUniverse;
         systemDatabase = new Dictionary<int, UniverseSystem>(masterUniverse.masterPointsDatabase.Count);
-        if (generateAllSystems)
+        if ( generateAllSystems )
         {
             int totPlanets = 0;
             int totAsteroids = 0;
-            foreach (UniquePoint point in masterUniverse.masterPointsDatabase.Values)
+            foreach ( UniquePoint point in masterUniverse.masterPointsDatabase.Values )
             {
                 int numPlanets = UnityEngine.Random.Range(1, 10);
                 int numAsteroids = UnityEngine.Random.Range(1, 30);

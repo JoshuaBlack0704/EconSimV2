@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
@@ -18,9 +16,9 @@ public class UICode : MonoBehaviour
     TextField sysID;
     Button enterSystem;
     GenerationSettings genSettings;
-    private void OnEnable()
+    private void OnEnable( )
     {
-        var UI = GetComponent<UIDocument>().rootVisualElement;
+        VisualElement UI = GetComponent<UIDocument>( ).rootVisualElement;
 
         fps = UI.Q<Label>("FPS");
         gameTime = UI.Q<Label>("gameTime");
@@ -32,12 +30,12 @@ public class UICode : MonoBehaviour
         sysID = UI.Q<TextField>("SystemSelector");
         enterSystem = UI.Q<Button>("EnterSysButton");
         ticketsPerFrame = UI.Q<Label>("TicketsPerFrame");
-        genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
+        genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>( );
 
-        enterSystem.RegisterCallback<ClickEvent>(ev => EnterSystemCallback());
+        enterSystem.RegisterCallback<ClickEvent>(ev => EnterSystemCallback( ));
     }
 
-    void UpdateLabels()
+    void UpdateLabels( )
     {
         fps.text = string.Format("FPS: {0}", 1 / Time.deltaTime);
         gameTime.text = string.Format("Game Time: {0}", SB.masterTime);
@@ -46,20 +44,20 @@ public class UICode : MonoBehaviour
         gameDeltaTime.text = string.Format("Game Time Step: {0}", SB.masterDeltaTime);
         genSettings.timeMultiplier = timeBar.value;
         timeMultiplierBarLabel.text = string.Format("Multiplier: {0}", genSettings.timeMultiplier);
-        CountTickets();
+        CountTickets( );
     }
-    void CountTickets()
+    void CountTickets( )
     {
         EntityQuery query;
-        query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<Tickets.TimeData>());
+        query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<Tickets.TimeData>( ));
 
-        if (Time.frameCount % 100 == 0)
+        if ( Time.frameCount % 100 == 0 )
         {
             int count = 0;
-            var list = query.ToComponentDataArray<Tickets.TimeData>(Allocator.Temp).AsReadOnly();
-            for (int i = 0; i < list.Length; i++)
+            NativeArray<Tickets.TimeData>.ReadOnly list = query.ToComponentDataArray<Tickets.TimeData>(Allocator.Temp).AsReadOnly( );
+            for ( int i = 0; i < list.Length; i++ )
             {
-                if (list[i].timeAtExecute < SB.masterTime)
+                if ( list[i].timeAtExecute < SB.masterTime )
                 {
                     count++;
                 }
@@ -68,14 +66,14 @@ public class UICode : MonoBehaviour
             //Debug.Log(string.Format("{0} tickets executed this frame", count));
         }
     }
-    void EnterSystemCallback()
+    void EnterSystemCallback( )
     {
         genSettings.selectedSystem = int.Parse(sysID.value);
         genSettings.render = true;
     }
 
-    private void Update()
+    private void Update( )
     {
-        UpdateLabels();
+        UpdateLabels( );
     }
 }

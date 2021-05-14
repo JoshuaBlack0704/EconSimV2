@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class GenerationCriteria
 {
 
@@ -14,7 +10,7 @@ public class GenerationCriteria
     public int numberOfSystems { get; set; }
 
     //Constructor
-    public GenerationCriteria( int _universeSize, int _numberOfSystems )
+    public GenerationCriteria(int _universeSize, int _numberOfSystems)
     {
         universeSize = _universeSize;
         numberOfSystems = _numberOfSystems;

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 
 namespace TMPro.Examples
@@ -19,7 +18,7 @@ namespace TMPro.Examples
         //public Material material;
 
 
-        void Start()
+        void Start( )
         {
             m_Transform = transform;
 
@@ -27,18 +26,18 @@ namespace TMPro.Examples
             float orthoSize = Camera.main.orthographicSize = Screen.height / 2;
             float ratio = (float)Screen.width / Screen.height;
 
-            for (int i = MinPointSize; i <= MaxPointSize; i += Steps)
+            for ( int i = MinPointSize; i <= MaxPointSize; i += Steps )
             {
-                if (SpawnType == 0)
+                if ( SpawnType == 0 )
                 {
                     // TextMesh Pro Implementation
                     GameObject go = new GameObject("Text - " + i + " Pts");
 
-                    if (lineHeight > orthoSize * 2) return;
+                    if ( lineHeight > orthoSize * 2 ) return;
 
                     go.transform.position = m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
 
-                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
+                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>( );
 
                     //textMeshPro.fontSharedMaterial = material;
                     //textMeshPro.font = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;

@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 
 namespace TMPro.Examples
@@ -28,19 +28,19 @@ namespace TMPro.Examples
 
 
 
-        IEnumerator Start()
+        IEnumerator Start( )
         {
 
 
 
-            if (BenchmarkType == 0) // TextMesh Pro Component
+            if ( BenchmarkType == 0 ) // TextMesh Pro Component
             {
-                m_textMeshPro = gameObject.AddComponent<TextMeshPro>();
+                m_textMeshPro = gameObject.AddComponent<TextMeshPro>( );
                 m_textMeshPro.autoSizeTextContainer = true;
 
                 //m_textMeshPro.anchorDampening = true;
 
-                if (TMProFont != null)
+                if ( TMProFont != null )
                     m_textMeshPro.font = TMProFont;
 
                 //m_textMeshPro.font = Resources.Load("Fonts & Materials/Anton SDF", typeof(TextMeshProFont)) as TextMeshProFont; // Make sure the Anton SDF exists before calling this...
@@ -64,19 +64,19 @@ namespace TMPro.Examples
 
 
             }
-            else if (BenchmarkType == 1) // TextMesh
+            else if ( BenchmarkType == 1 ) // TextMesh
             {
-                m_textMesh = gameObject.AddComponent<TextMesh>();
+                m_textMesh = gameObject.AddComponent<TextMesh>( );
 
-                if (TextMeshFont != null)
+                if ( TextMeshFont != null )
                 {
                     m_textMesh.font = TextMeshFont;
-                    m_textMesh.GetComponent<Renderer>().sharedMaterial = m_textMesh.font.material;
+                    m_textMesh.GetComponent<Renderer>( ).sharedMaterial = m_textMesh.font.material;
                 }
                 else
                 {
                     m_textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
-                    m_textMesh.GetComponent<Renderer>().sharedMaterial = m_textMesh.font.material;
+                    m_textMesh.GetComponent<Renderer>( ).sharedMaterial = m_textMesh.font.material;
                 }
 
                 m_textMesh.fontSize = 48;
@@ -87,19 +87,19 @@ namespace TMPro.Examples
 
 
 
-            for (int i = 0; i <= 1000000; i++)
+            for ( int i = 0; i <= 1000000; i++ )
             {
-                if (BenchmarkType == 0)
+                if ( BenchmarkType == 0 )
                 {
                     m_textMeshPro.SetText(label01, i % 1000);
-                    if (i % 1000 == 999)
+                    if ( i % 1000 == 999 )
                         m_textMeshPro.fontSharedMaterial = m_textMeshPro.fontSharedMaterial == m_material01 ? m_textMeshPro.fontSharedMaterial = m_material02 : m_textMeshPro.fontSharedMaterial = m_material01;
 
 
 
                 }
-                else if (BenchmarkType == 1)
-                    m_textMesh.text = label02 + (i % 1000).ToString();
+                else if ( BenchmarkType == 1 )
+                    m_textMesh.text = label02 + (i % 1000).ToString( );
 
                 yield return null;
             }

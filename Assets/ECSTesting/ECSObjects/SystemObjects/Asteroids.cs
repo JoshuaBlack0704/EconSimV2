@@ -9,38 +9,38 @@ public static class Asteroids
     static EntityArchetype asteroidArc;
     static int asteroidCount = 0;
 
-    static void CreateAsteroids()
+    static void CreateAsteroids( )
     {
         EntityQuery query = em.CreateEntityQuery(typeof(SystemEntity.Id));
-        var systems = query.ToEntityArray(Allocator.Temp);
+        NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
 
-        foreach (var item in systems)
+        foreach ( Entity item in systems )
         {
-            var asteroidsToGen = em.GetComponentData<SystemEntity.SystemData>(item).numAsteroids;
-            var size = em.GetComponentData<SystemEntity.SystemData>(item).size;
-            var id = em.GetComponentData<SystemEntity.Id>(item).id;
+            int asteroidsToGen = em.GetComponentData<SystemEntity.SystemData>(item).numAsteroids;
+            float size = em.GetComponentData<SystemEntity.SystemData>(item).size;
+            int id = em.GetComponentData<SystemEntity.Id>(item).id;
 
-            for (int i = 0; i < asteroidsToGen; i++)
+            for ( int i = 0; i < asteroidsToGen; i++ )
             {
-                var asteroid = em.CreateEntity(asteroidArc);
-                em.SetComponentData<Id>(asteroid, new Id() { id = asteroidCount });
+                Entity asteroid = em.CreateEntity(asteroidArc);
+                em.SetComponentData<Id>(asteroid, new Id( ) { id = asteroidCount });
                 asteroidCount++;
-                em.SetComponentData<Translation>(asteroid, new Translation() { Value = SB.rand.NextFloat3(0, size) });
-                em.SetComponentData<SystemID>(asteroid, new SystemID() { Id = id });
+                em.SetComponentData<Translation>(asteroid, new Translation( ) { Value = SB.rand.NextFloat3(0, size) });
+                em.SetComponentData<SystemID>(asteroid, new SystemID( ) { Id = id });
             }
         }
 
 
-        systems.Dispose();
+        systems.Dispose( );
     }
 
     public static void SpawnAsteroids(Entity[] asteroids)
     {
-        foreach (var item in asteroids)
+        foreach ( Entity item in asteroids )
         {
-            var pos = em.GetComponentData<Translation>(item);
+            Translation pos = em.GetComponentData<Translation>(item);
 
-            var asteroid = em.Instantiate(SB.asteroidClone);
+            Entity asteroid = em.Instantiate(SB.asteroidClone);
             em.AddComponent<CloneTag>(asteroid);
             em.SetComponentData<Translation>(asteroid, pos);
         }
@@ -51,9 +51,9 @@ public static class Asteroids
         asteroidArc = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(Translation), typeof(SystemID) });
     }
 
-    public static void GenerateAsteroids()
+    public static void GenerateAsteroids( )
     {
-        CreateAsteroids();
+        CreateAsteroids( );
     }
 
     public struct Id : IComponentData, IIdTag
@@ -66,21 +66,21 @@ public class AsteroidCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
     EntityQuery deletionQuery;
-    protected override void OnCreate()
+    protected override void OnCreate( )
     {
-        base.OnCreate();
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Asteroids.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+        base.OnCreate( );
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Asteroids.Id>( ), ComponentType.ReadOnly<CloneTag>( ), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>( ) });
     }
 
-    protected override void OnUpdate()
+    protected override void OnUpdate( )
     {
         //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
 
-        var asteroids = deletionQuery.ToEntityArray(Allocator.Temp);
+        NativeArray<Entity> asteroids = deletionQuery.ToEntityArray(Allocator.Temp);
         World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(asteroids);
-        asteroids.Dispose();
+        asteroids.Dispose( );
 
     }
 }
@@ -88,30 +88,30 @@ public class AsteroidCloneDeleter : SystemBase
 public class AsteroidCloneSpawner : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-    
-    protected override void OnCreate()
+
+    protected override void OnCreate( )
     {
-        base.OnCreate();
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        base.OnCreate( );
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
     }
 
-    
 
-    protected override void OnUpdate()
+
+    protected override void OnUpdate( )
     {
-        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer( ).AsParallelWriter( );
         Entity asteroidClone = SB.asteroidClone;
 
-        Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity asteroid, int entityInQueryIndex, in Translation pos, in Asteroids.Id id) =>
-        {
+        Entities.WithAll<BaseEntity.SpawnCloneTag>( ).ForEach((Entity asteroid, int entityInQueryIndex, in Translation pos, in Asteroids.Id id) =>
+         {
 
-            var clone = ecb.Instantiate(entityInQueryIndex, asteroidClone);
-            ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-            ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
-            ecb.AddComponent<Asteroids.Id>(entityInQueryIndex, clone, id);
-            ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, asteroid);
+             Entity clone = ecb.Instantiate(entityInQueryIndex, asteroidClone);
+             ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+             ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+             ecb.AddComponent<Asteroids.Id>(entityInQueryIndex, clone, id);
+             ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, asteroid);
 
-        }).ScheduleParallel();
+         }).ScheduleParallel( );
 
         ecbs.AddJobHandleForProducer(Dependency);
 

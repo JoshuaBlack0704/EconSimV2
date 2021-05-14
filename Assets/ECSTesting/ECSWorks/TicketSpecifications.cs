@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using Unity.Mathematics;
-using Unity.Entities;
+﻿using Unity.Entities;
 
 public static class Tickets
 {

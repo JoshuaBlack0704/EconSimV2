@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 public static class EntityPathFinder
 {
@@ -30,7 +28,7 @@ public static class EntityPathFinder
         public SystemEntity.ConnectionData[] connections { get; set; }
 
         public float3 position { get; set; }
-        public void Reset()
+        public void Reset( )
         {
             parent = 0;
             isClosed = false;
@@ -38,16 +36,16 @@ public static class EntityPathFinder
             distToEnd = 0;
             HeapIndex = 0;
         }
-        public int CompareTo( Node comparingTo )
+        public int CompareTo(Node comparingTo)
         {
             int compare = totalCost.CompareTo(comparingTo.totalCost);
-            if (compare == 0)
+            if ( compare == 0 )
             {
                 compare = distToEnd.CompareTo(comparingTo.distToEnd);
             }
             return -compare;
         }
-        public Node( float3 _pos, SystemEntity.ConnectionData[] _connections, int _id ) { position = _pos; connections = _connections; Id = _id; }
+        public Node(float3 _pos, SystemEntity.ConnectionData[] _connections, int _id) { position = _pos; connections = _connections; Id = _id; }
 
 
     }
@@ -64,23 +62,23 @@ public static class EntityPathFinder
         currentNode.distToEnd = math.distancesq(currentNode.position, nodeCache[end].position);
         heap.Add(currentNode);
 
-        while (true)
+        while ( true )
         {
-            currentNode = heap.RemoveFirst();
+            currentNode = heap.RemoveFirst( );
             currentNode.isClosed = true;
-            if (currentNode.Id == end)
+            if ( currentNode.Id == end )
             {
                 break;
             }
 
-            for (int c = 0; c < currentNode.connections.Length; c++)
+            for ( int c = 0; c < currentNode.connections.Length; c++ )
             {
                 int connection = currentNode.connections[c].target;
 
                 bool inKnownSystems = knownPoints.Contains(connection);
                 bool inUnknownSystems = explorablePoints.Contains(connection);
 
-                if ((inKnownSystems == false && inUnknownSystems == false) || (inKnownSystems == false && inUnknownSystems && exploreable == false))
+                if ( (inKnownSystems == false && inUnknownSystems == false) || (inKnownSystems == false && inUnknownSystems && exploreable == false) )
                 {
                     continue;
                 }
@@ -89,7 +87,7 @@ public static class EntityPathFinder
                 usedNodes.Add(connection);
 
                 //We skip if connection is related to a skipped node
-                if (candidate.isClosed)
+                if ( candidate.isClosed )
                 {
                     continue;
                 }
@@ -101,7 +99,7 @@ public static class EntityPathFinder
 
                 //If the heap contains our related path node but its new parent can offer a higher score
                 //we update the data for our related pathnode in the heap
-                if (heap.Contains(candidate) && totalCost <= candidate.totalCost)
+                if ( heap.Contains(candidate) && totalCost <= candidate.totalCost )
                 {
                     candidate.parent = currentNode.Id;
                     candidate.distFromStart = distToStart;
@@ -109,7 +107,7 @@ public static class EntityPathFinder
                     heap.UpdateItem(candidate);
                 }
                 //If the candidate is novel we add it to the heap list
-                else if (heap.Contains(candidate) != true)
+                else if ( heap.Contains(candidate) != true )
                 {
                     candidate.parent = currentNode.Id;
                     candidate.distFromStart = distToStart;
@@ -122,17 +120,17 @@ public static class EntityPathFinder
 
         //We recurse through our path of parents
         //MonoBehaviour.print("------------");
-        while (true)
+        while ( true )
         {
             //MonoBehaviour.print(currentNode.parent);
 
-            if (currentNode.Id == start)
+            if ( currentNode.Id == start )
             {
                 break;
             }
             path.Add(currentNode.Id);
             currentNode = nodeCache[currentNode.parent];
-            if (currentNode.parent == start && currentNode.Id != start)
+            if ( currentNode.parent == start && currentNode.Id != start )
             {
                 //MonoBehaviour.print(currentNode.parent);
                 path.Add(currentNode.Id);
@@ -145,31 +143,31 @@ public static class EntityPathFinder
 
 
 
-        pathIds = new NativeArray<int>(path.Length,Allocator.Temp);
+        pathIds = new NativeArray<int>(path.Length, Allocator.Temp);
         pathIds.CopyFrom(path);
-        for (int i = 0; i < usedNodes.Length; i++)
+        for ( int i = 0; i < usedNodes.Length; i++ )
         {
-            nodeCache[usedNodes[i]].Reset();
+            nodeCache[usedNodes[i]].Reset( );
         }
-        path.Dispose();
-        usedNodes.Dispose();
+        path.Dispose( );
+        usedNodes.Dispose( );
         heap.currentItemCount = 0;
     }
 
 
-    public static void Initialize()
+    public static void Initialize( )
     {
-        var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-        var query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>()});
+        EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>( ) });
         NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
         nodeCache = new Node[points.Length];
         heap = new Heap<Node>(points.Length);
-        foreach (var ent in points)
+        foreach ( Entity ent in points )
         {
-            var id = em.GetComponentData<SystemEntity.Id>(ent).id;
-            var connectionsNative = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(ent).Reinterpret<SystemEntity.ConnectionData>().ToNativeArray(Allocator.Temp);
-            var connecitons = connectionsNative.ToArray();
-            var pos = em.GetComponentData<Translation>(ent).Value;
+            int id = em.GetComponentData<SystemEntity.Id>(ent).id;
+            NativeArray<SystemEntity.ConnectionData> connectionsNative = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(ent).Reinterpret<SystemEntity.ConnectionData>( ).ToNativeArray(Allocator.Temp);
+            SystemEntity.ConnectionData[] connecitons = connectionsNative.ToArray( );
+            float3 pos = em.GetComponentData<Translation>(ent).Value;
 
             nodeCache[id] = new Node(pos, connecitons, id);
         }

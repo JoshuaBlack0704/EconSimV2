@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,24 +9,24 @@ public class OctTreeTesting : MonoBehaviour
     public int temp;
     public int cubeCode = 0;
     public static int errorPoint;
-    void Update()
+    void Update( )
     {
         pointCode = errorPoint;
         Universe uni = UniverseGenerator.universe;
 
-        if (pointCode != temp)
+        if ( pointCode != temp )
         {
             temp = pointCode;
-            OctCoords = new List<int>();
-            Connections.Clear();
+            OctCoords = new List<int>( );
+            Connections.Clear( );
 
             UniquePoint point = uni.masterPointsDatabase[pointCode];
 
-            foreach (int step in point.OctTreeAddress)
+            foreach ( int step in point.OctTreeAddress )
             {
                 OctCoords.Add(step);
             }
-            foreach (UniquePoint con in point.Connections)
+            foreach ( UniquePoint con in point.Connections )
             {
                 Connections.Add(con.Id);
             }
