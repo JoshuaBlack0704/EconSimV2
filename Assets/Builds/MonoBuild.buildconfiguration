@@ -3,8 +3,8 @@
     "Components": [
         {
             "$type": "Unity.Build.Common.GeneralSettings, Unity.Build",
-            "ProductName": "Product Name",
-            "CompanyName": "Company Name",
+            "ProductName": "EconSimV2",
+            "CompanyName": "Josh, Inc",
             "Version": "1.0.0"
         },
         {
@@ -24,6 +24,10 @@
             "ScriptingBackend": 0,
             "Il2CppCompilerConfiguration": 1,
             "UseIncrementalGC": true
+        },
+        {
+            "$type": "Unity.Build.Common.PlayerScriptingDefines, Unity.Build",
+            "Defines": []
         }
     ]
 }
