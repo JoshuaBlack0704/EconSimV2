@@ -46,7 +46,6 @@ public static class Ships
                 em.AddComponent<Tickets.TimeAtExecute>(ship);
                 em.AddComponent<TargetPos>(ship);
                 em.AddComponent<Idle>(ship);
-                em.AddComponentData<HasClone>(ship, new HasClone() { hasClone = false, clone = Entity.Null});
             }
         }
     }
@@ -68,7 +67,7 @@ public static class Ships
             em.AddComponent<CloneTag>(Ship);
             em.AddComponentData<MovementData>(Ship, moveData);
             em.AddComponentData<Id>(Ship, Id);
-            em.AddComponentData<CloneData>(Ship, new CloneData() { masterClone = ship });
+            em.AddComponentData<CloneData>(Ship, new CloneData() { masterShip = ship });
         }
     }
 
@@ -89,44 +88,99 @@ public static class Ships
     }
 
     public struct Idle : IComponentData { }
-    public struct HasClone : IComponentData { public bool hasClone; public Entity clone; }
+    public struct HasClone : IComponentData { public Entity clone; }
     public struct MoveMission : IComponentData { }
-    public struct CloneData : IComponentData { public Entity masterClone; }
+    public struct CloneData : IComponentData { public Entity masterShip; }
 }
 
-//public class ShipCloneAnimator : SystemBase
-//{
-//    protected override void OnUpdate()
-//    {
-//        var step = SB.masterDeltaTime;
-//        Entities.WithAll<Ships.Id, CloneTag>().WithNone<Ships.Idle>().ForEach((ref Translation trans, ref Rotation rot, in Ships.MovementData moveData) =>
-//        {
-//            trans.Value += moveData.vector * moveData.velocity * step;
-//            rot = new Rotation() { Value = quaternion.LookRotation(moveData.vector, math.up()) };
-//        }).ScheduleParallel(); ;
-//    }
-//}
+public class ShipCloneAnimator : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
 
-//public class ShipTicketExecutor : SystemBase
-//{
-//    EntityCommandBufferSystem ecbs;
-//    protected override void OnCreate()
-//    {
-//        base.OnCreate();
-//        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-//    }
-//    protected override void OnUpdate()
-//    {
-//        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-//        var time = SB.masterTime;
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        var step = SB.masterDeltaTime;
 
-//        Entities.WithAll<Ships.MoveMission>().ForEach((Entity ship, int enitiyInQueryIndex, ref Translation pos, ) => 
-//        {
+        Entities.WithAll<Ships.Id>().ForEach((int entityInQueryIndex, in Ships.MovementData moveData, in Ships.HasClone clone) =>
+        {
+            ecb.SetComponent<Ships.MovementData>(entityInQueryIndex, clone.clone, moveData);
+        }).ScheduleParallel();
 
-//        });
-//    }
-//}
 
+        Entities.WithAll<Ships.Id, CloneTag>().WithNone<Ships.Idle>().ForEach((ref Translation trans, ref Rotation rot, in Ships.MovementData moveData, in Ships.CloneData cloneData) =>
+        {
+            trans.Value += moveData.vector * moveData.velocity * step;
+            rot = new Rotation() { Value = quaternion.LookRotation(moveData.vector, math.up()) };
+        }).ScheduleParallel();
+
+        ecbs.AddJobHandleForProducer(Dependency);
+    }
+}
+
+public class ShipTicketExecutor : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
+    EntityQuery query;
+    public int ticketsExecutedPerFrame;
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<Tickets.TimeAtExecute>());
+    }
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        var time = SB.masterTime;
+        
+
+
+
+        Entities.WithAll<Ships.MoveMission>().WithNone<Ships.HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, in Tickets.TimeAtExecute exe, in Ships.TargetPos targetPos) =>
+        {
+            if (exe.time < time)
+            {
+                pos.Value = targetPos.position;
+                ecb.AddComponent<Ships.Idle>(entityInQueryIndex, ship);
+            }
+        }).ScheduleParallel();
+
+        Entities.WithAll<Ships.MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, in Tickets.TimeAtExecute exe, in Ships.TargetPos targetPos, in Ships.HasClone clone) =>
+        {
+            if (exe.time < time)
+            {
+                pos.Value = targetPos.position;
+                ecb.AddComponent<Ships.Idle>(entityInQueryIndex, ship);
+                ecb.SetComponent<Translation>(entityInQueryIndex, clone.clone, pos);
+            }
+        }).ScheduleParallel();
+
+        ecbs.AddJobHandleForProducer(Dependency);
+
+        if ((int)Time.ElapsedTime % 5 == 0)
+        {
+            int count = 0;
+            var list = query.ToComponentDataArray<Tickets.TimeAtExecute>(Allocator.Temp);
+            foreach (var item in list)
+            {
+                if (item.time < time)
+                {
+                    count++;
+                }
+            }
+            ticketsExecutedPerFrame = count;
+            //Debug.Log(string.Format("{0} tickets executed this frame", count));
+        }
+    }
+}
+
+[UpdateInGroup(typeof(InitializationSystemGroup))]
 public class ShipCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
@@ -142,11 +196,11 @@ public class ShipCloneDeleter : SystemBase
         var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
         Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex, in Ships.CloneData master) =>
         {
-            ecb.SetComponent<Ships.HasClone>(entityInQueryIndex, master.masterClone, new Ships.HasClone() { hasClone = false, clone = Entity.Null});
+            ecb.RemoveComponent<Ships.HasClone>(entityInQueryIndex, master.masterShip);
             ecb.DestroyEntity(entityInQueryIndex, clone);
         }).ScheduleParallel();
         ecbs.AddJobHandleForProducer(Dependency);
-
+        ecbs.Update();
     }
 }
 
@@ -171,7 +225,6 @@ public class ShipCloneSpawner : SystemBase
 
         Entities.WithAll<BaseEntity.SpawnCloneTag>().WithNone<Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, in Ships.Id Id, in Translation pos, in Ships.MovementData moveData, in Ships.TargetPos targetPosData, in Tickets.TimeAtExecute exe, in Tickets.TimeAtWrite write) =>
         {
-            throw new System.NotImplementedException();
             Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
             var targetPos = targetPosData.position;
 
@@ -181,8 +234,8 @@ public class ShipCloneSpawner : SystemBase
             ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
             ecb.AddComponent<Ships.MovementData>(entityInQueryIndex, clone, moveData);
             ecb.AddComponent<Ships.Id>(entityInQueryIndex, clone, Id);
-            ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterClone = ship });
-            ecb.SetComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { hasClone = true, clone = clone });
+            ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
+            ecb.AddComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
             ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
 
         }).ScheduleParallel();
@@ -195,8 +248,8 @@ public class ShipCloneSpawner : SystemBase
             ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
             ecb.AddComponent<Ships.MovementData>(entityInQueryIndex, clone, moveData);
             ecb.AddComponent<Ships.Id>(entityInQueryIndex, clone, id);
-            ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterClone = ship });
-            ecb.SetComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { hasClone = true, clone = clone });
+            ecb.AddComponent<Ships.CloneData>(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
+            ecb.AddComponent<Ships.HasClone>(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
             ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
 
         }).ScheduleParallel();
@@ -205,35 +258,40 @@ public class ShipCloneSpawner : SystemBase
 
     }
 }
-//public class AIEmulator : SystemBase
-//{
-//    EntityCommandBufferSystem ecbs;
+public class AIEmulator : SystemBase
+{
+    EntityCommandBufferSystem ecbs;
 
-//    protected override void OnCreate()
-//    {
-//        base.OnCreate();
-//        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-//    }
+    protected override void OnCreate()
+    {
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+    }
 
-//    protected override void OnUpdate()
-//    {
-//        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-//        var time = SB.masterTime;
+    protected override void OnUpdate()
+    {
+        var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+        var time = SB.masterTime;
 
-//        Entities.WithAll<Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, ref Ships.TargetPos target, ref Tickets.TimeAtWrite write, ref Tickets.TimeAtExecute exe, ref Ships.MovementData moveData, in Translation pos) => 
-//        {
-//            target.position = SB.rand.NextFloat3(0, 300);
-//            float3 vect = target.position - pos.Value;
-//            moveData.vector = math.normalize(vect);
-//            write.time = time;
-//            exe.time = time + (math.distance(target.position, pos.Value) / moveData.velocity);
+        var randomArray = World.GetExistingSystem<RandomSystem>().RandomArray;
 
-//            ecb.RemoveComponent<Ships.Idle>(entityInQueryIndex, ship);
-//            ecb.AddComponent<Ships.MoveMission>(entityInQueryIndex, ship);
-//        }).ScheduleParallel();
+        Entities.WithNativeDisableParallelForRestriction(randomArray).WithAll<Ships.Idle>().ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref Ships.TargetPos target, ref Tickets.TimeAtWrite write, ref Tickets.TimeAtExecute exe, ref Ships.MovementData moveData, in Translation pos) =>
+        {
+            var rand = randomArray[nativeThreadIndex];
+            target.position = rand.NextFloat3(0, 50);
+            float3 vect = target.position - pos.Value;
+            moveData.vector = math.normalize(vect);
+            write.time = time;
+            exe.time = time + (math.distance(target.position, pos.Value) / moveData.velocity);
 
-//        ecbs.AddJobHandleForProducer(Dependency);
-//    }
-//}
+            ecb.RemoveComponent<Ships.Idle>(entityInQueryIndex, ship);
+            ecb.AddComponent<Ships.MoveMission>(entityInQueryIndex, ship);
+
+            randomArray[nativeThreadIndex] = rand;
+        }).ScheduleParallel();
+
+        ecbs.AddJobHandleForProducer(Dependency);
+    }
+}
 
 

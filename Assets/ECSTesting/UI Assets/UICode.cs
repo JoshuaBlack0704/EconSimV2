@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,7 @@ public class UICode : MonoBehaviour
     Label realTime;
     Label timeMultiplier;
     Label gameDeltaTime;
+    Label ticketsPerFrame;
     Slider timeBar;
     Label timeMultiplierBarLabel;
     TextField sysID;
@@ -28,6 +30,7 @@ public class UICode : MonoBehaviour
         timeMultiplierBarLabel = UI.Q<Label>("CurrentMultiplier");
         sysID = UI.Q<TextField>("SystemSelector");
         enterSystem = UI.Q<Button>("EnterSysButton");
+        ticketsPerFrame = UI.Q<Label>("TicketsPerFrame");
         genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
 
         enterSystem.RegisterCallback<ClickEvent>(ev => EnterSystemCallback());
@@ -42,6 +45,7 @@ public class UICode : MonoBehaviour
         gameDeltaTime.text = string.Format("Game Time Step: {0}", SB.masterDeltaTime);
         genSettings.timeMultiplier = timeBar.value;
         timeMultiplierBarLabel.text = string.Format("Multiplier: {0}", genSettings.timeMultiplier);
+        ticketsPerFrame.text = $"Actions Per Frame: {World.DefaultGameObjectInjectionWorld.GetExistingSystem<ShipTicketExecutor>().ticketsExecutedPerFrame}";
     }
     void EnterSystemCallback()
     {
