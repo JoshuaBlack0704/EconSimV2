@@ -127,6 +127,7 @@ public class ShipTicketExecutor : SystemBase
 {
     EntityCommandBufferSystem ecbs;
     public int ticketsExecutedPerFrame;
+    public int totalTicketsprocessed = 0;
     protected override void OnCreate( )
     {
         base.OnCreate( );
@@ -136,7 +137,7 @@ public class ShipTicketExecutor : SystemBase
     {
         EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer( ).AsParallelWriter( );
         float time = SB.masterTime;
-
+        int total = 0;
 
 
 
@@ -147,6 +148,7 @@ public class ShipTicketExecutor : SystemBase
                   pos.Value = targetPos.position;
                   moveData.vector = new float3( );
                   idle.isIdle = true;
+
               }
           }).ScheduleParallel( );
 
@@ -158,12 +160,13 @@ public class ShipTicketExecutor : SystemBase
                  idle.isIdle = true;
                  moveData.vector = new float3( );
                  ecb.SetComponent<Translation>(entityInQueryIndex, clone.clone, pos);
+
              }
          }).ScheduleParallel( );
 
         ecbs.AddJobHandleForProducer(Dependency);
 
-
+        totalTicketsprocessed += total;
     }
 }
 

@@ -11,6 +11,7 @@ public class UICode : MonoBehaviour
     Label timeMultiplier;
     Label gameDeltaTime;
     Label ticketsPerFrame;
+    Label totalTicketsProcessed;
     Slider timeBar;
     Label timeMultiplierBarLabel;
     TextField sysID;
@@ -30,6 +31,7 @@ public class UICode : MonoBehaviour
         sysID = UI.Q<TextField>("SystemSelector");
         enterSystem = UI.Q<Button>("EnterSysButton");
         ticketsPerFrame = UI.Q<Label>("TicketsPerFrame");
+        totalTicketsProcessed = UI.Q<Label>("TotalTicketsProcessed");
         genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>( );
 
         enterSystem.RegisterCallback<ClickEvent>(ev => EnterSystemCallback( ));
@@ -64,6 +66,8 @@ public class UICode : MonoBehaviour
             }
             ticketsPerFrame.text = $"Actions Per Frame: {count}";
             //Debug.Log(string.Format("{0} tickets executed this frame", count));
+            totalTicketsProcessed.text = $"Total Actions: {World.DefaultGameObjectInjectionWorld.GetExistingSystem<ShipTicketExecutor>( ).totalTicketsprocessed} ";
+
         }
     }
     void EnterSystemCallback( )
