@@ -16,21 +16,21 @@ namespace TMPro.Examples
         public float CurveScale = 1.0f;
         public float ShearAmount = 1.0f;
 
-        void Awake( )
+        void Awake()
         {
-            m_TextComponent = gameObject.GetComponent<TMP_Text>( );
+            m_TextComponent = gameObject.GetComponent<TMP_Text>();
         }
 
 
-        void Start( )
+        void Start()
         {
-            StartCoroutine(WarpText( ));
+            StartCoroutine(WarpText());
         }
 
 
         private AnimationCurve CopyAnimationCurve(AnimationCurve curve)
         {
-            AnimationCurve newCurve = new AnimationCurve( );
+            AnimationCurve newCurve = new AnimationCurve();
 
             newCurve.keys = curve.keys;
 
@@ -43,7 +43,7 @@ namespace TMPro.Examples
         /// </summary>
         /// <param name="textComponent"></param>
         /// <returns></returns>
-        IEnumerator WarpText( )
+        IEnumerator WarpText()
         {
             VertexCurve.preWrapMode = WrapMode.Clamp;
             VertexCurve.postWrapMode = WrapMode.Clamp;
@@ -71,7 +71,7 @@ namespace TMPro.Examples
                 old_curve = CopyAnimationCurve(VertexCurve);
                 old_ShearValue = ShearAmount;
 
-                m_TextComponent.ForceMeshUpdate( ); // Generate the mesh and populate the textInfo with data we can use and manipulate.
+                m_TextComponent.ForceMeshUpdate(); // Generate the mesh and populate the textInfo with data we can use and manipulate.
 
                 TMP_TextInfo textInfo = m_TextComponent.textInfo;
                 int characterCount = textInfo.characterCount;
@@ -149,7 +149,7 @@ namespace TMPro.Examples
 
 
                 // Upload the mesh with the revised information
-                m_TextComponent.UpdateVertexData( );
+                m_TextComponent.UpdateVertexData();
 
                 yield return null; // new WaitForSeconds(0.025f);
             }

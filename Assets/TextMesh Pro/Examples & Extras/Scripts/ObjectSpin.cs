@@ -23,19 +23,19 @@ namespace TMPro.Examples
         public enum MotionType { Rotation, BackAndForth, Translation };
         public MotionType Motion;
 
-        void Awake( )
+        void Awake()
         {
             m_transform = transform;
             m_initial_Rotation = m_transform.rotation.eulerAngles;
             m_initial_Position = m_transform.position;
 
-            Light light = GetComponent<Light>( );
+            Light light = GetComponent<Light>();
             m_lightColor = light != null ? light.color : Color.black;
         }
 
 
         // Update is called once per frame
-        void Update( )
+        void Update()
         {
             if ( Motion == MotionType.Rotation )
             {

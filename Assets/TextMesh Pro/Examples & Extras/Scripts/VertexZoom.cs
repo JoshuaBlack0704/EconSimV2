@@ -16,27 +16,27 @@ namespace TMPro.Examples
         private bool hasTextChanged;
 
 
-        void Awake( )
+        void Awake()
         {
-            m_TextComponent = GetComponent<TMP_Text>( );
+            m_TextComponent = GetComponent<TMP_Text>();
         }
 
-        void OnEnable( )
+        void OnEnable()
         {
             // Subscribe to event fired when text object has been regenerated.
             TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
         }
 
-        void OnDisable( )
+        void OnDisable()
         {
             // UnSubscribe to event fired when text object has been regenerated.
             TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
         }
 
 
-        void Start( )
+        void Start()
         {
-            StartCoroutine(AnimateVertexColors( ));
+            StartCoroutine(AnimateVertexColors());
         }
 
 
@@ -50,21 +50,21 @@ namespace TMPro.Examples
         /// Method to animate vertex colors of a TMP Text object.
         /// </summary>
         /// <returns></returns>
-        IEnumerator AnimateVertexColors( )
+        IEnumerator AnimateVertexColors()
         {
 
             // We force an update of the text object since it would only be updated at the end of the frame. Ie. before this code is executed on the first frame.
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
-            m_TextComponent.ForceMeshUpdate( );
+            m_TextComponent.ForceMeshUpdate();
 
             TMP_TextInfo textInfo = m_TextComponent.textInfo;
 
             Matrix4x4 matrix;
-            TMP_MeshInfo[] cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData( );
+            TMP_MeshInfo[] cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData();
 
             // Allocations for sorting of the modified scales
-            List<float> modifiedCharScale = new List<float>( );
-            List<int> scaleSortingOrder = new List<int>( );
+            List<float> modifiedCharScale = new List<float>();
+            List<int> scaleSortingOrder = new List<int>();
 
             hasTextChanged = true;
 
@@ -74,7 +74,7 @@ namespace TMPro.Examples
                 if ( hasTextChanged )
                 {
                     // Get updated vertex data
-                    cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData( );
+                    cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData();
 
                     hasTextChanged = false;
                 }
@@ -89,8 +89,8 @@ namespace TMPro.Examples
                 }
 
                 // Clear list of character scales
-                modifiedCharScale.Clear( );
-                scaleSortingOrder.Clear( );
+                modifiedCharScale.Clear();
+                scaleSortingOrder.Clear();
 
                 for ( int i = 0; i < characterCount; i++ )
                 {

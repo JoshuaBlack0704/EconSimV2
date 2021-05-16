@@ -14,13 +14,13 @@ public class cameraMovement : MonoBehaviour
     EntityManager manager;
     Vector3 Vector;
     // Start is called before the first frame update
-    void Start( )
+    void Start()
     {
         manager = PrefabAccessor.entityManager;
         AiCodeForShip = 0;
         FollowShipCode = 0;
-        shipFollower = new FollowShip( );
-        gameObject.transform.position = new Vector3( ) { x = UniverseGenerator.universe.universeMaximums.x / 2, y = UniverseGenerator.universe.universeMaximums.y / 2, z = -10 };
+        shipFollower = new FollowShip();
+        gameObject.transform.position = new Vector3() { x = UniverseGenerator.universe.universeMaximums.x / 2, y = UniverseGenerator.universe.universeMaximums.y / 2, z = -10 };
         if ( startEntered )
         {
             int bestSystem = 0;
@@ -34,14 +34,14 @@ public class cameraMovement : MonoBehaviour
                 }
 
             }
-            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>( ).selectedSystem = bestSystem;
-            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>( ).switchSystemView = true;
+            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().selectedSystem = bestSystem;
+            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().switchSystemView = true;
         }
 
     }
     public static Unity.Mathematics.float3 pos;
     // Update is called once per frame
-    void Update( )
+    void Update()
     {
 
         GameObject target = GameObject.Find("PointerModel");
@@ -50,11 +50,11 @@ public class cameraMovement : MonoBehaviour
 
         if ( uni.inSystem )
         {
-            target.GetComponent<MeshRenderer>( ).enabled = false;
+            target.GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
-            target.GetComponent<MeshRenderer>( ).enabled = true;
+            target.GetComponent<MeshRenderer>().enabled = true;
         }
 
         if ( followAShipWithCode && uni.inSystem == true )
@@ -87,7 +87,7 @@ public class cameraMovement : MonoBehaviour
                     radius = uni.systemWorks.GetSystem(uni.selectedSystem).size + 10;
                 }
 
-                Vector3 positiion = new Vector3( )
+                Vector3 positiion = new Vector3()
                 {
                     x = Mathf.Cos(angle) * radius + center.x,
                     z = Mathf.Sin(angle) * radius + center.z,

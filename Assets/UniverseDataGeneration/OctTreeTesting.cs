@@ -9,7 +9,7 @@ public class OctTreeTesting : MonoBehaviour
     public int temp;
     public int cubeCode = 0;
     public static int errorPoint;
-    void Update( )
+    void Update()
     {
         pointCode = errorPoint;
         Universe uni = UniverseGenerator.universe;
@@ -17,8 +17,8 @@ public class OctTreeTesting : MonoBehaviour
         if ( pointCode != temp )
         {
             temp = pointCode;
-            OctCoords = new List<int>( );
-            Connections.Clear( );
+            OctCoords = new List<int>();
+            Connections.Clear();
 
             UniquePoint point = uni.masterPointsDatabase[pointCode];
 

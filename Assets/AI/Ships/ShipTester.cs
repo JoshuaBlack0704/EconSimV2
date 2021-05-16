@@ -8,10 +8,10 @@ public class ShipTester : MonoBehaviour
 
     public static List<Vector3> testPoints;
     List<Ship> ships;
-    void Start( )
+    void Start()
     {
-        testPoints = new List<Vector3>( );
-        ships = new List<Ship>( );
+        testPoints = new List<Vector3>();
+        ships = new List<Ship>();
         for ( int i = 0; i < 50; i++ )
         {
             testPoints.Add(new Vector3 { x = Random.Range(0, 300), y = Random.Range(0, 300), z = Random.Range(0, 300) });

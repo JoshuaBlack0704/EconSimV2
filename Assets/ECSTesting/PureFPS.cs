@@ -5,9 +5,9 @@ public class PureFPS : MonoBehaviour
     float deltaTime = 0.0f;
     Rect rect;
     GUIStyle style;
-    private void Start( )
+    private void Start()
     {
-        style = new GUIStyle( );
+        style = new GUIStyle();
         int w = Screen.width, h = Screen.height;
         rect = new Rect(0, 0, w, h * 2 / 100);
 
@@ -15,12 +15,12 @@ public class PureFPS : MonoBehaviour
         style.fontSize = h * 2 / 100;
         style.normal.textColor = new Color(0.0f, 0.0f, 0.5f, 1.0f);
     }
-    void Update( )
+    void Update()
     {
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
     }
 
-    void OnGUI( )
+    void OnGUI()
     {
 
 

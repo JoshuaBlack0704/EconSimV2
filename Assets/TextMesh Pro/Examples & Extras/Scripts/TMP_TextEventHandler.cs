@@ -34,7 +34,7 @@ namespace TMPro
             set { m_OnCharacterSelection = value; }
         }
         [SerializeField]
-        private CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent( );
+        private CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent();
 
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace TMPro
             set { m_OnSpriteSelection = value; }
         }
         [SerializeField]
-        private SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent( );
+        private SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent();
 
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace TMPro
             set { m_OnWordSelection = value; }
         }
         [SerializeField]
-        private WordSelectionEvent m_OnWordSelection = new WordSelectionEvent( );
+        private WordSelectionEvent m_OnWordSelection = new WordSelectionEvent();
 
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace TMPro
             set { m_OnLineSelection = value; }
         }
         [SerializeField]
-        private LineSelectionEvent m_OnLineSelection = new LineSelectionEvent( );
+        private LineSelectionEvent m_OnLineSelection = new LineSelectionEvent();
 
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace TMPro
             set { m_OnLinkSelection = value; }
         }
         [SerializeField]
-        private LinkSelectionEvent m_OnLinkSelection = new LinkSelectionEvent( );
+        private LinkSelectionEvent m_OnLinkSelection = new LinkSelectionEvent();
 
 
 
@@ -96,15 +96,15 @@ namespace TMPro
         private int m_lastWordIndex = -1;
         private int m_lastLineIndex = -1;
 
-        void Awake( )
+        void Awake()
         {
             // Get a reference to the text component.
-            m_TextComponent = gameObject.GetComponent<TMP_Text>( );
+            m_TextComponent = gameObject.GetComponent<TMP_Text>();
 
             // Get a reference to the camera rendering the text taking into consideration the text component type.
-            if ( m_TextComponent.GetType( ) == typeof(TextMeshProUGUI) )
+            if ( m_TextComponent.GetType() == typeof(TextMeshProUGUI) )
             {
-                m_Canvas = gameObject.GetComponentInParent<Canvas>( );
+                m_Canvas = gameObject.GetComponentInParent<Canvas>();
                 if ( m_Canvas != null )
                 {
                     if ( m_Canvas.renderMode == RenderMode.ScreenSpaceOverlay )
@@ -120,7 +120,7 @@ namespace TMPro
         }
 
 
-        void LateUpdate( )
+        void LateUpdate()
         {
             if ( TMP_TextUtilities.IsIntersectingRectTransform(m_TextComponent.rectTransform, Input.mousePosition, m_Camera) )
             {
@@ -152,7 +152,7 @@ namespace TMPro
                     TMP_WordInfo wInfo = m_TextComponent.textInfo.wordInfo[wordIndex];
 
                     // Send the event to any listeners.
-                    SendOnWordSelection(wInfo.GetWord( ), wInfo.firstCharacterIndex, wInfo.characterCount);
+                    SendOnWordSelection(wInfo.GetWord(), wInfo.firstCharacterIndex, wInfo.characterCount);
                 }
                 #endregion
 
@@ -193,7 +193,7 @@ namespace TMPro
                     TMP_LinkInfo linkInfo = m_TextComponent.textInfo.linkInfo[linkIndex];
 
                     // Send the event to any listeners.
-                    SendOnLinkSelection(linkInfo.GetLinkID( ), linkInfo.GetLinkText( ), linkIndex);
+                    SendOnLinkSelection(linkInfo.GetLinkID(), linkInfo.GetLinkText(), linkIndex);
                 }
                 #endregion
             }

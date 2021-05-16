@@ -17,26 +17,26 @@ namespace TMPro.Examples
         private bool hasTextChanged;
 
 
-        void Awake( )
+        void Awake()
         {
-            m_TextComponent = GetComponent<TMP_Text>( );
+            m_TextComponent = GetComponent<TMP_Text>();
         }
 
-        void OnEnable( )
+        void OnEnable()
         {
             // Subscribe to event fired when text object has been regenerated.
             TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
         }
 
-        void OnDisable( )
+        void OnDisable()
         {
             TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
         }
 
 
-        void Start( )
+        void Start()
         {
-            StartCoroutine(AnimateVertexColors( ));
+            StartCoroutine(AnimateVertexColors());
         }
 
 
@@ -50,12 +50,12 @@ namespace TMPro.Examples
         /// Method to animate vertex colors of a TMP Text object.
         /// </summary>
         /// <returns></returns>
-        IEnumerator AnimateVertexColors( )
+        IEnumerator AnimateVertexColors()
         {
 
             // We force an update of the text object since it would only be updated at the end of the frame. Ie. before this code is executed on the first frame.
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
-            m_TextComponent.ForceMeshUpdate( );
+            m_TextComponent.ForceMeshUpdate();
 
             TMP_TextInfo textInfo = m_TextComponent.textInfo;
 

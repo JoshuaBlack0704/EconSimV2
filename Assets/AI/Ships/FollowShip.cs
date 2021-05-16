@@ -10,9 +10,9 @@ public class FollowShip
         AI selectAI = AICoordinator.AIDictionary[AICode];
         Ship ship = selectAI.ownedShips[ShipCode];
 
-        return (ship.GetNextPosition( ) - ship.vector * 2) + Vector3.Cross(ship.GetNextPosition( ), (ship.GetNextPosition( ) - ship.vector * 2)).normalized;
+        return (ship.GetNextPosition() - ship.vector * 2) + Vector3.Cross(ship.GetNextPosition(), (ship.GetNextPosition() - ship.vector * 2)).normalized;
     }
-    Quaternion GetShipRotation( )
+    Quaternion GetShipRotation()
     {
         AI selectAI = AICoordinator.AIDictionary[AICode];
         Ship ship = selectAI.ownedShips[ShipCode];
@@ -25,10 +25,10 @@ public class FollowShip
         ShipCode = shipCode;
         AICode = AiCode;
         gameObject.transform.position = GetShipCoords(gameObject);
-        gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, GetShipRotation( ), .05f);
+        gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, GetShipRotation(), .05f);
     }
 
-    void CheckSystem( )
+    void CheckSystem()
     {
         AI selectAI = AICoordinator.AIDictionary[AICode];
         Ship ship = selectAI.ownedShips[ShipCode];
@@ -36,15 +36,15 @@ public class FollowShip
         if ( ship.currentSystemId != UniverseGenerator.universe.selectedSystem )
         {
             MonoBehaviour.print("FollowShip changing Pos");
-            UniverseGenerator.universe.systemWorks.EnterUniverse( );
-            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>( ).ExternalSystemSelector(ship.currentSystemId);
+            UniverseGenerator.universe.systemWorks.EnterUniverse();
+            GameObject.Find("UniverseGenerator").GetComponent<UniverseGenerator>().ExternalSystemSelector(ship.currentSystemId);
             UniverseGenerator.universe.systemWorks.EnterSystem(ship.currentSystemId);
         }
     }
 
     public void FollowAShip(GameObject gameObject, int shipCode, int AiCode)
     {
-        CheckSystem( );
+        CheckSystem();
         SetObjectPositionAndRotation(gameObject, shipCode, AiCode);
     }
 }

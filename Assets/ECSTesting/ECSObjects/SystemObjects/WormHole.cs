@@ -24,21 +24,21 @@ public class WormHoleCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
     EntityQuery deletionQuery;
-    protected override void OnCreate( )
+    protected override void OnCreate()
     {
-        base.OnCreate( );
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
-        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Wormholes.Id>( ), ComponentType.ReadOnly<CloneTag>( ), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>( ) });
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Wormholes.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
     }
 
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
         //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
 
         NativeArray<Entity> wormHoles = deletionQuery.ToEntityArray(Allocator.Temp);
         World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(wormHoles);
-        wormHoles.Dispose( );
+        wormHoles.Dispose();
 
     }
 }

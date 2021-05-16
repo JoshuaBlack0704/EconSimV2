@@ -14,7 +14,7 @@ public class Heap<T> where T : IHeapItem<T>
         _maxHeapSize = maxHeapSize;
     }
 
-    public T peakRoot( )
+    public T peakRoot()
     {
         return items[0];
     }
@@ -23,14 +23,14 @@ public class Heap<T> where T : IHeapItem<T>
     {
         if ( currentItemCount == _maxHeapSize )
         {
-            DoubleHeapSize( );
+            DoubleHeapSize();
         }
         item.HeapIndex = currentItemCount;
         items[currentItemCount] = item;
         SortUp(item);
         currentItemCount++;
     }
-    public void DoubleHeapSize( )
+    public void DoubleHeapSize()
     {
         T[] SecondArray = new T[items.Length * 2];
         foreach ( T item in items )
@@ -42,7 +42,7 @@ public class Heap<T> where T : IHeapItem<T>
         Debug.LogWarning("Main schedual head resized");
     }
 
-    public T RemoveFirst( )
+    public T RemoveFirst()
     {
         T firstItem = items[0];
         currentItemCount--;

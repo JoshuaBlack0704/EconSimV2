@@ -9,7 +9,7 @@ public class UniverseGenerator : MonoBehaviour
 
     public static Universe universe;
     // Start is called before the first frame update
-    void Awake( )
+    void Awake()
     {
         MonoBehaviour.print("Starting Generation");
         universe = new Universe(numberOfSystems, universeSize, true, 4);
@@ -23,13 +23,13 @@ public class UniverseGenerator : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos( )
+    private void OnDrawGizmos()
     {
 
     }
 
     // Update is called once per frame
-    private void Update( )
+    private void Update()
     {
         universe.selectedSystem = selectedSystem;
 
@@ -42,7 +42,7 @@ public class UniverseGenerator : MonoBehaviour
             }
             else
             {
-                universe.systemWorks.EnterUniverse( );
+                universe.systemWorks.EnterUniverse();
                 universe.inSystem = false;
             }
         }
@@ -50,10 +50,10 @@ public class UniverseGenerator : MonoBehaviour
         switchSystemView = false;
     }
 
-    private void OnApplicationQuit( )
+    private void OnApplicationQuit()
     {
         universe = null;
-        System.GC.Collect( );
+        System.GC.Collect();
     }
 
 }

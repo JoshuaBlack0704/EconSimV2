@@ -46,7 +46,7 @@ public class MainSchedual : MonoBehaviour
             }
             return -compare;
         }
-        public EventTicketHeapItem( )
+        public EventTicketHeapItem()
         {
             Id = maxId;
             maxId++;
@@ -70,7 +70,7 @@ public class MainSchedual : MonoBehaviour
         EventTicketHeapItem selectedTicket;
         if ( currentTicketIndex == 0 )
         {
-            selectedTicket = new EventTicketHeapItem( );
+            selectedTicket = new EventTicketHeapItem();
         }
         else
         {
@@ -89,18 +89,18 @@ public class MainSchedual : MonoBehaviour
         }
 
         Entity ticket = em.CreateEntity(ticketEntity);
-        em.SetComponentData<EventTicketTimeAtWrite>(ticket, new EventTicketTimeAtWrite( ) { timeAtWrite = selectedTicket.timeAtWrite });
-        em.SetComponentData<EventTicketTimeAtExecute>(ticket, new EventTicketTimeAtExecute( ) { timeAtExecute = selectedTicket.timeAtExecute });
-        em.SetComponentData<EventTicketData>(ticket, new EventTicketData( ) { Id = selectedTicket.Id });
+        em.SetComponentData<EventTicketTimeAtWrite>(ticket, new EventTicketTimeAtWrite() { timeAtWrite = selectedTicket.timeAtWrite });
+        em.SetComponentData<EventTicketTimeAtExecute>(ticket, new EventTicketTimeAtExecute() { timeAtExecute = selectedTicket.timeAtExecute });
+        em.SetComponentData<EventTicketData>(ticket, new EventTicketData() { Id = selectedTicket.Id });
         return selectedTicket;
     }
 
-    private void ExecuteTicketsV2( )
+    private void ExecuteTicketsV2()
     {
-        SchedualUpdater updater = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SchedualUpdater>( );
+        SchedualUpdater updater = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SchedualUpdater>();
         updater.Enabled = true;
-        updater.Update( );
-        NativeArray<Entity> ticketsToExecute = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Execute>( ) }).ToEntityArray(Allocator.Temp);
+        updater.Update();
+        NativeArray<Entity> ticketsToExecute = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Execute>() }).ToEntityArray(Allocator.Temp);
 
         for ( int i = 0; i < ticketsToExecute.Length; i++ )
         {
@@ -108,15 +108,15 @@ public class MainSchedual : MonoBehaviour
 
             if ( selectedTicket.type == 0 )
             {
-                selectedTicket.shipReference.WarpNext( );
+                selectedTicket.shipReference.WarpNext();
             }
             if ( selectedTicket.type == 1 )
             {
-                selectedTicket.shipReference.ArrivedAtTarget( );
+                selectedTicket.shipReference.ArrivedAtTarget();
             }
             if ( selectedTicket.type == 2 )
             {
-                selectedTicket.shipReference.ExploreSystem( );
+                selectedTicket.shipReference.ExploreSystem();
             }
             if ( selectedTicket.type == 5 )
             {
@@ -147,21 +147,21 @@ public class MainSchedual : MonoBehaviour
         ticketsProcessedLastFrame = ticketsToExecute.Length;
         //Debug.Log(string.Format("Execute tickets found {0} tickets", ticketsProcessedLastFrame));
         em.DestroyEntity(ticketsToExecute);
-        ticketsToExecute.Dispose( );
+        ticketsToExecute.Dispose();
         updater.Enabled = false;
     }
     // Start is called before the first frame update
-    void Start( )
+    void Start()
     {
         schedualHeap = new Heap<EventTicketHeapItem>(1000000);
         ticketPool = new List<EventTicketHeapItem>(1000000);
-        tickets = new Dictionary<int, EventTicketHeapItem>( );
+        tickets = new Dictionary<int, EventTicketHeapItem>();
         em = World.DefaultGameObjectInjectionWorld.EntityManager;
         ticketEntity = em.CreateArchetype(new ComponentType[] { typeof(EventTicketTimeAtWrite), typeof(EventTicketTimeAtExecute), typeof(EventTicketData) });
     }
 
     // Update is called once per frame
-    void Update( )
+    void Update()
     {
         //Need to implement
         if ( autoTimMultiplierAdjust )
@@ -198,7 +198,7 @@ public class MainSchedual : MonoBehaviour
             masterTime += masterDeltaTime;
 
         }
-        ExecuteTicketsV2( );
+        ExecuteTicketsV2();
     }
 }
 
@@ -220,14 +220,14 @@ public struct EventTicketData : IComponentData
 public class SchedualUpdater : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-    protected override void OnCreate( )
+    protected override void OnCreate()
     {
-        base.OnCreate( );
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
-        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer( ).AsParallelWriter( );
+        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
         float currentTime = MainSchedual.masterTime;
         Entities.ForEach((Entity ent, int entityInQueryIndex, in EventTicketTimeAtExecute timeAt) =>
         {
@@ -236,8 +236,8 @@ public class SchedualUpdater : SystemBase
             {
                 ecb.AddComponent<Execute>(entityInQueryIndex, ent);
             }
-        }).ScheduleParallel( );
+        }).ScheduleParallel();
         ecbs.AddJobHandleForProducer(Dependency);
-        ecbs.Update( );
+        ecbs.Update();
     }
 }

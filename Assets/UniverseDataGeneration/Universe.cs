@@ -7,7 +7,7 @@ public class Universe
     public int targetConnections;
     public SystemWorks systemWorks;
     public bool inSystem;
-    public Dictionary<int, UniquePoint> masterPointsDatabase = new Dictionary<int, UniquePoint>( );
+    public Dictionary<int, UniquePoint> masterPointsDatabase = new Dictionary<int, UniquePoint>();
     public int selectedSystem;
     public KDtree<UniquePoint> KDtreeOfUniversePoints { get; set; }
     public OctTree<UniquePoint> OctTreeOfUniversePoints { get; set; }
@@ -25,22 +25,22 @@ public class Universe
     /// <param name="zmax"></param>
     public Universe(int numberOfSystems, float universeSize, bool generateUniverse = true, int _targetConnections = 4, bool square = true, float xmax = 0, float ymax = 0, float zmax = 0)
     {
-        System.GC.Collect( );
+        System.GC.Collect();
         //If square is false we must define the max vertex
         if ( square != true )
         {
-            universeMaximums = new Vector3( ) { x = xmax, y = ymax, z = zmax };
+            universeMaximums = new Vector3() { x = xmax, y = ymax, z = zmax };
         }
         else
         {
-            universeMaximums = new Vector3( ) { x = universeSize, y = universeSize, z = universeSize };
+            universeMaximums = new Vector3() { x = universeSize, y = universeSize, z = universeSize };
         }
 
         if ( generateUniverse )
         {
             targetConnections = _targetConnections;
 
-            OctTreeOfUniversePoints = new OctTree<UniquePoint>(this, new Vector3( ), universeMaximums, false);
+            OctTreeOfUniversePoints = new OctTree<UniquePoint>(this, new Vector3(), universeMaximums, false);
 
             KDtreeOfUniversePoints = PointGenerator.MakeNewPointKDtree(this, universeMaximums);
 
@@ -49,7 +49,7 @@ public class Universe
 
             if ( targetConnections < numberOfSystems )
             {
-                OctTreeOfUniversePoints.ConnectSystems( );
+                OctTreeOfUniversePoints.ConnectSystems();
             }
             else
             {
@@ -57,7 +57,7 @@ public class Universe
             }
             systemWorks = new SystemWorks(this, false);
 
-            systemWorks.EnterUniverse( );
+            systemWorks.EnterUniverse();
 
         }
 

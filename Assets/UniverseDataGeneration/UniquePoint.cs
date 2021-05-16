@@ -41,10 +41,10 @@ public class UniquePoint : IKDItem<UniquePoint>, IOctTreeItem<UniquePoint>
         Id = universe.maxPointId;
         Connections = new List<UniquePoint>(4);
         universe.maxPointId++;
-        Position = new Vector3( ) { x = xcoordinate, y = ycoordinate, z = zcoordinate };
-        dimensions = new List<float>( ) { xcoordinate, ycoordinate, zcoordinate };
-        KDAddress = new List<int>( );
-        OctTreeAddress = new List<int>( );
+        Position = new Vector3() { x = xcoordinate, y = ycoordinate, z = zcoordinate };
+        dimensions = new List<float>() { xcoordinate, ycoordinate, zcoordinate };
+        KDAddress = new List<int>();
+        OctTreeAddress = new List<int>();
         universe.masterPointsDatabase.Add(Id, this);
     }
 

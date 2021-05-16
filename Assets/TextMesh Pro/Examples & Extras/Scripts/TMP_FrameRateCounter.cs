@@ -23,7 +23,7 @@ namespace TMPro.Examples
 
         private FpsCounterAnchorPositions last_AnchorPosition;
 
-        void Awake( )
+        void Awake()
         {
             if ( !enabled )
                 return;
@@ -33,7 +33,7 @@ namespace TMPro.Examples
 
             GameObject frameCounter = new GameObject("Frame Counter");
 
-            m_TextMeshPro = frameCounter.AddComponent<TextMeshPro>( );
+            m_TextMeshPro = frameCounter.AddComponent<TextMeshPro>();
             m_TextMeshPro.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
             m_TextMeshPro.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/LiberationSans SDF - Overlay");
 
@@ -60,13 +60,13 @@ namespace TMPro.Examples
 
         }
 
-        void Start( )
+        void Start()
         {
             m_LastInterval = Time.realtimeSinceStartup;
             m_Frames = 0;
         }
 
-        void Update( )
+        void Update()
         {
             if ( AnchorPosition != last_AnchorPosition )
                 Set_FrameCounter_Position(AnchorPosition);

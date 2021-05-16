@@ -18,7 +18,7 @@ namespace TMPro.Examples
         //public Material material;
 
 
-        void Start( )
+        void Start()
         {
             m_Transform = transform;
 
@@ -37,7 +37,7 @@ namespace TMPro.Examples
 
                     go.transform.position = m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
 
-                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>( );
+                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
 
                     //textMeshPro.fontSharedMaterial = material;
                     //textMeshPro.font = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;

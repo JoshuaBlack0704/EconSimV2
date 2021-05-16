@@ -16,17 +16,17 @@ namespace TMPro.Examples
         private int m_lastCharIndex = -1;
         private int m_lastWordIndex = -1;
 
-        void Awake( )
+        void Awake()
         {
-            m_TextMeshPro = gameObject.GetComponent<TextMeshPro>( );
+            m_TextMeshPro = gameObject.GetComponent<TextMeshPro>();
             m_Camera = Camera.main;
 
             // Force generation of the text object so we have valid data to work with. This is needed since LateUpdate() will be called before the text object has a chance to generated when entering play mode.
-            m_TextMeshPro.ForceMeshUpdate( );
+            m_TextMeshPro.ForceMeshUpdate();
         }
 
 
-        void LateUpdate( )
+        void LateUpdate()
         {
             m_isHoveringObject = false;
 
@@ -88,7 +88,7 @@ namespace TMPro.Examples
 
                     RectTransformUtility.ScreenPointToWorldPointInRectangle(m_TextMeshPro.rectTransform, Input.mousePosition, m_Camera, out worldPointInRectangle);
 
-                    switch ( linkInfo.GetLinkID( ) )
+                    switch ( linkInfo.GetLinkID() )
                     {
                         case "id_01": // 100041637: // id_01
                                       //m_TextPopup_RectTransform.position = worldPointInRectangle;

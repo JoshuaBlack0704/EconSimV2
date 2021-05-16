@@ -20,7 +20,7 @@ namespace TMPro.Examples
 
         //private FpsCounterAnchorPositions last_AnchorPosition;
 
-        void Awake( )
+        void Awake()
         {
             if ( !enabled )
                 return;
@@ -33,14 +33,14 @@ namespace TMPro.Examples
             m_frameCounter_transform.localRotation = Quaternion.identity;
 
 
-            m_TextMeshPro = frameCounter.AddComponent<TextMeshPro>( );
+            m_TextMeshPro = frameCounter.AddComponent<TextMeshPro>();
             m_TextMeshPro.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
             m_TextMeshPro.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/LiberationSans SDF - Overlay");
 
             m_TextMeshPro.fontSize = 30;
 
             m_TextMeshPro.isOverlay = true;
-            m_textContainer = frameCounter.GetComponent<TextContainer>( );
+            m_textContainer = frameCounter.GetComponent<TextContainer>();
 
             Set_FrameCounter_Position(AnchorPosition);
             //last_AnchorPosition = AnchorPosition;

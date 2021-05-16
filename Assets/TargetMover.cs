@@ -3,7 +3,7 @@ using UnityEngine;
 public class TargetMover : MonoBehaviour
 {
     // Update is called once per frame
-    void Update( )
+    void Update()
     {
         Vector3 targetPos = UniverseGenerator.universe.masterPointsDatabase[UniverseGenerator.universe.selectedSystem].Position;
 

@@ -5,7 +5,7 @@ public class PathfinderTesting : MonoBehaviour
 {
 
 
-    public void GenRandomPath( )
+    public void GenRandomPath()
     {
         Universe uni = UniverseGenerator.universe;
         int To = Random.Range(0, uni.masterPointsDatabase.Count - 1);
@@ -35,14 +35,14 @@ public class PathfinderTesting : MonoBehaviour
         }
     }
     private int pathCount = 0;
-    private void Update( )
+    private void Update()
     {
 
         if ( Time.frameCount % 1 == 0 )
         {
             for ( int i = 0; i < 1000; i++ )
             {
-                GenRandomPath( );
+                GenRandomPath();
                 pathCount++;
             }
         }

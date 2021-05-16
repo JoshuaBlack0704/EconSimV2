@@ -10,12 +10,12 @@ namespace TMPro.Examples
 
         private TMP_Text m_TextComponent;
 
-        void OnEnable( )
+        void OnEnable()
         {
             if ( TextEventHandler != null )
             {
                 // Get a reference to the text component
-                m_TextComponent = TextEventHandler.GetComponent<TMP_Text>( );
+                m_TextComponent = TextEventHandler.GetComponent<TMP_Text>();
 
                 TextEventHandler.onCharacterSelection.AddListener(OnCharacterSelection);
                 TextEventHandler.onSpriteSelection.AddListener(OnSpriteSelection);
@@ -26,7 +26,7 @@ namespace TMPro.Examples
         }
 
 
-        void OnDisable( )
+        void OnDisable()
         {
             if ( TextEventHandler != null )
             {

@@ -15,13 +15,13 @@ namespace TMPro.Examples
         public Font SourceFont;
 
 
-        void Awake( )
+        void Awake()
         {
 
         }
 
 
-        void Start( )
+        void Start()
         {
             TMP_FontAsset fontAsset = null;
 
@@ -53,10 +53,10 @@ namespace TMPro.Examples
                     case BenchmarkType.TMP_SDF:
                     case BenchmarkType.TMP_BITMAP_MOBILE:
                         {
-                            GameObject go = new GameObject( );
+                            GameObject go = new GameObject();
                             go.transform.position = new Vector3(0, 1.2f, 0);
 
-                            TextMeshPro textComponent = go.AddComponent<TextMeshPro>( );
+                            TextMeshPro textComponent = go.AddComponent<TextMeshPro>();
                             textComponent.font = fontAsset;
                             textComponent.fontSize = 128;
                             textComponent.text = "@";
@@ -70,11 +70,11 @@ namespace TMPro.Examples
                         break;
                     case BenchmarkType.TEXTMESH_BITMAP:
                         {
-                            GameObject go = new GameObject( );
+                            GameObject go = new GameObject();
                             go.transform.position = new Vector3(0, 1.2f, 0);
 
-                            TextMesh textMesh = go.AddComponent<TextMesh>( );
-                            textMesh.GetComponent<Renderer>( ).sharedMaterial = SourceFont.material;
+                            TextMesh textMesh = go.AddComponent<TextMesh>();
+                            textMesh.GetComponent<Renderer>().sharedMaterial = SourceFont.material;
                             textMesh.font = SourceFont;
                             textMesh.anchor = TextAnchor.MiddleCenter;
                             textMesh.fontSize = 130;

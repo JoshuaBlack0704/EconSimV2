@@ -28,7 +28,7 @@ public static class EntityPathFinder
         public SystemEntity.ConnectionData[] connections { get; set; }
 
         public float3 position { get; set; }
-        public void Reset( )
+        public void Reset()
         {
             parent = 0;
             isClosed = false;
@@ -64,7 +64,7 @@ public static class EntityPathFinder
 
         while ( true )
         {
-            currentNode = heap.RemoveFirst( );
+            currentNode = heap.RemoveFirst();
             currentNode.isClosed = true;
             if ( currentNode.Id == end )
             {
@@ -147,26 +147,26 @@ public static class EntityPathFinder
         pathIds.CopyFrom(path);
         for ( int i = 0; i < usedNodes.Length; i++ )
         {
-            nodeCache[usedNodes[i]].Reset( );
+            nodeCache[usedNodes[i]].Reset();
         }
-        path.Dispose( );
-        usedNodes.Dispose( );
+        path.Dispose();
+        usedNodes.Dispose();
         heap.currentItemCount = 0;
     }
 
 
-    public static void Initialize( )
+    public static void Initialize()
     {
         EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
-        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>( ) });
+        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
         NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
         nodeCache = new Node[points.Length];
         heap = new Heap<Node>(points.Length);
         foreach ( Entity ent in points )
         {
             int id = em.GetComponentData<SystemEntity.Id>(ent).id;
-            NativeArray<SystemEntity.ConnectionData> connectionsNative = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(ent).Reinterpret<SystemEntity.ConnectionData>( ).ToNativeArray(Allocator.Temp);
-            SystemEntity.ConnectionData[] connecitons = connectionsNative.ToArray( );
+            NativeArray<SystemEntity.ConnectionData> connectionsNative = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(ent).Reinterpret<SystemEntity.ConnectionData>().ToNativeArray(Allocator.Temp);
+            SystemEntity.ConnectionData[] connecitons = connectionsNative.ToArray();
             float3 pos = em.GetComponentData<Translation>(ent).Value;
 
             nodeCache[id] = new Node(pos, connecitons, id);

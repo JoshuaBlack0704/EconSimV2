@@ -12,12 +12,12 @@ public class ChatController : MonoBehaviour
 
     public Scrollbar ChatScrollbar;
 
-    void OnEnable( )
+    void OnEnable()
     {
         ChatInputField.onSubmit.AddListener(AddToChatOutput);
     }
 
-    void OnDisable( )
+    void OnDisable()
     {
         ChatInputField.onSubmit.RemoveListener(AddToChatOutput);
     }
@@ -43,7 +43,7 @@ public class ChatController : MonoBehaviour
         }
 
         // Keep Chat input field active
-        ChatInputField.ActivateInputField( );
+        ChatInputField.ActivateInputField();
 
         // Set the scrollbar to the bottom when next text is submitted.
         ChatScrollbar.value = 0;

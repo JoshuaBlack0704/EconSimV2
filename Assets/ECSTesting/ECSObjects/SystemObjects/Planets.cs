@@ -9,7 +9,7 @@ public static class Planets
     static EntityArchetype planetArc;
     static int planetCount = 0;
 
-    static void CreatePlanets( )
+    static void CreatePlanets()
     {
         EntityQuery query = em.CreateEntityQuery(typeof(SystemEntity.Id));
         NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
@@ -23,15 +23,15 @@ public static class Planets
             for ( int i = 0; i < planetsToGen; i++ )
             {
                 Entity planet = em.CreateEntity(planetArc);
-                em.SetComponentData<Id>(planet, new Id( ) { id = planetCount });
+                em.SetComponentData<Id>(planet, new Id() { id = planetCount });
                 planetCount++;
-                em.SetComponentData<Translation>(planet, new Translation( ) { Value = SB.rand.NextFloat3(0, size) });
-                em.SetComponentData<SystemID>(planet, new SystemID( ) { Id = id });
+                em.SetComponentData<Translation>(planet, new Translation() { Value = SB.rand.NextFloat3(0, size) });
+                em.SetComponentData<SystemID>(planet, new SystemID() { Id = id });
             }
         }
 
 
-        systems.Dispose( );
+        systems.Dispose();
     }
 
     public static void Initialize(GameObject model)
@@ -39,9 +39,9 @@ public static class Planets
         planetArc = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(Translation), typeof(SystemID) });
     }
 
-    public static void GeneratePlanets( )
+    public static void GeneratePlanets()
     {
-        CreatePlanets( );
+        CreatePlanets();
     }
 
     public static void SpawnPlanets(Entity[] planets)
@@ -66,21 +66,21 @@ public class PlanetCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
     EntityQuery deletionQuery;
-    protected override void OnCreate( )
+    protected override void OnCreate()
     {
-        base.OnCreate( );
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
-        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Planets.Id>( ), ComponentType.ReadOnly<CloneTag>( ), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>( ) });
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Planets.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
     }
 
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
         //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
 
         NativeArray<Entity> planets = deletionQuery.ToEntityArray(Allocator.Temp);
         World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(planets);
-        planets.Dispose( );
+        planets.Dispose();
 
     }
 }
@@ -89,27 +89,27 @@ public class PlanetCloneSpawner : SystemBase
 {
     EntityCommandBufferSystem ecbs;
 
-    protected override void OnCreate( )
+    protected override void OnCreate()
     {
-        base.OnCreate( );
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
-        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer( ).AsParallelWriter( );
+        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
         Entity planetClone = SB.planetClone;
 
-        Entities.WithAll<BaseEntity.SpawnCloneTag>( ).ForEach((Entity planet, int entityInQueryIndex, in Translation pos, in Planets.Id id) =>
-         {
+        Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity planet, int entityInQueryIndex, in Translation pos, in Planets.Id id) =>
+        {
 
-             Entity clone = ecb.Instantiate(entityInQueryIndex, planetClone);
-             ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-             ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
-             ecb.AddComponent<Planets.Id>(entityInQueryIndex, clone, id);
-             ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, planet);
+            Entity clone = ecb.Instantiate(entityInQueryIndex, planetClone);
+            ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+            ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+            ecb.AddComponent<Planets.Id>(entityInQueryIndex, clone, id);
+            ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, planet);
 
-         }).ScheduleParallel( );
+        }).ScheduleParallel();
 
         ecbs.AddJobHandleForProducer(Dependency);
 

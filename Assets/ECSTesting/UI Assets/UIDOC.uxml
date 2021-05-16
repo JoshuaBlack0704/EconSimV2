@@ -12,6 +12,7 @@
         <ui:Label text="TIme Multiplier" display-tooltip-when-elided="true" name="timeMultiplier" />
         <ui:Label text="Game Delta Time" display-tooltip-when-elided="true" name="gameDeltaTime" />
         <ui:Label text="TicketsPerFrame" display-tooltip-when-elided="true" name="TicketsPerFrame" />
+        <ui:Label text="TotalTIckets" display-tooltip-when-elided="true" name="TotalTickets" />
     </ui:VisualElement>
     <ui:VisualElement name="MultiplierDisplay" style="position: absolute; left: 250px; top: 940px; right: 1405px; bottom: 22px; background-color: rgb(224, 224, 224);">
         <ui:Label text="Time Multiplier" display-tooltip-when-elided="true" name="TimeMultiplierTitle" style="color: rgb(0, 0, 0); padding-left: 5px; padding-right: 5px; padding-top: 2px; font-size: 23px;" />

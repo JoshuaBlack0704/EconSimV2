@@ -31,12 +31,12 @@ namespace TMPro.Examples
 
         private TMP_MeshInfo[] m_cachedMeshInfoVertexData;
 
-        void Awake( )
+        void Awake()
         {
-            m_TextMeshPro = gameObject.GetComponent<TextMeshProUGUI>( );
+            m_TextMeshPro = gameObject.GetComponent<TextMeshProUGUI>();
 
 
-            m_Canvas = gameObject.GetComponentInParent<Canvas>( );
+            m_Canvas = gameObject.GetComponentInParent<Canvas>();
 
             // Get a reference to the camera if Canvas Render Mode is not ScreenSpace Overlay.
             if ( m_Canvas.renderMode == RenderMode.ScreenSpaceOverlay )
@@ -47,18 +47,18 @@ namespace TMPro.Examples
             // Create pop-up text object which is used to show the link information.
             m_TextPopup_RectTransform = Instantiate(TextPopup_Prefab_01) as RectTransform;
             m_TextPopup_RectTransform.SetParent(m_Canvas.transform, false);
-            m_TextPopup_TMPComponent = m_TextPopup_RectTransform.GetComponentInChildren<TextMeshProUGUI>( );
+            m_TextPopup_TMPComponent = m_TextPopup_RectTransform.GetComponentInChildren<TextMeshProUGUI>();
             m_TextPopup_RectTransform.gameObject.SetActive(false);
         }
 
 
-        void OnEnable( )
+        void OnEnable()
         {
             // Subscribe to event fired when text object has been regenerated.
             TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
         }
 
-        void OnDisable( )
+        void OnDisable()
         {
             // UnSubscribe to event fired when text object has been regenerated.
             TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
@@ -70,12 +70,12 @@ namespace TMPro.Examples
             if ( obj == m_TextMeshPro )
             {
                 // Update cached vertex data.
-                m_cachedMeshInfoVertexData = m_TextMeshPro.textInfo.CopyMeshInfoVertexData( );
+                m_cachedMeshInfoVertexData = m_TextMeshPro.textInfo.CopyMeshInfoVertexData();
             }
         }
 
 
-        void LateUpdate( )
+        void LateUpdate()
         {
             if ( isHoveringObject )
             {
@@ -257,7 +257,7 @@ namespace TMPro.Examples
                     Vector3 worldPointInRectangle;
                     RectTransformUtility.ScreenPointToWorldPointInRectangle(m_TextMeshPro.rectTransform, Input.mousePosition, m_Camera, out worldPointInRectangle);
 
-                    switch ( linkInfo.GetLinkID( ) )
+                    switch ( linkInfo.GetLinkID() )
                     {
                         case "id_01": // 100041637: // id_01
                             m_TextPopup_RectTransform.position = worldPointInRectangle;

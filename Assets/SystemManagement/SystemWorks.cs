@@ -59,19 +59,19 @@ public class SystemWorks : MonoBehaviour
 
     World defaultWorld;
     public EntityManager entityManager;
-    public void EnterUniverse( )
+    public void EnterUniverse()
     {
-        EntityQueryDesc query = new EntityQueryDesc( ) { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
+        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemSubObjectTag) } };
 
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob); ;
         foreach ( Entity entity in entitesToDestroy )
         {
             entityManager.DestroyEntity(entity);
         }
-        entitesToDestroy.Dispose( );
+        entitesToDestroy.Dispose();
         foreach ( Ship ship in GetSystem(masterUniverse.selectedSystem).containedShips.Values )
         {
-            ship.DestoryEntityFor( );
+            ship.DestoryEntityFor();
         }
 
 
@@ -85,13 +85,13 @@ public class SystemWorks : MonoBehaviour
     }
     public void EnterSystem(int Id)
     {
-        EntityQueryDesc query = new EntityQueryDesc( ) { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
+        EntityQueryDesc query = new EntityQueryDesc() { Any = new ComponentType[] { typeof(systemCloneTag), typeof(systemSubObjectTag) } };
         NativeArray<Entity> entitesToDestroy = entityManager.CreateEntityQuery(query).ToEntityArray(Allocator.TempJob);
         foreach ( Entity entity in entitesToDestroy )
         {
             entityManager.DestroyEntity(entity);
         }
-        entitesToDestroy.Dispose( );
+        entitesToDestroy.Dispose();
 
         UniverseSystem system = GetSystem(Id);
 
@@ -99,15 +99,15 @@ public class SystemWorks : MonoBehaviour
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[1]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.AddComponentData<planetId>(newItem, new planetId( ) { id = entityManager.GetComponentData<planetId>(item).id });
+            entityManager.AddComponentData<planetId>(newItem, new planetId() { id = entityManager.GetComponentData<planetId>(item).id });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach ( Entity item in system.asteroids )
         {
             Entity newItem = entityManager.Instantiate(PrefabAccessor.entityTemplateArray[2]);
             entityManager.AddComponent(newItem, typeof(systemSubObjectTag));
-            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId( ) { id = entityManager.GetComponentData<asteroidId>(item).id });
-            entityManager.SetComponentData<Rotation>(newItem, new Rotation( ) { Value = EconomicMethods.rand.NextQuaternionRotation( ) });
+            entityManager.AddComponentData<asteroidId>(newItem, new asteroidId() { id = entityManager.GetComponentData<asteroidId>(item).id });
+            entityManager.SetComponentData<Rotation>(newItem, new Rotation() { Value = EconomicMethods.rand.NextQuaternionRotation() });
             entityManager.SetComponentData(newItem, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(item).Value });
         }
         foreach ( UniverseSystem.ConnectionData item in system.connections.Values )
@@ -121,7 +121,7 @@ public class SystemWorks : MonoBehaviour
         entityManager.SetComponentData(star, new Translation { Value = PrefabAccessor.entityManager.GetComponentData<Translation>(system.star).Value });
         foreach ( Ship ship in system.containedShips.Values )
         {
-            ship.CreateEntityFor( );
+            ship.CreateEntityFor();
         }
         masterUniverse.inSystem = true;
     }

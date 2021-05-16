@@ -25,7 +25,7 @@ public class PrefabAccessor : MonoBehaviour
     /// 5-ship 
     /// </summary>
     public static Entity[] entityTemplateArray = new Entity[6];
-    void Awake( )
+    void Awake()
     {
         GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
         entityTemplateArray = new Entity[6];

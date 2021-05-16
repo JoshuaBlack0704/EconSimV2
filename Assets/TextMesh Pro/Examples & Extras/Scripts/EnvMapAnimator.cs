@@ -11,17 +11,17 @@ public class EnvMapAnimator : MonoBehaviour
     private Material m_material;
 
 
-    void Awake( )
+    void Awake()
     {
         //Debug.Log("Awake() on Script called.");
-        m_textMeshPro = GetComponent<TMP_Text>( );
+        m_textMeshPro = GetComponent<TMP_Text>();
         m_material = m_textMeshPro.fontSharedMaterial;
     }
 
     // Use this for initialization
-    IEnumerator Start( )
+    IEnumerator Start()
     {
-        Matrix4x4 matrix = new Matrix4x4( );
+        Matrix4x4 matrix = new Matrix4x4();
 
         while ( true )
         {

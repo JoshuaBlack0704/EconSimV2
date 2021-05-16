@@ -28,14 +28,14 @@ namespace TMPro.Examples
 
 
 
-        IEnumerator Start( )
+        IEnumerator Start()
         {
 
 
 
             if ( BenchmarkType == 0 ) // TextMesh Pro Component
             {
-                m_textMeshPro = gameObject.AddComponent<TextMeshPro>( );
+                m_textMeshPro = gameObject.AddComponent<TextMeshPro>();
                 m_textMeshPro.autoSizeTextContainer = true;
 
                 //m_textMeshPro.anchorDampening = true;
@@ -66,17 +66,17 @@ namespace TMPro.Examples
             }
             else if ( BenchmarkType == 1 ) // TextMesh
             {
-                m_textMesh = gameObject.AddComponent<TextMesh>( );
+                m_textMesh = gameObject.AddComponent<TextMesh>();
 
                 if ( TextMeshFont != null )
                 {
                     m_textMesh.font = TextMeshFont;
-                    m_textMesh.GetComponent<Renderer>( ).sharedMaterial = m_textMesh.font.material;
+                    m_textMesh.GetComponent<Renderer>().sharedMaterial = m_textMesh.font.material;
                 }
                 else
                 {
                     m_textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
-                    m_textMesh.GetComponent<Renderer>( ).sharedMaterial = m_textMesh.font.material;
+                    m_textMesh.GetComponent<Renderer>().sharedMaterial = m_textMesh.font.material;
                 }
 
                 m_textMesh.fontSize = 48;
@@ -99,7 +99,7 @@ namespace TMPro.Examples
 
                 }
                 else if ( BenchmarkType == 1 )
-                    m_textMesh.text = label02 + (i % 1000).ToString( );
+                    m_textMesh.text = label02 + (i % 1000).ToString();
 
                 yield return null;
             }

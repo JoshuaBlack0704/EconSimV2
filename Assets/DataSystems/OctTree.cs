@@ -12,7 +12,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
     int maxCubeId = 0;
     int maxPointsPerCube;
     int subCubesCreated = 1;
-    public Dictionary<int, Cube> masterCubeDatabase = new Dictionary<int, Cube>( );
+    public Dictionary<int, Cube> masterCubeDatabase = new Dictionary<int, Cube>();
 
     public class Cube
     {
@@ -34,7 +34,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
             }
             else
             {
-                contents = new List<T>( );
+                contents = new List<T>();
             }
             Branches = new Cube[8];
             octTree.masterCubeDatabase.Add(Id, this);
@@ -122,13 +122,13 @@ public class OctTree<T> where T : IOctTreeItem<T>
             {
                 for ( int ziter = 0; ziter < 2; ziter++ )
                 {
-                    Vector3 newminimum = new Vector3( )
+                    Vector3 newminimum = new Vector3()
                     {
                         x = cube.minimums.x + (incrementx * xiter),
                         y = cube.minimums.y + (incrementy * yiter),
                         z = cube.minimums.z + (incrementz * ziter)
                     };
-                    Vector3 newmaximum = new Vector3( )
+                    Vector3 newmaximum = new Vector3()
                     {
                         x = cube.minimums.x + incrementx + (incrementx * xiter),
                         y = cube.minimums.y + incrementy + (incrementy * yiter),
@@ -182,7 +182,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
         //MonoBehaviour.print(string.Format("Add To OctTree executed, current number of cubes created: {0}", subCubesCreated));
     }
     [BurstCompile]
-    public void ConnectSystems( )
+    public void ConnectSystems()
     {
         int numConnections = parentUniverse.targetConnections;
 
@@ -192,7 +192,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
         {
             distStruct mainPoint = new distStruct { Id = point.Id, position = point.Position };
 
-            List<distStruct> tempList = new List<distStruct>( );
+            List<distStruct> tempList = new List<distStruct>();
 
             foreach ( Cube cube in cubeList )
             {
@@ -206,24 +206,24 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
             NativeArray<distStruct> positions = new NativeArray<distStruct>(tempList.Count, Allocator.TempJob);
 
-            positions.CopyFrom(tempList.ToArray( ));
+            positions.CopyFrom(tempList.ToArray());
 
-            DistCalcBatch distJob = new DistCalcBatch( )
+            DistCalcBatch distJob = new DistCalcBatch()
             {
                 pos = mainPoint,
                 resultDistStructs = positions
             };
             JobHandle distJobHandle = distJob.Schedule(distJob.resultDistStructs.Length, 1);
 
-            distJobHandle.Complete( );
+            distJobHandle.Complete();
 
             distStruct[] resultArr = new distStruct[tempList.Count];
 
             positions.CopyTo(resultArr);
 
-            distStruct[] finalArr = resultArr.OrderBy(dist => dist.result).ToArray( );
+            distStruct[] finalArr = resultArr.OrderBy(dist => dist.result).ToArray();
 
-            positions.Dispose( );
+            positions.Dispose();
 
             return finalArr;
         }
@@ -249,7 +249,7 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
             //We must now find the closest four points
 
-            distStruct[] sortedList = GetSortedDistances(point, new List<Cube>( ) { startingCube });
+            distStruct[] sortedList = GetSortedDistances(point, new List<Cube>() { startingCube });
 
             float maxDistance = sortedList[maxPointsPerCube].result;
 
@@ -275,14 +275,14 @@ public class OctTree<T> where T : IOctTreeItem<T>
 
                     Cube cube = currentCube.Branches[i];
 
-                    Vector3 maxRange = new Vector3( )
+                    Vector3 maxRange = new Vector3()
                     {
                         x = point.Position.x + maxDistance,
                         y = point.Position.y + maxDistance,
                         z = point.Position.z + maxDistance
                     };
 
-                    Vector3 minRange = new Vector3( )
+                    Vector3 minRange = new Vector3()
                     {
                         x = point.Position.x - maxDistance,
                         y = point.Position.y - maxDistance,
@@ -448,7 +448,7 @@ public struct DistCalcBatch : IJobParallelFor
 
     public void Execute(int index)
     {
-        distStruct res = new distStruct( ) { Id = resultDistStructs[index].Id, position = resultDistStructs[index].position };
+        distStruct res = new distStruct() { Id = resultDistStructs[index].Id, position = resultDistStructs[index].position };
         //you must sqrt
         res.result = math.sqrt(math.pow(resultDistStructs[index].position.x - pos.position.x, 2) + math.pow(resultDistStructs[index].position.y - pos.position.y, 2) + math.pow(resultDistStructs[index].position.z - pos.position.z, 2));
         resultDistStructs[index] = res;

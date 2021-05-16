@@ -49,7 +49,7 @@ namespace TMPro.Examples
         private const string event_FollowDistance = "Slider - Camera Zoom";
 
 
-        void Awake( )
+        void Awake()
         {
             if ( QualitySettings.vSyncCount > 0 )
                 Application.targetFrameRate = 60;
@@ -65,7 +65,7 @@ namespace TMPro.Examples
 
 
         // Use this for initialization
-        void Start( )
+        void Start()
         {
             if ( CameraTarget == null )
             {
@@ -76,9 +76,9 @@ namespace TMPro.Examples
         }
 
         // Update is called once per frame
-        void LateUpdate( )
+        void LateUpdate()
         {
-            GetPlayerInput( );
+            GetPlayerInput();
 
 
             // Check if we still have a valid target
@@ -122,7 +122,7 @@ namespace TMPro.Examples
 
 
 
-        void GetPlayerInput( )
+        void GetPlayerInput()
         {
             moveVector = Vector3.zero;
 

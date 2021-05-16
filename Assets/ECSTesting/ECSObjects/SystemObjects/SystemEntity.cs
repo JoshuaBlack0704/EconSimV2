@@ -20,12 +20,12 @@ public static class SystemEntity
         for ( int i = 0; i < count; i++ )
         {
             Entity point = em.CreateEntity(ePoint);
-            em.SetComponentData<Id>(point, new Id( ) { id = pointCount });
+            em.SetComponentData<Id>(point, new Id() { id = pointCount });
             pointCount++;
-            em.SetComponentData<Translation>(point, new Translation( ) { Value = SB.rand.NextFloat3(0, 100) });
+            em.SetComponentData<Translation>(point, new Translation() { Value = SB.rand.NextFloat3(0, 100) });
             if ( random )
             {
-                em.SetComponentData<SystemData>(point, new SystemData( )
+                em.SetComponentData<SystemData>(point, new SystemData()
                 {
                     size = SB.rand.NextFloat(70, maxSystemSize),
                     numPlanets = SB.rand.NextInt(0, maxPlanets),
@@ -34,7 +34,7 @@ public static class SystemEntity
             }
             else
             {
-                em.SetComponentData<SystemData>(point, new SystemData( )
+                em.SetComponentData<SystemData>(point, new SystemData()
                 {
                     size = maxSystemSize,
                     numPlanets = maxPlanets,
@@ -46,18 +46,18 @@ public static class SystemEntity
             em.SetComponentData<SystemData>(point, new SystemData
             {
                 size = data.size,
-                starPos = new float3( ) { x = data.size / 2, y = data.size / 2, z = data.size / 2 },
+                starPos = new float3() { x = data.size / 2, y = data.size / 2, z = data.size / 2 },
                 numPlanets = data.numPlanets,
                 numAsteroids = data.numAsteroids
             });
 
         }
     }
-    public static void RenderPoints( )
+    public static void RenderPoints()
     {
-        NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>( ) }).ToEntityArray(Allocator.Temp);
+        NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>() }).ToEntityArray(Allocator.Temp);
         em.AddComponent<BaseEntity.SpawnCloneTag>(points);
-        points.Dispose( );
+        points.Dispose();
     }
     struct connectStruct
     {
@@ -75,11 +75,11 @@ public static class SystemEntity
         public NativeArray<Translation> locations;
         public NativeArray<connectStruct> distances;
 
-        public void Execute( )
+        public void Execute()
         {
             for ( int i = 0; i < locations.Length; i++ )
             {
-                distances[i] = new connectStruct( ) { id = i, distance = math.distancesq(pos, locations[i].Value) };
+                distances[i] = new connectStruct() { id = i, distance = math.distancesq(pos, locations[i].Value) };
             }
         }
     }
@@ -91,7 +91,7 @@ public static class SystemEntity
 
         NativeArray<Translation> locations = em.CreateEntityQuery(new ComponentType[] { typeof(Id), typeof(Translation) }).ToComponentDataArrayAsync<Translation>(Allocator.TempJob, out JobHandle poshandle);
 
-        int count = query.CalculateEntityCount( );
+        int count = query.CalculateEntityCount();
         NativeArray<connectStruct>[] resultContainer = new NativeArray<connectStruct>[count];
 
         JobHandle combined = JobHandle.CombineDependencies(handle, poshandle);
@@ -101,16 +101,16 @@ public static class SystemEntity
             resultContainer[i] = new NativeArray<connectStruct>(count, Allocator.TempJob);
 
         }
-        combined.Complete( );
+        combined.Complete();
         JobHandle[] runs = new JobHandle[count];
         for ( int i = 0; i < points.Length; i++ )
         {
-            distBatch distRun = new distBatch( );
+            distBatch distRun = new distBatch();
             distRun.pos = locations[i].Value;
             distRun.locations = locations;
             distRun.distances = resultContainer[i];
 
-            runs[i] = distRun.Schedule( ); ;
+            runs[i] = distRun.Schedule(); ;
 
         }
 
@@ -122,11 +122,11 @@ public static class SystemEntity
 
         for ( int pointIndex = 0; pointIndex < count; pointIndex++ )
         {
-            runs[pointIndex].Complete( );
-            results = resultContainer[pointIndex].OrderBy(o => o.distance).ToArray( );
-            resultContainer[pointIndex].Dispose( );
+            runs[pointIndex].Complete();
+            results = resultContainer[pointIndex].OrderBy(o => o.distance).ToArray();
+            resultContainer[pointIndex].Dispose();
             DynamicBuffer<ePointConnnectionBuffer> buffer = em.GetBuffer<ePointConnnectionBuffer>(points[pointIndex]);
-            DynamicBuffer<ConnectionData> buff = buffer.Reinterpret<ConnectionData>( );
+            DynamicBuffer<ConnectionData> buff = buffer.Reinterpret<ConnectionData>();
             for ( int x = 0; x < connectionsPer; x++ )
             {
                 bool unique = true;
@@ -143,16 +143,16 @@ public static class SystemEntity
                 if ( unique )
                 {
                     DynamicBuffer<ePointConnnectionBuffer> secondBufer = em.GetBuffer<ePointConnnectionBuffer>(points[results[x + 1].id]);
-                    DynamicBuffer<ConnectionData> secondBuff = secondBufer.Reinterpret<ConnectionData>( );
-                    secondBuff.Add(new ConnectionData( ) { target = pointIndex, targetEntity = points[pointIndex], position = SB.rand.NextFloat3(0, em.GetComponentData<SystemData>(points[results[x + 1].id]).size) });
-                    buff.Add(new ConnectionData( ) { target = results[x + 1].id, targetEntity = points[results[x + 1].id], position = SB.rand.NextFloat3(0, em.GetComponentData<SystemData>(points[pointIndex]).size) });
+                    DynamicBuffer<ConnectionData> secondBuff = secondBufer.Reinterpret<ConnectionData>();
+                    secondBuff.Add(new ConnectionData() { target = pointIndex, targetEntity = points[pointIndex], position = SB.rand.NextFloat3(0, em.GetComponentData<SystemData>(points[results[x + 1].id]).size) });
+                    buff.Add(new ConnectionData() { target = results[x + 1].id, targetEntity = points[results[x + 1].id], position = SB.rand.NextFloat3(0, em.GetComponentData<SystemData>(points[pointIndex]).size) });
                 }
 
             }
         }
 
-        points.Dispose( );
-        locations.Dispose( );
+        points.Dispose();
+        locations.Dispose();
     }
 
     public static void EnterSystem(int id)
@@ -169,22 +169,22 @@ public static class SystemEntity
         EntityQuery asteroidQuery = em.CreateEntityQuery(typeof(Asteroids.Id));
         NativeArray<Entity> asteroidArray = asteroidQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle asteroidHandle);
 
-        shipHandle.Complete( );
-        sysHandle.Complete( );
-        planetHandle.Complete( );
-        asteroidHandle.Complete( );
+        shipHandle.Complete();
+        sysHandle.Complete();
+        planetHandle.Complete();
+        asteroidHandle.Complete();
 
-        Entity[] shipCopys = shipArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray( );
+        Entity[] shipCopys = shipArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
         NativeArray<Entity> shipCopyArray = new NativeArray<Entity>(shipCopys.Length, Allocator.Temp);
         shipCopyArray.CopyFrom(shipCopys);
         shipCopys = null;
 
-        Entity[] planetsCopys = planetsArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray( );
+        Entity[] planetsCopys = planetsArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
         NativeArray<Entity> planetsCopyArray = new NativeArray<Entity>(planetsCopys.Length, Allocator.Temp);
         planetsCopyArray.CopyFrom(planetsCopys);
         planetsCopys = null;
 
-        Entity[] asteroidCopys = asteroidArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray( );
+        Entity[] asteroidCopys = asteroidArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
         NativeArray<Entity> asteroidCopyArray = new NativeArray<Entity>(asteroidCopys.Length, Allocator.Temp);
         asteroidCopyArray.CopyFrom(asteroidCopys);
         asteroidCopys = null;
@@ -197,25 +197,25 @@ public static class SystemEntity
 
 
         Entity system = systemsArray.FirstOrDefault(o => em.GetComponentData<Id>(o).id == id);
-        DynamicBuffer<ConnectionData> buff = em.GetBuffer<ePointConnnectionBuffer>(system).Reinterpret<ConnectionData>( );
+        DynamicBuffer<ConnectionData> buff = em.GetBuffer<ePointConnnectionBuffer>(system).Reinterpret<ConnectionData>();
 
         NativeArray<Translation> wormHoles = new NativeArray<Translation>(em.GetBuffer<ePointConnnectionBuffer>(system).Length, Allocator.Temp);
         for ( int i = 0; i < wormHoles.Length; i++ )
         {
-            wormHoles[i] = new Translation( ) { Value = buff[i].position };
+            wormHoles[i] = new Translation() { Value = buff[i].position };
         }
 
         Stars.SpawnStar(em.GetComponentData<SystemData>(system).starPos);
         Wormholes.SpawnWormholes(wormHoles);
 
-        shipArray.Dispose( );
-        planetsArray.Dispose( );
-        asteroidArray.Dispose( );
-        systemsArray.Dispose( );
-        wormHoles.Dispose( );
-        shipCopyArray.Dispose( );
-        planetsCopyArray.Dispose( );
-        asteroidCopyArray.Dispose( );
+        shipArray.Dispose();
+        planetsArray.Dispose();
+        asteroidArray.Dispose();
+        systemsArray.Dispose();
+        wormHoles.Dispose();
+        shipCopyArray.Dispose();
+        planetsCopyArray.Dispose();
+        asteroidCopyArray.Dispose();
 
     }
 
@@ -257,21 +257,21 @@ public class SystemCloneDeleter : SystemBase
 {
     EntityCommandBufferSystem ecbs;
     EntityQuery deletionQuery;
-    protected override void OnCreate( )
+    protected override void OnCreate()
     {
-        base.OnCreate( );
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
-        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>( ), ComponentType.ReadOnly<CloneTag>( ), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>( ) });
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
     }
 
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
         //var ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
 
 
         NativeArray<Entity> systems = deletionQuery.ToEntityArray(Allocator.Temp);
         World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(systems);
-        systems.Dispose( );
+        systems.Dispose();
 
     }
 }
@@ -279,29 +279,29 @@ public class SystemCloneDeleter : SystemBase
 public class SystemCloneSpawner : SystemBase
 {
     EntityCommandBufferSystem ecbs;
-    protected override void OnCreate( )
+    protected override void OnCreate()
     {
-        base.OnCreate( );
-        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>( );
+        base.OnCreate();
+        ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
 
 
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
-        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer( ).AsParallelWriter( );
+        EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
         Entity systemClone = SB.systemClone;
 
-        Entities.WithAll<BaseEntity.SpawnCloneTag>( ).ForEach((Entity system, int entityInQueryIndex, in Translation pos, in SystemEntity.Id id) =>
-         {
+        Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity system, int entityInQueryIndex, in Translation pos, in SystemEntity.Id id) =>
+        {
 
-             Entity clone = ecb.Instantiate(entityInQueryIndex, systemClone);
-             ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-             ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
-             ecb.AddComponent<SystemEntity.Id>(entityInQueryIndex, clone, id);
-             ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, system);
+            Entity clone = ecb.Instantiate(entityInQueryIndex, systemClone);
+            ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+            ecb.SetComponent<Translation>(entityInQueryIndex, clone, pos);
+            ecb.AddComponent<SystemEntity.Id>(entityInQueryIndex, clone, id);
+            ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, system);
 
-         }).ScheduleParallel( );
+        }).ScheduleParallel();
 
         ecbs.AddJobHandleForProducer(Dependency);
 

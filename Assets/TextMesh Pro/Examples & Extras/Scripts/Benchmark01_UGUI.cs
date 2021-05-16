@@ -33,14 +33,14 @@ namespace TMPro.Examples
 
 
 
-        IEnumerator Start( )
+        IEnumerator Start()
         {
 
 
 
             if ( BenchmarkType == 0 ) // TextMesh Pro Component
             {
-                m_textMeshPro = gameObject.AddComponent<TextMeshProUGUI>( );
+                m_textMeshPro = gameObject.AddComponent<TextMeshProUGUI>();
                 //m_textContainer = GetComponent<TextContainer>();
 
 
@@ -72,7 +72,7 @@ namespace TMPro.Examples
             }
             else if ( BenchmarkType == 1 ) // TextMesh
             {
-                m_textMesh = gameObject.AddComponent<Text>( );
+                m_textMesh = gameObject.AddComponent<Text>();
 
                 if ( TextMeshFont != null )
                 {
@@ -105,7 +105,7 @@ namespace TMPro.Examples
 
                 }
                 else if ( BenchmarkType == 1 )
-                    m_textMesh.text = label02 + (i % 1000).ToString( );
+                    m_textMesh.text = label02 + (i % 1000).ToString();
 
                 yield return null;
             }

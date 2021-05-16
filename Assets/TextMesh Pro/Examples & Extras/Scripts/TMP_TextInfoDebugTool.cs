@@ -31,11 +31,11 @@ namespace TMPro.Examples
         private float m_HandleSize;
 
 
-        void OnDrawGizmos( )
+        void OnDrawGizmos()
         {
             if ( m_TextComponent == null )
             {
-                m_TextComponent = GetComponent<TMP_Text>( );
+                m_TextComponent = GetComponent<TMP_Text>();
 
                 if ( m_TextComponent == null )
                     return;
@@ -51,43 +51,43 @@ namespace TMPro.Examples
                           + "\nLines: " + m_TextInfo.lineCount + "   Pages: " + m_TextInfo.pageCount;
 
             // Get the handle size for drawing the various
-            m_ScaleMultiplier = m_TextComponent.GetType( ) == typeof(TextMeshPro) ? 1 : 0.1f;
+            m_ScaleMultiplier = m_TextComponent.GetType() == typeof(TextMeshPro) ? 1 : 0.1f;
             m_HandleSize = HandleUtility.GetHandleSize(m_Transform.position) * m_ScaleMultiplier;
 
             // Draw line metrics
             #region Draw Lines
             if ( ShowLines )
-                DrawLineBounds( );
+                DrawLineBounds();
             #endregion
 
             // Draw word metrics
             #region Draw Words
             if ( ShowWords )
-                DrawWordBounds( );
+                DrawWordBounds();
             #endregion
 
             // Draw character metrics
             #region Draw Characters
             if ( ShowCharacters )
-                DrawCharactersBounds( );
+                DrawCharactersBounds();
             #endregion
 
             // Draw Quads around each of the words
             #region Draw Links
             if ( ShowLinks )
-                DrawLinkBounds( );
+                DrawLinkBounds();
             #endregion
 
             // Draw Quad around the bounds of the text
             #region Draw Bounds
             if ( ShowMeshBounds )
-                DrawBounds( );
+                DrawBounds();
             #endregion
 
             // Draw Quad around the rendered region of the text.
             #region Draw Text Bounds
             if ( ShowTextBounds )
-                DrawTextBounds( );
+                DrawTextBounds();
             #endregion
         }
 
@@ -96,7 +96,7 @@ namespace TMPro.Examples
         /// Method to draw a rectangle around each character.
         /// </summary>
         /// <param name="text"></param>
-        void DrawCharactersBounds( )
+        void DrawCharactersBounds()
         {
             int characterCount = m_TextInfo.characterCount;
 
@@ -260,7 +260,7 @@ namespace TMPro.Examples
         /// Method to draw rectangles around each word of the text.
         /// </summary>
         /// <param name="text"></param>
-        void DrawWordBounds( )
+        void DrawWordBounds()
         {
             for ( int i = 0; i < m_TextInfo.wordCount; i++ )
             {
@@ -364,7 +364,7 @@ namespace TMPro.Examples
         /// Draw rectangle around each of the links contained in the text.
         /// </summary>
         /// <param name="text"></param>
-        void DrawLinkBounds( )
+        void DrawLinkBounds()
         {
             TMP_TextInfo textInfo = m_TextComponent.textInfo;
 
@@ -468,7 +468,7 @@ namespace TMPro.Examples
         /// Draw Rectangles around each lines of the text.
         /// </summary>
         /// <param name="text"></param>
-        void DrawLineBounds( )
+        void DrawLineBounds()
         {
             int lineCount = m_TextInfo.lineCount;
 
@@ -520,7 +520,7 @@ namespace TMPro.Examples
                 // Draw text labels for metrics
                 if ( m_HandleSize < 1.0f )
                 {
-                    GUIStyle style = new GUIStyle( );
+                    GUIStyle style = new GUIStyle();
                     style.normal.textColor = new Color(0.8f, 0.8f, 0.8f, 1.0f);
                     style.fontSize = 12;
                     style.fixedWidth = 200;
@@ -548,7 +548,7 @@ namespace TMPro.Examples
         /// <summary>
         /// Draw Rectangle around the bounds of the text object.
         /// </summary>
-        void DrawBounds( )
+        void DrawBounds()
         {
             Bounds meshBounds = m_TextComponent.bounds;
 
@@ -560,7 +560,7 @@ namespace TMPro.Examples
         }
 
 
-        void DrawTextBounds( )
+        void DrawTextBounds()
         {
             Bounds textBounds = m_TextComponent.textBounds;
 

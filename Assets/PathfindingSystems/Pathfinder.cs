@@ -23,7 +23,7 @@ public class Pathfinder
         public int[] connections { get; set; }
 
         public Vector3 position { get; set; }
-        public void Reset( )
+        public void Reset()
         {
             parent = 0;
             isClosed = false;
@@ -48,10 +48,10 @@ public class Pathfinder
     public PathNode[] PathNodes;
     Heap<PathNode> heap;
 
-    public void TestHeap( )
+    public void TestHeap()
     {
         Heap<PathNode> heap = new Heap<PathNode>(PathNodes.Length);
-        Vector3 point = new Vector3( )
+        Vector3 point = new Vector3()
         {
             x = 10,
             y = 10,
@@ -65,7 +65,7 @@ public class Pathfinder
         }
         for ( int i = 0; i < PathNodes.Length; i++ )
         {
-            PathNode item = heap.RemoveFirst( );
+            PathNode item = heap.RemoveFirst();
             MonoBehaviour.print(item.distToEnd);
         }
     }
@@ -86,7 +86,7 @@ public class Pathfinder
     public List<int> GetPath(int start, int end, PathNode[] inputArray = null)
     {
         currentRunId++;
-        internalPath.Clear( );
+        internalPath.Clear();
         heap.currentItemCount = 0;
         PathNode[] NodeArray;
         //Reset node array
@@ -103,7 +103,7 @@ public class Pathfinder
 
         //Set up first node
         PathNode currentNode = NodeArray[start];
-        currentNode.Reset( );
+        currentNode.Reset();
         currentNode.parent = start;
         currentNode.distFromStart = 0;
         currentNode.distToEnd = Vector3.SqrMagnitude(currentNode.position - NodeArray[end].position);
@@ -115,7 +115,7 @@ public class Pathfinder
         while ( true )
         {
             //Pull Current best node and set it to closed
-            currentNode = heap.RemoveFirst( );
+            currentNode = heap.RemoveFirst();
             //MonoBehaviour.print("root Node heapIndex: " + currentNode.HeapIndex);
             currentNode.isClosed = true;
             //Add it to path
@@ -133,7 +133,7 @@ public class Pathfinder
                 PathNode candidate = NodeArray[connection];
                 if ( candidate.runId != currentRunId )
                 {
-                    candidate.Reset( );
+                    candidate.Reset();
                     candidate.runId = currentRunId;
                 }
                 if ( systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
@@ -235,7 +235,7 @@ public class Pathfinder
     public List<int> GetPathForInput(int start, int end, Dictionary<int, AI.AiSystem> knownSystems, Dictionary<int, AI.AiSystem> unknownSystems, int missionType)
     {
         currentRunId++;
-        internalPath.Clear( );
+        internalPath.Clear();
         heap.currentItemCount = 0;
         PathNode[] NodeArray;
         //Reset node array
@@ -244,7 +244,7 @@ public class Pathfinder
 
         //Set up first node
         PathNode currentNode = NodeArray[start];
-        currentNode.Reset( );
+        currentNode.Reset();
         currentNode.parent = start;
         currentNode.distFromStart = 0;
         currentNode.distToEnd = Vector3.SqrMagnitude(currentNode.position - NodeArray[end].position);
@@ -256,7 +256,7 @@ public class Pathfinder
         while ( true )
         {
             //Pull Current best node and set it to closed
-            currentNode = heap.RemoveFirst( );
+            currentNode = heap.RemoveFirst();
             //MonoBehaviour.print("root Node heapIndex: " + currentNode.HeapIndex);
             currentNode.isClosed = true;
             //Add it to path
@@ -280,7 +280,7 @@ public class Pathfinder
                 PathNode candidate = NodeArray[connection];
                 if ( candidate.runId != currentRunId )
                 {
-                    candidate.Reset( );
+                    candidate.Reset();
                     candidate.runId = currentRunId;
                 }
                 if ( systemWorks.masterUniverse.masterPointsDatabase[currentNode.Id].Connections.Contains(systemWorks.masterUniverse.masterPointsDatabase[candidate.Id]) != true )
@@ -416,7 +416,7 @@ public class Pathfinder
 
             foreach ( UniquePoint point in inputPoints.Values )
             {
-                PathNode newPathNode = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray( ), point.Id);
+                PathNode newPathNode = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
 
                 inputArray[newPathNode.Id] = newPathNode;
             }
@@ -432,11 +432,11 @@ public class Pathfinder
     {
         systemWorks = _systemWorks;
         heap = new Heap<PathNode>(systemWorks.masterUniverse.masterPointsDatabase.Count);
-        internalPath = new List<int>( );
+        internalPath = new List<int>();
         PathNodes = new PathNode[systemWorks.masterUniverse.masterPointsDatabase.Count];
         foreach ( UniquePoint point in systemWorks.masterUniverse.masterPointsDatabase.Values )
         {
-            PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray( ), point.Id);
+            PathNodes[point.Id] = new PathNode(point.Position, point.Connections.Select(con => con.Id).ToArray(), point.Id);
         }
         currentRunId = 0;
         //masterPathDatabase = new List<int>[systemWorks.masterUniverse.maxPointId, systemWorks.masterUniverse.maxPointId];

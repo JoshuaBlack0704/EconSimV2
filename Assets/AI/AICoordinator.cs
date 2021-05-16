@@ -9,7 +9,7 @@ public class AICoordinator : MonoBehaviour
     public bool showAIExploration;
     public static Dictionary<int, AI> AIDictionary;
     // Start is called before the first frame update
-    void Start( )
+    void Start()
     {
         AIDictionary = new Dictionary<int, AI>(startingAiNum);
         AIDictionary.Add(0, new AI(UniverseGenerator.universe, 0, startingShipsPerAi, true));
@@ -18,7 +18,7 @@ public class AICoordinator : MonoBehaviour
             AIDictionary.Add(i, new AI(UniverseGenerator.universe, Random.Range(0, UniverseGenerator.universe.maxPointId + 1), startingShipsPerAi, false));
         }
     }
-    private void OnDrawGizmos( )
+    private void OnDrawGizmos()
     {
         if ( showAIExploration && UniverseGenerator.universe.inSystem == false )
         {
@@ -31,11 +31,11 @@ public class AICoordinator : MonoBehaviour
             }
         }
     }
-    void Update( )
+    void Update()
     {
         foreach ( AI AI in AIDictionary.Values )
         {
-            AI.MasterCall( );
+            AI.MasterCall();
         }
 
     }

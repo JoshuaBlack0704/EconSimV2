@@ -67,7 +67,7 @@ public class Ship
             EconomicMethods.ReserveResource<FoodResource>(target, 10);
             targetEntity = target;
         }
-        FlyToNextTarget( );
+        FlyToNextTarget();
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public class Ship
     /// update its vector, 
     /// adds it to the main schedual heap, 
     /// </summary>
-    public void FlyToNextTarget( )
+    public void FlyToNextTarget()
     {
         if ( currentSystemId == targetSystem )
         {
@@ -86,7 +86,7 @@ public class Ship
             ticket.entityReference = targetEntity;
             if ( activeEntity != Entity.Null )
             {
-                SetEntityData( );
+                SetEntityData();
             }
         }
         else
@@ -111,7 +111,7 @@ public class Ship
 
             if ( activeEntity != Entity.Null )
             {
-                SetEntityData( );
+                SetEntityData();
             }
         }
     }
@@ -121,7 +121,7 @@ public class Ship
     /// destroy or instantiate entity, 
     /// prepare and execute next flyToPosition, 
     /// </summary>
-    public void WarpNext( )
+    public void WarpNext()
     {
         UniverseSystem targetSystemJump = masterAI.universe.systemWorks.GetSystem(wayPoints[wayPoints.Count - 1]);
         if ( targetSystemJump.Id != wayPoints[wayPoints.Count - 1] )
@@ -168,7 +168,7 @@ public class Ship
 
         if ( masterAI.universe.inSystem && currentSystemId == masterAI.universe.selectedSystem )
         {
-            DestoryEntityFor( );
+            DestoryEntityFor();
         }
         else if ( masterAI.universe.inSystem && targetSystemJump.Id == masterAI.universe.selectedSystem )
         {
@@ -176,7 +176,7 @@ public class Ship
         }
 
         currentSystemId = targetSystemJump.Id;
-        FlyToNextTarget( );
+        FlyToNextTarget();
     }
     /// <summary>
     /// We set our position to our target, 
@@ -185,14 +185,14 @@ public class Ship
     /// add the ship to its Ai's unassiagned ships list, 
     /// update its active entity if it has one
     /// </summary>
-    public void ArrivedAtTarget( )
+    public void ArrivedAtTarget()
     {
         Position = flyToPosition;
         vector = Position;
         assigned = false;
         if ( missionType == 3 )
         {
-            ExploreSystem( );
+            ExploreSystem();
         }
         else if ( missionType == 4 )
         {
@@ -200,7 +200,7 @@ public class Ship
         }
         else if ( missionType == 2 )
         {
-            ExploreSystem( );
+            ExploreSystem();
         }
         {
 
@@ -208,11 +208,11 @@ public class Ship
         masterAI.unassignedShips.Add(this);
         if ( activeEntity != Entity.Null )
         {
-            SetEntityData( );
+            SetEntityData();
         }
     }
 
-    public void ExploreSystem( )
+    public void ExploreSystem()
     {
         Position = flyToPosition;
         vector = Position;
@@ -220,15 +220,15 @@ public class Ship
         masterAI.unassignedShips.Add(this);
         if ( activeEntity != Entity.Null )
         {
-            SetEntityData( );
+            SetEntityData();
         }
-        masterAI.systemsBeingExplored[currentSystemId].ExploreSystem( );
+        masterAI.systemsBeingExplored[currentSystemId].ExploreSystem();
     }
     /// <summary>
     /// we use the ships current fly to position and how far the current ticket is from executing to update the ships position
     /// </summary>
     /// <returns>ships next vector 3</returns>
-    public Vector3 GetNextPosition( )
+    public Vector3 GetNextPosition()
     {
         Position = _posAtTicketWrite + vector * velocity * (MainSchedual.masterTime - currentTicket.timeAtWrite);
         return Position;
@@ -255,24 +255,24 @@ public class Ship
         }
         else
         {
-            entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition( ) });
+            entityManager.SetComponentData(shipClone, new Translation { Value = GetNextPosition() });
         }
         entityManager.AddComponent<shipCloneId>(shipClone);
         entityManager.AddComponent<shipMoveData>(shipClone);
-        entityManager.SetComponentData(shipClone, new shipMoveData( ) { vector = vector, velocity = velocity });
+        entityManager.SetComponentData(shipClone, new shipMoveData() { vector = vector, velocity = velocity });
         entityManager.SetComponentData(shipClone, new shipCloneId { Id = Id });
         activeEntity = shipClone;
     }
-    public void DestoryEntityFor( )
+    public void DestoryEntityFor()
     {
         entityManager.DestroyEntity(activeEntity);
         activeEntity = Entity.Null;
     }
-    public void SetEntityData( )
+    public void SetEntityData()
     {
         entityManager.SetComponentData(activeEntity, new Translation { Value = Position });
         entityManager.SetComponentData(activeEntity, new shipMoveData { vector = vector, velocity = velocity });
-        entityManager.SetComponentData(activeEntity, new Rotation { Value = quaternion.LookRotation(vector, math.up( )) });
+        entityManager.SetComponentData(activeEntity, new Rotation { Value = quaternion.LookRotation(vector, math.up()) });
     }
 
     /// <summary>
@@ -326,20 +326,20 @@ public struct shipCloneId : IComponentData { public int Id { get; set; } }
 
 public class ShipAnimator : SystemBase
 {
-    protected override void OnUpdate( )
+    protected override void OnUpdate()
     {
         float timePassed = MainSchedual.masterDeltaTime;
         if ( MainSchedual.notPaused )
         {
-            Entities.WithAll<shipCloneId>( ).ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) =>
-             {
+            Entities.WithAll<shipCloneId>().ForEach((ref Translation position, ref Rotation rotation, in shipMoveData moveData) =>
+            {
 
-                 position.Value.x += (moveData.vector.x * moveData.velocity * timePassed);
-                 position.Value.y += (moveData.vector.y * moveData.velocity * timePassed);
-                 position.Value.z += (moveData.vector.z * moveData.velocity * timePassed);
-                 rotation = new Rotation( ) { Value = quaternion.LookRotationSafe(moveData.vector, math.up( )) };
+                position.Value.x += (moveData.vector.x * moveData.velocity * timePassed);
+                position.Value.y += (moveData.vector.y * moveData.velocity * timePassed);
+                position.Value.z += (moveData.vector.z * moveData.velocity * timePassed);
+                rotation = new Rotation() { Value = quaternion.LookRotationSafe(moveData.vector, math.up()) };
 
-             }).ScheduleParallel( );
+            }).ScheduleParallel();
         }
 
     }
