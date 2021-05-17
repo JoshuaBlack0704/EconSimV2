@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            center = new Vector3() { x = genSettings.universeSize, y = genSettings.universeSize, z = genSettings.universeSize };
+            center = new Vector3() { x = genSettings.universeSize/2, y = genSettings.universeSize/2, z = genSettings.universeSize/2 };
             radius = genSettings.universeSize * 1.8f;
             angle += angularVelocity * Time.deltaTime;
 

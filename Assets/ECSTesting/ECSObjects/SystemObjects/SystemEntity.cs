@@ -15,30 +15,30 @@ public static class SystemEntity
 
 
 
-    public static void GenerateRandomPoints(int count, float maxSystemSize, int maxPlanets, int maxAsteroids, bool random = false)
+    public static void GenerateRandomPoints(GenerationSettings genSettings)
     {
-        for ( int i = 0; i < count; i++ )
+        for ( int i = 0; i < genSettings.systemCount; i++ )
         {
             Entity point = em.CreateEntity(ePoint);
             em.SetComponentData<Id>(point, new Id() { id = pointCount });
             pointCount++;
-            em.SetComponentData<Translation>(point, new Translation() { Value = SB.rand.NextFloat3(0, 100) });
-            if ( random )
+            em.SetComponentData<Translation>(point, new Translation() { Value = SB.rand.NextFloat3(0, genSettings.universeSize) });
+            if ( genSettings.randomPopulate )
             {
                 em.SetComponentData<SystemData>(point, new SystemData()
                 {
-                    size = SB.rand.NextFloat(70, maxSystemSize),
-                    numPlanets = SB.rand.NextInt(0, maxPlanets),
-                    numAsteroids = SB.rand.NextInt(0, maxAsteroids)
+                    size = SB.rand.NextFloat(70, genSettings.maxSystemSize),
+                    numPlanets = SB.rand.NextInt(0, genSettings.planetsPerSystem),
+                    numAsteroids = SB.rand.NextInt(0, genSettings.asteroidsPerSystem)
                 });
             }
             else
             {
                 em.SetComponentData<SystemData>(point, new SystemData()
                 {
-                    size = maxSystemSize,
-                    numPlanets = maxPlanets,
-                    numAsteroids = maxAsteroids,
+                    size = genSettings.maxSystemSize,
+                    numPlanets = genSettings.planetsPerSystem,
+                    numAsteroids = genSettings.asteroidsPerSystem,
                 });
             }
 

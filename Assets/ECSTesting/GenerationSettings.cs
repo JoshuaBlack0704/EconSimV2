@@ -43,7 +43,8 @@ public class GenerationSettings : MonoBehaviour
 
     void GenerateUniverse()
     {
-        SystemEntity.GenerateRandomPoints(systemCount, maxSystemSize, planetsPerSystem, asteroidsPerSystem, randomPopulate);
+        SystemEntity.GenerateRandomPoints(this);
+        NewOctTree.ConnectSystems(this);
         //SystemEntity.BruteForceConnect(connectionsPerSystem);
         Planets.GeneratePlanets();
         Asteroids.GenerateAsteroids();
