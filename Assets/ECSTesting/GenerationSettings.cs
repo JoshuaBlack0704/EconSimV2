@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -48,12 +51,11 @@ public class GenerationSettings : MonoBehaviour
     {
         SystemEntity.GenerateRandomPoints(this);
         NewOctTree.ConnectSystems(this);
-        //SystemEntity.BruteForceConnect(connectionsPerSystem);
         Planets.GeneratePlanets();
         Asteroids.GenerateAsteroids();
         Ships.GenerateShipsForAll(shipsPerSystem);
-        //EntityPathFinder.Initialize();
-        //SystemEntity.RenderPoints();
+        EntityPathFinder.Initialize();
+        SystemEntity.RenderPoints();
         CameraController.Initialize();
     }
     private void Start()
@@ -81,8 +83,23 @@ public class GenerationSettings : MonoBehaviour
     public static bool isRendered = false;
     // Update is called once per frame
 
+    
+
     void Update()
     {
+        EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
+        NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
+
+
+        var watch = new System.Diagnostics.Stopwatch();
+        watch.Start();
+        var task = Task.Run(() => EntityPathFinder.GetPath(0, 10, points.Select(o => em.GetComponentData<SystemEntity.Id>(o).id).ToArray(), new int[0], false));
+        watch.Stop();
+        points.Dispose();
+
+
+        Debug.Log($"PathFinder too {watch.ElapsedMilliseconds / 1000} seconds");
         SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
         SB.masterTime += SB.masterDeltaTime;
 

@@ -1,14 +1,16 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
 public static class EntityPathFinder
 {
 
-    static Node[] nodeCache;
-    static Heap<Node> heap;
+    static Node[] nodeCacheMaster;
+    static Heap<Node> heapMaster;
 
     internal class Node : IHeapItem<Node>
     {
@@ -50,10 +52,13 @@ public static class EntityPathFinder
 
     }
 
-    public static void GetPath(int start, int end, NativeArray<int> knownPoints, NativeArray<int> explorablePoints, bool exploreable, out NativeArray<int> pathIds)
+    public static int[] GetPath(int start, int end, int[] knownPoints, int[] explorablePoints, bool exploreable)
     {
-        NativeList<int> usedNodes = new NativeList<int>(Allocator.Temp);
-        NativeList<int> path = new NativeList<int>(Allocator.Temp);
+        List<int> usedNodes = new List<int>();
+        List<int> path = new List<int>();
+        var heap = new Heap<Node>(nodeCacheMaster.Length);
+        var nodeCache = new Node[nodeCacheMaster.Length];
+        System.Array.Copy(nodeCacheMaster, nodeCache, nodeCacheMaster.Length);
 
         Node currentNode = nodeCache[start];
         usedNodes.Add(start);
@@ -143,15 +148,15 @@ public static class EntityPathFinder
 
 
 
-        pathIds = new NativeArray<int>(path.Length, Allocator.Temp);
-        pathIds.CopyFrom(path);
-        for ( int i = 0; i < usedNodes.Length; i++ )
-        {
-            nodeCache[usedNodes[i]].Reset();
-        }
-        path.Dispose();
-        usedNodes.Dispose();
-        heap.currentItemCount = 0;
+        var pathIds = new int[path.Count];
+        System.Array.Copy(path.ToArray(), pathIds, path.Count);
+        path = null;
+        usedNodes = null;
+        nodeCache = null;
+        heap = null;
+
+        return pathIds;
+
     }
 
 
@@ -160,8 +165,8 @@ public static class EntityPathFinder
         EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
         EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
         NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
-        nodeCache = new Node[points.Length];
-        heap = new Heap<Node>(points.Length);
+        nodeCacheMaster = new Node[points.Length];
+        heapMaster = new Heap<Node>(points.Length);
         foreach ( Entity ent in points )
         {
             int id = em.GetComponentData<SystemEntity.Id>(ent).id;
@@ -169,9 +174,44 @@ public static class EntityPathFinder
             SystemEntity.ConnectionData[] connecitons = connectionsNative.ToArray();
             float3 pos = em.GetComponentData<Translation>(ent).Value;
 
-            nodeCache[id] = new Node(pos, connecitons, id);
+            nodeCacheMaster[id] = new Node(pos, connecitons, id);
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //struct GetPathBatch : IJobParallelFor
+    //{
+    //    [ReadOnly]
+    //    public NativeArray<int> starts;
+    //    [ReadOnly]
+    //    public NativeArray<int> ends;
+
+    //    public NativeMultiHashMap<int, >
+
+    //    public void Execute(int index)
+    //    {
+            
+    //    }
+    //}
 
 }
