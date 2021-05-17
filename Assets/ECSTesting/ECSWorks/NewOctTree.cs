@@ -114,7 +114,15 @@ public static class NewOctTree
                         };
 
                         //MonoBehaviour.print(string.Format("subCube being created, current subcube max id: {0}", maxCubeId));
-                        var insidePoint = cube.contents.Where(o => IsBetween(newminimum, newmaximum, o.pos)).ToList();
+                        var insidePoint = new List<pointHolder>();
+                        foreach ( var point in cube.contents )
+                        {
+                            if ( IsBetween(newminimum, newmaximum, point.pos) )
+                            {
+                                insidePoint.Add(point);
+                            }
+                        }
+                        
                         Cube subCube;
                         Monitor.Enter(IdCounter);
                         try
@@ -133,7 +141,7 @@ public static class NewOctTree
                     }
                 }
             }
-            Task.WhenAll(tasks);
+            Task.WaitAll(tasks.ToArray());
         }
     }
 
@@ -142,7 +150,7 @@ public static class NewOctTree
         var topCube = pointData.currentLeaf;
         while ( true )
         {
-            if ( topCube.contents.Count < genSettings.connectionsPerSystem+1)
+            if ( topCube.contents.Count <= genSettings.connectionsPerSystem+1)
             {
                 topCube = topCube.parent;
             }
@@ -152,7 +160,7 @@ public static class NewOctTree
             }
         }
 
-        var distances = topCube.contents.Select(o => math.distancesq(o.pos, pointData.pos)).OrderBy(o => o).ToList();
+        var distances = topCube.contents.Select(o => math.distance(o.pos, pointData.pos)).OrderBy(o => o).ToList();
 
         var maxDistance = distances[genSettings.connectionsPerSystem];
 
@@ -174,7 +182,7 @@ public static class NewOctTree
                 Cube cube = currentCube.Branches[i];
                 if ( cube == null )
                 {
-                    Debug.Log($"Cube index: {i} is null, parent: {currentCube.parent.Id} parent branches[0] type: {currentCube.Branches[0].GetType()}");
+                    Debug.Log($"Cube index: {i} is null, parent: {currentCube.parent.Id} parent branches[i] type: {currentCube.Branches[i].GetType()}");
                     throw new System.Exception("WHY");
                 }
                 float3 maxRange = new float3()
@@ -203,7 +211,6 @@ public static class NewOctTree
                 //MonoBehaviour.print(string.Format("Min Ranges : ({0}, {1}, {2})", minRange.x, minRange.y, minRange.z));
                 //MonoBehaviour.print(string.Format("Cube max Ranges : ({0}, {1}, {2})", cube.maximums.x, cube.maximums.y, cube.maximums.z));
 
-                Monitor.Enter(cube);
                 if ( maxRange.x >= cube.minimums.x && minRange.x <= cube.maximums.x )
                 {
                     xInRange = true;
@@ -222,7 +229,6 @@ public static class NewOctTree
                     cubesOfInterest.Add(cube);
                     //MonoBehaviour.print("subCube added");
                 }
-                Monitor.Exit(cube);
 
 
             }
@@ -237,14 +243,24 @@ public static class NewOctTree
         {
             pointsOfInterest.AddRange(coll);
         }
-        pointsOfInterest.OrderBy(o => math.distancesq(pointData.pos, o.pos)).ToList();
+        var sorted = from p in pointsOfInterest 
+                     orderby math.distancesq(p.pos, pointData.pos) 
+                     select p;
+        if ( !sorted.ToArray()[0].reference.Equals(pointData.reference) )
+        {
+            foreach ( var item in pointsOfInterest )
+            {
+                Debug.Log(math.distance(pointData.pos, item.pos));
+            }
+            throw new System.Exception("Not sorted correctly");
+        }
         pointData.connections = new List<pointHolder>();
         for ( int i = 1; i <= genSettings.connectionsPerSystem; i++ )
         {
             //MonoBehaviour.print(finalSortedList.Length);
             //MonoBehaviour.print(finalSortedList[i].Id);
-
-            pointData.connections.Add(pointsOfInterest[i]);
+            
+            pointData.connections.Add(sorted.ToArray()[i]);
 
         }
 

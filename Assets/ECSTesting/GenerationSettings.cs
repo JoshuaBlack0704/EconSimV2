@@ -1,4 +1,7 @@
+using Unity.Collections;
 using Unity.Entities;
+using Unity.Jobs;
+using Unity.Transforms;
 using UnityEngine;
 
 public class GenerationSettings : MonoBehaviour
@@ -50,7 +53,7 @@ public class GenerationSettings : MonoBehaviour
         Asteroids.GenerateAsteroids();
         Ships.GenerateShipsForAll(shipsPerSystem);
         //EntityPathFinder.Initialize();
-        SystemEntity.RenderPoints();
+        //SystemEntity.RenderPoints();
         CameraController.Initialize();
     }
     private void Start()
@@ -60,6 +63,21 @@ public class GenerationSettings : MonoBehaviour
 
     }
 
+    private void OnDrawGizmos()
+    {
+        var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        var query = em.CreateEntityQuery(typeof(SystemEntity.Id));
+        var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+        handle.Complete();
+        foreach ( var point in list )
+        {
+            foreach ( var connection in em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(point).Reinterpret<SystemEntity.ConnectionData>() )
+            {
+                Debug.DrawLine(em.GetComponentData<Translation>(point).Value, em.GetComponentData<Translation>(connection.targetEntity).Value);
+            }
+        }
+        list.Dispose();
+    }
     public static bool isRendered = false;
     // Update is called once per frame
 
