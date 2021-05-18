@@ -91,19 +91,25 @@ namespace EconSimV2.Assets.ECSTesting
 
         void Update()
         {
-            //EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            //EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
-            //NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
+            EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
+            EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
+            NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
 
 
-            //var watch = new System.Diagnostics.Stopwatch();
-            //watch.Start();
-            //var task = Task.Run(() => EntityPathFinder.GetPath(0, 10, points.Select(o => em.GetComponentData<SystemEntity.Id>(o).id).ToArray(), new int[0], false));
-            //watch.Stop();
-            //points.Dispose();
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+            //EntityPathFinder.GetPath(0, 10, points.Select(o => em.GetComponentData<SystemEntity.Id>(o).id).ToArray(), new int[0], false);
+            var list = new List<Task>(100);
+            for ( int i = 0; i < 100; i++ )
+            {
+                list.Add(Task.Run(() => EntityPathFinder.GetPath(0, 10, points.Select(o => em.GetComponentData<SystemEntity.Id>(o).id).ToArray(), new int[0], false)));
+            }
+            Task.WaitAll(list.ToArray());
+            watch.Stop();
+            points.Dispose();
 
 
-            //Debug.Log($"PathFinder too {watch.ElapsedMilliseconds / 1000} seconds");
+            Debug.Log($"PathFinder took {watch.ElapsedMilliseconds / 1000f} seconds");
             SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
             SB.masterTime += SB.masterDeltaTime;
 

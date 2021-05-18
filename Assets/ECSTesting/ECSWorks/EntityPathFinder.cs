@@ -7,6 +7,7 @@ using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace EconSimV2.Assets.ECSTesting.ECSWorks
 {
@@ -62,7 +63,11 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
             List<int> path = new List<int>();
             var heap = new Heap<Node>(nodeCacheMaster.Length);
             var nodeCache = new Node[nodeCacheMaster.Length];
-            System.Array.Copy(nodeCacheMaster, nodeCache, nodeCacheMaster.Length);
+            for ( int i = 0; i < nodeCache.Length; i++ )
+            {
+                var node = System.ObjectExtensions.Copy(nodeCacheMaster[i]);
+                nodeCache[i] = node;
+            }
 
             Node currentNode = nodeCache[start];
             usedNodes.Add(start);
@@ -74,9 +79,12 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
             while ( true )
             {
                 currentNode = heap.RemoveFirst();
+                //Debug.Log($"Remove node called, node ID: {currentNode.Id}");
+
                 currentNode.isClosed = true;
                 if ( currentNode.Id == end )
                 {
+                    //Debug.Log($"Hit end");
                     break;
                 }
 
