@@ -1,64 +1,68 @@
+using EconSimV2.Assets.ECSTesting.ECSObjects;
 using Unity.Entities;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+namespace EconSimV2.Assets.ECSTesting
 {
-    public GenerationSettings genSettings;
-    public float radius;
-    public float angularVelocity = .3f;
-    public static Entity[] systems;
-    EntityManager em;
-
-    // Start is called before the first frame update
-    void Start()
+    public class CameraController : MonoBehaviour
     {
-        em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        public GenerationSettings genSettings;
+        public float radius;
+        public float angularVelocity = .3f;
+        public static Entity[] systems;
+        EntityManager em;
 
-        genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>(); ;
-    }
-
-    public static void Initialize()
-    {
-        EntityQuery query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(typeof(SystemEntity.Id));
-        Unity.Collections.NativeArray<Entity> arr = query.ToEntityArray(Unity.Collections.Allocator.Temp);
-        systems = arr.ToArray();
-        arr.Dispose();
-    }
-
-    float angle = 0;
-    Vector3 center;
-    // Update is called once per frame
-    void Update()
-    {
-        if ( GenerationSettings.isRendered )
+        // Start is called before the first frame update
+        void Start()
         {
-            SystemEntity.SystemData data = em.GetComponentData<SystemEntity.SystemData>(systems[genSettings.selectedSystem]);
-            center = data.starPos;
-            radius = data.size * 1.8f;
+            em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
-            angle += angularVelocity * Time.deltaTime;
-
-            float xPos = center.x + radius * Mathf.Cos(angle);
-            float yPos = center.y + radius * Mathf.Sin(angle / 2);
-            float zPos = center.z + radius * Mathf.Sin(angle);
-
-            gameObject.transform.position = new Vector3() { x = xPos, y = yPos, z = zPos };
-            gameObject.transform.LookAt(center);
-        }
-        else
-        {
-            center = new Vector3() { x = genSettings.universeSize/2, y = genSettings.universeSize/2, z = genSettings.universeSize/2 };
-            radius = genSettings.universeSize * 1.8f;
-            angle += angularVelocity * Time.deltaTime;
-
-            float xPos = center.x + radius * Mathf.Cos(angle);
-            float yPos = center.y + radius * Mathf.Sin(angle / 2);
-            float zPos = center.z + radius * Mathf.Sin(angle);
-
-            gameObject.transform.position = new Vector3() { x = xPos, y = yPos, z = zPos };
-            gameObject.transform.LookAt(center);
+            genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>(); ;
         }
 
+        public static void Initialize()
+        {
+            EntityQuery query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(typeof(SystemEntity.Id));
+            Unity.Collections.NativeArray<Entity> arr = query.ToEntityArray(Unity.Collections.Allocator.Temp);
+            systems = arr.ToArray();
+            arr.Dispose();
+        }
 
+        float angle = 0;
+        Vector3 center;
+        // Update is called once per frame
+        void Update()
+        {
+            if ( GenerationSettings.isRendered )
+            {
+                SystemEntity.SystemData data = em.GetComponentData<SystemEntity.SystemData>(systems[genSettings.selectedSystem]);
+                center = data.starPos;
+                radius = data.size * 1.8f;
+
+                angle += angularVelocity * Time.deltaTime;
+
+                float xPos = center.x + radius * Mathf.Cos(angle);
+                float yPos = center.y + radius * Mathf.Sin(angle / 2);
+                float zPos = center.z + radius * Mathf.Sin(angle);
+
+                gameObject.transform.position = new Vector3() { x = xPos, y = yPos, z = zPos };
+                gameObject.transform.LookAt(center);
+            }
+            else
+            {
+                center = new Vector3() { x = genSettings.universeSize / 2, y = genSettings.universeSize / 2, z = genSettings.universeSize / 2 };
+                radius = genSettings.universeSize * 1.8f;
+                angle += angularVelocity * Time.deltaTime;
+
+                float xPos = center.x + radius * Mathf.Cos(angle);
+                float yPos = center.y + radius * Mathf.Sin(angle / 2);
+                float zPos = center.z + radius * Mathf.Sin(angle);
+
+                gameObject.transform.position = new Vector3() { x = xPos, y = yPos, z = zPos };
+                gameObject.transform.LookAt(center);
+            }
+
+
+        }
     }
 }
