@@ -59,7 +59,7 @@ namespace ECSTesting.Entites
 
         public static void GenerateShipsForAll(int shipsPerSystem)
         {
-            EntityQuery query = em.CreateEntityQuery(typeof(SysComps.Id));
+            EntityQuery query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
             NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
 
             foreach ( Entity system in systems )
@@ -106,7 +106,8 @@ namespace ECSTesting.Entites
             if ( start != end )
             {
                 //Create Waypoints
-                PathFinder.GetEntityPath(start, end, ai.knownSystems, new NativeArray<Entity>(1, Allocator.Temp), false, out NativeArray<Entity> path);
+                var tempArray = new NativeArray<Entity>(1, Allocator.Temp);
+                PathFinder.GetEntityPath(start, end, ai.knownSystems, tempArray, false, out NativeArray<Entity> path);
 
                 var waypointBuffer = em.GetBuffer<WaypointBuffer>(ship).Reinterpret<waypointData>();
                 waypointBuffer.Clear();
@@ -118,14 +119,14 @@ namespace ECSTesting.Entites
                 float3 arrivalSpawn;
                 float3 exitWormholePos = new float3();
 
-                for ( int i = 0; i < path.Length; i++ )
+                for ( int i = 0; i < path.Length-1; i++ )
                 {
                     nextEntity = path[i];
                     nextEntityID = em.GetComponentData<SysComps.Id>(nextEntity).id;
                     previousEntity = path[i + 1];
                     previousEntityID = em.GetComponentData<SysComps.Id>(previousEntity).id;
-                    arrivalSpawn = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).Reinterpret<SysComps.ConnectionData>().First(entry => entry.target == previousEntityID).position;
-                    exitWormholePos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).Reinterpret<SysComps.ConnectionData>().First(connection => connection.target == nextEntityID).position;
+                    arrivalSpawn = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).AsNativeArray().ToArray().First(entry => entry.connection.target == previousEntityID).connection.position;
+                    exitWormholePos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).AsNativeArray().First(connection => connection.connection.target == nextEntityID).connection.target;
 
                     data = new waypointData() { wormholeToID = nextEntityID, exitWormholePos = exitWormholePos, postWarpSpawn = arrivalSpawn };
 
@@ -136,16 +137,19 @@ namespace ECSTesting.Entites
                 float3 shipPos = em.GetComponentData<Translation>(ship).Value;
                 var preMoveData = em.GetComponentData<MovementData>(ship);
                 var timeToIntersect = math.distance(shipPos, exitWormholePos) / preMoveData.velocity;
-                em.AddComponentData<TimeData>(ship, new TimeData() { timeAtWrite = SB.masterTime, timeAtExecute = SB.masterTime+timeToIntersect});
+                em.AddComponentData<TimeData>(ship, new TimeData());
                 em.AddComponentData(ship, mission);
                 em.SetComponentData<MovementData>(ship, new MovementData() { vector = math.normalize(exitWormholePos - shipPos), velocity = preMoveData.velocity });
+
+                path.Dispose();
+                tempArray.Dispose();
             }
             else
             {
                 float3 shipPos = em.GetComponentData<Translation>(ship).Value;
                 var preMoveData = em.GetComponentData<MovementData>(ship);
                 var timeToIntersect = math.distance(shipPos, mission.targetPos) / preMoveData.velocity;
-                em.AddComponentData<TimeData>(ship, new TimeData() { timeAtWrite = SB.masterTime, timeAtExecute = SB.masterTime + timeToIntersect });
+                em.AddComponentData<TimeData>(ship, new TimeData() { timeAtWrite = 0, timeAtExecute = 0 });
                 em.AddComponentData(ship, mission);
                 em.SetComponentData<MovementData>(ship, new MovementData() { vector = math.normalize(mission.targetPos - shipPos), velocity = preMoveData.velocity });
             }

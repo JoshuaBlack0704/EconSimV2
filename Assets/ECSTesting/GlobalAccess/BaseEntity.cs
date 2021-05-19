@@ -2,6 +2,7 @@
 using Unity.Entities;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace ECSTesting.GlobalAccess
 {
@@ -40,12 +41,12 @@ namespace ECSTesting.GlobalAccess
         protected override void OnCreate()
         {
             Unity.Mathematics.Random[] randomArray = new Unity.Mathematics.Random[JobsUtility.MaxJobThreadCount];
-            System.Random seed = new System.Random();
+            Unity.Mathematics.Random seed = new Unity.Mathematics.Random(GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>().seed);
             ticketCounter = new NativeArray<long>(JobsUtility.MaxJobThreadCount, Allocator.Persistent);
 
             for ( int i = 0; i < JobsUtility.MaxJobThreadCount; ++i )
             {
-                randomArray[i] = new Unity.Mathematics.Random((uint)seed.Next());
+                randomArray[i] = new Unity.Mathematics.Random(seed.NextUInt());
 
             }
 

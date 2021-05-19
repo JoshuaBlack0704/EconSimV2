@@ -8,6 +8,7 @@ using System.Linq;
 namespace ECSTesting.Entites
 {
     using ECSTesting.Components.Planets;
+    using System.Collections.Generic;
     using SysComps = ECSTesting.Components.Systems;
 
     public static class Planets
@@ -18,7 +19,7 @@ namespace ECSTesting.Entites
 
         static void CreatePlanets()
         {
-            EntityQuery query = em.CreateEntityQuery(typeof(SysComps.Id));
+            EntityQuery query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
             NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
 
             foreach ( Entity item in systems )
@@ -33,6 +34,8 @@ namespace ECSTesting.Entites
                     em.SetComponentData(planet, new Id() { id = planetCount });
                     planetCount++;
                     em.SetComponentData(planet, new Translation() { Value = SB.rand.NextFloat3(0, size) });
+                    //Debug.Log($"Making planet in system with id: {id}");
+
                     em.SetComponentData(planet, new SystemID() { id = id });
                 }
             }
@@ -63,34 +66,38 @@ namespace ECSTesting.Entites
             }
         }
 
-        public static void FindPlanetsForSystem(int systemId, out Entity[] planetsArray)
+        public static void FindPlanetsForSystem(int systemId, out Entity[] planetsReturnable)
         {
             EntityQueryDesc query = new EntityQueryDesc() { All = new ComponentType[] { typeof(Id) }, None = new ComponentType[] { typeof(CloneTag) } };
             EntityQuery planetQuery = em.CreateEntityQuery(query);
             NativeArray<Entity> planetArray = planetQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
             planetHandle.Complete();
 
-            var planetsQuery = from planet in planetArray
+            var planetsArrayQuery = from planet in planetArray
                           where em.GetComponentData<SystemID>(planet).id == systemId
                           select planet;
-
-            planetsArray = planetsQuery.ToArray();
+            planetsReturnable = planetsArrayQuery.ToArray();
             planetArray.Dispose();
         }
 
-        public static Entity[] FindPlanetsForSystem(Entity system)
+        public static void FindPlanetsForSystem(Entity system, out Entity[] planetsReturnable)
         {
-            EntityQuery planetQuery = em.CreateEntityQuery(typeof(Id));
+            EntityQueryDesc query = new EntityQueryDesc() { All = new ComponentType[] { typeof(Id) }, None = new ComponentType[] { typeof(CloneTag) } };
+            EntityQuery planetQuery = em.CreateEntityQuery(query);
             var sysID = em.GetComponentData<SysComps.Id>(system).id;
             NativeArray<Entity> planetsArray = planetQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
             planetHandle.Complete();
-
-            var planetsQuery = from planet in planetsArray
-                               where em.GetComponentData<SystemID>(planet).id == sysID
-                               select planet;
-
+            Debug.Log($"planets Entity Array Length: {planetsArray.Length}");
+            Debug.Log($"System ID: {sysID}");
+            foreach ( var planet in planetsArray )
+            {
+                Debug.Log($"Planet: {em.GetComponentData<Id>(planet).id} in system {em.GetComponentData<SystemID>(planet).id}");
+            }
+            var planetsArrayQuery = from planet in planetsArray
+                                where em.GetComponentData<SystemID>(planet).id == sysID
+                                select planet;
+            planetsReturnable = planetsArrayQuery.ToArray();
             planetsArray.Dispose();
-            return planetsQuery.ToArray();
         }
     }
 

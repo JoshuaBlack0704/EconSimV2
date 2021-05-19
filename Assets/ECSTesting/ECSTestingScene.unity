@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4df02ec4b80ce4588f32b2dd55969d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 100
+  seed: 1
   systemCount: 100
   universeSize: 100
   maxSystemSize: 50

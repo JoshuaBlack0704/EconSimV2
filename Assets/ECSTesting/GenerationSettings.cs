@@ -42,7 +42,6 @@ namespace ECSTesting
         private AI ai;
         private void Awake()
         {
-            SB.rand = new Unity.Mathematics.Random(1);
             SB.em = World.DefaultGameObjectInjectionWorld.EntityManager;
             SB.universeSize = universeSize;
             SB.maxSystemSize = maxSystemSize;
@@ -53,6 +52,12 @@ namespace ECSTesting
             Planets.Initialize(planetModel);
             Asteroids.Initialize(asteroidModel);
             Ships.Initialize();
+
+        }
+        
+        private void OnEnable()
+        {
+            SB.rand = new Unity.Mathematics.Random(seed);
 
         }
 
@@ -77,7 +82,7 @@ namespace ECSTesting
         private void OnDrawGizmos()
         {
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            var query = em.CreateEntityQuery(typeof(SysComps.Id));
+            var query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
             var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
             handle.Complete();
             foreach ( var point in list )
@@ -96,7 +101,7 @@ namespace ECSTesting
 
         void Update()
         {
-            ai.RandomTravel(true);
+            ai.RandomTravel();
             SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
             SB.masterTime += SB.masterDeltaTime;
 

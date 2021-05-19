@@ -72,10 +72,22 @@ namespace ECSTesting.Systems.Ships
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
             float time = SB.masterTime;
             var ticketArray = World.DefaultGameObjectInjectionWorld.GetExistingSystem<globals.BatchedCollections>().ticketCounter;
+            var genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
 
             Entities.WithAll<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref TargetPos targetPos) => 
             {
-                if ( timeData.timeAtExecute<time )
+                if ( timeData.timeAtExecute == 0 )
+                {
+                    //This occurs when we are starting the journey
+                    var bufferData = waypoints[waypoints.Length - 1];
+                    var nextTarget = bufferData.data.exitWormholePos;
+
+                    targetPos.position = nextTarget;
+                    moveData.vector = math.normalize(nextTarget - pos.Value);
+                    timeData.timeAtWrite = time;
+                    timeData.timeAtExecute = time + math.distance(nextTarget, pos.Value) / moveData.velocity;
+                }
+                else if ( timeData.timeAtExecute<time )
                 {
                     if ( waypoints.Length >= 1 )
                     {
@@ -87,8 +99,12 @@ namespace ECSTesting.Systems.Ships
                         targetPos.position = nextTarget;
                         moveData.vector = math.normalize(nextTarget-nextPos);
                         timeData.timeAtWrite = time;
-                        timeData.timeAtExecute = math.distance(nextTarget, nextPos) / moveData.velocity;
+                        timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
                         waypoints.RemoveAt(waypoints.Length - 1);
+                        //if ( bufferData.data. )
+                        //{
+
+                        //}
                     }
                     else
                     {
@@ -103,6 +119,7 @@ namespace ECSTesting.Systems.Ships
             {
                 if ( timeData.timeAtExecute == 0 )
                 {
+                    //This occurs when we have just arrived at the target system
                     moveData.vector = math.normalize(mission.targetPos - pos.Value);
                     targetPos.position = mission.targetPos;
                     timeData.timeAtWrite = time;

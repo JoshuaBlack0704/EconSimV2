@@ -23,7 +23,7 @@ namespace ECSTesting
 
         public static void Initialize()
         {
-            EntityQuery query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(typeof(SysComps.Id));
+            EntityQuery query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
             Unity.Collections.NativeArray<Entity> arr = query.ToEntityArray(Unity.Collections.Allocator.Temp);
             systems = arr.ToArray();
             arr.Dispose();

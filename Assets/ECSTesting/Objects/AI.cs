@@ -2,17 +2,22 @@
 using Unity.Mathematics;
 using Unity.Collections;
 using System.Linq;
+using UnityEngine;
 using System.Collections.Generic;
 
 
 namespace ECSTesting.Objects
 {
     using shipComps = ECSTesting.Components.Ships;
+    using sysComps = ECSTesting.Components.Systems;
+    using plnComps = ECSTesting.Components.Planets;
+    using astComps = ECSTesting.Components.Asteroids;
     using timeData = ECSTesting.Components.Tickets;
     using ECSTesting.Components.Missions.AIMissions;
     using ECSTesting.Entites;
     using Unity.Transforms;
     using ECSTesting.Components.Missions;
+    using Unity.Jobs;
 
     public class AI
     {
@@ -23,27 +28,34 @@ namespace ECSTesting.Objects
 
         public AI(GenerationSettings generationSettings, int StartingSystem)
         {
+            EntityQueryDesc queryDesc = new EntityQueryDesc() { All = new ComponentType[] { ComponentType.ReadOnly<sysComps.Id>()}, None = new ComponentType[] { typeof(CloneTag)} };
+            var query = em.CreateEntityQuery(queryDesc);
+            var systems = query.ToEntityArray(Allocator.Temp);
+            knownSystems = new NativeList<Entity>(systems.Length, Allocator.Persistent);
+            knownSystems.CopyFrom(systems);
+            systems.Dispose();
             Ships.GenerateShipsFor(StartingSystem, this, generationSettings, out NativeArray<Entity> ships);
             ownedShips = new NativeList<Entity>(Allocator.Persistent);
             ownedShips.CopyFrom(ships);
             ships.Dispose();
         }
 
-        Entity ProduceRandomTarget()
+        Entity ProduceRandomTargetForSystem()
         {
             var randomIndex = SB.rand.NextInt(0, knownSystems.Length);
             var system = knownSystems[randomIndex];
             var randomType = SB.rand.NextInt(0, 2);
-            Entity[] targets;
             if ( randomType == 0 )
             {
-                targets = Planets.FindPlanetsForSystem(system);
+                Planets.FindPlanetsForSystem(system, out Entity[] targets);
+                Debug.Log($"Targets Length: {targets.Length}");
                 randomIndex = SB.rand.NextInt(0, targets.Length);
                 return targets[randomIndex];
             }
             else if ( randomType == 1 )
             {
-                targets = Asteroids.FindAsteroidsForSystem(system);
+                Asteroids.FindAsteroidsForSystem(system, out Entity[] targets);
+                Debug.Log($"Targets Length: {targets.Length}");
                 randomIndex = SB.rand.NextInt(0, targets.Length);
                 return targets[randomIndex];
             }
@@ -54,7 +66,7 @@ namespace ECSTesting.Objects
 
         }
 
-        Entity ProduceRandomTarget(int systemID)
+        Entity ProduceRandomTargetForSystem(int systemID)
         {
             var randomType = SB.rand.NextInt(0, 2);
             int randomIndex;
@@ -78,18 +90,50 @@ namespace ECSTesting.Objects
 
         }
 
+        Entity ProduceRandomTarget()
+        {
+            var planetQueryDesc = new EntityQueryDesc() { All = new ComponentType[] { typeof(plnComps.Id) }, None = new ComponentType[] { typeof(CloneTag) } };
+            var asteroidQueryDesc = new EntityQueryDesc() { All = new ComponentType[] { typeof(astComps.Id) }, None = new ComponentType[] { typeof(CloneTag) } };
+            var planetQuery = em.CreateEntityQuery(planetQueryDesc);
+            var asteroidQuery = em.CreateEntityQuery(asteroidQueryDesc);
+
+            var randomType = SB.rand.NextInt(0, 2);
+            int randomIndex;
+            if ( randomType == 0 )
+            {
+                var targets = planetQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+                handle.Complete();
+                randomIndex = SB.rand.NextInt(0, targets.Length);
+                var target = targets[randomIndex];
+                targets.Dispose();
+                return target;
+            }
+            else if ( randomType == 1 )
+            {
+                var targets = asteroidQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+                handle.Complete();
+                randomIndex = SB.rand.NextInt(0, targets.Length);
+                var target = targets[randomIndex];
+                targets.Dispose();
+                return target;
+            }
+            else
+            {
+                throw new System.Exception("SB.rand not working correctly");
+            }
+        }
+
         public void RandomTravel(bool stayInSystem = false)
         {
             
 
-            var idleShipsQuery = from ship in ownedShips
+            var idleShipsQuery = from ship in ownedShips.ToArray()
                                  where !em.HasComponent<timeData.TimeData>(ship)
                                  select ship;
 
-            Entity[] idleShips = ownedShips.ToArray().Where(o => em.HasComponent<timeData.TimeData>(o) != true).Select(o => o).ToArray();
             if ( stayInSystem == false )
             {
-                foreach ( var ship in idleShips )
+                foreach ( var ship in idleShipsQuery )
                 {
                     var target = ProduceRandomTarget();
                     var targetPos = em.GetComponentData<Translation>(target).Value;
@@ -99,9 +143,9 @@ namespace ECSTesting.Objects
             }
             else
             {
-                foreach ( var ship in idleShips )
+                foreach ( var ship in idleShipsQuery )
                 {
-                    var target = ProduceRandomTarget(em.GetComponentData<SystemID>(ship).id);
+                    var target = ProduceRandomTargetForSystem(em.GetComponentData<SystemID>(ship).id);
                     var targetPos = em.GetComponentData<Translation>(target).Value;
                     var systemID = em.GetComponentData<SystemID>(target).id;
                     Ships.ExecuteMission(ship, target, new RandomTravel() { target = target, targetPos = targetPos, targetSystem = systemID }, this);

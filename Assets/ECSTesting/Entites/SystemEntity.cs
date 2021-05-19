@@ -5,6 +5,7 @@ using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace ECSTesting.Entites
 {
@@ -29,6 +30,7 @@ namespace ECSTesting.Entites
             {
                 Entity point = em.CreateEntity(ePoint);
                 em.SetComponentData(point, new Id() { id = pointCount });
+                //Debug.Log($"Current system ID: {pointCount}");
                 pointCount++;
                 em.SetComponentData(point, new Translation() { Value = SB.rand.NextFloat3(0, genSettings.universeSize) });
                 if ( genSettings.randomPopulate )
@@ -93,11 +95,11 @@ namespace ECSTesting.Entites
         }
         public static void BruteForceConnect(int connectionsPer)
         {
-            EntityQuery query = em.CreateEntityQuery(new ComponentType[] { typeof(Id) });
+            EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>() });
 
-            NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { typeof(Id) }).ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+            NativeArray<Entity> points = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>() }).ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
 
-            NativeArray<Translation> locations = em.CreateEntityQuery(new ComponentType[] { typeof(Id), typeof(Translation) }).ToComponentDataArrayAsync<Translation>(Allocator.TempJob, out JobHandle poshandle);
+            NativeArray<Translation> locations = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>(), typeof(Translation) }).ToComponentDataArrayAsync<Translation>(Allocator.TempJob, out JobHandle poshandle);
 
             int count = query.CalculateEntityCount();
             NativeArray<connectStruct>[] resultContainer = new NativeArray<connectStruct>[count];
@@ -168,7 +170,7 @@ namespace ECSTesting.Entites
             EntityQuery shipQuery = em.CreateEntityQuery(typeof(Components.Ships.Id));
             NativeArray<Entity> shipArray = shipQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle shipHandle);
 
-            EntityQuery sysQuery = em.CreateEntityQuery(typeof(Id));
+            EntityQuery sysQuery = em.CreateEntityQuery(ComponentType.ReadOnly<Id>());
             NativeArray<Entity> systemsArray = sysQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle sysHandle);
 
             EntityQuery planetQuery = em.CreateEntityQuery(typeof(plnComps.Id));

@@ -8,6 +8,8 @@ using System.Linq;
 namespace ECSTesting.Entites
 {
     using ECSTesting.Components.Asteroids;
+    using System.Collections;
+    using System.Collections.Generic;
     using SysComps = ECSTesting.Components.Systems;
 
     public static class Asteroids
@@ -18,7 +20,7 @@ namespace ECSTesting.Entites
 
         static void CreateAsteroids()
         {
-            EntityQuery query = em.CreateEntityQuery(typeof(SysComps.Id));
+            EntityQuery query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
             NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
 
             foreach ( Entity item in systems )
@@ -53,33 +55,33 @@ namespace ECSTesting.Entites
             }
         }
 
-        public static void FindAsteroidsForSystem(int systemId, out Entity[] asteroidsArray)
+        public static void FindAsteroidsForSystem(int systemId, out Entity[] asteroidsReturnable)
         {
             EntityQueryDesc query = new EntityQueryDesc() { All = new ComponentType[] { typeof(Id) }, None = new ComponentType[] { typeof(CloneTag) } };
             EntityQuery asteroidQuery = em.CreateEntityQuery(query);
             NativeArray<Entity> asteroidArray = asteroidQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
             planetHandle.Complete();
 
-            var asteroidArrayQuery = from asteroid in asteroidArray
+            var asteroidsArrayQuery = from asteroid in asteroidArray
                                where em.GetComponentData<SystemID>(asteroid).id == systemId
                                select asteroid;
-            asteroidsArray = asteroidArrayQuery.ToArray();
+            asteroidsReturnable = asteroidsArrayQuery.ToArray();
             asteroidArray.Dispose();
         }
 
-        public static Entity[] FindAsteroidsForSystem(Entity system)
+        public static void FindAsteroidsForSystem(Entity system, out Entity[] asteroidsReturnable)
         {
-            EntityQuery asteroidQuery = em.CreateEntityQuery(typeof(Id));
+            EntityQueryDesc query = new EntityQueryDesc() { All = new ComponentType[] { typeof(Id) }, None = new ComponentType[] { typeof(CloneTag) } };
+            EntityQuery asteroidEntityQuery = em.CreateEntityQuery(query);
             var sysID = em.GetComponentData<SysComps.Id>(system).id;
-            NativeArray<Entity> asteroidArray = asteroidQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
+            NativeArray<Entity> asteroidArray = asteroidEntityQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
             planetHandle.Complete();
 
-            var asteroidsuery = from asteroid in asteroidArray
+            var asteroidsArrayQuery = from asteroid in asteroidArray
                                 where em.GetComponentData<SystemID>(asteroid).id == sysID
                                 select asteroid;
-
+            asteroidsReturnable = asteroidsArrayQuery.ToArray();
             asteroidArray.Dispose();
-            return asteroidsuery.ToArray();
         }
 
         public static void Initialize(GameObject model)
