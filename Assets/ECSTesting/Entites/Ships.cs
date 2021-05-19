@@ -44,7 +44,7 @@ namespace ECSTesting.Entites
                 em.SetComponentData(ship, new Translation() { Value = pos });
                 em.SetComponentData(ship, new SystemID() { Id = systemCode });
                 em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
-                em.AddComponent<Tickets.TimeData>(ship);
+                em.AddComponent<TimeData>(ship);
                 em.AddComponent<TargetPos>(ship);
                 em.AddComponentData(ship, new Idle() { isIdle = true });
                 em.AddComponentData(ship, new ShipAIData() { aiCode = aiOwner.Id });
@@ -72,7 +72,7 @@ namespace ECSTesting.Entites
                     em.SetComponentData(ship, new Translation() { Value = pos });
                     em.SetComponentData(ship, new SystemID() { Id = sysId });
                     em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
-                    em.AddComponent<Tickets.TimeData>(ship);
+                    em.AddComponent<TimeData>(ship);
                     em.AddComponent<TargetPos>(ship);
                     em.AddComponentData(ship, new Idle() { isIdle = true });
                 }

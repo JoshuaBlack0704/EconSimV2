@@ -1,5 +1,4 @@
-﻿using ECSTesting.ECSWorks;
-using Unity.Collections;
+﻿using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
@@ -67,6 +66,8 @@ namespace ECSTesting.Entites
 
     
 }
+
+
 
 
 

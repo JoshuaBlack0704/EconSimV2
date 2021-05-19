@@ -70,7 +70,7 @@ namespace ECSTesting.Systems.Ships
             base.OnCreate();
             ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
             em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            pulltickets = em.CreateEntityQuery(ComponentType.ReadOnly<Tickets.TimeData>());
+            pulltickets = em.CreateEntityQuery(ComponentType.ReadOnly<TimeData>());
         }
 
         protected override void OnUpdate()
@@ -79,7 +79,7 @@ namespace ECSTesting.Systems.Ships
             float time = SB.masterTime;
             var ticketArray = World.DefaultGameObjectInjectionWorld.GetExistingSystem<BatchedCollections>().ticketCounter;
 
-            Entities.WithAll<MoveMission>().WithNone<HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in Tickets.TimeData exe, in TargetPos targetPos) =>
+            Entities.WithAll<MoveMission>().WithNone<HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in TimeData exe, in TargetPos targetPos) =>
             {
                 if ( exe.timeAtExecute < time )
                 {
@@ -89,7 +89,7 @@ namespace ECSTesting.Systems.Ships
                 }
             }).ScheduleParallel();
 
-            Entities.WithAll<MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in Tickets.TimeData exe, in TargetPos targetPos, in HasClone clone) =>
+            Entities.WithAll<MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in TimeData exe, in TargetPos targetPos, in HasClone clone) =>
             {
                 if ( exe.timeAtExecute < time )
                 {
@@ -100,7 +100,7 @@ namespace ECSTesting.Systems.Ships
                 }
             }).ScheduleParallel();
 
-            Entities.WithNativeDisableParallelForRestriction(ticketArray).ForEach((int nativeThreadIndex, in Tickets.TimeData timeData) =>
+            Entities.WithNativeDisableParallelForRestriction(ticketArray).ForEach((int nativeThreadIndex, in TimeData timeData) =>
             {
                 if ( timeData.timeAtExecute < time )
                 {
@@ -155,7 +155,7 @@ namespace ECSTesting.Systems.Ships
             Entity shipClone = SB.shipClone;
             float time = SB.masterTime;
 
-            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TargetPos targetPosData, in Tickets.TimeData timeData, in Idle idle) =>
+            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TargetPos targetPosData, in TimeData timeData, in Idle idle) =>
             {
                 if ( idle.isIdle )
                 {

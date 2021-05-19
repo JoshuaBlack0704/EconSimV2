@@ -56,12 +56,12 @@ namespace ECSTesting.Ui
         void CountTickets()
         {
             EntityQuery query;
-            query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<Tickets.TimeData>());
+            query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(ComponentType.ReadOnly<TimeData>());
 
             if ( Time.frameCount % 100 == 0 )
             {
                 int count = 0;
-                NativeArray<Tickets.TimeData> list = query.ToComponentDataArrayAsync<Tickets.TimeData>(Allocator.TempJob, out JobHandle dataBatch);
+                NativeArray<TimeData> list = query.ToComponentDataArrayAsync<TimeData>(Allocator.TempJob, out JobHandle dataBatch);
                 dataBatch.Complete();
                 for ( int i = 0; i < list.Length; i++ )
                 {

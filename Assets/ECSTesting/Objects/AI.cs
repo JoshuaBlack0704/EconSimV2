@@ -49,7 +49,7 @@ namespace ECSTesting.Objects
 
             NativeArray<Unity.Mathematics.Random> randomArray = World.GetExistingSystem<BatchedCollections>().RandomArray;
 
-            Entities.WithNativeDisableParallelForRestriction(randomArray).ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref TargetPos target, ref Tickets.TimeData timeData, ref MovementData moveData, ref Idle idle, in Translation pos) =>
+            Entities.WithNativeDisableParallelForRestriction(randomArray).ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref TargetPos target, ref TimeData timeData, ref MovementData moveData, ref Idle idle, in Translation pos) =>
             {
                 if ( idle.isIdle )
                 {
