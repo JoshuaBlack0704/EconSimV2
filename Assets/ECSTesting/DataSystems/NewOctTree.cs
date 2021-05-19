@@ -10,9 +10,9 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace ECSTesting.ECSWorks
+namespace ECSTesting.DataOps
 {
-    using SysComps = ECSTesting.Components.Systems;
+    using SysComps = Components.Systems;
     public static class NewOctTree
     {
         static EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;

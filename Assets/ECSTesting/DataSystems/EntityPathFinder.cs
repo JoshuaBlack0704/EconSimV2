@@ -6,12 +6,11 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
-using ECSTesting.DataOps;
 using ECSTesting.Entites;
 
-namespace ECSTesting.ECSWorks
+namespace ECSTesting.DataOps
 {
-    using SysComps = ECSTesting.Components.Systems;
+    using SysComps = Components.Systems;
     public static class EntityPathFinder
     {
 
