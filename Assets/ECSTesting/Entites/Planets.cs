@@ -2,6 +2,8 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
+using Unity.Jobs;
+using System.Linq;
 
 namespace ECSTesting.Entites
 {
@@ -31,7 +33,7 @@ namespace ECSTesting.Entites
                     em.SetComponentData(planet, new Id() { id = planetCount });
                     planetCount++;
                     em.SetComponentData(planet, new Translation() { Value = SB.rand.NextFloat3(0, size) });
-                    em.SetComponentData(planet, new SystemID() { Id = id });
+                    em.SetComponentData(planet, new SystemID() { id = id });
                 }
             }
 
@@ -61,7 +63,35 @@ namespace ECSTesting.Entites
             }
         }
 
-        
+        public static void FindPlanetsForSystem(int systemId, out Entity[] planetsArray)
+        {
+            EntityQueryDesc query = new EntityQueryDesc() { All = new ComponentType[] { typeof(Id) }, None = new ComponentType[] { typeof(CloneTag) } };
+            EntityQuery planetQuery = em.CreateEntityQuery(query);
+            NativeArray<Entity> planetArray = planetQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
+            planetHandle.Complete();
+
+            var planetsQuery = from planet in planetArray
+                          where em.GetComponentData<SystemID>(planet).id == systemId
+                          select planet;
+
+            planetsArray = planetsQuery.ToArray();
+            planetArray.Dispose();
+        }
+
+        public static Entity[] FindPlanetsForSystem(Entity system)
+        {
+            EntityQuery planetQuery = em.CreateEntityQuery(typeof(Id));
+            var sysID = em.GetComponentData<SysComps.Id>(system).id;
+            NativeArray<Entity> planetsArray = planetQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle planetHandle);
+            planetHandle.Complete();
+
+            var planetsQuery = from planet in planetsArray
+                               where em.GetComponentData<SystemID>(planet).id == sysID
+                               select planet;
+
+            planetsArray.Dispose();
+            return planetsQuery.ToArray();
+        }
     }
 
     

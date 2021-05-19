@@ -13,6 +13,7 @@ using UnityEngine;
 namespace ECSTesting
 {
     using SysComps = ECSTesting.Components.Systems;
+    using AI = ECSTesting.Objects.AI;
     public class GenerationSettings : MonoBehaviour
     {
         [Min(1)]
@@ -37,6 +38,8 @@ namespace ECSTesting
         public GameObject wormholeModel;
         public GameObject starModel;
         public GameObject shipModel;
+
+        private AI ai;
         private void Awake()
         {
             SB.rand = new Unity.Mathematics.Random(1);
@@ -62,7 +65,7 @@ namespace ECSTesting
             EntityPathFinder.Initialize();
             SystemEntity.RenderPoints();
             CameraController.Initialize();
-            var x = new ECSTesting.Objects.AI(this, 0);
+            ai = new ECSTesting.Objects.AI(this, 0);
         }
         private void Start()
         {
@@ -93,7 +96,7 @@ namespace ECSTesting
 
         void Update()
         {
-
+            ai.RandomTravel(true);
             SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
             SB.masterTime += SB.masterDeltaTime;
 

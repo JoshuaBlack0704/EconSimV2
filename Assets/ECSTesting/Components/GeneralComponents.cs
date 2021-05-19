@@ -2,7 +2,7 @@
 
 namespace ECSTesting
 {
-    public struct SystemID : IComponentData { public int Id; }
+    public struct SystemID : IComponentData, IIdTag { public int id { get; set; } }
 
     public struct CloneTag : IComponentData { }
 

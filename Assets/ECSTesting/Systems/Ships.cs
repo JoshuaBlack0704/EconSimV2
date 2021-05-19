@@ -8,7 +8,9 @@ namespace ECSTesting.Systems.Ships
 {
     using ECSTesting.Components.Ships;
     using ECSTesting.Components.Tickets;
-    using ECSTesting.GlobalAccess;
+    using ECSTesting.Components.Missions.ShipsMissions;
+    using aiMissions = ECSTesting.Components.Missions.AIMissions;
+    using globals = ECSTesting.GlobalAccess;
     using Unity.Entities;
     using Unity.Jobs;
     using Unity.Mathematics;
@@ -30,34 +32,26 @@ namespace ECSTesting.Systems.Ships
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
             float step = SB.masterDeltaTime;
 
-            JobHandle updateHandle = Entities.WithName("AnimatorPreUpdate").WithAll<Id>().ForEach((int entityInQueryIndex, in MovementData moveData, in HasClone clone, in Idle idle) =>
+            Entities.WithAll<TimeData>().WithName("AnimatorPreUpdate").WithAll<Id>().ForEach((int entityInQueryIndex, in MovementData moveData, in HasClone clone) =>
             {
 
-                if ( idle.isIdle == false )
-                {
-                    ecb.SetComponent(entityInQueryIndex, clone.clone, moveData);
-                    ecb.SetComponent(entityInQueryIndex, clone.clone, new Idle() { isIdle = idle.isIdle });
-                }
+                ecb.SetComponent(entityInQueryIndex, clone.clone, moveData);
 
-            }).ScheduleParallel(Dependency);
+            }).ScheduleParallel();
 
 
-            JobHandle animateHandle = Entities.WithAll<Id, CloneTag>().ForEach((ref Translation trans, ref Rotation rot, in MovementData moveData, in CloneData cloneData, in Idle idle) =>
+            Entities.WithAll<Id, CloneTag>().ForEach((ref Translation trans, ref Rotation rot, in MovementData moveData, in CloneData cloneData) =>
             {
-                if ( idle.isIdle == false )
-                {
-                    trans.Value += moveData.vector * moveData.velocity * step;
-                    rot = new Rotation() { Value = quaternion.LookRotation(moveData.vector, math.up()) };
-                }
-            }).ScheduleParallel(updateHandle);
+                trans.Value += moveData.vector * moveData.velocity * step;
+                rot = new Rotation() { Value = quaternion.LookRotation(moveData.vector, math.up()) };
+            }).ScheduleParallel();
 
-            Dependency = JobHandle.CombineDependencies(updateHandle, animateHandle);
 
             ecbs.AddJobHandleForProducer(Dependency);
         }
     }
 
-    public class ShipTicketExecutor : SystemBase
+    public partial class ShipTicketExecutor : SystemBase
     {
         EntityCommandBufferSystem ecbs;
         public int ticketsExecutedPerFrame;
@@ -77,29 +71,54 @@ namespace ECSTesting.Systems.Ships
         {
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
             float time = SB.masterTime;
-            var ticketArray = World.DefaultGameObjectInjectionWorld.GetExistingSystem<BatchedCollections>().ticketCounter;
+            var ticketArray = World.DefaultGameObjectInjectionWorld.GetExistingSystem<globals.BatchedCollections>().ticketCounter;
 
-            Entities.WithAll<MoveMission>().WithNone<HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in TimeData exe, in TargetPos targetPos) =>
+            Entities.WithAll<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref TargetPos targetPos) => 
             {
-                if ( exe.timeAtExecute < time )
+                if ( timeData.timeAtExecute<time )
                 {
-                    pos.Value = targetPos.position;
-                    moveData.vector = new float3();
-                    idle.isIdle = true;
+                    if ( waypoints.Length >= 1 )
+                    {
+                        var bufferData = waypoints[waypoints.Length - 1];
+                        var nextPos = bufferData.data.postWarpSpawn;
+                        var nextTarget = bufferData.data.exitWormholePos;
+
+                        pos.Value = nextPos;
+                        targetPos.position = nextTarget;
+                        moveData.vector = math.normalize(nextTarget-nextPos);
+                        timeData.timeAtWrite = time;
+                        timeData.timeAtExecute = math.distance(nextTarget, nextPos) / moveData.velocity;
+                        waypoints.RemoveAt(waypoints.Length - 1);
+                    }
+                    else
+                    {
+                        ecb.RemoveComponent<WarpMission>(entityInQueryIndex, ship);
+                        timeData.timeAtExecute = 0;
+                    }
+                    
                 }
             }).ScheduleParallel();
 
-            Entities.WithAll<MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in TimeData exe, in TargetPos targetPos, in HasClone clone) =>
+            Entities.WithNone<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref TargetPos targetPos, in aiMissions.RandomTravel mission) => 
             {
-                if ( exe.timeAtExecute < time )
+                if ( timeData.timeAtExecute == 0 )
                 {
-                    pos.Value = targetPos.position;
-                    idle.isIdle = true;
+                    moveData.vector = math.normalize(mission.targetPos - pos.Value);
+                    targetPos.position = mission.targetPos;
+                    timeData.timeAtWrite = time;
+                    timeData.timeAtExecute = time + math.distance(mission.targetPos, pos.Value) / moveData.velocity;
+                }
+                else if ( timeData.timeAtExecute < time )
+                {
+                    pos.Value = mission.targetPos;
+                    ecb.RemoveComponent<aiMissions.RandomTravel>(entityInQueryIndex, ship);
+                    ecb.RemoveComponent<TimeData>(entityInQueryIndex, ship);
                     moveData.vector = new float3();
-                    ecb.SetComponent(entityInQueryIndex, clone.clone, pos);
                 }
             }).ScheduleParallel();
 
+
+#if DEBUG
             Entities.WithNativeDisableParallelForRestriction(ticketArray).ForEach((int nativeThreadIndex, in TimeData timeData) =>
             {
                 if ( timeData.timeAtExecute < time )
@@ -107,7 +126,7 @@ namespace ECSTesting.Systems.Ships
                     ticketArray[nativeThreadIndex]++;
                 }
             }).ScheduleParallel();
-
+#endif
             ecbs.AddJobHandleForProducer(Dependency);
         }
     }
@@ -126,7 +145,7 @@ namespace ECSTesting.Systems.Ships
         protected override void OnUpdate()
         {
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-            Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex, in CloneData master) =>
+            Entities.WithAll<globals.BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex, in CloneData master) =>
             {
                 ecb.RemoveComponent<HasClone>(entityInQueryIndex, master.masterShip);
                 ecb.DestroyEntity(entityInQueryIndex, clone);
@@ -155,39 +174,35 @@ namespace ECSTesting.Systems.Ships
             Entity shipClone = SB.shipClone;
             float time = SB.masterTime;
 
-            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TargetPos targetPosData, in TimeData timeData, in Idle idle) =>
+            Entities.WithAll<globals.BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TargetPos targetPosData, in TimeData timeData) =>
             {
-                if ( idle.isIdle )
-                {
-                    Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+                Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+                float3 targetPos = targetPosData.position;
 
-                    ecb.SetComponent(entityInQueryIndex, clone, pos);
-                    ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-                    ecb.AddComponent(entityInQueryIndex, clone, moveData);
-                    ecb.AddComponent(entityInQueryIndex, clone, Id);
-                    ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
-                    ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
-                    ecb.AddComponent(entityInQueryIndex, clone, new Idle() { isIdle = idle.isIdle });
-                    ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
-                }
-                else
-                {
-                    Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
-                    float3 targetPos = targetPosData.position;
+                Vector3 spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(timeData.timeAtWrite, timeData.timeAtExecute, time));
 
-                    Vector3 spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(timeData.timeAtWrite, timeData.timeAtExecute, time));
-
-                    ecb.SetComponent(entityInQueryIndex, clone, new Translation() { Value = spawnPos });
-                    ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-                    ecb.AddComponent(entityInQueryIndex, clone, moveData);
-                    ecb.AddComponent(entityInQueryIndex, clone, Id);
-                    ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
-                    ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
-                    ecb.AddComponent(entityInQueryIndex, clone, new Idle() { isIdle = idle.isIdle });
-                    ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
-                }
+                ecb.SetComponent(entityInQueryIndex, clone, new Translation() { Value = spawnPos });
+                ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+                ecb.AddComponent(entityInQueryIndex, clone, moveData);
+                ecb.AddComponent(entityInQueryIndex, clone, Id);
+                ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
+                ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
+                ecb.RemoveComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
 
 
+            }).ScheduleParallel();
+
+            Entities.WithAll<globals.BaseEntity.SpawnCloneTag>().WithNone<TimeData>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TargetPos targetPosData) => 
+            {
+                Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+
+                ecb.SetComponent(entityInQueryIndex, clone, pos);
+                ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+                ecb.AddComponent(entityInQueryIndex, clone, moveData);
+                ecb.AddComponent(entityInQueryIndex, clone, Id);
+                ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
+                ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
+                ecb.RemoveComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
             }).ScheduleParallel();
 
             ecbs.AddJobHandleForProducer(Dependency);

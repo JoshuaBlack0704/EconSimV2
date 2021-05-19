@@ -9,7 +9,8 @@
         "GUID:e0cd26848372d4e5c891c569017e11f1",
         "GUID:a5baed0c9693541a5bd947d336ec7659"
     ],
-    "includePlatforms": [
+    "includePlatforms": [],
+    "excludePlatforms": [
         "Android",
         "CloudRendering",
         "GameCoreScarlett",
@@ -24,9 +25,9 @@
         "Switch",
         "tvOS",
         "WebGL",
-        "XboxOne"
+        "XboxOne",
+        "Editor"
     ],
-    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],

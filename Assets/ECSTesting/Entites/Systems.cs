@@ -182,17 +182,17 @@ namespace ECSTesting.Entites
             planetHandle.Complete();
             asteroidHandle.Complete();
 
-            Entity[] shipCopys = shipArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
+            Entity[] shipCopys = shipArray.Where(o => em.GetComponentData<SystemID>(o).id == id).ToArray();
             NativeArray<Entity> shipCopyArray = new NativeArray<Entity>(shipCopys.Length, Allocator.Temp);
             shipCopyArray.CopyFrom(shipCopys);
             shipCopys = null;
 
-            Entity[] planetsCopys = planetsArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
+            Entity[] planetsCopys = planetsArray.Where(o => em.GetComponentData<SystemID>(o).id == id).ToArray();
             NativeArray<Entity> planetsCopyArray = new NativeArray<Entity>(planetsCopys.Length, Allocator.Temp);
             planetsCopyArray.CopyFrom(planetsCopys);
             planetsCopys = null;
 
-            Entity[] asteroidCopys = asteroidArray.Where(o => em.GetComponentData<SystemID>(o).Id == id).ToArray();
+            Entity[] asteroidCopys = asteroidArray.Where(o => em.GetComponentData<SystemID>(o).id == id).ToArray();
             NativeArray<Entity> asteroidCopyArray = new NativeArray<Entity>(asteroidCopys.Length, Allocator.Temp);
             asteroidCopyArray.CopyFrom(asteroidCopys);
             asteroidCopys = null;
@@ -204,7 +204,7 @@ namespace ECSTesting.Entites
 
 
 
-            Entity system = systemsArray.FirstOrDefault(o => em.GetComponentData<Id>(o).id == id);
+            Entity system = systemsArray.First(o => em.GetComponentData<Id>(o).id == id);
             DynamicBuffer<ConnectionData> buff = em.GetBuffer<ePointConnnectionBuffer>(system).Reinterpret<ConnectionData>();
 
             NativeArray<Translation> wormHoles = new NativeArray<Translation>(em.GetBuffer<ePointConnnectionBuffer>(system).Length, Allocator.Temp);

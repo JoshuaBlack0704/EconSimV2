@@ -1,16 +1,24 @@
-using ECSTesting.Objects;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
+using System.Linq;
+
+[assembly: RegisterGenericComponentType(typeof(ECSTesting.Components.Missions.MissionWrapper<ECSTesting.Components.Missions.AIMissions.RandomTravel>))]
 
 namespace ECSTesting.Entites
 {
-    using ECSTesting.Components.Ships;
-    using ECSTesting.Components.Tickets;
-    using SysComps = ECSTesting.Components.Systems;
+    using Components.Ships;
+    using Components.Missions;
+    using Components.Missions.ShipsMissions;
+    using Components.Tickets;
+    using SysComps = Components.Systems;
+    using PathFinder = DataOps.EntityPathFinder;
+    using ECSTesting.Objects;
+
+
     public static class Ships
     {
         static EntityManager em = SB.em;
@@ -22,7 +30,7 @@ namespace ECSTesting.Entites
         {
             shipArc = em.CreateArchetype(new ComponentType[]
             {
-            typeof(Translation), typeof(Id), typeof(MovementData), typeof(SystemID)
+            typeof(Translation), typeof(Id), typeof(MovementData), typeof(SystemID), typeof(WaypointBuffer)
             });
         }
 
@@ -42,11 +50,9 @@ namespace ECSTesting.Entites
                 em.SetComponentData(ship, new Id() { id = maxShipID });
                 maxShipID++;
                 em.SetComponentData(ship, new Translation() { Value = pos });
-                em.SetComponentData(ship, new SystemID() { Id = systemCode });
+                em.SetComponentData(ship, new SystemID() { id = systemCode });
                 em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
-                em.AddComponent<TimeData>(ship);
                 em.AddComponent<TargetPos>(ship);
-                em.AddComponentData(ship, new Idle() { isIdle = true });
                 em.AddComponentData(ship, new ShipAIData() { aiCode = aiOwner.Id });
             }
         }
@@ -70,7 +76,7 @@ namespace ECSTesting.Entites
                     em.SetComponentData(ship, new Id() { id = maxShipID });
                     maxShipID++;
                     em.SetComponentData(ship, new Translation() { Value = pos });
-                    em.SetComponentData(ship, new SystemID() { Id = sysId });
+                    em.SetComponentData(ship, new SystemID() { id = sysId });
                     em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
                     em.AddComponent<TimeData>(ship);
                     em.AddComponent<TargetPos>(ship);
@@ -78,31 +84,75 @@ namespace ECSTesting.Entites
                 }
             }
         }
-        //Old spawner
-        //public static void SpawnShips(Entity[] shipsToSpawn)
-        //{
-        //    foreach (var ship in shipsToSpawn)
-        //    {
-        //        var pos = em.GetComponentData<Translation>(ship);
-        //        var moveData = em.GetComponentData<MovementData>(ship);
-        //        var Ship = em.Instantiate(SB.shipClone);
-        //        var Id = em.GetComponentData<Id>(ship);
-        //        var targetPos = em.GetComponentData<TargetPos>(Ship).position;
 
-        //        var spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(write.time, exe.time, SB.masterTime));
+        public static void ExecuteMission<T>(Entity ship, Entity targetObject, T mission, AI ai, bool intBased = false) where T : struct, IComponentData, IMission
+        {
+            int end;
+            if ( em.HasComponent<SysComps.Id>(targetObject) )
+            {
+                end = em.GetComponentData<SysComps.Id>(targetObject).id;
+            }
+            else if ( em.HasComponent<SystemID>(targetObject) )
+            {
+                end = em.GetComponentData<SystemID>(targetObject).id;
+            }
+            else
+            {
+                throw new System.Exception("Ship is targeting an object with no known current System ID");
+            }
 
-        //        em.SetComponentData<Translation>(Ship, new Translation() { Value = spawnPos});
-        //        em.AddComponent<CloneTag>(Ship);
-        //        em.AddComponentData<MovementData>(Ship, moveData);
-        //        em.AddComponentData<Id>(Ship, Id);
-        //        em.AddComponentData<CloneData>(Ship, new CloneData() { masterShip = ship });
-        //    }
-        //}
+            int start = em.GetComponentData<SystemID>(ship).id;
 
+            if ( start != end )
+            {
+                //Create Waypoints
+                PathFinder.GetEntityPath(start, end, ai.knownSystems, new NativeArray<Entity>(1, Allocator.Temp), false, out NativeArray<Entity> path);
+
+                var waypointBuffer = em.GetBuffer<WaypointBuffer>(ship).Reinterpret<waypointData>();
+                waypointBuffer.Clear();
+                int nextEntityID;
+                Entity nextEntity;
+                int previousEntityID;
+                Entity previousEntity;
+                waypointData data;
+                float3 arrivalSpawn;
+                float3 exitWormholePos = new float3();
+
+                for ( int i = 0; i < path.Length; i++ )
+                {
+                    nextEntity = path[i];
+                    nextEntityID = em.GetComponentData<SysComps.Id>(nextEntity).id;
+                    previousEntity = path[i + 1];
+                    previousEntityID = em.GetComponentData<SysComps.Id>(previousEntity).id;
+                    arrivalSpawn = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).Reinterpret<SysComps.ConnectionData>().First(entry => entry.target == previousEntityID).position;
+                    exitWormholePos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).Reinterpret<SysComps.ConnectionData>().First(connection => connection.target == nextEntityID).position;
+
+                    data = new waypointData() { wormholeToID = nextEntityID, exitWormholePos = exitWormholePos, postWarpSpawn = arrivalSpawn };
+
+                    waypointBuffer.Add(data);
+                }
+
+                em.AddComponentData<WarpMission>(ship, new WarpMission());
+                float3 shipPos = em.GetComponentData<Translation>(ship).Value;
+                var preMoveData = em.GetComponentData<MovementData>(ship);
+                var timeToIntersect = math.distance(shipPos, exitWormholePos) / preMoveData.velocity;
+                em.AddComponentData<TimeData>(ship, new TimeData() { timeAtWrite = SB.masterTime, timeAtExecute = SB.masterTime+timeToIntersect});
+                em.AddComponentData(ship, mission);
+                em.SetComponentData<MovementData>(ship, new MovementData() { vector = math.normalize(exitWormholePos - shipPos), velocity = preMoveData.velocity });
+            }
+            else
+            {
+                float3 shipPos = em.GetComponentData<Translation>(ship).Value;
+                var preMoveData = em.GetComponentData<MovementData>(ship);
+                var timeToIntersect = math.distance(shipPos, mission.targetPos) / preMoveData.velocity;
+                em.AddComponentData<TimeData>(ship, new TimeData() { timeAtWrite = SB.masterTime, timeAtExecute = SB.masterTime + timeToIntersect });
+                em.AddComponentData(ship, mission);
+                em.SetComponentData<MovementData>(ship, new MovementData() { vector = math.normalize(mission.targetPos - shipPos), velocity = preMoveData.velocity });
+            }
+
+        }
 
     }
-
-
 }
 
 

@@ -27,20 +27,16 @@ namespace ECSTesting.Components.Ships
     public struct CloneData : IComponentData { public Entity masterShip; }
 
 
-    public struct WaypointBuffer : IBufferElementData
-    {
-        public int nextSystemId;
-        public float3 nextWormholePos;
-    }
-    public struct TravelData : IComponentData
-    {
-        public float3 targetPos;
-
-    }
+    
 
     public struct ShipAIData : IComponentData
     {
         public int aiCode;
     }
+}
+
+namespace ECSTesting.Components.Missions.ShipsMissions
+{
+    
 }
 
