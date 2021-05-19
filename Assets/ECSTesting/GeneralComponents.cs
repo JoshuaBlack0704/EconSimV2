@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace EconSimV2.Assets.ECSTesting.Components
+namespace ECSTesting
 {
     public struct SystemID : IComponentData { public int Id; }
 

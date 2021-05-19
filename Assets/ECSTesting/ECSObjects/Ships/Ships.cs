@@ -1,7 +1,5 @@
-using EconSimV2.Assets.ECSTesting.Components;
-using EconSimV2.Assets.ECSTesting.ECSObjects;
-using EconSimV2.Assets.ECSTesting.ECSWorks;
-using System.Linq;
+using ECSTesting.ECSWorks;
+using ECSTesting.Objects;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -9,8 +7,10 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace EconSimV2.Assets.ECSTesting.ECSObjects
+namespace ECSTesting.Entites
 {
+    using ECSTesting.Components.Ships;
+    using SysComps = ECSTesting.Components.Systems;
     public static class Ships
     {
         static EntityManager em = SB.em;
@@ -26,7 +26,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             });
         }
 
-        public static void GenerateShipsFor(int systemCode, ECSAI.AI aiOwner, GenerationSettings genSettings, out NativeArray<Entity> newShips)
+        public static void GenerateShipsFor(int systemCode, AI aiOwner, GenerationSettings genSettings, out NativeArray<Entity> newShips)
         {
             int count = genSettings.shipsPerSystem;
             newShips = new NativeArray<Entity>(count, Allocator.Temp);
@@ -47,19 +47,19 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
                 em.AddComponent<Tickets.TimeData>(ship);
                 em.AddComponent<TargetPos>(ship);
                 em.AddComponentData(ship, new Idle() { isIdle = true });
-                em.AddComponentData<ShipAIData>(ship, new ShipAIData() { aiCode = aiOwner.Id });
+                em.AddComponentData(ship, new ShipAIData() { aiCode = aiOwner.Id });
             }
         }
 
         public static void GenerateShipsForAll(int shipsPerSystem)
         {
-            EntityQuery query = em.CreateEntityQuery(typeof(SystemEntity.Id));
+            EntityQuery query = em.CreateEntityQuery(typeof(SysComps.Id));
             NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
 
             foreach ( Entity system in systems )
             {
-                float size = em.GetComponentData<SystemEntity.SystemData>(system).size;
-                int sysId = em.GetComponentData<SystemEntity.Id>(system).id;
+                float size = em.GetComponentData<SysComps.SystemData>(system).size;
+                int sysId = em.GetComponentData<SysComps.Id>(system).id;
 
                 for ( int i = 0; i < shipsPerSystem; i++ )
                 {
@@ -99,33 +99,15 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
         //    }
         //}
 
-        public struct Id : IComponentData, IIdTag
-        {
-            public int id { get; set; }
-        }
-        public struct MovementData : IComponentData
-        {
-            public float velocity;
-            public float3 vector;
-        }
-        public struct TargetPos : IComponentData
-        {
-            public float3 position;
-        }
-        public struct Idle : IComponentData { public bool isIdle; }
-        public struct HasClone : IComponentData { public Entity clone; }
-        public struct MoveMission : IComponentData { }
-        public struct CloneData : IComponentData { public Entity masterShip; }
 
-        public struct ShipAIData : IComponentData
-        {
-            public int aiCode;
-        }
     }
+
+
 }
 
-namespace EconSimV2.Assets.ECSTesting
+namespace ECSTesting.Systems.Ships
 {
+    using ECSTesting.Components.Ships;
     [UpdateInGroup(typeof(LateSimulationSystemGroup))]
     public class ShipCloneAnimator : SystemBase
     {
@@ -141,19 +123,19 @@ namespace EconSimV2.Assets.ECSTesting
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
             float step = SB.masterDeltaTime;
 
-            JobHandle updateHandle = Entities.WithName("AnimatorPreUpdate").WithAll<Ships.Id>().ForEach((int entityInQueryIndex, in Ships.MovementData moveData, in Ships.HasClone clone, in Ships.Idle idle) =>
+            JobHandle updateHandle = Entities.WithName("AnimatorPreUpdate").WithAll<Id>().ForEach((int entityInQueryIndex, in MovementData moveData, in HasClone clone, in Idle idle) =>
             {
 
                 if ( idle.isIdle == false )
                 {
                     ecb.SetComponent(entityInQueryIndex, clone.clone, moveData);
-                    ecb.SetComponent(entityInQueryIndex, clone.clone, new Ships.Idle() { isIdle = idle.isIdle });
+                    ecb.SetComponent(entityInQueryIndex, clone.clone, new Idle() { isIdle = idle.isIdle });
                 }
 
             }).ScheduleParallel(Dependency);
 
 
-            JobHandle animateHandle = Entities.WithAll<Ships.Id, CloneTag>().ForEach((ref Translation trans, ref Rotation rot, in Ships.MovementData moveData, in Ships.CloneData cloneData, in Ships.Idle idle) =>
+            JobHandle animateHandle = Entities.WithAll<Id, CloneTag>().ForEach((ref Translation trans, ref Rotation rot, in MovementData moveData, in CloneData cloneData, in Idle idle) =>
             {
                 if ( idle.isIdle == false )
                 {
@@ -190,7 +172,7 @@ namespace EconSimV2.Assets.ECSTesting
             float time = SB.masterTime;
             var ticketArray = World.DefaultGameObjectInjectionWorld.GetExistingSystem<BatchedCollections>().ticketCounter;
 
-            Entities.WithAll<Ships.MoveMission>().WithNone<Ships.HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Ships.Idle idle, ref Ships.MovementData moveData, in Tickets.TimeData exe, in Ships.TargetPos targetPos) =>
+            Entities.WithAll<MoveMission>().WithNone<HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in Tickets.TimeData exe, in TargetPos targetPos) =>
             {
                 if ( exe.timeAtExecute < time )
                 {
@@ -200,7 +182,7 @@ namespace EconSimV2.Assets.ECSTesting
                 }
             }).ScheduleParallel();
 
-            Entities.WithAll<Ships.MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Ships.Idle idle, ref Ships.MovementData moveData, in Tickets.TimeData exe, in Ships.TargetPos targetPos, in Ships.HasClone clone) =>
+            Entities.WithAll<MoveMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref Idle idle, ref MovementData moveData, in Tickets.TimeData exe, in TargetPos targetPos, in HasClone clone) =>
             {
                 if ( exe.timeAtExecute < time )
                 {
@@ -237,9 +219,9 @@ namespace EconSimV2.Assets.ECSTesting
         protected override void OnUpdate()
         {
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-            Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex, in Ships.CloneData master) =>
+            Entities.WithAll<BaseEntity.DeleteCloneTag>().ForEach((Entity clone, int entityInQueryIndex, in CloneData master) =>
             {
-                ecb.RemoveComponent<Ships.HasClone>(entityInQueryIndex, master.masterShip);
+                ecb.RemoveComponent<HasClone>(entityInQueryIndex, master.masterShip);
                 ecb.DestroyEntity(entityInQueryIndex, clone);
             }).ScheduleParallel();
             ecbs.AddJobHandleForProducer(Dependency);
@@ -266,7 +248,7 @@ namespace EconSimV2.Assets.ECSTesting
             Entity shipClone = SB.shipClone;
             float time = SB.masterTime;
 
-            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Ships.Id Id, in Translation pos, in Ships.MovementData moveData, in Ships.TargetPos targetPosData, in Tickets.TimeData timeData, in Ships.Idle idle) =>
+            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TargetPos targetPosData, in Tickets.TimeData timeData, in Idle idle) =>
             {
                 if ( idle.isIdle )
                 {
@@ -276,9 +258,9 @@ namespace EconSimV2.Assets.ECSTesting
                     ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
                     ecb.AddComponent(entityInQueryIndex, clone, moveData);
                     ecb.AddComponent(entityInQueryIndex, clone, Id);
-                    ecb.AddComponent(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
-                    ecb.AddComponent(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
-                    ecb.AddComponent(entityInQueryIndex, clone, new Ships.Idle() { isIdle = idle.isIdle });
+                    ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
+                    ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
+                    ecb.AddComponent(entityInQueryIndex, clone, new Idle() { isIdle = idle.isIdle });
                     ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
                 }
                 else
@@ -292,9 +274,9 @@ namespace EconSimV2.Assets.ECSTesting
                     ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
                     ecb.AddComponent(entityInQueryIndex, clone, moveData);
                     ecb.AddComponent(entityInQueryIndex, clone, Id);
-                    ecb.AddComponent(entityInQueryIndex, clone, new Ships.CloneData() { masterShip = ship });
-                    ecb.AddComponent(entityInQueryIndex, ship, new Ships.HasClone() { clone = clone });
-                    ecb.AddComponent(entityInQueryIndex, clone, new Ships.Idle() { isIdle = idle.isIdle });
+                    ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
+                    ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
+                    ecb.AddComponent(entityInQueryIndex, clone, new Idle() { isIdle = idle.isIdle });
                     ecb.RemoveComponent<BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
                 }
 
@@ -305,43 +287,42 @@ namespace EconSimV2.Assets.ECSTesting
 
         }
     }
-    public class AIEmulator : SystemBase
+}
+
+namespace ECSTesting.Components.Ships
+{
+    public struct Id : IComponentData, IIdTag
     {
-        EntityCommandBufferSystem ecbs;
+        public int id { get; set; }
+    }
+    public struct MovementData : IComponentData
+    {
+        public float velocity;
+        public float3 vector;
+    }
+    public struct TargetPos : IComponentData
+    {
+        public float3 position;
+    }
+    public struct Idle : IComponentData { public bool isIdle; }
+    public struct HasClone : IComponentData { public Entity clone; }
+    public struct MoveMission : IComponentData { }
+    public struct CloneData : IComponentData { public Entity masterShip; }
 
-        protected override void OnCreate()
-        {
-            base.OnCreate();
-            ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-        }
 
-        protected override void OnUpdate()
-        {
-            EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-            float time = SB.masterTime;
+    public struct WaypointBuffer : IBufferElementData
+    {
+        public int nextSystemId;
+        public float3 nextWormholePos;
+    }
+    public struct TravelData : IComponentData
+    {
+        public float3 targetPos;
 
-            NativeArray<Unity.Mathematics.Random> randomArray = World.GetExistingSystem<BatchedCollections>().RandomArray;
-
-            Entities.WithNativeDisableParallelForRestriction(randomArray).ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref Ships.TargetPos target, ref Tickets.TimeData timeData, ref Ships.MovementData moveData, ref Ships.Idle idle, in Translation pos) =>
-            {
-                if ( idle.isIdle )
-                {
-                    Unity.Mathematics.Random rand = randomArray[nativeThreadIndex];
-                    target.position = rand.NextFloat3(0, 50);
-                    float3 vect = target.position - pos.Value;
-                    moveData.vector = math.normalize(vect);
-                    timeData.timeAtWrite = time;
-                    timeData.timeAtExecute = time + math.distance(target.position, pos.Value) / moveData.velocity;
-
-                    idle.isIdle = false;
-                    ecb.AddComponent<Ships.MoveMission>(entityInQueryIndex, ship);
-
-                    randomArray[nativeThreadIndex] = rand;
-                }
-            }).ScheduleParallel();
-
-            ecbs.AddJobHandleForProducer(Dependency);
-        }
     }
 
+    public struct ShipAIData : IComponentData
+    {
+        public int aiCode;
+    }
 }

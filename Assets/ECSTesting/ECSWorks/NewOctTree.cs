@@ -1,4 +1,4 @@
-﻿using EconSimV2.Assets.ECSTesting.ECSObjects;
+﻿using ECSTesting.Entites;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,9 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace EconSimV2.Assets.ECSTesting.ECSWorks
+namespace ECSTesting.ECSWorks
 {
+    using SysComps = ECSTesting.Components.Systems;
     public static class NewOctTree
     {
         static EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -274,7 +275,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
         {
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            var query = em.CreateEntityQuery(ComponentType.ReadOnly<SystemEntity.Id>());
+            var query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
             var systems = query.ToEntityArrayAsync(Unity.Collections.Allocator.TempJob, out JobHandle handle);
             ConcurrentDictionary<int, Cube> concurrentCubes = new ConcurrentDictionary<int, Cube>();
             handle.Complete();
@@ -331,12 +332,12 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
 
             foreach ( var point in points )
             {
-                DynamicBuffer<SystemEntity.ePointConnnectionBuffer> buffer = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(point.reference);
-                DynamicBuffer<SystemEntity.ConnectionData> buff = buffer.Reinterpret<SystemEntity.ConnectionData>();
+                DynamicBuffer<SysComps.ePointConnnectionBuffer> buffer = em.GetBuffer<SysComps.ePointConnnectionBuffer>(point.reference);
+                DynamicBuffer<SysComps.ConnectionData> buff = buffer.Reinterpret<SysComps.ConnectionData>();
 
                 foreach ( var connection in point.connections )
                 {
-                    buff.Add(new SystemEntity.ConnectionData() { target = em.GetComponentData<SystemEntity.Id>(connection.reference).id, targetEntity = connection.reference, position = SB.rand.NextFloat3(0, em.GetComponentData<SystemEntity.SystemData>(point.reference).size) });
+                    buff.Add(new SysComps.ConnectionData() { target = em.GetComponentData<SysComps.Id>(connection.reference).id, targetEntity = connection.reference, position = SB.rand.NextFloat3(0, em.GetComponentData<SysComps.SystemData>(point.reference).size) });
                 }
             }
 

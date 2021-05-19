@@ -1,5 +1,5 @@
-using EconSimV2.Assets.ECSTesting.ECSObjects;
-using EconSimV2.Assets.ECSTesting.ECSWorks;
+using ECSTesting.ECSWorks;
+using ECSTesting.Entites;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,8 +9,9 @@ using Unity.Jobs;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace EconSimV2.Assets.ECSTesting
+namespace ECSTesting
 {
+    using SysComps = ECSTesting.Components.Systems;
     public class GenerationSettings : MonoBehaviour
     {
         [Min(1)]
@@ -60,7 +61,7 @@ namespace EconSimV2.Assets.ECSTesting
             EntityPathFinder.Initialize();
             SystemEntity.RenderPoints();
             CameraController.Initialize();
-            var x = new ECSAI.AI(this, 0);
+            var x = new ECSTesting.Objects.AI(this, 0);
         }
         private void Start()
         {
@@ -72,12 +73,12 @@ namespace EconSimV2.Assets.ECSTesting
         private void OnDrawGizmos()
         {
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            var query = em.CreateEntityQuery(typeof(SystemEntity.Id));
+            var query = em.CreateEntityQuery(typeof(SysComps.Id));
             var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
             handle.Complete();
             foreach ( var point in list )
             {
-                foreach ( var connection in em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(point).Reinterpret<SystemEntity.ConnectionData>() )
+                foreach ( var connection in em.GetBuffer<SysComps.ePointConnnectionBuffer>(point).Reinterpret<SysComps.ConnectionData>() )
                 {
                     Debug.DrawLine(em.GetComponentData<Translation>(point).Value, em.GetComponentData<Translation>(connection.targetEntity).Value);
                 }
@@ -91,7 +92,7 @@ namespace EconSimV2.Assets.ECSTesting
 
         void Update()
         {
-            
+
             SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
             SB.masterTime += SB.masterDeltaTime;
 

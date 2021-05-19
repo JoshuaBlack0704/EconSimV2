@@ -1,11 +1,11 @@
-﻿using EconSimV2.Assets.ECSTesting.Components;
-using EconSimV2.Assets.ECSTesting.ECSWorks;
+﻿using ECSTesting.ECSWorks;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace EconSimV2.Assets.ECSTesting.ECSObjects
+namespace ECSTesting.Entites
 {
+    using ECSTesting.Components.Wormholes;
     public static class Wormholes
     {
         static EntityManager em = SB.em;
@@ -21,9 +21,20 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             }
         }
 
-        public struct Id : IComponentData { }
     }
 
+    
+}
+
+namespace ECSTesting.Components.Wormholes
+{
+    public struct Id : IComponentData { }
+
+}
+
+namespace ECSTesting.Systems.Wormholes
+{
+    using ECSTesting.Components.Wormholes;
     public class WormHoleCloneDeleter : SystemBase
     {
         EntityCommandBufferSystem ecbs;
@@ -32,7 +43,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
         {
             base.OnCreate();
             ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-            deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Wormholes.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+            deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
         }
 
         protected override void OnUpdate()

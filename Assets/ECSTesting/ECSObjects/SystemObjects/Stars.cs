@@ -1,12 +1,12 @@
-﻿using EconSimV2.Assets.ECSTesting.Components;
-using EconSimV2.Assets.ECSTesting.ECSWorks;
+﻿using ECSTesting.ECSWorks;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace EconSimV2.Assets.ECSTesting.ECSObjects
+namespace ECSTesting.Entites
 {
+    using ECSTesting.Components.Stars;
     public static class Stars
 
     {
@@ -20,9 +20,20 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             em.AddComponent<Id>(star);
         }
 
-        public struct Id : IComponentData { }
     }
 
+    
+}
+
+namespace ECSTesting.Components.Stars
+{
+    public struct Id : IComponentData { }
+
+}
+
+namespace ECSTesting.Systems.Stars
+{
+    using ECSTesting.Components.Stars;
     public class StarCloneDeleter : SystemBase
     {
         EntityCommandBufferSystem ecbs;
@@ -31,7 +42,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
         {
             base.OnCreate();
             ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-            deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Stars.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+            deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
         }
 
         protected override void OnUpdate()

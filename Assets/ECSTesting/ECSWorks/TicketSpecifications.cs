@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace EconSimV2.Assets.ECSTesting.ECSWorks
+namespace ECSTesting.ECSWorks
 {
     public static class Tickets
     {

@@ -1,6 +1,4 @@
-﻿using EconSimV2.Assets.ECSTesting.ECSObjects;
-using EconSimV2.Assets.ECSTesting.DataSystems;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
@@ -8,9 +6,12 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
+using ECSTesting.DataOps;
+using ECSTesting.Entites;
 
-namespace EconSimV2.Assets.ECSTesting.ECSWorks
+namespace ECSTesting.ECSWorks
 {
+    using SysComps = ECSTesting.Components.Systems;
     public static class EntityPathFinder
     {
 
@@ -32,7 +33,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
             public float distFromStart { get; set; }
             public float distToEnd { get; set; }
             public float totalCost { get { return distFromStart + distToEnd; } }
-            public SystemEntity.ConnectionData[] connections { get; set; }
+            public SysComps.ConnectionData[] connections { get; set; }
 
             public float3 position { get; set; }
             public void Reset()
@@ -52,7 +53,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
                 }
                 return -compare;
             }
-            public Node(float3 _pos, SystemEntity.ConnectionData[] _connections, int _id) { position = _pos; connections = _connections; Id = _id; }
+            public Node(float3 _pos, SysComps.ConnectionData[] _connections, int _id) { position = _pos; connections = _connections; Id = _id; }
 
 
         }
@@ -85,7 +86,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
                     bool inKnownSystems = knownPoints.Contains(connection);
                     bool inUnknownSystems = explorablePoints.Contains(connection);
 
-                    if ( (inKnownSystems == false && inUnknownSystems == false) || (inKnownSystems == false && inUnknownSystems && exploreable == false) )
+                    if ( inKnownSystems == false && inUnknownSystems == false || inKnownSystems == false && inUnknownSystems && exploreable == false )
                     {
                         continue;
                     }
@@ -165,15 +166,15 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
         public static void Initialize()
         {
             EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
+            EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SysComps.Id>() });
             NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
             nodeCache = new Node[points.Length];
             heap = new Heap<Node>(points.Length);
             foreach ( Entity ent in points )
             {
-                int id = em.GetComponentData<SystemEntity.Id>(ent).id;
-                NativeArray<SystemEntity.ConnectionData> connectionsNative = em.GetBuffer<SystemEntity.ePointConnnectionBuffer>(ent).Reinterpret<SystemEntity.ConnectionData>().ToNativeArray(Allocator.Temp);
-                SystemEntity.ConnectionData[] connecitons = connectionsNative.ToArray();
+                int id = em.GetComponentData<SysComps.Id>(ent).id;
+                NativeArray<SysComps.ConnectionData> connectionsNative = em.GetBuffer<SysComps.ePointConnnectionBuffer>(ent).Reinterpret<SysComps.ConnectionData>().ToNativeArray(Allocator.Temp);
+                SysComps.ConnectionData[] connecitons = connectionsNative.ToArray();
                 float3 pos = em.GetComponentData<Translation>(ent).Value;
 
                 nodeCache[id] = new Node(pos, connecitons, id);

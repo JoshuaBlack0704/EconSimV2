@@ -1,10 +1,9 @@
-﻿using EconSimV2.Assets.ECSTesting.Components;
-using Unity.Collections;
+﻿using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Transforms;
 
-namespace EconSimV2.Assets.ECSTesting.ECSWorks
+namespace ECSTesting.ECSWorks
 {
     public static class BaseEntity
     {

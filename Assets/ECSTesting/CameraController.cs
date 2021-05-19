@@ -1,9 +1,10 @@
-using EconSimV2.Assets.ECSTesting.ECSObjects;
+using ECSTesting.Entites;
 using Unity.Entities;
 using UnityEngine;
 
-namespace EconSimV2.Assets.ECSTesting
+namespace ECSTesting
 {
+    using SysComps = ECSTesting.Components.Systems;
     public class CameraController : MonoBehaviour
     {
         public GenerationSettings genSettings;
@@ -22,7 +23,7 @@ namespace EconSimV2.Assets.ECSTesting
 
         public static void Initialize()
         {
-            EntityQuery query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(typeof(SystemEntity.Id));
+            EntityQuery query = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(typeof(SysComps.Id));
             Unity.Collections.NativeArray<Entity> arr = query.ToEntityArray(Unity.Collections.Allocator.Temp);
             systems = arr.ToArray();
             arr.Dispose();
@@ -35,7 +36,7 @@ namespace EconSimV2.Assets.ECSTesting
         {
             if ( GenerationSettings.isRendered )
             {
-                SystemEntity.SystemData data = em.GetComponentData<SystemEntity.SystemData>(systems[genSettings.selectedSystem]);
+                SysComps.SystemData data = em.GetComponentData<SysComps.SystemData>(systems[genSettings.selectedSystem]);
                 center = data.starPos;
                 radius = data.size * 1.8f;
 

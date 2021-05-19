@@ -1,12 +1,14 @@
-using EconSimV2.Assets.ECSTesting.Components;
-using EconSimV2.Assets.ECSTesting.ECSWorks;
+using ECSTesting.ECSWorks;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace EconSimV2.Assets.ECSTesting.ECSObjects
+namespace ECSTesting.Entites
 {
+    using ECSTesting.Components.Planets;
+    using SysComps = ECSTesting.Components.Systems;
+
     public static class Planets
     {
         static EntityManager em = SB.em;
@@ -15,14 +17,14 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
 
         static void CreatePlanets()
         {
-            EntityQuery query = em.CreateEntityQuery(typeof(SystemEntity.Id));
+            EntityQuery query = em.CreateEntityQuery(typeof(SysComps.Id));
             NativeArray<Entity> systems = query.ToEntityArray(Allocator.Temp);
 
             foreach ( Entity item in systems )
             {
-                int planetsToGen = em.GetComponentData<SystemEntity.SystemData>(item).numPlanets;
-                float size = em.GetComponentData<SystemEntity.SystemData>(item).size;
-                int id = em.GetComponentData<SystemEntity.Id>(item).id;
+                int planetsToGen = em.GetComponentData<SysComps.SystemData>(item).numPlanets;
+                float size = em.GetComponentData<SysComps.SystemData>(item).size;
+                int id = em.GetComponentData<SysComps.Id>(item).id;
 
                 for ( int i = 0; i < planetsToGen; i++ )
                 {
@@ -60,12 +62,23 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             }
         }
 
-        public struct Id : IComponentData, IIdTag
-        {
-            public int id { get; set; }
-        }
+        
     }
 
+    
+}
+
+namespace ECSTesting.Components.Planets
+{
+    public struct Id : IComponentData, IIdTag
+    {
+        public int id { get; set; }
+    }
+}
+
+namespace ECSTesting.Systems.Planets
+{
+    using ECSTesting.Components.Planets;
     public class PlanetCloneDeleter : SystemBase
     {
         EntityCommandBufferSystem ecbs;
@@ -74,7 +87,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
         {
             base.OnCreate();
             ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
-            deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Planets.Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
+            deletionQuery = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<Id>(), ComponentType.ReadOnly<CloneTag>(), ComponentType.ReadOnly<BaseEntity.DeleteCloneTag>() });
         }
 
         protected override void OnUpdate()
@@ -104,7 +117,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
             Entity planetClone = SB.planetClone;
 
-            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity planet, int entityInQueryIndex, in Translation pos, in Planets.Id id) =>
+            Entities.WithAll<BaseEntity.SpawnCloneTag>().ForEach((Entity planet, int entityInQueryIndex, in Translation pos, in Id id) =>
             {
 
                 Entity clone = ecb.Instantiate(entityInQueryIndex, planetClone);

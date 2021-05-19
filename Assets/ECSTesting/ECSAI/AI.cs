@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Jobs;
-using EconSimV2.Assets.ECSTesting.ECSObjects;
-using EconSimV2.Assets.ECSTesting.ECSWorks;
 using Unity.Collections;
 using Unity.Jobs.LowLevel.Unsafe;
+using Unity.Transforms;
+using SC = ECSTesting.Components.Ships;
+using ECSTesting.ECSWorks;
+using ECSTesting.Components.Ships;
+using ECSTesting.Entites;
 
-namespace EconSimV2.Assets.ECSTesting.ECSAI
+namespace ECSTesting.Objects
 {
     public class AI
     {
@@ -27,4 +30,64 @@ namespace EconSimV2.Assets.ECSTesting.ECSAI
             ships.Dispose();
         }
     }
+
+    public class AIEmulator : SystemBase
+    {
+        EntityCommandBufferSystem ecbs;
+
+        protected override void OnCreate()
+        {
+            base.OnCreate();
+            ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        }
+
+        protected override void OnUpdate()
+        {
+            EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
+            float time = SB.masterTime;
+
+            NativeArray<Unity.Mathematics.Random> randomArray = World.GetExistingSystem<BatchedCollections>().RandomArray;
+
+            Entities.WithNativeDisableParallelForRestriction(randomArray).ForEach((Entity ship, int entityInQueryIndex, int nativeThreadIndex, ref TargetPos target, ref Tickets.TimeData timeData, ref MovementData moveData, ref Idle idle, in Translation pos) =>
+            {
+                if ( idle.isIdle )
+                {
+                    Unity.Mathematics.Random rand = randomArray[nativeThreadIndex];
+                    target.position = rand.NextFloat3(0, 50);
+                    float3 vect = target.position - pos.Value;
+                    moveData.vector = math.normalize(vect);
+                    timeData.timeAtWrite = time;
+                    timeData.timeAtExecute = time + math.distance(target.position, pos.Value) / moveData.velocity;
+
+                    idle.isIdle = false;
+                    ecb.AddComponent<MoveMission>(entityInQueryIndex, ship);
+
+                    randomArray[nativeThreadIndex] = rand;
+                }
+            }).ScheduleParallel();
+
+            ecbs.AddJobHandleForProducer(Dependency);
+        }
+    }
 }
+
+
+namespace ECSTesting.Components.Missions.AIMissions
+{
+    public struct RandomTravel : IComponentData
+    {
+        public Entity target;
+        public float3 targetPos;
+        public int targetSystem;
+    }
+}
+
+namespace ECSTesting.Components.Missions.ShipsMissions
+{
+    public struct WarpMission : IComponentData
+    {
+
+    }
+}
+
+

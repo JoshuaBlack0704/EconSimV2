@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EconSimV2.Assets.ECSTesting.DataSystems
+namespace ECSTesting.DataOps
 {
     public class Heap<T> where T : IHeapItem<T>
     {
