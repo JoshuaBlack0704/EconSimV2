@@ -14,8 +14,8 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
     public static class EntityPathFinder
     {
 
-        static Node[] nodeCacheMaster;
-        static Heap<Node> heapMaster;
+        static Node[] nodeCache;
+        static Heap<Node> heap;
 
         internal class Node : IHeapItem<Node>
         {
@@ -57,17 +57,10 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
 
         }
 
-        public static int[] GetPath(int start, int end, int[] knownPoints, int[] explorablePoints, bool exploreable)
+        public static void GetPath(int start, int end, NativeArray<int> knownPoints, NativeArray<int> explorablePoints, bool exploreable, out NativeArray<int> pathIds)
         {
-            List<int> usedNodes = new List<int>();
-            List<int> path = new List<int>();
-            var heap = new Heap<Node>(nodeCacheMaster.Length);
-            var nodeCache = new Node[nodeCacheMaster.Length];
-            for ( int i = 0; i < nodeCache.Length; i++ )
-            {
-                var node = System.ObjectExtensions.Copy(nodeCacheMaster[i]);
-                nodeCache[i] = node;
-            }
+            NativeList<int> usedNodes = new NativeList<int>(Allocator.Temp);
+            NativeList<int> path = new NativeList<int>(Allocator.Temp);
 
             Node currentNode = nodeCache[start];
             usedNodes.Add(start);
@@ -79,12 +72,9 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
             while ( true )
             {
                 currentNode = heap.RemoveFirst();
-                //Debug.Log($"Remove node called, node ID: {currentNode.Id}");
-
                 currentNode.isClosed = true;
                 if ( currentNode.Id == end )
                 {
-                    //Debug.Log($"Hit end");
                     break;
                 }
 
@@ -95,7 +85,7 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
                     bool inKnownSystems = knownPoints.Contains(connection);
                     bool inUnknownSystems = explorablePoints.Contains(connection);
 
-                    if ( inKnownSystems == false && inUnknownSystems == false || inKnownSystems == false && inUnknownSystems && exploreable == false )
+                    if ( (inKnownSystems == false && inUnknownSystems == false) || (inKnownSystems == false && inUnknownSystems && exploreable == false) )
                     {
                         continue;
                     }
@@ -160,15 +150,15 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
 
 
 
-            var pathIds = new int[path.Count];
-            System.Array.Copy(path.ToArray(), pathIds, path.Count);
-            path = null;
-            usedNodes = null;
-            nodeCache = null;
-            heap = null;
-
-            return pathIds;
-
+            pathIds = new NativeArray<int>(path.Length, Allocator.Temp);
+            pathIds.CopyFrom(path);
+            for ( int i = 0; i < usedNodes.Length; i++ )
+            {
+                nodeCache[usedNodes[i]].Reset();
+            }
+            path.Dispose();
+            usedNodes.Dispose();
+            heap.currentItemCount = 0;
         }
 
 
@@ -177,8 +167,8 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
             EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
             EntityQuery query = em.CreateEntityQuery(new ComponentType[] { ComponentType.ReadOnly<SystemEntity.Id>() });
             NativeArray<Entity> points = query.ToEntityArray(Allocator.Temp);
-            nodeCacheMaster = new Node[points.Length];
-            heapMaster = new Heap<Node>(points.Length);
+            nodeCache = new Node[points.Length];
+            heap = new Heap<Node>(points.Length);
             foreach ( Entity ent in points )
             {
                 int id = em.GetComponentData<SystemEntity.Id>(ent).id;
@@ -186,45 +176,9 @@ namespace EconSimV2.Assets.ECSTesting.ECSWorks
                 SystemEntity.ConnectionData[] connecitons = connectionsNative.ToArray();
                 float3 pos = em.GetComponentData<Translation>(ent).Value;
 
-                nodeCacheMaster[id] = new Node(pos, connecitons, id);
+                nodeCache[id] = new Node(pos, connecitons, id);
             }
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //struct GetPathBatch : IJobParallelFor
-        //{
-        //    [ReadOnly]
-        //    public NativeArray<int> starts;
-        //    [ReadOnly]
-        //    public NativeArray<int> ends;
-
-        //    public NativeMultiHashMap<int, >
-
-        //    public void Execute(int index)
-        //    {
-
-        //    }
-        //}
-
     }
 }

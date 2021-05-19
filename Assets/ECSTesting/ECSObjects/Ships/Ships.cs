@@ -1,4 +1,5 @@
 using EconSimV2.Assets.ECSTesting.Components;
+using EconSimV2.Assets.ECSTesting.ECSObjects;
 using EconSimV2.Assets.ECSTesting.ECSWorks;
 using System.Linq;
 using Unity.Collections;
@@ -23,6 +24,31 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             {
             typeof(Translation), typeof(Id), typeof(MovementData), typeof(SystemID)
             });
+        }
+
+        public static void GenerateShipsFor(int systemCode, ECSAI.AI aiOwner, GenerationSettings genSettings, out NativeArray<Entity> newShips)
+        {
+            int count = genSettings.shipsPerSystem;
+            newShips = new NativeArray<Entity>(count, Allocator.Temp);
+            em.CreateEntity(shipArc, newShips);
+
+            for ( int i = 0; i < newShips.Length; i++ )
+            {
+                var ship = newShips[i];
+
+                float3 pos = SB.rand.NextFloat3(0, 100);
+                float3 vect = SB.rand.NextFloat3Direction();
+                float velocity = SB.rand.NextFloat(10, 50);
+                em.SetComponentData(ship, new Id() { id = maxShipID });
+                maxShipID++;
+                em.SetComponentData(ship, new Translation() { Value = pos });
+                em.SetComponentData(ship, new SystemID() { Id = systemCode });
+                em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
+                em.AddComponent<Tickets.TimeData>(ship);
+                em.AddComponent<TargetPos>(ship);
+                em.AddComponentData(ship, new Idle() { isIdle = true });
+                em.AddComponentData<ShipAIData>(ship, new ShipAIData() { aiCode = aiOwner.Id });
+            }
         }
 
         public static void GenerateShipsForAll(int shipsPerSystem)
@@ -90,8 +116,17 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
         public struct HasClone : IComponentData { public Entity clone; }
         public struct MoveMission : IComponentData { }
         public struct CloneData : IComponentData { public Entity masterShip; }
-    }
 
+        public struct ShipAIData : IComponentData
+        {
+            public int aiCode;
+        }
+    }
+}
+
+namespace EconSimV2.Assets.ECSTesting
+{
+    [UpdateInGroup(typeof(LateSimulationSystemGroup))]
     public class ShipCloneAnimator : SystemBase
     {
         EntityCommandBufferSystem ecbs;
@@ -308,4 +343,5 @@ namespace EconSimV2.Assets.ECSTesting.ECSObjects
             ecbs.AddJobHandleForProducer(Dependency);
         }
     }
+
 }

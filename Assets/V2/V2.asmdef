@@ -12,7 +12,6 @@
     "includePlatforms": [
         "Android",
         "CloudRendering",
-        "Editor",
         "GameCoreScarlett",
         "GameCoreXboxOne",
         "iOS",
