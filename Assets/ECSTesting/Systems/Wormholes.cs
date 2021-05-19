@@ -1,40 +1,16 @@
-﻿using ECSTesting.ECSWorks;
-using Unity.Collections;
-using Unity.Entities;
-using Unity.Transforms;
-
-namespace ECSTesting.Entites
-{
-    using ECSTesting.Components.Wormholes;
-    public static class Wormholes
-    {
-        static EntityManager em = SB.em;
-
-        public static void SpawnWormholes(NativeArray<Translation> positons)
-        {
-            foreach ( Translation pos in positons )
-            {
-                Entity hole = em.Instantiate(SB.wormholeClone);
-                em.AddComponent<CloneTag>(hole);
-                em.SetComponentData(hole, pos);
-                em.AddComponent<Id>(hole);
-            }
-        }
-
-    }
-
-    
-}
-
-namespace ECSTesting.Components.Wormholes
-{
-    public struct Id : IComponentData { }
-
-}
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Wormholes
 {
     using ECSTesting.Components.Wormholes;
+    using ECSTesting.GlobalAccess;
+    using Unity.Collections;
+    using Unity.Entities;
+
     public class WormHoleCloneDeleter : SystemBase
     {
         EntityCommandBufferSystem ecbs;

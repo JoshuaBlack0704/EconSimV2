@@ -1,39 +1,16 @@
-﻿using ECSTesting.ECSWorks;
-using Unity.Collections;
-using Unity.Entities;
-using Unity.Mathematics;
-using Unity.Transforms;
-
-namespace ECSTesting.Entites
-{
-    using ECSTesting.Components.Stars;
-    public static class Stars
-
-    {
-        static EntityManager em = SB.em;
-
-        public static void SpawnStar(float3 pos)
-        {
-            Entity star = em.Instantiate(SB.starClone);
-            em.AddComponent<CloneTag>(star);
-            em.SetComponentData(star, new Translation() { Value = pos });
-            em.AddComponent<Id>(star);
-        }
-
-    }
-
-    
-}
-
-namespace ECSTesting.Components.Stars
-{
-    public struct Id : IComponentData { }
-
-}
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Stars
 {
     using ECSTesting.Components.Stars;
+    using ECSTesting.GlobalAccess;
+    using Unity.Collections;
+    using Unity.Entities;
+
     public class StarCloneDeleter : SystemBase
     {
         EntityCommandBufferSystem ecbs;

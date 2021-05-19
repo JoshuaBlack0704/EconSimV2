@@ -9,9 +9,10 @@ using Unity.Collections;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Transforms;
 using SC = ECSTesting.Components.Ships;
-using ECSTesting.ECSWorks;
 using ECSTesting.Components.Ships;
 using ECSTesting.Entites;
+using ECSTesting.Components.Tickets;
+using ECSTesting.GlobalAccess;
 
 namespace ECSTesting.Objects
 {

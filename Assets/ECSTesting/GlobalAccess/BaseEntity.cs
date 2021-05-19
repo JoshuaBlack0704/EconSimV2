@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Transforms;
 
-namespace ECSTesting.ECSWorks
+namespace ECSTesting.GlobalAccess
 {
     public static class BaseEntity
     {

@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace ECSTesting.ECSWorks
+namespace ECSTesting.Components.Tickets
 {
     public static class Tickets
     {

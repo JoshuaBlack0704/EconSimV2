@@ -1,5 +1,6 @@
 using ECSTesting.ECSWorks;
 using ECSTesting.Entites;
+using ECSTesting.GlobalAccess;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

@@ -1,4 +1,5 @@
-using ECSTesting.ECSWorks;
+using ECSTesting.Components.Tickets;
+using ECSTesting.GlobalAccess;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
