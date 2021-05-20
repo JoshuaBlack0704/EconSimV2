@@ -85,7 +85,7 @@ namespace ECSTesting.Ui
         void EnterSystemCallback()
         {
             genSettings.selectedSystem = int.Parse(sysID.value);
-            genSettings.render = true;
+            GenerationSettings.render = true;
         }
 
         private void Update()

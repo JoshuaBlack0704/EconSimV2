@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Stars
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Stars;
     using ECSTesting.GlobalAccess;
     using Unity.Collections;

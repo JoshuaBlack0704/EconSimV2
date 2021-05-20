@@ -7,6 +7,7 @@ using System.Linq;
 
 namespace ECSTesting.Entites
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Planets;
     using System.Collections.Generic;
     using SysComps = ECSTesting.Components.Systems;

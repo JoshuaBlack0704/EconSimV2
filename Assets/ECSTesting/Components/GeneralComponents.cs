@@ -1,8 +1,9 @@
 ﻿using Unity.Entities;
+using Unity.Mathematics;
 
-namespace ECSTesting
+namespace ECSTesting.Components
 {
-    public struct SystemID : IComponentData, IIdTag { public int id { get; set; } }
+    public struct SystemID : IComponentData, IIdTag { public int id { get { return code; } set { code = value; } } public int code; }
 
     public struct CloneTag : IComponentData { }
 

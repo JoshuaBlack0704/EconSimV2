@@ -267,7 +267,7 @@ MonoBehaviour:
   asteroidsPerSystem: 20
   randomPopulate: 1
   connectionsPerSystem: 4
-  render: 0
+  Rendered: 0
   selectedSystem: 0
   shipsPerSystem: 1000
   timeMultiplier: 0

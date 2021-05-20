@@ -18,6 +18,7 @@ namespace ECSTesting.Objects
     using Unity.Transforms;
     using ECSTesting.Components.Missions;
     using Unity.Jobs;
+    using ECSTesting.Components;
 
     public class AI
     {

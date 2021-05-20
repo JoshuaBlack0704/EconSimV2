@@ -1,4 +1,5 @@
-﻿using Unity.Collections;
+﻿using ECSTesting.Components;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Transforms;

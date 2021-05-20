@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Asteroids
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Asteroids;
     using ECSTesting.GlobalAccess;
     using Unity.Collections;

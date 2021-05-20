@@ -17,7 +17,7 @@ namespace ECSTesting.Entites
     using SysComps = Components.Systems;
     using PathFinder = DataOps.EntityPathFinder;
     using ECSTesting.Objects;
-
+    using ECSTesting.Components;
 
     public static class Ships
     {
@@ -52,7 +52,6 @@ namespace ECSTesting.Entites
                 em.SetComponentData(ship, new Translation() { Value = pos });
                 em.SetComponentData(ship, new SystemID() { id = systemCode });
                 em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
-                em.AddComponent<TargetPos>(ship);
                 em.AddComponentData(ship, new ShipAIData() { aiCode = aiOwner.Id });
             }
         }
@@ -79,7 +78,6 @@ namespace ECSTesting.Entites
                     em.SetComponentData(ship, new SystemID() { id = sysId });
                     em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
                     em.AddComponent<TimeData>(ship);
-                    em.AddComponent<TargetPos>(ship);
                     em.AddComponentData(ship, new Idle() { isIdle = true });
                 }
             }
@@ -125,8 +123,8 @@ namespace ECSTesting.Entites
                     nextEntityID = em.GetComponentData<SysComps.Id>(nextEntity).id;
                     previousEntity = path[i + 1];
                     previousEntityID = em.GetComponentData<SysComps.Id>(previousEntity).id;
-                    arrivalSpawn = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).AsNativeArray().ToArray().First(entry => entry.connection.target == previousEntityID).connection.position;
-                    exitWormholePos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).AsNativeArray().First(connection => connection.connection.target == nextEntityID).connection.target;
+                    arrivalSpawn = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).AsNativeArray().First(entry => entry.connection.target == previousEntityID).connection.position;
+                    exitWormholePos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).AsNativeArray().First(exit => exit.connection.target == nextEntityID).connection.position;
 
                     data = new waypointData() { wormholeToID = nextEntityID, exitWormholePos = exitWormholePos, postWarpSpawn = arrivalSpawn };
 
@@ -134,12 +132,8 @@ namespace ECSTesting.Entites
                 }
 
                 em.AddComponentData<WarpMission>(ship, new WarpMission());
-                float3 shipPos = em.GetComponentData<Translation>(ship).Value;
-                var preMoveData = em.GetComponentData<MovementData>(ship);
-                var timeToIntersect = math.distance(shipPos, exitWormholePos) / preMoveData.velocity;
                 em.AddComponentData<TimeData>(ship, new TimeData());
                 em.AddComponentData(ship, mission);
-                em.SetComponentData<MovementData>(ship, new MovementData() { vector = math.normalize(exitWormholePos - shipPos), velocity = preMoveData.velocity });
 
                 path.Dispose();
                 tempArray.Dispose();

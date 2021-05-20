@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Planets
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Planets;
     using ECSTesting.GlobalAccess;
     using Unity.Collections;

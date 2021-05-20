@@ -7,6 +7,6 @@ using Unity.Entities;
 
 namespace ECSTesting.Components.Stars
 {
-    public struct Id : IComponentData { }
+    public struct Id : IComponentData { public int id { get { return code; } set { code = value; } } public int code; }
 
 }

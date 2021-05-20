@@ -14,6 +14,7 @@ namespace ECSTesting.Entites
     using plnComps = ECSTesting.Components.Planets;
     using AstComps = ECSTesting.Components.Asteroids;
     using ECSTesting.GlobalAccess;
+    using ECSTesting.Components;
 
     public static class SystemEntity
     {
@@ -167,7 +168,8 @@ namespace ECSTesting.Entites
 
         public static void EnterSystem(int id)
         {
-            EntityQuery shipQuery = em.CreateEntityQuery(typeof(Components.Ships.Id));
+            EntityQueryDesc shipQD = new EntityQueryDesc() { All = new ComponentType[] { ComponentType.ReadOnly<Components.Ships.Id>()}, None = new ComponentType[] { ComponentType.ReadOnly<Components.CloneTag>() } };
+            EntityQuery shipQuery = em.CreateEntityQuery(shipQD);
             NativeArray<Entity> shipArray = shipQuery.ToEntityArrayAsync(Allocator.TempJob, out JobHandle shipHandle);
 
             EntityQuery sysQuery = em.CreateEntityQuery(ComponentType.ReadOnly<Id>());

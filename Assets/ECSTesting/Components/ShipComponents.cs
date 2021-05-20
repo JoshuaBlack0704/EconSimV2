@@ -10,20 +10,18 @@ namespace ECSTesting.Components.Ships
 {
     public struct Id : IComponentData, IIdTag
     {
-        public int id { get; set; }
+        public int id { get { return code; } set { code = value; } }
+        public int code;
     }
     public struct MovementData : IComponentData
     {
+        public float3 targetPos;
         public float velocity;
         public float3 vector;
     }
-    public struct TargetPos : IComponentData
-    {
-        public float3 position;
-    }
+    
     public struct Idle : IComponentData { public bool isIdle; }
     public struct HasClone : IComponentData { public Entity clone; }
-    public struct MoveMission : IComponentData { }
     public struct CloneData : IComponentData { public Entity masterShip; }
 
 
@@ -37,6 +35,6 @@ namespace ECSTesting.Components.Ships
 
 namespace ECSTesting.Components.Missions.ShipsMissions
 {
-    
+
 }
 

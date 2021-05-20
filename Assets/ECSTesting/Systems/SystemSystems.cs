@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Systems
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Systems;
     using ECSTesting.GlobalAccess;
     using Unity.Collections;

@@ -26,7 +26,8 @@ namespace ECSTesting
         public bool randomPopulate;
         [Range(4, 10)]
         public int connectionsPerSystem;
-        public bool render;
+        public static bool render;
+        public bool Rendered;
         public int selectedSystem;
         public int shipsPerSystem;
         [Range(0, 100)]
@@ -71,6 +72,7 @@ namespace ECSTesting
             SystemEntity.RenderPoints();
             CameraController.Initialize();
             ai = new ECSTesting.Objects.AI(this, 0);
+            ai.RandomTravel();
         }
         private void Start()
         {
@@ -101,6 +103,7 @@ namespace ECSTesting
 
         void Update()
         {
+            Rendered = isRendered;
             ai.RandomTravel();
             SB.masterDeltaTime = timeMultiplier * Time.deltaTime;
             SB.masterTime += SB.masterDeltaTime;

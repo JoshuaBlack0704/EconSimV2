@@ -10,7 +10,10 @@ namespace ECSTesting.Components.Systems
 {
     public struct Id : IComponentData, IIdTag
     {
-        public int id { get; set; }
+        public int id { get { return code; } set { code = value; } }
+        public int code;
+
+        public float3 fluff;
     }
     public struct SystemData : IComponentData
     {

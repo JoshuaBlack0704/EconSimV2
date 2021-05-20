@@ -7,6 +7,7 @@ using System.Linq;
 
 namespace ECSTesting.Entites
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Asteroids;
     using System.Collections;
     using System.Collections.Generic;

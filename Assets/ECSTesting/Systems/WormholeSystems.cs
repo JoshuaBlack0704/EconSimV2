@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECSTesting.Systems.Wormholes
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Wormholes;
     using ECSTesting.GlobalAccess;
     using Unity.Collections;

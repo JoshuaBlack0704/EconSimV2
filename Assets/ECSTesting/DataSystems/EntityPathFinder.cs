@@ -133,11 +133,12 @@ namespace ECSTesting.DataOps
             {
                 //MonoBehaviour.print(currentNode.parent);
 
+                
+                path.Add(currentNode.Id);
                 if ( currentNode.Id == start )
                 {
                     break;
                 }
-                path.Add(currentNode.Id);
                 currentNode = nodeCache[currentNode.parent];
                 if ( currentNode.parent == start && currentNode.Id != start )
                 {
@@ -237,23 +238,15 @@ namespace ECSTesting.DataOps
             while ( true )
             {
                 //MonoBehaviour.print(currentNode.parent);
-                
-
                 path.Add(currentNode.system);
                 if ( currentNode.Id == start )
                 {
                     break;
                 }
                 currentNode = nodeCache[currentNode.parent];
-                if ( currentNode.parent == start && currentNode.Id != start )
-                {
-                    //MonoBehaviour.print(currentNode.parent);
-                    path.Add(currentNode.system);
-                    //path.Reverse();
-                    break;
-                }
+                
 
-
+                
             }
 
 

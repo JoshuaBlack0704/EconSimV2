@@ -4,6 +4,7 @@ using Unity.Transforms;
 
 namespace ECSTesting.Entites
 {
+    using ECSTesting.Components;
     using ECSTesting.Components.Wormholes;
     public static class Wormholes
     {
