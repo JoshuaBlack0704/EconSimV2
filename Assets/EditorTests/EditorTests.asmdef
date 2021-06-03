@@ -8,7 +8,7 @@
         "Unity.Mathematics"
     ],
     "includePlatforms": [
-        "Editor"
+        "CloudRendering"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

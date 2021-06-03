@@ -76,25 +76,24 @@ namespace ECSTesting
         }
         private void Start()
         {
-
             GenerateUniverse();
 
         }
 
         private void OnDrawGizmos()
         {
-            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            var query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
-            var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
-            handle.Complete();
-            foreach ( var point in list )
-            {
-                foreach ( var connection in em.GetBuffer<SysComps.ePointConnnectionBuffer>(point).Reinterpret<SysComps.ConnectionData>() )
-                {
-                    Debug.DrawLine(em.GetComponentData<Translation>(point).Value, em.GetComponentData<Translation>(connection.targetEntity).Value);
-                }
-            }
-            list.Dispose();
+            // var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+            // var query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
+            // var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+            // handle.Complete();
+            // foreach ( var point in list )
+            // {
+            //     foreach ( var connection in em.GetBuffer<SysComps.ePointConnnectionBuffer>(point).Reinterpret<SysComps.ConnectionData>() )
+            //     {
+            //         Debug.DrawLine(em.GetComponentData<Translation>(point).Value, em.GetComponentData<Translation>(connection.targetEntity).Value);
+            //     }
+            // }
+            // list.Dispose();
         }
         public static bool isRendered = false;
         // Update is called once per frame

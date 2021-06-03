@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 using System.Linq;
+using ECSTesting.DebugOperations;
 
 [assembly: RegisterGenericComponentType(typeof(ECSTesting.Components.Missions.MissionWrapper<ECSTesting.Components.Missions.AIMissions.RandomTravel>))]
 
@@ -106,7 +107,6 @@ namespace ECSTesting.Entites
                 //Create Waypoints
                 var tempArray = new NativeArray<Entity>(1, Allocator.Temp);
                 PathFinder.GetEntityPath(start, end, ai.knownSystems, tempArray, false, out NativeArray<Entity> path);
-
                 var waypointBuffer = em.GetBuffer<WaypointBuffer>(ship).Reinterpret<waypointData>();
                 waypointBuffer.Clear();
                 int nextEntityID;

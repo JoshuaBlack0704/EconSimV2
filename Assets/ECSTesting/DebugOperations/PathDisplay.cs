@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
+using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -13,40 +15,54 @@ namespace ECSTesting.DebugOperations
     using shipComps = ECSTesting.Components.Ships;
     using sysComps = ECSTesting.Components.Systems;
     using genComps = ECSTesting.Components;
-    class PathDisplay : IPathRenderer
+    class PathDisplay
     {
-        public PathDisplay(Entity ship)
-        {
-            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            var queryDesc = new EntityQueryDesc() { All = new ComponentType[] { ComponentType.ReadOnly<sysComps.Id>(), ComponentType.ReadOnly<Translation>()}, None = new ComponentType[] { ComponentType.ReadOnly<genComps.CloneTag>()} };
-            var systemsQuery = em.CreateEntityQuery(queryDesc);
-            var sysIDs = systemsQuery.ToComponentDataArrayAsync<sysComps.Id>(Unity.Collections.Allocator.TempJob, out JobHandle handle);
-            var sysPos = systemsQuery.ToComponentDataArrayAsync<Translation>(Unity.Collections.Allocator.TempJob, out JobHandle handle2);
+        static EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
+        static EntityQueryDesc queryDesc = new EntityQueryDesc() { All = new ComponentType[] { ComponentType.ReadOnly<sysComps.Id>(), ComponentType.ReadOnly<Translation>()}, None = new ComponentType[] { ComponentType.ReadOnly<genComps.CloneTag>()} };
+        static EntityQuery systemsQuery = em.CreateEntityQuery(queryDesc);
+        static NativeArray<sysComps.Id> sysIDs = systemsQuery.ToComponentDataArray<sysComps.Id>(Unity.Collections.Allocator.Persistent);
+        static NativeArray<Translation> sysPos = systemsQuery.ToComponentDataArray<Translation>(Unity.Collections.Allocator.Persistent);
 
-            var buffer = em.GetBuffer<shipComps.WaypointBuffer>(ship);
+        public static void PathRender(Entity ship)
+        {
+            var buffer = em.GetBuffer<shipComps.WaypointBuffer>(ship).AsNativeArray();
             var waypointsQuery = from item in buffer
                             select item.data.wormholeToID;
             var waypoints = waypointsQuery.ToArray();
-
-            for ( int i = 0; i < waypoints.Length-1; i++ )
+            int startSystemID = em.GetComponentData<genComps.SystemID>(ship).id;
+            
+            int currentIndex = 0;
+            int targetIndex = 0;
+            float3 currentPos;
+            float3 targetPos;
+            
+            
+            for (int i = 0; i < sysIDs.Length; i++)
             {
-                var current = waypoints[i];
-                var target = waypoints[i + 1];
-
-                var currentPos = sysPos[current];
-                var targetPos = sysPos[target];
-
-                Debug.DrawLine(currentPos.Value, targetPos.Value);
+                currentIndex = i;
+                if (sysIDs[i].id == startSystemID)
+                {
+                    break;
+                }
             }
+            
+            for ( int i = waypoints.Length-1; i >= 0; i-- )
+            {
+                var target = waypoints[i];
+                for (int x = 0; x < sysIDs.Length; x++)
+                {
+                    targetIndex = x;
+                    if (sysIDs[x].id == target)
+                    {
+                        break;
+                    }
+                }
 
-
-            sysIDs.Dispose();
-            sysPos.Dispose();
+                currentPos = sysPos[currentIndex].Value;
+                targetPos = sysPos[targetIndex].Value;
+                Debug.DrawLine(currentPos, targetPos);
+                currentIndex = targetIndex;
+            }
         }
-    }
-
-    public interface IPathRenderer
-    {
-
     }
 }

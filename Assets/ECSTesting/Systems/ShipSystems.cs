@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECSTesting.DebugOperations;
 
 namespace ECSTesting.Systems.Ships
 {
@@ -93,39 +94,36 @@ namespace ECSTesting.Systems.Ships
                 }
                 else if ( timeData.timeAtExecute<time )
                 {
-                    if ( waypoints.Length >= 1 )
-                    {
-                        var bufferData = waypoints[waypoints.Length - 1];
-                        var nextPos = bufferData.data.postWarpSpawn;
-                        var nextTarget = bufferData.data.exitWormholePos;
+                    var bufferData = waypoints[waypoints.Length - 1];
+                    var nextPos = bufferData.data.postWarpSpawn;
+                    var nextTarget = bufferData.data.exitWormholePos;
 
-                        pos.Value = nextPos;
-                        moveData.targetPos = nextTarget;
-                        moveData.vector = math.normalize(nextTarget-nextPos);
-                        timeData.timeAtWrite = time;
-                        timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
-                        //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}");
-                        sysID.id = bufferData.data.wormholeToID;
-                        if ( isRendered )
+                    pos.Value = nextPos;
+                    moveData.targetPos = nextTarget;
+                    moveData.vector = math.normalize(nextTarget-nextPos);
+                    timeData.timeAtWrite = time;
+                    timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
+                    //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}");
+                    sysID.id = bufferData.data.wormholeToID;
+                    if ( isRendered )
+                    {
+                        if ( sysID.id == selectedSystem )
                         {
-                            if ( sysID.id == selectedSystem )
-                            {
-                                ecb.AddComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
-                            }
+                            ecb.AddComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
                         }
-                        waypoints.RemoveAt(waypoints.Length - 1);
-                        
                     }
-                    else
+
+                    waypoints.RemoveAt(waypoints.Length - 1);
+                    if (waypoints.Length == 0)
                     {
                         ecb.RemoveComponent<WarpMission>(entityInQueryIndex, ship);
                         timeData.timeAtExecute = 0;
                     }
-                    
+
                 }
             }).ScheduleParallel();
 
-            Entities.WithAll<WarpMission, HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref SystemID sysID) =>
+            Entities.WithAll<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref SystemID sysID, in HasClone clone) =>
             {
                 if ( timeData.timeAtExecute == 0 )
                 {
@@ -140,28 +138,24 @@ namespace ECSTesting.Systems.Ships
                 }
                 else if ( timeData.timeAtExecute < time )
                 {
-                    if ( waypoints.Length >= 1 )
+                    var bufferData = waypoints[waypoints.Length - 1];
+                    var nextPos = bufferData.data.postWarpSpawn;
+                    var nextTarget = bufferData.data.exitWormholePos;
+
+                    pos.Value = nextPos;
+                    moveData.targetPos = nextTarget;
+                    moveData.vector = math.normalize(nextTarget - nextPos);
+                    timeData.timeAtWrite = time;
+                    timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
+                    //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}:: Ship has clone");
+                    sysID.id = bufferData.data.wormholeToID;
+                    if ( sysID.id != selectedSystem )
                     {
-                        var bufferData = waypoints[waypoints.Length - 1];
-                        var nextPos = bufferData.data.postWarpSpawn;
-                        var nextTarget = bufferData.data.exitWormholePos;
-
-                        pos.Value = nextPos;
-                        moveData.targetPos = nextTarget;
-                        moveData.vector = math.normalize(nextTarget - nextPos);
-                        timeData.timeAtWrite = time;
-                        timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
-                        //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}:: Ship has clone");
-                        sysID.id = bufferData.data.wormholeToID;
-                        if ( sysID.id != selectedSystem )
-                        {
-                            //Debug.Log($"Adding delete Clone Tag");
-                            ecb.AddComponent<globals.BaseEntity.DeleteCloneTag>(entityInQueryIndex, ship);
-                        }
-                        waypoints.RemoveAt(waypoints.Length - 1);
-
+                        //Debug.Log($"Adding delete Clone Tag");
+                        ecb.AddComponent<globals.BaseEntity.DeleteCloneTag>(entityInQueryIndex, clone.clone);
                     }
-                    else
+                    waypoints.RemoveAt(waypoints.Length - 1);
+                    if ( waypoints.Length == 0 )
                     {
                         ecb.RemoveComponent<WarpMission>(entityInQueryIndex, ship);
                         timeData.timeAtExecute = 0;
@@ -222,13 +216,12 @@ namespace ECSTesting.Systems.Ships
         protected override void OnUpdate()
         {
             EntityCommandBuffer.ParallelWriter ecb = ecbs.CreateCommandBuffer().AsParallelWriter();
-            Entities.WithAll<globals.BaseEntity.DeleteCloneTag, Id>().ForEach((Entity ship, int entityInQueryIndex, in HasClone cloneData) =>
+            Entities.WithAll<globals.BaseEntity.DeleteCloneTag, Id>().ForEach((Entity clone, int entityInQueryIndex, in CloneData cloneData) =>
             {
-                ecb.DestroyEntity(entityInQueryIndex, cloneData.clone);
-                ecb.RemoveComponent<HasClone>(entityInQueryIndex, ship);
-                ecb.RemoveComponent<globals.BaseEntity.DeleteCloneTag>(entityInQueryIndex, ship);
-
-
+                ecb.RemoveComponent<HasClone>(entityInQueryIndex, cloneData.masterShip);
+                ecb.RemoveComponent<globals.BaseEntity.DeleteCloneTag>(entityInQueryIndex, cloneData.masterShip);
+                ecb.DestroyEntity(entityInQueryIndex, clone);
+                
             }).ScheduleParallel();
             ecbs.AddJobHandleForProducer(Dependency);
             ecbs.Update();
@@ -289,5 +282,16 @@ namespace ECSTesting.Systems.Ships
 
         }
     }
+
+    // public class ShipPathRenderer : SystemBase
+    // {
+    //     protected override void OnUpdate()
+    //     {
+    //         Entities.WithoutBurst().WithAll<Id>().ForEach((Entity ship) =>
+    //         {
+    //             PathDisplay.PathRender(ship);
+    //         }).Run();
+    //     }
+    // }
 }
 
