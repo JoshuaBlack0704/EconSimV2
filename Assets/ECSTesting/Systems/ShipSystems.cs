@@ -188,7 +188,6 @@ namespace ECSTesting.Systems.Ships
             }).ScheduleParallel();
 
 
-#if DEBUG
             Entities.WithNativeDisableParallelForRestriction(ticketArray).ForEach((int nativeThreadIndex, in TimeData timeData) =>
             {
                 if ( timeData.timeAtExecute < time )
@@ -196,7 +195,6 @@ namespace ECSTesting.Systems.Ships
                     ticketArray[nativeThreadIndex]++;
                 }
             }).ScheduleParallel();
-#endif
             ecbs.AddJobHandleForProducer(Dependency);
         }
     }

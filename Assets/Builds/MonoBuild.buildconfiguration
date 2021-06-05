@@ -17,7 +17,7 @@
             "$type": "Unity.Build.Classic.ClassicBuildProfile, Unity.Build.Classic",
             "$version": 1,
             "Platform": "win",
-            "Configuration": 3
+            "Configuration": 1
         },
         {
             "$type": "Unity.Build.Classic.ClassicScriptingSettings, Unity.Build.Classic",
