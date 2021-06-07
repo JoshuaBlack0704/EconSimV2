@@ -37,7 +37,7 @@ namespace ECSTesting.Entites
                     em.SetComponentData(planet, new Translation() { Value = SB.rand.NextFloat3(0, size) });
                     //Debug.Log($"Making planet in system with id: {id}");
 
-                    em.SetComponentData(planet, new SystemID() { id = id });
+                    em.SetComponentData(planet, new CurrentSystemID() { id = id });
                 }
             }
 
@@ -47,7 +47,7 @@ namespace ECSTesting.Entites
 
         public static void Initialize(GameObject model)
         {
-            planetArc = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(Translation), typeof(SystemID) });
+            planetArc = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(Translation), typeof(CurrentSystemID) });
         }
 
         public static void GeneratePlanets()
@@ -75,7 +75,7 @@ namespace ECSTesting.Entites
             planetHandle.Complete();
 
             var planetsArrayQuery = from planet in planetArray
-                          where em.GetComponentData<SystemID>(planet).id == systemId
+                          where em.GetComponentData<CurrentSystemID>(planet).id == systemId
                           select planet;
             planetsReturnable = planetsArrayQuery.ToArray();
             planetArray.Dispose();
@@ -92,10 +92,10 @@ namespace ECSTesting.Entites
             Debug.Log($"System ID: {sysID}");
             foreach ( var planet in planetsArray )
             {
-                Debug.Log($"Planet: {em.GetComponentData<Id>(planet).id} in system {em.GetComponentData<SystemID>(planet).id}");
+                Debug.Log($"Planet: {em.GetComponentData<Id>(planet).id} in system {em.GetComponentData<CurrentSystemID>(planet).id}");
             }
             var planetsArrayQuery = from planet in planetsArray
-                                where em.GetComponentData<SystemID>(planet).id == sysID
+                                where em.GetComponentData<CurrentSystemID>(planet).id == sysID
                                 select planet;
             planetsReturnable = planetsArrayQuery.ToArray();
             planetsArray.Dispose();

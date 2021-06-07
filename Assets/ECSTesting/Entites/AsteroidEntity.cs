@@ -36,7 +36,7 @@ namespace ECSTesting.Entites
                     em.SetComponentData(asteroid, new Id() { id = asteroidCount });
                     asteroidCount++;
                     em.SetComponentData(asteroid, new Translation() { Value = SB.rand.NextFloat3(0, size) });
-                    em.SetComponentData(asteroid, new SystemID() { id = id });
+                    em.SetComponentData(asteroid, new CurrentSystemID() { id = id });
                 }
             }
 
@@ -64,7 +64,7 @@ namespace ECSTesting.Entites
             planetHandle.Complete();
 
             var asteroidsArrayQuery = from asteroid in asteroidArray
-                               where em.GetComponentData<SystemID>(asteroid).id == systemId
+                               where em.GetComponentData<CurrentSystemID>(asteroid).id == systemId
                                select asteroid;
             asteroidsReturnable = asteroidsArrayQuery.ToArray();
             asteroidArray.Dispose();
@@ -79,7 +79,7 @@ namespace ECSTesting.Entites
             planetHandle.Complete();
 
             var asteroidsArrayQuery = from asteroid in asteroidArray
-                                where em.GetComponentData<SystemID>(asteroid).id == sysID
+                                where em.GetComponentData<CurrentSystemID>(asteroid).id == sysID
                                 select asteroid;
             asteroidsReturnable = asteroidsArrayQuery.ToArray();
             asteroidArray.Dispose();
@@ -87,7 +87,7 @@ namespace ECSTesting.Entites
 
         public static void Initialize(GameObject model)
         {
-            asteroidArc = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(Translation), typeof(SystemID) });
+            asteroidArc = em.CreateArchetype(new ComponentType[] { typeof(Id), typeof(Translation), typeof(CurrentSystemID) });
         }
 
         public static void GenerateAsteroids()

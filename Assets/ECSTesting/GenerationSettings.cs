@@ -4,6 +4,7 @@ using ECSTesting.GlobalAccess;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ECSTesting.Components;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -82,18 +83,29 @@ namespace ECSTesting
 
         private void OnDrawGizmos()
         {
-            // var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            // var query = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
-            // var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
-            // handle.Complete();
-            // foreach ( var point in list )
-            // {
-            //     foreach ( var connection in em.GetBuffer<SysComps.ePointConnnectionBuffer>(point).Reinterpret<SysComps.ConnectionData>() )
-            //     {
-            //         Debug.DrawLine(em.GetComponentData<Translation>(point).Value, em.GetComponentData<Translation>(connection.targetEntity).Value);
-            //     }
-            // }
-            // list.Dispose();
+             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+             var sysQuery = em.CreateEntityQuery(ComponentType.ReadOnly<SysComps.Id>());
+             var shipQuery = em.CreateEntityQuery(new ComponentType[]
+             {
+                 typeof(CurrentSystemID), typeof(Components.Ships.waypointData), 
+             });
+             
+             
+
+             //Connection line creator
+             // var list = query.ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+             // handle.Complete();
+             // foreach ( var point in list )
+             // {
+             //     foreach ( var connection in em.GetBuffer<SysComps.ePointConnnectionBuffer>(point).Reinterpret<SysComps.ConnectionData>() )
+             //     {
+             //         Debug.DrawLine(em.GetComponentData<Translation>(point).Value, em.GetComponentData<Translation>(connection.targetEntity).Value);
+             //     }
+             // }
+             // list.Dispose();
+
+
+
         }
         public static bool isRendered = false;
         // Update is called once per frame

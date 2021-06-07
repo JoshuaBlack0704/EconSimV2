@@ -31,7 +31,7 @@ namespace ECSTesting.Entites
         {
             shipArc = em.CreateArchetype(new ComponentType[]
             {
-            typeof(Translation), typeof(Id), typeof(MovementData), typeof(SystemID), typeof(WaypointBuffer)
+            typeof(Translation), typeof(Id), typeof(MovementData), typeof(CurrentSystemID), typeof(WaypointBuffer)
             });
         }
 
@@ -51,7 +51,7 @@ namespace ECSTesting.Entites
                 em.SetComponentData(ship, new Id() { id = maxShipID });
                 maxShipID++;
                 em.SetComponentData(ship, new Translation() { Value = pos });
-                em.SetComponentData(ship, new SystemID() { id = systemCode });
+                em.SetComponentData(ship, new CurrentSystemID() { id = systemCode });
                 em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
                 em.AddComponentData(ship, new ShipAIData() { aiCode = aiOwner.Id });
             }
@@ -76,7 +76,7 @@ namespace ECSTesting.Entites
                     em.SetComponentData(ship, new Id() { id = maxShipID });
                     maxShipID++;
                     em.SetComponentData(ship, new Translation() { Value = pos });
-                    em.SetComponentData(ship, new SystemID() { id = sysId });
+                    em.SetComponentData(ship, new CurrentSystemID() { id = sysId });
                     em.SetComponentData(ship, new MovementData() { velocity = velocity, vector = vect });
                     em.AddComponent<TimeData>(ship);
                     em.AddComponentData(ship, new Idle() { isIdle = true });
@@ -86,27 +86,33 @@ namespace ECSTesting.Entites
 
         public static void ExecuteMission<T>(Entity ship, Entity targetObject, T mission, AI ai, bool intBased = false) where T : struct, IComponentData, IMission
         {
+            var totalTime = new System.Diagnostics.Stopwatch();
+            var pathingTime = new System.Diagnostics.Stopwatch();
+            totalTime.Start();
+            
             int end;
             if ( em.HasComponent<SysComps.Id>(targetObject) )
             {
                 end = em.GetComponentData<SysComps.Id>(targetObject).id;
             }
-            else if ( em.HasComponent<SystemID>(targetObject) )
+            else if ( em.HasComponent<CurrentSystemID>(targetObject) )
             {
-                end = em.GetComponentData<SystemID>(targetObject).id;
+                end = em.GetComponentData<CurrentSystemID>(targetObject).id;
             }
             else
             {
                 throw new System.Exception("Ship is targeting an object with no known current System ID");
             }
 
-            int start = em.GetComponentData<SystemID>(ship).id;
+            int start = em.GetComponentData<CurrentSystemID>(ship).id;
 
             if ( start != end )
             {
                 //Create Waypoints
                 var tempArray = new NativeArray<Entity>(1, Allocator.Temp);
+                pathingTime.Start();
                 PathFinder.GetEntityPath(start, end, ai.knownSystems, tempArray, false, out NativeArray<Entity> path);
+                pathingTime.Stop();
                 var waypointBuffer = em.GetBuffer<WaypointBuffer>(ship).Reinterpret<waypointData>();
                 waypointBuffer.Clear();
                 int nextEntityID;
@@ -114,19 +120,20 @@ namespace ECSTesting.Entites
                 int previousEntityID;
                 Entity previousEntity;
                 waypointData data;
-                float3 arrivalSpawn;
-                float3 exitWormholePos = new float3();
+                float3 systemPos;
+                float3 despawnPos = new float3();
 
                 for ( int i = 0; i < path.Length-1; i++ )
                 {
+                    //We start at the destination system to get our final warp spawn pos
                     nextEntity = path[i];
                     nextEntityID = em.GetComponentData<SysComps.Id>(nextEntity).id;
                     previousEntity = path[i + 1];
                     previousEntityID = em.GetComponentData<SysComps.Id>(previousEntity).id;
-                    arrivalSpawn = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).AsNativeArray().First(entry => entry.connection.target == previousEntityID).connection.position;
-                    exitWormholePos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).AsNativeArray().First(exit => exit.connection.target == nextEntityID).connection.position;
+                    systemPos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(nextEntity).AsNativeArray().First(entry => entry.connection.target == previousEntityID).connection.position;
+                    despawnPos = em.GetBuffer<SysComps.ePointConnnectionBuffer>(previousEntity).AsNativeArray().First(exit => exit.connection.target == nextEntityID).connection.position;
 
-                    data = new waypointData() { wormholeToID = nextEntityID, exitWormholePos = exitWormholePos, postWarpSpawn = arrivalSpawn };
+                    data = new waypointData() { wormholeToID = nextEntityID, despawnPos = despawnPos, SpawnPos = systemPos, wormholeFromID = previousEntityID};
 
                     waypointBuffer.Add(data);
                 }
@@ -147,7 +154,9 @@ namespace ECSTesting.Entites
                 em.AddComponentData(ship, mission);
                 em.SetComponentData<MovementData>(ship, new MovementData() { vector = math.normalize(mission.targetPos - shipPos), velocity = preMoveData.velocity });
             }
-
+            totalTime.Stop();
+            Debug.Log($"Generated path. Elapsed Time: {pathingTime.Elapsed}");
+            Debug.Log($"Executed Mission. Elapsed Time: {totalTime.Elapsed}");
         }
 
     }

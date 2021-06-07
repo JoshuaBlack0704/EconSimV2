@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 1
-  systemCount: 100
-  universeSize: 50
+  systemCount: 10000
+  universeSize: 100
   maxSystemSize: 50
   planetsPerSystem: 10
   asteroidsPerSystem: 20
@@ -269,7 +269,7 @@ MonoBehaviour:
   connectionsPerSystem: 4
   Rendered: 0
   selectedSystem: 0
-  shipsPerSystem: 100000
+  shipsPerSystem: 1000
   timeMultiplier: 0
   SystemModel: {fileID: 919132149155446097, guid: 88253b1d3d07ff646a4b1726476d7397, type: 3}
   planetModel: {fileID: 4662956109507208945, guid: 0876b07dacea9d0439a5c20761ab1b01, type: 3}

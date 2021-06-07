@@ -29,7 +29,7 @@ namespace ECSTesting.DebugOperations
             var waypointsQuery = from item in buffer
                             select item.data.wormholeToID;
             var waypoints = waypointsQuery.ToArray();
-            int startSystemID = em.GetComponentData<genComps.SystemID>(ship).id;
+            int startSystemID = em.GetComponentData<genComps.CurrentSystemID>(ship).id;
             
             int currentIndex = 0;
             int targetIndex = 0;

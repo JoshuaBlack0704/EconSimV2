@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ECSTesting.DebugOperations;
+using Unity.Collections;
 
 namespace ECSTesting.Systems.Ships
 {
@@ -78,14 +79,15 @@ namespace ECSTesting.Systems.Ships
             var genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
             var isRendered = GenerationSettings.isRendered;
             int selectedSystem = genSettings.selectedSystem;
+            var updateEM = em;
 
-            Entities.WithAll<WarpMission>().WithNone<HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref SystemID sysID) => 
+            Entities.WithAll<WarpMission>().WithNone<HasClone>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref CurrentSystemID sysID) => 
             {
                 if ( timeData.timeAtExecute == 0 )
                 {
                     //This occurs when we are starting the journey
                     var bufferData = waypoints[waypoints.Length - 1];
-                    var nextTarget = bufferData.data.exitWormholePos;
+                    var nextTarget = bufferData.data.despawnPos;
 
                     moveData.targetPos = nextTarget;
                     moveData.vector = math.normalize(nextTarget - pos.Value);
@@ -94,16 +96,11 @@ namespace ECSTesting.Systems.Ships
                 }
                 else if ( timeData.timeAtExecute<time )
                 {
+                    
+                    //Execute warp
                     var bufferData = waypoints[waypoints.Length - 1];
-                    var nextPos = bufferData.data.postWarpSpawn;
-                    var nextTarget = bufferData.data.exitWormholePos;
-
-                    pos.Value = nextPos;
-                    moveData.targetPos = nextTarget;
-                    moveData.vector = math.normalize(nextTarget-nextPos);
-                    timeData.timeAtWrite = time;
-                    timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
-                    //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}");
+                    var spawnPos = bufferData.data.SpawnPos;
+                    pos.Value = spawnPos;
                     sysID.id = bufferData.data.wormholeToID;
                     if ( isRendered )
                     {
@@ -112,10 +109,26 @@ namespace ECSTesting.Systems.Ships
                             ecb.AddComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
                         }
                     }
-
                     waypoints.RemoveAt(waypoints.Length - 1);
-                    if (waypoints.Length == 0)
+                    //End warp
+                    
+                    //If we have more warps to do we establish new nav data, else we remove warpMission
+                    if (waypoints.Length>=1)
                     {
+                        //Establish new nav data
+                        bufferData = waypoints[waypoints.Length - 1];
+                        var nextTarget = bufferData.data.despawnPos;
+
+                        moveData.targetPos = nextTarget;
+                        moveData.vector = math.normalize(nextTarget - spawnPos);
+                        timeData.timeAtWrite = time;
+                        timeData.timeAtExecute = time + math.distance(nextTarget, pos.Value) / moveData.velocity;
+                        //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}:: Ship has clone");
+                        //Debug.Log($"Ships new SysID: {sysID.id}");
+                    }
+                    else
+                    {
+                        
                         ecb.RemoveComponent<WarpMission>(entityInQueryIndex, ship);
                         timeData.timeAtExecute = 0;
                     }
@@ -123,14 +136,22 @@ namespace ECSTesting.Systems.Ships
                 }
             }).ScheduleParallel();
 
-            Entities.WithAll<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref SystemID sysID, in HasClone clone) =>
+            Entities.WithAll<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref DynamicBuffer<WaypointBuffer> waypoints, ref Translation pos, ref MovementData moveData, ref TimeData timeData, ref CurrentSystemID sysID, in HasClone clone) =>
             {
+                // if (sysID.id == selectedSystem)
+                // {
+                //     Debug.DrawLine(pos.Value, moveData.targetPos, Color.green, .25f);
+                // }
+                if (isRendered == false)
+                {
+                    ecb.AddComponent<globals.BaseEntity.DeleteCloneTag>(entityInQueryIndex, clone.clone);
+                    Debug.LogWarning("Ship had clone while not rendered");
+                }
                 if ( timeData.timeAtExecute == 0 )
                 {
                     //This occurs when we are starting the journey
                     var bufferData = waypoints[waypoints.Length - 1];
-                    var nextTarget = bufferData.data.exitWormholePos;
-
+                    var nextTarget = bufferData.data.despawnPos;
                     moveData.targetPos = nextTarget;
                     moveData.vector = math.normalize(nextTarget - pos.Value);
                     timeData.timeAtWrite = time;
@@ -138,15 +159,12 @@ namespace ECSTesting.Systems.Ships
                 }
                 else if ( timeData.timeAtExecute < time )
                 {
-                    var bufferData = waypoints[waypoints.Length - 1];
-                    var nextPos = bufferData.data.postWarpSpawn;
-                    var nextTarget = bufferData.data.exitWormholePos;
+                    
 
-                    pos.Value = nextPos;
-                    moveData.targetPos = nextTarget;
-                    moveData.vector = math.normalize(nextTarget - nextPos);
-                    timeData.timeAtWrite = time;
-                    timeData.timeAtExecute = time + math.distance(nextTarget, nextPos) / moveData.velocity;
+                    //Execute warp
+                    var bufferData = waypoints[waypoints.Length - 1];
+                    var spawnPos = bufferData.data.SpawnPos;
+                    pos.Value = spawnPos;
                     //Debug.Log($"Ship warping to System: {bufferData.data.wormholeToID} from System: {sysID.id}:: Ship has clone");
                     sysID.id = bufferData.data.wormholeToID;
                     if ( sysID.id != selectedSystem )
@@ -154,9 +172,27 @@ namespace ECSTesting.Systems.Ships
                         //Debug.Log($"Adding delete Clone Tag");
                         ecb.AddComponent<globals.BaseEntity.DeleteCloneTag>(entityInQueryIndex, clone.clone);
                     }
+
+                    
                     waypoints.RemoveAt(waypoints.Length - 1);
-                    if ( waypoints.Length == 0 )
+                    //End warp
+
+                    //If we have more warps to do we establish new nav data, else we remove warpMission
+                    if (waypoints.Length>=1)
                     {
+                        //Establish new nav data
+                        bufferData = waypoints[waypoints.Length - 1];
+                        var nextTarget = bufferData.data.despawnPos;
+
+                        moveData.targetPos = nextTarget;
+                        moveData.vector = math.normalize(nextTarget - spawnPos);
+                        timeData.timeAtWrite = time;
+                        timeData.timeAtExecute = time + math.distance(nextTarget, pos.Value) / moveData.velocity;
+                    }
+                    else
+                    {
+                        //We have arrived at our destination here
+                        
                         ecb.RemoveComponent<WarpMission>(entityInQueryIndex, ship);
                         timeData.timeAtExecute = 0;
                     }
@@ -164,7 +200,7 @@ namespace ECSTesting.Systems.Ships
                 }
             }).ScheduleParallel();
 
-            Entities.WithNone<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref MovementData moveData, ref TimeData timeData, in aiMissions.RandomTravel mission, in SystemID sysID) => 
+            Entities.WithNone<WarpMission>().ForEach((Entity ship, int entityInQueryIndex, ref Translation pos, ref MovementData moveData, ref TimeData timeData, in aiMissions.RandomTravel mission, in CurrentSystemID sysID) => 
             {
                 if ( timeData.timeAtExecute == 0 )
                 {
@@ -186,7 +222,40 @@ namespace ECSTesting.Systems.Ships
                     moveData.vector = new float3();
                 }
             }).ScheduleParallel();
-
+            
+            
+            //Chicking if systems wormholes exsist
+            // var systemsQuery = em.CreateEntityQuery(new ComponentType[]
+            //     {ComponentType.ReadOnly<Components.Systems.ePointConnnectionBuffer>(),});
+            // var systems = systemsQuery.ToEntityArray(Allocator.Temp);
+            // var system = systems.First(sys =>
+            //     updateEM.GetComponentData<Components.Systems.Id>(sys).id == selectedSystem);
+            // var buff = em.GetBuffer<Components.Systems.ePointConnnectionBuffer>(system).AsNativeArray();
+            //
+            // Entities.WithAll<WarpMission>().ForEach((in MovementData moveData, in CurrentSystemID currentSystemID, in DynamicBuffer<WaypointBuffer> waypoints) =>
+            // {
+            //     if (waypoints.Length >= 1)
+            //     {
+            //         var bufferData = waypoints[waypoints.Length - 1];
+            //         if (currentSystemID.id != bufferData.data.wormholeFromID)
+            //         {
+            //             Debug.Log($"Ship is in {currentSystemID.id}, however its waypoint data says its in {bufferData.data.wormholeFromID}");
+            //         }
+            //         if (isRendered && currentSystemID.id == selectedSystem)
+            //         {
+            //             var targetpos = bufferData.data.despawnPos;
+            //         
+            //             bool exists = false;
+            //             exists = buff.Any(con => con.connection.position.x == targetpos.x && con.connection.position.y == targetpos.y && con.connection.position.z == targetpos.z);
+            //             if (exists != true)
+            //             {
+            //                 Debug.LogWarning("Ships are targeting wormholes that are not real");
+            //             }
+            //         }
+            //     }
+            //     
+            //     
+            // }).Run();
 
             Entities.WithNativeDisableParallelForRestriction(ticketArray).ForEach((int nativeThreadIndex, in TimeData timeData) =>
             {
@@ -229,12 +298,14 @@ namespace ECSTesting.Systems.Ships
     public class ShipCloneSpawner : SystemBase
     {
         EntityCommandBufferSystem ecbs;
+        private GenerationSettings genSettings;
 
 
         protected override void OnCreate()
         {
             base.OnCreate();
             ecbs = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+            genSettings = GameObject.Find("GenerationSettings").GetComponent<GenerationSettings>();
         }
 
 
@@ -245,39 +316,48 @@ namespace ECSTesting.Systems.Ships
             Entity shipClone = SB.shipClone;
             float time = SB.masterTime;
 
-            Entities.WithAll<globals.BaseEntity.SpawnCloneTag>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData, in TimeData timeData) =>
+            if (GenerationSettings.isRendered)
             {
-                Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
-                float3 targetPos = moveData.targetPos;
-
-                Vector3 spawnPos = Vector3.Lerp(pos.Value, targetPos, Mathf.InverseLerp(timeData.timeAtWrite, timeData.timeAtExecute, time));
-
-                ecb.SetComponent(entityInQueryIndex, clone, new Translation() { Value = spawnPos });
-                ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-                ecb.AddComponent(entityInQueryIndex, clone, moveData);
-                ecb.AddComponent(entityInQueryIndex, clone, Id);
-                ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
-                ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
-                ecb.RemoveComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
 
 
-            }).ScheduleParallel();
+                Entities.WithAll<globals.BaseEntity.SpawnCloneTag>().ForEach(
+                    (Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData,
+                        in TimeData timeData) =>
+                    {
+                        Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+                        float3 targetPos = moveData.targetPos;
 
-            Entities.WithAll<globals.BaseEntity.SpawnCloneTag>().WithNone<TimeData>().ForEach((Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData) => 
-            {
-                Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+                        Vector3 spawnPos = Vector3.Lerp(pos.Value, targetPos,
+                            Mathf.InverseLerp(timeData.timeAtWrite, timeData.timeAtExecute, time));
 
-                ecb.SetComponent(entityInQueryIndex, clone, pos);
-                ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
-                ecb.AddComponent(entityInQueryIndex, clone, moveData);
-                ecb.AddComponent(entityInQueryIndex, clone, Id);
-                ecb.AddComponent(entityInQueryIndex, clone, new CloneData() { masterShip = ship });
-                ecb.AddComponent(entityInQueryIndex, ship, new HasClone() { clone = clone });
-                ecb.RemoveComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
-            }).ScheduleParallel();
+                        ecb.SetComponent(entityInQueryIndex, clone, new Translation() {Value = spawnPos});
+                        ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+                        ecb.AddComponent(entityInQueryIndex, clone, moveData);
+                        ecb.AddComponent(entityInQueryIndex, clone, Id);
+                        ecb.AddComponent(entityInQueryIndex, clone, new CloneData() {masterShip = ship});
+                        ecb.AddComponent(entityInQueryIndex, ship, new HasClone() {clone = clone});
+                        ecb.RemoveComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
 
-            ecbs.AddJobHandleForProducer(Dependency);
 
+                    }).ScheduleParallel();
+
+                Entities.WithAll<globals.BaseEntity.SpawnCloneTag>().WithNone<TimeData>().ForEach(
+                    (Entity ship, int entityInQueryIndex, in Id Id, in Translation pos, in MovementData moveData) =>
+                    {
+                        Entity clone = ecb.Instantiate(entityInQueryIndex, shipClone);
+
+                        ecb.SetComponent(entityInQueryIndex, clone, pos);
+                        ecb.AddComponent<CloneTag>(entityInQueryIndex, clone);
+                        ecb.AddComponent(entityInQueryIndex, clone, moveData);
+                        ecb.AddComponent(entityInQueryIndex, clone, Id);
+                        ecb.AddComponent(entityInQueryIndex, clone, new CloneData() {masterShip = ship});
+                        ecb.AddComponent(entityInQueryIndex, ship, new HasClone() {clone = clone});
+                        ecb.RemoveComponent<globals.BaseEntity.SpawnCloneTag>(entityInQueryIndex, ship);
+                    }).ScheduleParallel();
+
+                ecbs.AddJobHandleForProducer(Dependency);
+
+            }
         }
     }
 

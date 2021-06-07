@@ -138,7 +138,7 @@ namespace ECSTesting.Objects
                 {
                     var target = ProduceRandomTarget();
                     var targetPos = em.GetComponentData<Translation>(target).Value;
-                    var systemID = em.GetComponentData<SystemID>(target).id;
+                    var systemID = em.GetComponentData<CurrentSystemID>(target).id;
                     Ships.ExecuteMission(ship, target, new RandomTravel() { target = target, targetPos = targetPos, targetSystem = systemID }, this);
                 }
             }
@@ -146,9 +146,9 @@ namespace ECSTesting.Objects
             {
                 foreach ( var ship in idleShipsQuery )
                 {
-                    var target = ProduceRandomTargetForSystem(em.GetComponentData<SystemID>(ship).id);
+                    var target = ProduceRandomTargetForSystem(em.GetComponentData<CurrentSystemID>(ship).id);
                     var targetPos = em.GetComponentData<Translation>(target).Value;
-                    var systemID = em.GetComponentData<SystemID>(target).id;
+                    var systemID = em.GetComponentData<CurrentSystemID>(target).id;
                     Ships.ExecuteMission(ship, target, new RandomTravel() { target = target, targetPos = targetPos, targetSystem = systemID }, this);
                 }
             }
@@ -198,9 +198,10 @@ namespace ECSTesting.Components.Ships
 {
     public struct waypointData : IComponentData
     {
+        public int wormholeFromID;
         public int wormholeToID;
-        public float3 exitWormholePos;
-        public float3 postWarpSpawn;
+        public float3 despawnPos;
+        public float3 SpawnPos;
     }
     public struct WaypointBuffer : IBufferElementData
     {

@@ -1,6 +1,8 @@
 ﻿using ECSTesting.Components;
+using ECSTesting.Systems.Ships;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Jobs;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Transforms;
 using UnityEngine;
@@ -12,8 +14,11 @@ namespace ECSTesting.GlobalAccess
         static EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
         public static void DestroyAllClones()
         {
-            NativeArray<Entity> clones = em.CreateEntityQuery(new ComponentType[] { typeof(CloneTag) }).ToEntityArray(Allocator.Temp);
+            var shipDeleter = World.DefaultGameObjectInjectionWorld.GetExistingSystem<ShipCloneDeleter>();
+            NativeArray<Entity> clones = em.CreateEntityQuery(new ComponentType[] { typeof(CloneTag) }).ToEntityArrayAsync(Allocator.TempJob, out JobHandle handle);
+            handle.Complete();
             em.AddComponent<DeleteCloneTag>(clones);
+            shipDeleter.Update();
             clones.Dispose();
         }
 
